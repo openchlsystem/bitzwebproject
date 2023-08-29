@@ -347,3 +347,8 @@ template {
 [hidden] {
   display: none;
 }
+
+nav {
+  display: flex;
+  gap: 10px;
+}
