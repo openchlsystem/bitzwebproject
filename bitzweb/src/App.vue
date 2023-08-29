@@ -1,10 +1,16 @@
 <template>
-  <nav>
-    <router-link to="/">Home</router-link> |
-    <router-link to="/about">About</router-link>
-  </nav>
-  <router-view/>
+  <LayoutPage />
 </template>
+
+<script>
+import LayoutPage from '@/components/LayoutPage.vue'
+export default {
+  name: 'HomeView',
+  components: {
+    LayoutPage
+  }
+}
+</script>
 
 <style>
 #app {
