@@ -5,7 +5,7 @@ import About from '@/views/AboutView.vue';
 import Contact from '@/views/ContactView.vue';
 import Careers from '@/views/CareersView.vue';
 import Solutions from '@/views/SolutionsPage.vue';
-import Developers from '@/views/DeveloperView.vue';
+import Developers from '@/views/DevelopersPage.vue';
 
 
 

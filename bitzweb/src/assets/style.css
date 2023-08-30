@@ -197,7 +197,7 @@ button,
 [type="reset"],
 [type="submit"] {
   -webkit-appearance: button;
-    -moz-appearance: button;
+    
     appearance: button;
  
   
@@ -296,7 +296,7 @@ textarea {
   -webkit-appearance: textfield;
   -moz-appearance: textfield;
   appearance: textfield;
-  outline-offset: -2px;
+ 
 }
 
 /**
