@@ -25,7 +25,7 @@
                         <router-link to="/about" class="nav-link" >About </router-link>
                     </li>
                     <li class="nav-item mr-3">
-                        <router-link to="/product" class="nav-link" >Products</router-link>
+                        <router-link to="/solutions" class="nav-link" >Solutions</router-link>
                     </li>
                     <li class="nav-item mr-3">
                         <router-link to="/careers" class="nav-link" >Careers</router-link>
@@ -35,6 +35,9 @@
                         </li>
                         <li class="nav-item mr-3">
                             <router-link to="/pricing" class="nav-link" >Pricing</router-link>
+                        </li>
+                        <li class="nav-item mr-3">
+                            <router-link to="/developers" class="nav-link" >Developers</router-link>
                         </li>
                 
                 

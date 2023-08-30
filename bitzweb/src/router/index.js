@@ -1,10 +1,12 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import Home from '@/views/HomeView.vue';
+import Pricing from '@/views/PricingPage.vue';
 import About from '@/views/AboutView.vue';
 import Contact from '@/views/ContactView.vue';
 import Careers from '@/views/CareersView.vue';
-import Product from '@/views/ProductPage.vue';
-import Pricing from '@/views/PricingView';
+import Solutions from '@/views/SolutionsPage.vue';
+import Developers from '@/views/DeveloperView.vue';
+
 
 
 const routes = [
@@ -43,11 +45,11 @@ const routes = [
   }
 },
 {
-  path: '/product',
-  name: 'Product',
-  component: Product,
+  path: '/solutions',
+  name: 'Solutions',
+  component: Solutions,
   meta: {
-    title: 'Products'
+    title: 'Solutions'
 }
 },
 {
@@ -56,6 +58,14 @@ const routes = [
   component: Pricing,
   meta: {
     title: 'Pricing'
+}
+},
+{
+  path: '/developers',
+  name: 'Developers',
+  component: Developers,
+  meta: {
+    title: 'Developers'
 }
 }
  
