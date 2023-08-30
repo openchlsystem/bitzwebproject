@@ -1,20 +1,82 @@
 <template>
-    <nav>
-        <router-link to="/">Product</router-link> |
-        <router-link to="/about">Solutions</router-link>
-        <router-link to="/about">Developers</router-link>
-        <router-link to="/about">Pricing</router-link>
-        <router-link to="/about">Blog</router-link>
-        <router-link to="/about">About</router-link>
-        <router-link to="/about">About</router-link>
+<div class="m-4">
+    <nav class="navbar navbar-expand-lg position-relative text-right">
+        <div class="container-fluid">
+            <a class="navbar-brand navbar-logo" href="#">
+                <img src="../assets/logo.png"  height="100" alt="navbar brand">
+            </a>
+            <!--Toggle Collapsible Button-->
+                <button class="navbar-toggler" 
+                type="button" 
+                data-bs-toggle="collapse"
+                data-bs-target="#collapsibleNavbar"
+                @click="collapse = !collapse"
+            >
+            
+            <span class="navbar-toggler-icon"></span>
+            
+            </button>
+            
+            <div class="collapse navbar-collapse  justify-content-center" id="collapsibleNavbar">
+    
+                <ul class="navbar-nav">
+                    
+                    <li class="nav-item mr-3" >
+                        <router-link to="/about" class="nav-link" >About </router-link>
+                    </li>
+                    <li class="nav-item mr-3">
+                        <router-link to="/product" class="nav-link" >Products</router-link>
+                    </li>
+                    <li class="nav-item mr-3">
+                        <router-link to="/careers" class="nav-link" >Careers</router-link>
+                        </li>
+                        <li class="nav-item mr-3">
+                            <router-link to="/contact" class="nav-link" >Contact</router-link>
+                        </li>
+                        <li class="nav-item mr-3">
+                            <router-link to="/pricing" class="nav-link" >Pricing</router-link>
+                        </li>
+                
+                
+                    </ul>
+            </div>
+          
 
-    </nav>
+
+
+
+
+
+
+
+        </div>
+
+        
+
+         </nav>
+</div>
+
+
 </template>
 
-<script>
-export default {
 
+<script>
+import router from '@/router';
+
+export default {
+    router:{router}
 }
 </script>
+<style>
+@import url('https://fonts.googleapis.com/css?family=Roboto');
+nav {
+  padding: 30px;
+}
 
-<style lang="scss" scoped></style>
+.navbar{
+    background-color:slateblue;
+    
+}
+
+  
+</style>
