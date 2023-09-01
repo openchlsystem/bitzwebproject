@@ -438,8 +438,6 @@ template {
 [hidden] {
   display: none;
 }
-<<<<<<< HEAD
-=======
 
 nav {
   display: flex;
@@ -471,4 +469,3 @@ a {
     max-width: 100%; /* Full width for single column on small screens */
   }
 }
->>>>>>> c85ecf9f9a18085465f2ca3d32beb7f51efda327
