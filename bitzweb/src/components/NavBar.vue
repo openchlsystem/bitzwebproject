@@ -1,4 +1,5 @@
 <template>
+<<<<<<< HEAD
 
     <div class="m-4">
     <nav class="navbar navbar-expand-lg position-relative text-right navbar-fixed-top">
@@ -71,3 +72,24 @@ nav {
     
     </style>
     
+=======
+    <nav>
+        <router-link to="/">Product</router-link> |
+        <router-link to="/solutions">Solutions</router-link>
+        <router-link to="/developers">Developers</router-link>
+        <router-link to="/pricing">Pricing</router-link>
+        <router-link to="/blog">Blog</router-link>
+        <router-link to="/about">About</router-link>
+
+
+    </nav>
+</template>
+
+<script>
+export default {
+
+}
+</script>
+
+<style lang="scss" scoped></style>
+>>>>>>> 68803e3eb99f66e7cbd0c5da22aabfe03f4fe361

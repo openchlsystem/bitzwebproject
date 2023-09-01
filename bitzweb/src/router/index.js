@@ -1,4 +1,5 @@
 import { createRouter, createWebHistory } from "vue-router";
+<<<<<<< HEAD
 
 import Home from "@/views/HomeView.vue";
 import Pricing from "@/views/PricingPage.vue";
@@ -8,10 +9,13 @@ import Careers from "@/views/CareersView.vue";
 import Solutions from "@/views/SolutionsPage.vue";
 import Developers from "@/views/DevelopersPage.vue";
 
+=======
+>>>>>>> 68803e3eb99f66e7cbd0c5da22aabfe03f4fe361
 
 const routes = [
   {
     path: "/",
+<<<<<<< HEAD
 
     name: "Home",
     component: Home,
@@ -63,6 +67,11 @@ const routes = [
   },
 
 
+=======
+    name: "home",
+    component: () => import("../views/ProductPage.vue"),
+  },
+>>>>>>> 68803e3eb99f66e7cbd0c5da22aabfe03f4fe361
   {
     path: "/about",
     name: "about",
@@ -75,7 +84,10 @@ const routes = [
     // which is lazy-loaded when the route is visited.
    
   }
+<<<<<<< HEAD
 
+=======
+>>>>>>> 68803e3eb99f66e7cbd0c5da22aabfe03f4fe361
 ];
 
 const router = createRouter({
