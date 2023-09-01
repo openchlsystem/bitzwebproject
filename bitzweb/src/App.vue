@@ -34,6 +34,7 @@ computed:{
   color: #2c3e50;
 }
 
+<<<<<<< HEAD
 router-link  {
   font-weight: bold;
   color: #2c3e50;
@@ -42,4 +43,7 @@ router-link  {
 router-link.router-link-exact-active {
   color: #42b983;
 }
+=======
+
+>>>>>>> c85ecf9f9a18085465f2ca3d32beb7f51efda327
 </style>
