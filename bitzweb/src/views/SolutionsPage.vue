@@ -1,15 +1,22 @@
 <template>
+
     <div class="row">
-        <h2>Solutions</h2>
+       
+    <h2>Solutions</h2>
+    <div class="row">
+
 
         <div class="column">
+         <h2>Solutions</h2>
+
             <!-- Left column content goes here -->
-            add some text
+         
         </div>
         <div class="column">
-            <!-- Right column content goes here -->
-            add image
-        </div>
+            <!-- Right column content goes here-->
+            <h2>Image</h2>
+            
+           
     </div>
 </template>
 
@@ -23,4 +30,7 @@ export default {
 }
 </script>
 
-<style lang="scss" scoped></style>
+
+<style lang="scss" ></style>
+
+
