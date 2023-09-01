@@ -1,8 +1,6 @@
 <template>
     <div>
 
-        <h2>careers</h2>
-
     </div>
 </template>
 

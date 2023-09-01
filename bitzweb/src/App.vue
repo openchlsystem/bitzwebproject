@@ -1,28 +1,15 @@
 <template>
-  
-    <NavBar/>
-    <router-view/> 
-    <FooterItem v-if = "showFooter"/>
-  
+  <LayoutPage />
 </template>
 
 <script>
-import NavBar from "@/components/NavBar.vue";
-import FooterItem from "@/components/FooterItem.vue";
-
+import LayoutPage from '@/components/LayoutPage.vue'
 export default {
-  name: "HomeView",
+  name: 'HomeView',
   components: {
-    NavBar,
-    FooterItem
-  },
-
-computed:{
-  showFooter(){
-    return this.$route.path !=='/';
+    LayoutPage
   }
 }
-};
 </script>
 
 <style>
@@ -33,17 +20,4 @@ computed:{
   text-align: center;
   color: #2c3e50;
 }
-
-<<<<<<< HEAD
-router-link  {
-  font-weight: bold;
-  color: #2c3e50;
-}
-
-router-link.router-link-exact-active {
-  color: #42b983;
-}
-=======
-
->>>>>>> c85ecf9f9a18085465f2ca3d32beb7f51efda327
 </style>

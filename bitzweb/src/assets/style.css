@@ -67,22 +67,20 @@ html {
 .container {
   display: flex;
   flex-direction: column;
-  margin: 0 auto;
-  /* max-width: 1400px; */
-  padding: 20px;
-  -height: 100vh;
+  min-height: 100vh;
 }
 
-header {
+.header {
   background-color: #f0f0f0;
   padding: 20px;
 }
 
 .body {
-  display: flex;
+  flex: 1;
+  padding: 20px;
 }
 
-footer {
+.footer {
   background-color: #f0f0f0;
   padding: 20px;
 }
@@ -285,8 +283,6 @@ button,
 [type="reset"],
 [type="submit"] {
   -webkit-appearance: button;
-
-  appearance: button;
 }
 
 /**
@@ -378,9 +374,8 @@ textarea {
  */
 
 [type="search"] {
-  -webkit-appearance: textfield;
-  -moz-appearance: textfield;
-  appearance: textfield;
+  -webkit-appearance: textfield; /* 1 */
+  outline-offset: -2px; /* 2 */
 }
 
 /**
@@ -438,8 +433,6 @@ template {
 [hidden] {
   display: none;
 }
-<<<<<<< HEAD
-=======
 
 nav {
   display: flex;
@@ -471,4 +464,5 @@ a {
     max-width: 100%; /* Full width for single column on small screens */
   }
 }
->>>>>>> c85ecf9f9a18085465f2ca3d32beb7f51efda327
+
+
