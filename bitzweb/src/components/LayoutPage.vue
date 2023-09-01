@@ -1,17 +1,18 @@
+
 <template>
     <div class="container">
-        <header>
-            <!-- Header content goes here -->
+        <header class="header">
+            <!-- First header content goes here -->
             <NavBar />
-
+        </header>
+        <header class="header">
+            <!-- Second header content goes here -->
         </header>
         <div class="body">
-
-
+            <!-- Body content goes here -->
             <router-view />
-
         </div>
-        <footer>
+        <footer class="footer">
             <!-- Footer content goes here -->
         </footer>
     </div>

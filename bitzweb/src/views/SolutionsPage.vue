@@ -1,6 +1,6 @@
 <template>
+    <h2>Solutions</h2>
     <div class="row">
-        <h2>Solutions</h2>
 
         <div class="column">
             <!-- Left column content goes here -->

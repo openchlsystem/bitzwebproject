@@ -67,22 +67,20 @@ html {
 .container {
   display: flex;
   flex-direction: column;
-  margin: 0 auto;
-  /* max-width: 1400px; */
-  padding: 20px;
-  -height: 100vh;
+  min-height: 100vh;
 }
 
-header {
+.header {
   background-color: #f0f0f0;
   padding: 20px;
 }
 
 .body {
-  display: flex;
+  flex: 1;
+  padding: 20px;
 }
 
-footer {
+.footer {
   background-color: #f0f0f0;
   padding: 20px;
 }
@@ -466,3 +464,6 @@ a {
     max-width: 100%; /* Full width for single column on small screens */
   }
 }
+
+
+
