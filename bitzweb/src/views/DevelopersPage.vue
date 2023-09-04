@@ -1,36 +1,39 @@
 <template>
-<<<<<<< HEAD
-
   <div class="developer">
-    <h1>This is the developers page</h1>
+    <h1>About the Team  </h1>
+    <p>Paragraph about the Team </p>
   </div>
-=======
-    <div>
-
-        <h2>careers</h2>
-
+  <div class="row">
+    <div class="column">
+      <div class="card">
+        <h3>Card 1</h3>
+        <img src="" alt="This is an image " height="400" with="300">
+        <p>Some text..</p>
+       
+      </div>
     </div>
->>>>>>> 68803e3eb99f66e7cbd0c5da22aabfe03f4fe361
+    <div class="column">
+      <div class="card">
+        <h3>Card 2</h3>
+        <img src="" alt="This is an image " height="400" with="300">
+        <p>Some text..</p>
+      </div>
+    </div>
+    <div class="column">
+      <div class="card">
+        <h3>Card 3</h3>
+        <img src="" alt="This is an image " height="400" with="300">
+        <p>Some text..</p>
+      </div>
+    </div>
+  </div>
+  
 </template>
-
 
 <script>
 export default {
-<<<<<<< HEAD
-
   name: "DevelopersPage",
-  components: {},
+  components: [],
 };
 </script>
-=======
->>>>>>> 68803e3eb99f66e7cbd0c5da22aabfe03f4fe361
-
-
-<<<<<<< HEAD
-<style lang="scss" scoped></style>
-=======
-
-
-<style lang="scss" ></style>
->>>>>>> 68803e3eb99f66e7cbd0c5da22aabfe03f4fe361
-
+<style></style>

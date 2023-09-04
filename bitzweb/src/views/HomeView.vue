@@ -9,27 +9,47 @@
     <!-- Slides -->
     <div class="carousel-inner">
       <div class="carousel-item active">
-        <img class="d-block w-100" src="../assets/callcenter.png" alt="Slide 1">
-        <div class="carousel-caption d-flex flex-column justify-content-center align-items-center">
-          <h5 class="animated fadeInDown">Welcome to Consolve</h5>
+        <img
+          class="d-block w-100"
+          src="../assets/callcenter.png"
+          alt="Slide 1"
+        />
+        <div
+          class="carousel-caption d-flex flex-column justify-content-center align-items-center"
+        >
+          <h5 class="animated fadeInDown">" Welcome to BItz-Itc "</h5>
           <p class="animated fadeInUp">We Are The Best Consulting Agency</p>
         </div>
       </div>
       <div class="carousel-item">
-        <img class="d-block w-100" src="assets/images/bg_2.jpg" alt="Slide 2">
-        <div class="carousel-caption d-flex flex-column justify-content-center align-items-center">
-          <h5 class="animated fadeInDown">Today's Talent, Tomorrow's Success</h5>
+        <img class="d-block w-100" src="assets/images/bg_2.jpg" alt="Slide 2" />
+        <div
+          class="carousel-caption d-flex flex-column justify-content-center align-items-center"
+        >
+          <h5 class="animated fadeInDown">
+            Today's Talent, Tomorrow's Success
+          </h5>
           <p class="animated fadeInUp">We Help to Grow Your Business</p>
         </div>
       </div>
     </div>
 
     <!-- Controls -->
-    <a class="carousel-control-prev" href="#myCarousel" role="button" data-slide="prev">
+    <a
+      class="carousel-control-prev"
+      href="#myCarousel"
+      role="button"
+      data-slide="prev"
+    >
       <span class="carousel-control-prev-icon" aria-hidden="true"></span>
       <span class="sr-only">Previous</span>
     </a>
-    <a class="carousel-control-next" href="#myCarousel" role="button" data-slide="next">
+    <a
+      class="carousel-control-next"
+      href="#myCarousel"
+      role="button"
+      data-slide="next"
+    >
       <span class="carousel-control-next-icon" aria-hidden="true"></span>
       <span class="sr-only">Next</span>
     </a>
@@ -37,17 +57,16 @@
 </template>
 
 <script>
-import { onMounted } from 'vue';
-import bootstrap from  "bootstrap/dist/css/bootstrap.css";
+import { onMounted } from "vue";
+import bootstrap from "bootstrap/dist/css/bootstrap.css";
 
 export default {
-  
   name: "HomeView",
   mounted() {
     onMounted(() => {
       console.log(bootstrap);
-    })
-  }
+    });
+  },
 };
 </script>
 
@@ -62,19 +81,19 @@ export default {
   left: 50%;
   transform: translate(-50%, -50%);
   text-align: center;
-  color: #fff;
+  color: black;
   z-index: 1;
   width: 100%;
 }
 
 .carousel-caption h5 {
-  font-size: 32px;
-  animation-duration: 1s;
+  font-size: 50px;
+  animation-duration: 3s;
   animation-delay: 0.5s;
 }
 
 .carousel-caption p {
-  font-size: 18px;
+  font-size: 50px;
   animation-duration: 1s;
   animation-delay: 1s;
 }
@@ -107,5 +126,8 @@ export default {
 
 .animated.fadeInDown {
   animation-name: fadeInDown;
+}
+.animated.fadeInUp {
+  animation-name: fadeInUp;
 }
 </style>

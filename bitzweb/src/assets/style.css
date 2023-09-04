@@ -283,6 +283,7 @@ button,
 [type="reset"],
 [type="submit"] {
   -webkit-appearance: button;
+  appearance: button;
 }
 
 /**
@@ -463,11 +464,8 @@ a {
   .column {
     max-width: 100%; /* Full width for single column on small screens */
   }
-<<<<<<< HEAD
-}
-=======
+
 }
 
 
 
->>>>>>> 68803e3eb99f66e7cbd0c5da22aabfe03f4fe361

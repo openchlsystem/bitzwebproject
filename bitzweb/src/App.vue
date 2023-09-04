@@ -1,15 +1,17 @@
 <template>
-  <LayoutPage />
+  <div id="app">
+    <LayoutPage />
+  </div>
 </template>
 
 <script>
-import LayoutPage from '@/components/LayoutPage.vue'
+import LayoutPage from "@/components/LayoutPage.vue";
 export default {
-  name: 'HomeView',
+  name: "HomeView",
   components: {
-    LayoutPage
-  }
-}
+    LayoutPage,
+  },
+};
 </script>
 
 <style>
@@ -21,9 +23,7 @@ export default {
   color: #2c3e50;
 }
 
-<<<<<<< HEAD
-
-router-link  {
+router-link {
   font-weight: bold;
   color: #2c3e50;
 }
@@ -31,10 +31,4 @@ router-link  {
 router-link.router-link-exact-active {
   color: #42b983;
 }
-=======
->>>>>>> 68803e3eb99f66e7cbd0c5da22aabfe03f4fe361
 </style>
-
-
-
-
