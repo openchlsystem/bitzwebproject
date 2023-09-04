@@ -1,12 +1,36 @@
 <template>
-    <div>
+    <div class="row">
+        <!-- <h2>Solutions</h2> -->
 
+        <div class="column">
+            <!-- Left column content goes here -->
+            <ul>
+                <li v-for="solution in SolutionsData" :key="solution.id">
+                    <h3>{{ solution.title }}</h3>
+                    <p>{{ solution.description }}</p>
+
+                </li>
+            </ul>
+        </div>
+        <div class="column">
+            <!-- Right column content goes here -->
+            <img src="https://source.unsplash.com/random" alt="">
+        </div>
     </div>
 </template>
 
 <script>
-export default {
+import { SolutionsData } from "@/utils/SolutionsData";
 
+
+export default {
+    setup() {
+
+
+        return {
+            SolutionsData,
+        }
+    }
 }
 </script>
 
