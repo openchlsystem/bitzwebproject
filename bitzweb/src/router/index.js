@@ -1,20 +1,11 @@
 import { createRouter, createWebHistory } from "vue-router"
-import Home from '../views/HomeView.vue'
+
 
 const routes = [
   {
-<<<<<<< HEAD
-    path: '/',
-    name: 'Home',
-    component: Home,
-    meta:{
-      hideFooter: true,
-    }
-=======
     path: "/",
-    name: "home",
+    name: "Home",
     component: () => import("../views/HomeView.vue"),
->>>>>>> fe1a0ef29436407643e4946059a44a036f9c1962
   },
 {
   path:'/about',
