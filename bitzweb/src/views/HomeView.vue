@@ -1,11 +1,15 @@
 <template>
-  <div id="myCarousel" class="carousel slide" data-ride="carousel">
-    <!-- Indicators -->
-    <ol class="carousel-indicators">
-      <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-      <li data-target="#myCarousel" data-slide-to="1"></li>
-    </ol>
+  <div class="Hero-section">
 
+    <div class="row">
+      <div class="column">
+
+        <h3>OpenCHS: Child Helpline - Your Trusted Support </h3>
+        <h2>Providing Help, Hope, and Safety for Children in Need.</h2>
+        <p>Welcome to the Child Helpline, a dedicated platform committed to the well-being and protection of children. Our
+          mission is to offer immediate support and assistance to children facing difficult situations.</p>
+
+<<<<<<< HEAD
     <!-- Slides -->
     <div class="carousel-inner">
       <div class="carousel-item active">
@@ -31,9 +35,32 @@
           </h5>
           <p class="animated fadeInUp">We Help to Grow Your Business</p>
         </div>
+=======
+>>>>>>> fe1a0ef29436407643e4946059a44a036f9c1962
       </div>
+
+    </div>
+    <div class="c2a">
+      <button>Get Started</button>
+
+    </div>
+    
+
+    <h3>Our Solutions</h3>
+    <div class="solutions">
+
+      <ul>
+        <li v-for="solution in SolutionsData" :key="solution.id">
+
+          <h4>{{ solution.title }}</h4>
+          <p>{{ solution.description }}</p>
+        
+        </li>
+      </ul>
+
     </div>
 
+<<<<<<< HEAD
     <!-- Controls -->
     <a
       class="carousel-control-prev"
@@ -53,10 +80,15 @@
       <span class="carousel-control-next-icon" aria-hidden="true"></span>
       <span class="sr-only">Next</span>
     </a>
+=======
+
+
+>>>>>>> fe1a0ef29436407643e4946059a44a036f9c1962
   </div>
 </template>
 
 <script>
+<<<<<<< HEAD
 import { onMounted } from "vue";
 import bootstrap from "bootstrap/dist/css/bootstrap.css";
 
@@ -131,3 +163,19 @@ export default {
   animation-name: fadeInUp;
 }
 </style>
+=======
+import {SolutionsData} from "@/utils/SolutionsData";
+
+export default {
+  setup() {
+
+
+    return {
+      SolutionsData
+    }
+  }
+}
+</script>
+
+<style lang="scss" scoped></style>
+>>>>>>> fe1a0ef29436407643e4946059a44a036f9c1962
