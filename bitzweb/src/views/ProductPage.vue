@@ -12,10 +12,7 @@
                 </li>
             </ul>
         </div>
-        <div class="column">
-            <!-- Right column content goes here -->
-            <img src="https://source.unsplash.com/random" alt="">
-        </div>
+       
     </div>
 </template>
 

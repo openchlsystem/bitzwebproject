@@ -3,10 +3,10 @@
     <div class="container">
         <header class="header">
             <!-- First header content goes here -->
-            <NavBar />
         </header>
         <header class="header">
             <!-- Second header content goes here -->
+            <NavBar />
         </header>
         <div class="body">
             <!-- Body content goes here -->

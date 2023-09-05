@@ -4,7 +4,7 @@ const routes = [
   {
     path: "/",
     name: "home",
-    component: () => import("../views/ProductPage.vue"),
+    component: () => import("../views/HomeView.vue"),
   },
   {
     path: "/about",
