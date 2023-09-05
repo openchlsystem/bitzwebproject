@@ -4,6 +4,7 @@
     <router-link to="/">Home</router-link>
     <router-link to="/about">About</router-link>
     <router-link to="/solutions">Solutions</router-link>
+    <router-link to="/products">Products</router-link>
     <router-link to="/developers">Developers</router-link>
     <router-link to="/pricing">Pricing</router-link>
     <router-link to="/blog">Blog</router-link>

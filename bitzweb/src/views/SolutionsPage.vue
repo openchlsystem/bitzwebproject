@@ -4,21 +4,19 @@
 
         <div class="column">
             <!-- Left column content goes here -->
-            <ul>
-                <li v-for="solution in SolutionsData" :key="solution.id">
-                    <h3>{{ solution.title }}</h3>
-                    <p>{{ solution.description }}</p>
+           <ul>
+            <li v-for="solution in SolutionsData" :key="solution.id">
+                <h3>{{ solution.title }}</h3>
+                <p>{{ solution.description }}</p>
 
-                </li>
-            </ul>
+            </li>
+           </ul>
         </div>
         <div class="column">
             <!-- Right column content goes here -->
             <img src="https://source.unsplash.com/random" alt="">
         </div>
     </div>
-
-  
 </template>
 
 <script>

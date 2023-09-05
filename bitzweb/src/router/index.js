@@ -38,7 +38,16 @@ const routes = [
 {
   path:'/solutions',
   name: 'Solutions',
-  component: ()=> import(/* webpackChunkName: "solutions" */ '../views/ProductPage.vue'),
+  component: ()=> import(/* webpackChunkName: "solutions" */ '../views/SolutionsPage.vue'),
+  meta:{
+    hideFooter: false,
+  }
+
+},
+{
+  path:'/products',
+  name: 'Products',
+  component: ()=> import(/* webpackChunkName: "products" */ '../views/ProductPage.vue'),
   meta:{
     hideFooter: false,
   }
