@@ -539,13 +539,11 @@ ul {
 }
 
 .Hero-section {
+  background-image:url(../assets/banner2.jpeg);
   text-align: center;
   height: 100vh;
 }
 
-<<<<<<< HEAD
-
-=======
 .Hero-section .row {
   display: flex;
   justify-content: space-between;
@@ -621,4 +619,3 @@ ul {
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   max-width: 300px;
 }
->>>>>>> fe1a0ef29436407643e4946059a44a036f9c1962

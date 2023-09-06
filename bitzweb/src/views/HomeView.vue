@@ -23,9 +23,18 @@
 
       <ul>
         <li v-for="solution in SolutionsData" :key="solution.id">
-
+          <img :src="solution.Image" alt="This is an image " height="400" with="300">
           <h4>{{ solution.title }}</h4>
           <p>{{ solution.description }}</p>
+          <div class="c2a">
+          
+                <button>
+                Get Started
+                </button>
+             
+             
+
+             </div>
         
         </li>
       </ul>
