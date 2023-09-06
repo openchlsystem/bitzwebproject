@@ -17,9 +17,9 @@
     <div class="dropdown">
       <router-link to="/solutions">Solutions</router-link>
       <div class="dropdown-content">
-        <router-link to="/solutions/item1">Item 1</router-link>
-        <router-link to="/solutions/item2">Item 2</router-link>
-        <router-link to="/solutions/item3">Item 3</router-link>
+        <router-link to="/solutions/item2">{{ SolutionsData[1].title }}</router-link>
+        <router-link to="/solutions/item3">{{ SolutionsData[2].title }}</router-link>
+        <router-link to="/solutions/item4">{{ SolutionsData[3].title }}</router-link>
       </div>
     </div>
     <div class="dropdown">
