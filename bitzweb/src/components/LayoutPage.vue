@@ -8,6 +8,10 @@
             <!-- Second header content goes here -->
             <NavBar />
         </header>
+        <header class="header">
+            <!-- Third header content goes here -->
+            <HeroPage />
+        </header>
         <div class="body">
             <!-- Body content goes here -->
             <router-view />
@@ -20,10 +24,12 @@
 
 <script>
 import NavBar from "@/components/NavBar.vue";
+import HeroPage from "@/components/HeroPage.vue";
 
 export default {
     components: {
         NavBar,
+        HeroPage,
     },
 };
 
