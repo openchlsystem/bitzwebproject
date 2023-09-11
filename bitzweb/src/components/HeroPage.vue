@@ -41,10 +41,10 @@ export default {
       console.log('Current Path:', route.path);
 
       if (route.path === '/') {
-        title.value = "Your Trusted Child Helpline Partner",
+        title.value = "OPENCHS - Your Trusted Child Helpline Partner",
           description.value =
           "We are dedicated to safeguarding children's well-being and providing a reliable helpline system for organizations and governments worldwide. Our technology-driven solutions ensure that children's voices are heard, and assistance is readily available when they need it most.",
-          buttonText.value = "Access Our Services",
+          buttonText.value = "Learn About OPENCHS",
           imageUrl.value = require("../assets/images/stock/4950245_19832.jpeg"),
           attribution.value = ''
       }

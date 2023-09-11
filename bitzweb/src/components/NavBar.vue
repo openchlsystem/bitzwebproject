@@ -7,13 +7,28 @@
     <div class="dropdown">
       <router-link to="/">Home</router-link>
     </div>
-    <ul class="dropdown">
+
+
+    <div class="dropdown">
       <router-link to="/products">Product</router-link>
-      <li class="dropdown-content" v-for="solution in SolutionsData" :key="solution.id">
-        <h4>{{ solution.title }}</h4>
-        <!-- <p>{{ solution.description }}</p> -->
-      </li>
-    </ul>
+      <div class="dropdown-content">
+
+
+        <ul>
+          <li v-for="product in productsData" :key="product.id" @click="this.$router.push(`/products/${product.id}`)">
+            <p>{{ product.menu_name }}</p>
+            <span>{{ product.menu_description }}</span>
+          </li>
+        </ul>
+
+
+      </div>
+
+
+
+
+
+    </div>
     <div class="dropdown">
       <router-link to="/solutions">Solutions</router-link>
       <div class="dropdown-content">
@@ -40,10 +55,11 @@
 
 <script>
 import { SolutionsData } from '@/utils/SolutionsData';
+import { productsData } from '@/utils/ProductData';
 
 export default {
   setup() {
-    return { SolutionsData };
+    return { SolutionsData, productsData };
   },
 
 }
