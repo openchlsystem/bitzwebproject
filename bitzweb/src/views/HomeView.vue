@@ -1,44 +1,42 @@
 <template>
-  <div class="Hero-section">
+  <h3>Our Solutions</h3>
 
-    <div class="row">
-      <div class="column">
+  <div class="benefits-section">
 
-        <h3>OpenCHS: Child Helpline - Your Trusted Support </h3>
-        <h2>Providing Help, Hope, and Safety for Children in Need.</h2>
-        <p>Welcome to the Child Helpline, a dedicated platform committed to the well-being and protection of children. Our
-          mission is to offer immediate support and assistance to children facing difficult situations.</p>
 
-      </div>
+    <ul>
 
-    </div>
-    <div class="c2a">
-      <button>Get Started</button>
+      <li class="home" v-for="solution in SolutionsData" :key="solution.title">
 
-    </div>
-    
+        <div class="row">
+          <div class="col">
+            <img :src="solution.imageUrl" alt="">
 
-    <h3>Our Solutions</h3>
-    <div class="solutions">
 
-      <ul>
-        <li v-for="solution in SolutionsData" :key="solution.id">
+          </div>
+          <div>
+            <h3>{{ solution.title }}</h3>
+            <p>{{ solution.description }}</p>
+          </div>
 
-          <h4>{{ solution.title }}</h4>
-          <p>{{ solution.description }}</p>
-        
-        </li>
-      </ul>
-
-    </div>
+        </div>
 
 
 
+      </li>
+    </ul>
   </div>
+
+
+
+
+
+
+
 </template>
 
 <script>
-import {SolutionsData} from "@/utils/SolutionsData";
+import { SolutionsData } from "@/utils/SolutionsData";
 
 export default {
   setup() {
