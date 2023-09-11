@@ -6,6 +6,7 @@ export const productsData = [
     title: "OPENCHS - Empowering Children's Safety",
     description:
       "Our Child Helpline System (OPENCHS) is a comprehensive and cutting-edge solution dedicated to safeguarding children's well-being. It provides a lifeline for children in need, connecting them with immediate support, guidance, and protection. With OPENCHS, we aim to create a world where every child's voice is heard and their safety is paramount.",
+    Modules:"24/7 Availability,Toll-Free Hotline,Multilingual SUpport, Anonymity and COnfidentiality, Immediate Response, Analytics and Reporting , Crisis Intervention,Counselling and Emotional Support, Legal Guidance",
     imageURL: "https://picsum.photos/200/150?random=1",
   },
   {
@@ -15,6 +16,7 @@ export const productsData = [
     title: "Legal Case Management - Streamline Your Legal Workflow",
     description:
       "Our Legal Case Management solution is designed to simplify and streamline your legal processes. It empowers legal professionals to efficiently manage cases, documents, and clients, ensuring a well-organized and productive legal practice. With our comprehensive legal case management system, you can focus on achieving favorable outcomes for your clients while optimizing your legal operations.",
+    Modules:"Client and Case Information Management,Document Management,Calendar and Deadline Tracking, Workflow Automation,Time and Expense Tracking, Legal Research and Knowledge Management,Analytics and Reporting",
     imageURL: "https://picsum.photos/200/150?random=2",
   },
   {
@@ -24,6 +26,7 @@ export const productsData = [
     title: "Sacco Case Management - Elevate Your Sacco Efficiency",
     description:
       "Experience a new level of efficiency in managing your Sacco operations with our Sacco Case Management solution. It simplifies member management, loans, and savings, making Sacco operations accessible and profitable. Our aim is to empower Sacco organizations to serve their members effectively and enhance financial inclusion for all.",
+    Modules:"Exceptional Membership Management, Multi-Channel Communication,Seamless Integration,Exceptional Member Engagement,24/7 Accessibility, Training and Support ",
     imageURL: "https://picsum.photos/200/150?random=3",
   },
 ];
@@ -41,7 +44,7 @@ export const productFeatures = [
   },
   {
     id: 2,
-    Product_id: 1, // This corresponds to OPENCHS
+    Product_id: 2, // This corresponds to OPENCHS
     Feature: "Case Management",
     Description:
       "Efficiently manage and track cases related to child protection and support.",
@@ -53,6 +56,7 @@ export const productFeatures = [
     Feature: "Multilingual Support",
     Description:
       "Offer support in multiple languages to cater to diverse communities.",
+    
     imageUrl: "https://picsum.photos/200/150?random=3",
   },
 

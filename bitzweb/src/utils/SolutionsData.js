@@ -1,6 +1,10 @@
 // SolutionsData.js
 
-import projectmanagement from "../assets/images/stock/12492074_4989917.jpeg"
+import projectmanagement from "../assets/images/stock/projectmanagement.jpg"
+import processmapping from   "../assets/images/stock/product-iteration-animate.svg"
+import UI from "../assets/images/stock/UI.svg"
+import softwaredevelopment from "../assets/images/stock/appdevelopment.svg"
+import QA from "../assets/images/stock/QA.jpg"
 
 export const SolutionsData = [
   {
@@ -15,27 +19,27 @@ export const SolutionsData = [
     title: "Process Mapping",
     description:
       "Uncover efficiency. Our process mapping reveals hidden opportunities, boosts productivity, and guides your path to streamlined success.",
-    imageUrl: "https://picsum.photos/200/150?random=2",
+    imageUrl: processmapping,
   },
   {
     id: 3,
     title: "UI/UX Design",
     description:
       "Captivate and engage. Our UI/UX design elevates user experiences to new heights, making your digital presence both stunning and user-friendly.",
-    imageUrl: "https://picsum.photos/200/150?random=3",
+    imageUrl: UI,
   },
   {
     id: 4,
     title: "Software Development",
     description:
       "Empower innovation. Our software development solutions unlock new possibilities, enabling your business to thrive and lead with cutting-edge technology.",
-    imageUrl: "https://picsum.photos/200/150?random=4",
+    imageUrl: softwaredevelopment,
   },
   {
     id: 5,
     title: "Quality Assurance",
     description:
       "Deliver perfection. Our quality assurance processes ensure flawless products that exceed expectations, delighting your customers every time.",
-    imageUrl: "https://picsum.photos/200/150?random=5",
+    imageUrl: QA,
   },
 ];
