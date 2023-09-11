@@ -33,8 +33,8 @@
 </template>
 
 <script>
-import { productFeatures } from "@/utils/ProductData";
-import { ProductData } from "@/utils/ProductData";
+import { productFeatures}  from "@/utils/ProductData";
+import  {ProductData} from "@/utils/ProductData";
 import { ref, computed } from "vue";
 
 
