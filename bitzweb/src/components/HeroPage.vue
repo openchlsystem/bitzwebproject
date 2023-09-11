@@ -65,13 +65,13 @@ export default {
 
 
 
-      if (route.path === '/customweb') {
+      if (route.path === '/products') {
         title.value = 'Empower Your Customer Engagement with Our Custom Web Product: .',
           description.value = 'Manage your website content easily, Seamlessly Integrated with Core Banking and CRM.'
         buttonText.value = 'Request for Demo ',
           imageUrl.value = require("../assets/images/stock/8354902_3847762.jpeg");
       }
-      if (route.path === '/softwareservices') {
+      if (route.path === '/products/1') {
         title.value = 'Crafting Custom Software Solutions Tailored to Your Needs.',
           description.value = 'At our software company, we specialize in delivering bespoke software solutions designed to perfectly align with your unique requirements. Our dedicated team of experts works closely with you to understand your needs, ensuring that every aspect of the software we create is tailored to help your business thrive. With us, your vision becomes reality.'
         buttonText.value = 'Get a Quote ',
