@@ -1,31 +1,88 @@
 <template>
-    <div class="row">
-        <!-- <h2>Solutions</h2> -->
+    <h3>Our Solutions{{ selectedProductID }}</h3>
+    {{ selectedProductFeatures }}
+    {{ productFeatures }}
 
-        <div class="column">
-            <!-- Left column content goes here -->
-            <ul>
-                <li v-for="solution in SolutionsData" :key="solution.id">
-                    <h3>{{ solution.title }}</h3>
-                    <p>{{ solution.description }}</p>
+    <div class="benefits-section">
 
-                </li>
-            </ul>
-        </div>
-       
+
+
+
+        <ul>
+
+            <li  v-for="solution in selectedProductFeatures" :key="solution.title">
+
+                <div class="row">
+                    <div class="col">
+                        <img :src="solution.imageUrl" alt="">
+
+
+                    </div>
+                    <div>
+                        <h3>{{ solution.Feature }}</h3>
+                        <p>{{ solution.Description }}</p>
+                    </div>
+
+                </div>
+
+
+
+            </li>
+        </ul>
     </div>
 </template>
 
 <script>
-import { SolutionsData } from "@/utils/SolutionsData";
+import { productFeatures } from "@/utils/ProductData";
+import { ProductData } from "@/utils/ProductData";
+import { ref, computed } from "vue";
 
 
 export default {
-    setup() {
+    
+
+    props: {
+        id: {
+            type: Number,
+            required: true
+        }
+    },
+    setup(props) {
+
+        const selectedProductID = ref('');
+
+
+      
 
 
         return {
-            SolutionsData,
+            ProductData,
+            productFeatures,
+            // selectedProductFeatures,
+            selectedProductID: computed(() => {
+              return props.id;
+            }),
+            selectedProductFeatures: computed(() => {
+
+                let selectProduct = []
+                for (let i = 0; i < productFeatures.length; i++) {
+
+                     
+                    
+
+                    let productfeature = productFeatures[i]
+                    
+                    console.log(Number(productfeature.Product_id))
+                    
+                }
+                    
+                
+                selectProduct.push(productFeatures.find((productfeatures)=> productfeatures.Product_id === selectedProductID.value));
+              
+              console.log(selectProduct);
+              return selectProduct.value;
+            }),
+
         }
     }
 }
