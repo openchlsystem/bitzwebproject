@@ -1,3 +1,19 @@
+import AvailabilityImage from "../assets/images/stock/247Availability.jpg"
+import TollfreeImage from "../assets/images/stock/Tollfree.jpg"
+import MultilingualImage from "../assets/images/stock/Multilingual.jpg"
+import ConfidentialityImage from "../assets/images/stock/Confidentiality.jpg"
+import DocumentationImage from "../assets/images/stock/Documentation.jpg"
+import FeedbackImage from "../assets/images/stock/Feedback.jpg"
+import AnalyticsImage from "../assets/images/stock/Analytics.jpg"
+import ClientManagementImage from "../assets/images/stock/Client.jpg"
+import CalendarImage from "../assets/images/stock/Calendar.jpg"
+import ReportingImage from "../assets/images/stock/Reporting.jpg"
+import ContactImage from "../assets/images/stock/Contact.jpg"
+import IntegrationImage from "../assets/images/stock/Integration.jpg"
+import AccessControlImage from "../assets/images/stock/SourceControl.jpg"
+import SaccoAvailabilityImage from '../assets/images/stock/SaccoAvailability.jpg'
+import MultichannelImage from '../assets/images/stock/multichannel.jpg'
+import SaccoIntegrationImage from '../assets/images/stock/SeamlessIntegration.jpg'
 export const productsData = [
   {
     id: 1,
@@ -40,7 +56,7 @@ export const productFeatures = [
     Feature: "24/7 Helpline Access",
     Description:
       "Provide round-the-clock access for survivors to report incidents and seek assistance, as violence can occur at any time..",
-    imageUrl: "https://picsum.photos/200/150?random=1",
+    imageUrl: AvailabilityImage,
   },
   {
     id: 2,
@@ -49,7 +65,7 @@ export const productFeatures = [
     Feature: "Toll-Free Hotline ",
     Description:
       "Provide a toll-free hotline for survivors to report incidents and seek assistance, as violence can occur at any time.",
-    imageUrl: "https://picsum.photos/200/150?random=2",
+    imageUrl: TollfreeImage,
   },
   {
     id: 3,
@@ -59,7 +75,7 @@ export const productFeatures = [
     Description:
       "Offer support in multiple languages to cater to diverse communities.",
     
-    imageUrl: "https://picsum.photos/200/150?random=3",
+    imageUrl: MultilingualImage,
   },
   {
   id: 4, // This corresponds to OPENCHS
@@ -67,14 +83,14 @@ export const productFeatures = [
   Module:"call center",
   Features:"Anonymity and Confidentiality",
   Description:"Provide a safe and secure environment for survivors to report incidents and seek assistance, as violence can occur at any time.",
-  imageUrl: "https://picsum.photos/200/150?random=4",
+  imageUrl: ConfidentialityImage,
   },
   {
     id: 5,
     Product_id: 1, // This corresponds to OPENCHS
     Features:"Documentation and Record Management",
     Description:"Keep detailed records of reported incidents to track trends, identify hotspots, and inform policy decisions.",
-    imageURL: "https://picsum.photos/200/150?random=5",
+    imageURL: DocumentationImage,
 
   },
   {
@@ -83,7 +99,7 @@ export const productFeatures = [
     Module:"call center", // This corresponds to OPENCHS
     Features:"Feedback and Complaint Management",
     Description:"Agents can create cases directly from calls, texts, and chat and immediately categorize the case for escalation and reporting.",
-    imageURL:"http://picsum.photos/200/150?random=6",
+    imageURL:FeedbackImage,
   },
   {
     id: 7,
@@ -91,7 +107,7 @@ export const productFeatures = [
     Module:"call center",
     Features:"Analytics and Reporting",
     Description:"Gain insights into the performance of your call center and identify areas for improvement.",
-    imageURL:"http://picsum.photos/200/150?random=7",
+    imageURL:AnalyticsImage,
   },
   {
     id:1,
@@ -99,7 +115,7 @@ export const productFeatures = [
     Module:"Legal Case Management",
     Features:"Client and Case Information Management",
     Description:"Easily create, organize, and manage case files, including client information, documents, correspondence, and key dates.",
-    imageURL:"http://picsum.photos/200/150?random=1",
+    imageURL:ClientManagementImage,
   },
   {
     id:2,
@@ -107,7 +123,7 @@ export const productFeatures = [
     Module:"Legal Case Management" ,
     Features:"Calendar and Docketing",
     Description:"Manage critical dates, deadlines, court appearances, and appointments with automated calendar and docketing features. Reminders and notifications are often included.",
-    imageUrl:"",// This corresponds to Legal Case Management
+    imageUrl:CalendarImage,// This corresponds to Legal Case Management
   },
   {
     id:3,
@@ -115,7 +131,7 @@ export const productFeatures = [
     Module:"Legal Case Management",
     Features:"Reporting and Analytics",
     Description:"Generate customized reports and analytics on case progress, billable hours, client activity, and other key performance indicators",
-    imageUrl:"",// This corresponds to Legal Case Management}
+    imageUrl:ReportingImage,// This corresponds to Legal Case Management}
   },
   {
     id:4,
@@ -123,7 +139,7 @@ export const productFeatures = [
     MOdule:"Legal Case Management",
     Features:"Client and Contact Management",
     Description:"Maintain a centralized database of client and contact information, including contact details, communication history, and billing records.",
-    imageURL:"http://picsum.photos/200/150?random=4",
+    imageURL:ContactImage,
   },
   {
     id:5,
@@ -131,7 +147,7 @@ export const productFeatures = [
     Module:"Legal Case Management",
     Features:"Integration with Email and Communication Tools,",
     Description:"Integrate with existing email and communication tools to streamline case management workflows.",
-    imageURL:"http://picsum.photos/200/150?random=5",
+    imageURL:IntegrationImage,
   },
   {
     id:6,
@@ -139,7 +155,7 @@ export const productFeatures = [
     Module:"Legal Case Management",
     Features:"Secure Access Control",
     Description:"Protect sensitive data and ensure only authorized users have access to case information.Implement role-based access controls to restrict access to sensitive client data and documents.",
-    imageURL:"http://picsum.photos/200/150?random=6",
+    imageURL:AccessControlImage,
 
   },
   {
@@ -148,7 +164,7 @@ export const productFeatures = [
     Module:"Sacco Case Management",
     Features:"24/7 Availability",
     Description:"Ensure that members can reach the call center at any time, including outside regular business hours, to address urgent issues or inquiries.",
-    imageURL:"http://picsum.photos/200/150?random=1",
+    imageURL:SaccoAvailabilityImage,
   },
   {
     id:2,
@@ -156,7 +172,7 @@ export const productFeatures = [
     Module:"Sacco Case Management",// This corresponds to Sacco Case Management
     Features:"Multichannel Access",
     description:"This feature allows members to reach the call center through multiple channels, including voice, text, and chat.",
-    imageURL:"http://picsum.photos/200/150?random=2",
+    imageURL:MultichannelImage,
   },
   {
     id:3,
@@ -164,6 +180,7 @@ export const productFeatures = [
     Module:"Sacco Case Management",
     Features:"Seamless Integration",
     Description:"This feature allows the call center to seamlessly integrate with existing systems and workflows.",
+    imageURL:SaccoIntegrationImage,
   }
   // ... (Other features for Sacco Case Management)
 ];
