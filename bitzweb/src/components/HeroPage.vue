@@ -50,13 +50,28 @@ export default {
       }
       if (route.path === '/developers'){
         title.value = "Developers",
-          description.value = "Developers"
+          description.value = "Developers in our  organization are professionals who play a critical role in designing, creating, and maintaining software applications and systems that drive the organization's digital presence and operations.",
+          buttonText.value = "Join Our Team",
+          imageUrl.value = require("../assets/images/stock/Developers.jpg"),
+          attribution.value = ''
 
+      }
+      if (route.path==='/prices'){
+        title.value = 'Pricing',
+          description.value = 'Pricing',
+          buttonText.value = 'Pricing',
+          imageUrl.value = require("../assets/images/stock/pricing.png"),
+          attribution.value = ''
       }
       
       if (route.path === '/about') {
         title.value = 'About Us',
-          description.value = 'About Us'
+          description.value = "Bitz IT Consulting Ltd was founded in 2007 in Nairobi Kenya and has since expanded by setting up an office in Hargeisa Somaliland and Kampala ,Uganda that serves the Eastern Africa region.",
+          buttonText.value = "What we do",
+          imageUrl.value = require("../assets/images/stock/About.jpg"),
+          attribution.value = ''
+
+
       }
       if (route.path === '/contact') {
         title.value = 'Contact Us',
