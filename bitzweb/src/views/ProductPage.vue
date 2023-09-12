@@ -1,34 +1,22 @@
-<template>
-    <h3>Our Solutions{{ selectedProductID }}</h3>
-    {{ selectedProductFeatures }}
-    {{ productFeatures }}
+<template v-show="">
+    <div v-show="selectedProductID > 0">
+        <h3>Our Solutions{{ selectedProductID }}</h3>
 
-    <div class="benefits-section">
-
-
-
-
-        <ul>
-
-            <li  v-for="solution in selectedProductFeatures" :key="solution.title">
-
-                <div class="row">
-                    <div class="col">
-                        <img :src="solution.imageUrl" alt="">
-
-
+        <div class="benefits-section">
+            <ul v-for="solution in productFeatures" :key="solution.Feature">
+                <li v-if="solution.Product_id == selectedProductID">
+                    <div class="row">
+                        <div class="col">
+                            <img :src="solution.imageUrl" alt="">
+                        </div>
+                        <div>
+                            <h3>{{ solution.Feature }}</h3>
+                            <p>{{ solution.Description }}</p>     
+                        </div>
                     </div>
-                    <div>
-                        <h3>{{ solution.Feature }}</h3>
-                        <p>{{ solution.Description }}</p>
-                    </div>
-
-                </div>
-
-
-
-            </li>
-        </ul>
+                </li>
+            </ul>
+        </div>
     </div>
 </template>
 
@@ -39,7 +27,7 @@ import { ref, computed } from "vue";
 
 
 export default {
-    
+
 
     props: {
         id: {
@@ -65,7 +53,7 @@ export default {
             selectedProductFeatures: computed(() => {
 
                 let selectProduct = []
-                for (let i = 0; i < productFeatures.length; i++) {
+                for (let i = 0; i < productFeatures.length -1; i++) {
 
                      
                     
