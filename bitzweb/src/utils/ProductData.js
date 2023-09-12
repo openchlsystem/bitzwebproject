@@ -14,6 +14,9 @@ import AccessControlImage from "../assets/images/stock/SourceControl.jpg"
 import SaccoAvailabilityImage from '../assets/images/stock/SaccoAvailability.jpg'
 import MultichannelImage from '../assets/images/stock/multichannel.jpg'
 import SaccoIntegrationImage from '../assets/images/stock/SeamlessIntegration.jpg'
+import Openchs from '../assets/images/stock/Openchs.jpg'
+import LegalCaseManagement from '../assets/images/stock/LegalCaseManagement.jpg'
+import SaccoCaseManagement  from "../assets/images/stock/SaccoCaseManagement.jpg"
 export const productsData = [
   {
     id: 1,
@@ -23,7 +26,7 @@ export const productsData = [
     description:
       "Our Child Helpline System (OPENCHS) is a comprehensive and cutting-edge solution dedicated to safeguarding children's well-being. It provides a lifeline for children in need, connecting them with immediate support, guidance, and protection. With OPENCHS, we aim to create a world where every child's voice is heard and their safety is paramount.",
     Modules:"24/7 Availability,Toll-Free Hotline,Multilingual SUpport, Anonymity and COnfidentiality, Immediate Response, Analytics and Reporting , Crisis Intervention,Counselling and Emotional Support, Legal Guidance",
-    imageURL: "https://picsum.photos/200/150?random=1",
+    imageURL: Openchs,
   },
   {
     id: 2,
@@ -33,7 +36,7 @@ export const productsData = [
     description:
       "Our Legal Case Management solution is designed to simplify and streamline your legal processes. It empowers legal professionals to efficiently manage cases, documents, and clients, ensuring a well-organized and productive legal practice. With our comprehensive legal case management system, you can focus on achieving favorable outcomes for your clients while optimizing your legal operations.",
     Modules:"Client and Case Information Management,Document Management,Calendar and Deadline Tracking, Workflow Automation,Time and Expense Tracking, Legal Research and Knowledge Management,Analytics and Reporting",
-    imageURL: "https://picsum.photos/200/150?random=2",
+    imageURL: LegalCaseManagement,
   },
   {
     id: 3,
@@ -43,7 +46,7 @@ export const productsData = [
     description:
       "Experience a new level of efficiency in managing your Sacco operations with our Sacco Case Management solution. It simplifies member management, loans, and savings, making Sacco operations accessible and profitable. Our aim is to empower Sacco organizations to serve their members effectively and enhance financial inclusion for all.",
     Modules:"Exceptional Membership Management, Multi-Channel Communication,Seamless Integration,Exceptional Member Engagement,24/7 Accessibility, Training and Support ",
-    imageURL: "https://picsum.photos/200/150?random=3",
+    imageURL: SaccoCaseManagement,
   },
 ];
 
