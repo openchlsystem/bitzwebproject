@@ -25,6 +25,7 @@
         </div>
         <footer class="footer">
             <!-- Footer content goes here -->
+            <Footer />
         </footer>
     </div>
 </template>
@@ -32,11 +33,13 @@
 <script>
 import NavBar from "@/components/NavBar.vue";
 import HeroPage from "@/components/HeroPage.vue";
+import Footer from "@/components/FooterPage.vue";
 
 export default {
     components: {
         NavBar,
-        HeroPage,
+    HeroPage,
+    Footer,
     },
     data() {
       return {

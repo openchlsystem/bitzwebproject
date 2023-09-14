@@ -93,7 +93,7 @@ export default {
           imageUrl.value = require("../assets/images/stock/8354902_3847762.jpeg");
       }
       if (route.path === '/products/1') {
-        title.value = 'Crafting Custom Software Solutions Tailored to Your Needs.',
+        title.value = 'Add the product chs.',
           description.value = 'At our software company, we specialize in delivering bespoke software solutions designed to perfectly align with your unique requirements. Our dedicated team of experts works closely with you to understand your needs, ensuring that every aspect of the software we create is tailored to help your business thrive. With us, your vision becomes reality.'
         buttonText.value = 'Get a Quote ',
           imageUrl.value = 'https://picsum.photos/500/500'

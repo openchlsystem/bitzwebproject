@@ -16,7 +16,8 @@ import MultichannelImage from '../assets/images/stock/multichannel.jpg'
 import SaccoIntegrationImage from '../assets/images/stock/SeamlessIntegration.jpg'
 import Openchs from '../assets/images/stock/Openchs.jpg'
 import LegalCaseManagement from '../assets/images/stock/LegalCaseManagement.jpg'
-import SaccoCaseManagement  from "../assets/images/stock/SaccoCaseManagement.jpg"
+import SaccoCaseManagement from "../assets/images/stock/SaccoCaseManagement.jpg"
+
 export const productsData = [
   {
     id: 1,
