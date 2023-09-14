@@ -22,7 +22,7 @@
 
 <script>
 import { productFeatures}  from "@/utils/ProductData";
-import  {ProductData} from "@/utils/ProductData";
+import  {productsData} from "@/utils/ProductData";
 import { ref, computed } from "vue";
 
 
@@ -44,7 +44,7 @@ export default {
 
 
         return {
-            ProductData,
+            productsData,
             productFeatures,
             // selectedProductFeatures,
             selectedProductID: computed(() => {
