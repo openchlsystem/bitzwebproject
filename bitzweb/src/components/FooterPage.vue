@@ -1,13 +1,15 @@
 <template>
-    <footer class="footer">
+
         <div class="container">
             <div class="footer-content">
                 <div class="footer-section">
+                 
                     <h3>Our Partners</h3>
-                    <div class="partner-cards">
-                        <partner-card v-for="(partner, index) in partners" :key="index" :partner="partner"></partner-card>
+                    <partner-card></partner-card>
                     </div>
-                </div>
+                    </div>
+                    
+                
                 <div class="footer-section">
                     <h3>Connect with Us</h3>
                     <div class="social-media-links">
@@ -24,8 +26,8 @@
                     <!-- Add more contact details as needed -->
                 </div>
             </div>
-        </div>
-    </footer>
+      
+
 </template>
 
 <script>
@@ -37,18 +39,7 @@ export default {
     },
     data() {
         return {
-            partners: [
-                { name: 'Partner 1', logo: 'partner1.png' },
-                { name: 'Partner 2', logo: 'partner2.png' },
-                // Add more partners as needed
-            ],
-            socialMediaLinks: [
-                { url: 'https://example.com/facebook', iconClass: 'fab fa-facebook' },
-                { url: 'https://example.com/twitter', iconClass: 'fab fa-twitter' },
-                // Add more social media links as needed
-            ],
-            contactEmail: 'info@example.com',
-            contactPhone: '+1234567890',
+          
             // Add more contact details as needed
         };
     },
