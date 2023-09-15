@@ -23,11 +23,10 @@
             <!-- Body content goes here -->
             <router-view />
         </div>
-        <footer class="footer">
-            <!-- Footer content goes here -->
-            <Footer />
-        </footer>
+        
     </div>
+    
+      <Footer/>
 </template>
 
 <script>

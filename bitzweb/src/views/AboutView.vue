@@ -1,30 +1,11 @@
 <template>
   
     <h1>Our  Clients</h1>
-    <div class="marquee-container">
-   <div  class="client -container">
-    <ul>
-
-      <li class="home" v-for="partner  in PartnersData" :key="partner.title">
-
-       <div class="row">
-        <div class="col-xs-4">
-        <img :src="partner.imageUrl" alt="">
-      <h3>{{ partner.title }}</h3>
-      <p>{{ partner .description }}</p>
-
-
-    </div>
-    </div>
-   </li>
-  </ul>
-
-   </div>
-
-
-
-   </div>
-    
+ <div class="partner__container">
+    <div class="partners_profile">
+      <img :src="PartnersData[0].imageUrl" alt="" />
+      </div>
+    </div>  
 
 
  
@@ -44,5 +25,23 @@ setup(){
 };
 </script>
 <style>
+  .partner__container{
+
+    justify-content: space-between;
+    align-items:center;
+    margin:0 auto;
+  }
+  .partner_profile{
+    background:white;
+    border-radius:50px;
+    padding:1.5em 1.75em;
+    margin:2 em auto;
+    max-width:330px;
+    box-shadow:0px 3px 136px 0px rgba(88,87,119,0.21);
+
+
+
+
+  }
 
 </style>

@@ -295,6 +295,7 @@ button,
 [type="reset"],
 [type="submit"] {
   -webkit-appearance: button;
+  appearance:button;
 }
 
 /**
@@ -397,6 +398,7 @@ textarea {
 [type="search"] {
   -webkit-appearance: textfield; /* 1 */
   outline-offset: -2px; /* 2 */
+  appearance: textfield;
 }
 
 /**
@@ -834,13 +836,13 @@ ul {
 
 
 .footer {
-    background-color: #333;
+    
     color: #fff;
     padding: 20px 0;
 }
 
 .footer-content {
-    display: flex;
+   display:inline-flex;
     justify-content: space-between;
     flex-wrap: wrap;
 }
@@ -850,11 +852,6 @@ ul {
     padding: 10px;
 }
 
-.partner-cards {
-    display: flex;
-    justify-content: space-around;
-    flex-wrap: wrap;
-}
 
 .social-media-links a {
     color: #fff;
