@@ -1,11 +1,21 @@
 <template>
   
     <h1>Our  Clients</h1>
- <div class="partner__container">
-    <div class="partners_profile">
-      <img :src="PartnersData[0].imageUrl" alt="" />
+ <div class="card " v-for="partners in PartnersData" :key="partners.id">
+    <div  class="row">
+      <div class="col-md-4 ">
+        <a href={{partners.Link}} target="_blank" rel="noopener noreferrer">
+      <img :src="partners.logo" alt="" />
+        </a>  
       </div>
-    </div>  
+      <div class="col-md-8">
+        <h3>{{ partners.title}}</h3>
+        <p>{{ partners.description }}</p>
+      </div>
+     
+    </div>
+      </div>
+
 
 
  

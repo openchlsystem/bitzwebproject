@@ -3,5 +3,23 @@ import App from "./App.vue";
 import router from "./router";
 import "./assets/style.css";
 
+/* import the fontawesome core */
+import { library } from '@fortawesome/fontawesome-svg-core'
 
-createApp(App).use(router).mount("#app");
+/* import font awesome icon component */
+import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
+
+/* import specific icons */
+import { faTwitter } from '@fortawesome/free-brands-svg-icons'
+import { faFacebook } from '@fortawesome/free-brands-svg-icons'
+import { faInstagram} from "@fortawesome/free-brands-svg-icons"; 
+import { faTiktok } from '@fortawesome/free-brands-svg-icons';
+import { faFacebookMessenger } from '@fortawesome/free-brands-svg-icons';                  
+import { faUserSecret } from '@fortawesome/free-solid-svg-icons'
+
+library.add(faUserSecret,faTwitter,faFacebook,faInstagram,faTiktok,faFacebookMessenger);
+
+createApp(App)
+.use(router)
+.component("font-awesome-icon", FontAwesomeIcon)
+.mount("#app");
