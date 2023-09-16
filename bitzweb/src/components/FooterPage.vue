@@ -1,51 +1,78 @@
 <template>
-
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-section">
-                 
-                    <h3>Our Partners</h3>
-                    <partner-card></partner-card>
-                    </div>
-                    </div>
-                    
+     <div class="container">
+      <div class="footer-content">
+        <div class="footer-section">
+          <h3>Our Partners</h3>
+          <partner-card></partner-card>
+        </div>
+      </div>
+      <div class="container footer-bottom">
+        <div class="row">
+            <div col-md-4>
+                <h3> Connect with Us</h3>
+                <div col-md-4>
+                <font-awesome-icon :icon="['fas','user-secret']"/>
+                <font-awesome-icom  :icon="['fab','Twitter']"/>
+                </div>
                 
-                <div class="footer-section">
-                    <h3>Connect with Us</h3>
-                    <div class="social-media-links">
-                        <a v-for="(link, index) in socialMediaLinks" :key="index" :href="link.url" target="_blank"
-                            rel="noopener noreferrer">
-                            <i :class="link.iconClass"></i>
-                        </a>
-                    </div>
                 </div>
-                <div class="footer-section">
-                    <h3>Contact Us</h3>
-                    <p>Email: {{ contactEmail }}</p>
-                    <p>Phone: {{ contactPhone }}</p>
-                    <!-- Add more contact details as needed -->
+                <div col-md-4>
+       
                 </div>
-            </div>
+
+
+
+               <div col-md-4>
+                <h3>Contact Us</h3>
+                </div>
+                
       
+                </div>
+       
+     
+                </div>
+                <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2)">
+                        © 2020 Copyright:
+                <a class="text-white" href="#">Bitzweb.</a>
+  
 
+    <!-- Add more contact details as needed -->
+      </div>
+    </div>
+ 
+    
+    
 </template>
+   
 
-<script>
-import PartnerCard from '@/views/PartnerCard.vue'; // Assuming you have a PartnerCard component
+  <script>
+  import PartnerCard from '@/views/PartnerCard.vue';
+import { socialMediaLinks } from '@/utils/ContactData.js';
 
-export default {
+
+  
+  export default {
     components: {
-        PartnerCard,
+      PartnerCard,
+
+  
     },
     data() {
-        return {
-          
-            // Add more contact details as needed
-        };
+      return {
+        socialMediaLinks,
+      };
     },
-};
-</script>
+  };
+  </script>
+  
+  <style scoped>
+  .icon {
+  font-size: 24px; /* Adjust the size as needed */
+}
 
-<style scoped>
+.icon:hover {
+  color: inherit; /** Add styles for spacing and other styling as needed */
+}
 
-</style>
+  </style>
+  

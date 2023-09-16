@@ -2,15 +2,15 @@
         <div class="container" id ="partners">
             <div class="row">
             <div class="col-4" v-for="(partner, index) in PartnersData" :key="index">
-            
+                <a class="partners_profile" :href="partner.Link" target="_blank" rel="noopener noreferrer">
                 <img class="profile" :src="partner.logo" :alt="partner.title"  width="136" height="27" viewBox="0 0 136 27"/>
-                <div class="col-8">
-                <a class="partners_profile" :href="partner.Link" target="_blank" rel="noopener noreferrer"> Click Me</a>
+            </a>
+                
                 </div>
             </div>
             </div>
 
-        </div>
+  
     
         <!-- <div class="profile row">
         <div class="col-4">

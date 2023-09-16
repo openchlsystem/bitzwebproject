@@ -32,7 +32,7 @@ export const PartnersData = [
     {
         id:2,
         title: "Turkana Basin Institute",
-        description:"",
+        description:"  ",
         logo:TurkanaLogoImage,
         Link:"https://www.turkanabasin.org/",
         contactEmail:"turkanabasin@turkanabasin.org",

@@ -62,8 +62,9 @@ mounted() {
           script.setAttribute("crossorigin", "*");
   
           // Append script to the second header
-          const secondHeader = this.$el.querySelectorAll(".header")[1];
-          secondHeader.appendChild(script);
+          // const secondHeader = this.$el.querySelectorAll(".header")[1];
+          // secondHeader.appendChild(script);
+          document.body.appendChild(script);
   
           // Set a flag to show the chat widget
           this.showChatWidget = true;
