@@ -102,10 +102,9 @@ header {
  * `article` contexts in Chrome, Firefox, and Safari.
  */
 
- .custom-icons {
+.custom-icons {
   font-size: 30px;
   color: #e74c3c;
-
 }
 
 h1 {
@@ -301,7 +300,7 @@ button,
 [type="reset"],
 [type="submit"] {
   -webkit-appearance: button;
-  appearance:button;
+  appearance: button;
 }
 
 /**
@@ -537,7 +536,6 @@ a {
   font-size: 20px;
 }
 
-
 .dropdown-content li:hover {
   list-style: none;
   padding: 5px;
@@ -545,7 +543,6 @@ a {
   background-color: var(--background-color);
   color: var(--primary-color);
   cursor: pointer;
-
 }
 
 /* row */
@@ -840,27 +837,54 @@ ul {
   text-align: right;
 }
 
-
-.footer {
-    
-    color: #fff;
-    padding: 20px 0;
+.partner-section {
+  display: flex;
+  justify-content: space-around;
+  align-items: space-around;
+  flex-wrap: wrap;
 }
 
-.footer-content {
-   
-    justify-content: space-between;
-    flex-wrap: wrap;
+.partners-card {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-basis: 20%;
+  box-shadow: 0 0 20px var(--text-color-dark);
+  border: 1px solid #f1f;
+  margin: 10px;
+} 
+
+.partners-card img {
+  width: 400px;
+  height: 400px;
+  margin: 0;
+}
+
+.footer {
+  color: #fff;
+  padding: 20px 0;
 }
 
 .footer-section {
-    flex: 1;
-    padding: 10px;
+  flex: 1;
+  padding: 10px;
 }
 
+.footer-container {
+  display: flex;
+  flex-direction: column;
+}
 
-.social-media-links a {
-    color: #fff;
-    font-size: 24px;
-    margin-right: 10px;
+.footer-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: space-between;
+  padding-bottom: 10px;
+  margin-bottom: 20px;
+}
+
+.footer-content {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid #f1f;
 }
