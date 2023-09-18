@@ -15,9 +15,10 @@ import { faFacebook } from '@fortawesome/free-brands-svg-icons'
 import { faInstagram} from "@fortawesome/free-brands-svg-icons"; 
 import { faTiktok } from '@fortawesome/free-brands-svg-icons';
 import { faFacebookMessenger } from '@fortawesome/free-brands-svg-icons';                  
-import { faUserSecret } from '@fortawesome/free-solid-svg-icons'
+import { faUserSecret } from '@fortawesome/free-solid-svg-icons';
+import { faWhatsapp } from '@fortawesome/free-brands-svg-icons';      
 
-library.add(faUserSecret,faTwitter,faFacebook,faInstagram,faTiktok,faFacebookMessenger);
+library.add(faUserSecret,faTwitter,faFacebook,faInstagram,faTiktok,faFacebookMessenger,faWhatsapp);
 
 createApp(App)
 .use(router)
