@@ -1,75 +1,81 @@
 <template>
-     <div class="container">
+  <div class="footer-container ">
+    <div class="footer-row">
+      <div class="footer-partners">
+
+        <h3>Our Partners</h3>
+        <partner-card></partner-card>
+
+      </div>
+    </div>
+    <div class="footer-row">
+
       <div class="footer-content">
-        <div class="footer-section">
-          <h3>Our Partners</h3>
-          <partner-card></partner-card>
+        <h3>About US</h3>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+        <div class="social-media">
+          <font-awesome-icon :icon="['fab', 'facebook']" />
+          <font-awesome-icon :icon="['fab', 'instagram']" />
+          <font-awesome-icon :icon="['fab', 'twitter']" />
+
         </div>
+
+
+
       </div>
-      <div class="container footer-bottom">
-        <div class="row">
-    <div class="col-md-6 mr-md-4"> 
-        <h3>Connect with Us</h3>
-        <font-awesome-icon class="custom-icons" :icon="['fab','facebook']"/>
-        <font-awesome-icon :icon="['fab','instagram']"/>
-        <font-awesome-icon :icon="['fab','twitter']"/> 
-        <font-awesome-icon :icon="['fab', 'whatsapp']" />
-        
-    </div>
-    
-    <div class="col-md-6"> 
-        <h3>Contact Us</h3>
-        <p> Trio Center, Near Garden city</p>
-        <p>www.bitz-itc.com </p>
+      <div class="footer-content">
+        <h3>Quick Links</h3>
+        <a href="a">Home</a>
+        <a href="a">About</a>
+        <a href="a">Contact</a>
 
-        <!-- Add your contact information here -->
-    </div>
-</div>
-       
-     
-                </div>
-                <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2)">
-                        © 2020 Copyright:
-                <a class="text-white" href="#">Bitzweb.</a>
-  
 
-    <!-- Add more contact details as needed -->
+      </div>
+      <div class="footer-content">
+        <h3>Support</h3>
+
       </div>
     </div>
- 
-    
-    
+    <div class="footer-row">
+
+      @copyright2020
+
+    </div>
+
+
+  </div>
 </template>
    
 
-  <script>
-  import PartnerCard from '@/views/PartnerCard.vue';
+<script>
+import PartnerCard from '@/views/PartnerCard.vue';
 import { socialMediaLinks } from '@/utils/ContactData.js';
 
 
-  
-  export default {
-    components: {
-      PartnerCard,
 
+export default {
+  components: {
+    PartnerCard,
+
+
+  },
+  data() {
+    return {
+      socialMediaLinks,
+    };
+  },
+};
+</script>
   
-    },
-    data() {
-      return {
-        socialMediaLinks,
-      };
-    },
-  };
-  </script>
-  
-  <style scoped>
-  .icon {
-  font-size: 24px; /* Adjust the size as needed */
+<style scoped>
+.icon {
+  font-size: 24px;
+  /* Adjust the size as needed */
 }
 
 .icon:hover {
-  color: inherit; /** Add styles for spacing and other styling as needed */
+  color: inherit;
+  /** Add styles for spacing and other styling as needed */
 }
-
-  </style>
+</style>
   
