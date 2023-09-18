@@ -102,6 +102,12 @@ header {
  * `article` contexts in Chrome, Firefox, and Safari.
  */
 
+ .custom-icons {
+  font-size: 30px;
+  color: #e74c3c;
+
+}
+
 h1 {
   font-size: var(--heading-1-font-size);
 }

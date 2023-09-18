@@ -8,26 +8,23 @@
       </div>
       <div class="container footer-bottom">
         <div class="row">
-            <div col-md-4>
-                <h3> Connect with Us</h3>
-                <div col-md-4>
-                <font-awesome-icon :icon="['fas','user-secret']"/>
-                <font-awesome-icom  :icon="['fab','Twitter']"/>
-                </div>
-                
-                </div>
-                <div col-md-4>
-       
-                </div>
+    <div class="col-md-6 mr-md-4"> 
+        <h3>Connect with Us</h3>
+        <font-awesome-icon class="custom-icons" :icon="['fab','facebook']"/>
+        <font-awesome-icon :icon="['fab','instagram']"/>
+        <font-awesome-icon :icon="['fab','twitter']"/> 
+        <font-awesome-icon :icon="['fab', 'whatsapp']" />
+        
+    </div>
+    
+    <div class="col-md-6"> 
+        <h3>Contact Us</h3>
+        <p> Trio Center, Near Garden city</p>
+        <p>www.bitz-itc.com </p>
 
-
-
-               <div col-md-4>
-                <h3>Contact Us</h3>
-                </div>
-                
-      
-                </div>
+        <!-- Add your contact information here -->
+    </div>
+</div>
        
      
                 </div>
