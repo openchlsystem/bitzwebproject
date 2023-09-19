@@ -52,6 +52,7 @@ export default {
         title.value = "Developers",
           description.value = "Developers in our  organization are professionals who play a critical role in designing, creating, and maintaining software applications and systems that drive the organization's digital presence and operations.",
           buttonText.value = "Join Our Team",
+      
           imageUrl.value = require("../assets/images/stock/Developers.jpg"),
           attribution.value = ''
 
@@ -96,8 +97,22 @@ export default {
         title.value = 'Add the product chs.',
           description.value = 'At our software company, we specialize in delivering bespoke software solutions designed to perfectly align with your unique requirements. Our dedicated team of experts works closely with you to understand your needs, ensuring that every aspect of the software we create is tailored to help your business thrive. With us, your vision becomes reality.'
         buttonText.value = 'Get a Quote ',
-          imageUrl.value = 'https://picsum.photos/500/500'
+          imageUrl.value = require("../assets/images/stock/SaccoAvailability.jpg");
       }
+      if (route.path === '/products/2') {
+        title.value = 'Add the product Legal Case Management',
+          description.value = 'At our software company, we specialize in delivering bespoke software solutions designed to perfectly align with your unique requirements. Our dedicated team of experts works closely with you to understand your needs, ensuring that every aspect of the software we create is tailored to help your business thrive. With us, your vision becomes reality.'
+        buttonText.value = 'Get a Quote ',
+          imageUrl.value = require("../assets/images/stock/LegalCaseManagement.jpg");
+      }
+      if (route.path === '/products/3') {
+        title.value = 'Add the product Sacco  Management',
+          description.value = 'At our software company, we specialize in delivering bespoke software solutions designed to perfectly align with your unique requirements. Our dedicated team of experts works closely with you to understand your needs, ensuring that every aspect of the software we create is tailored to help your business thrive. With us, your vision becomes reality.'
+          
+        buttonText.value = 'Get a Quote ',
+          imageUrl.value = require('../assets/images/stock/SaccoCaseManagement.jpg');
+      }
+
       if (route.path === '/crmfeatures') {
 
         title.value = 'Sacco CRM Made Simple: Connect, Streamline, Grow.',

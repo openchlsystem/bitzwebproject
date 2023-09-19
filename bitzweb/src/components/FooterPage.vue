@@ -14,9 +14,9 @@
         <h3>About US</h3>
         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
         <div class="social-media">
-          <font-awesome-icon :icon="['fab', 'facebook']" />
-          <font-awesome-icon :icon="['fab', 'instagram']" />
-          <font-awesome-icon :icon="['fab', 'twitter']" />
+         <a class="footer-icon" href="#" ><font-awesome-icon :icon="['fab', 'facebook']" /></a>
+          <a class="footer-icon" href="#"><font-awesome-icon :icon="['fab', 'instagram']" /></a>
+        <a class="footer-icon" href="#"> <font-awesome-icon :icon="['fab', 'twitter']" /></a> 
 
         </div>
 
@@ -38,7 +38,7 @@
     </div>
     <div class="footer-row">
 
-      @copyright2020
+      @copyright{{new Date().getFullYear()}} 
 
     </div>
 

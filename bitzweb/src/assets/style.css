@@ -102,9 +102,13 @@ header {
  * `article` contexts in Chrome, Firefox, and Safari.
  */
 
-.custom-icons {
-  font-size: 30px;
-  color: #e74c3c;
+footer-icon{
+  font-size: 40px;
+  color: slateblue;
+  margin: 0.75em;
+  padding: 0.75em;
+  border-radius: 50%;
+ 
 }
 
 h1 {
