@@ -22,5 +22,8 @@ library.add(faUserSecret,faTwitter,faFacebook,faInstagram,faTiktok,faFacebookMes
 
 createApp(App)
 .use(router)
+
+
+
 .component("font-awesome-icon", FontAwesomeIcon)
 .mount("#app");

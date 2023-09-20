@@ -1,12 +1,26 @@
 <template>
-  <div class="careers">
-    <h1>This is a career page</h1>
+  <section id="careersview">
+
+    <div>
+    <h3>Welcome to application Page</h3>
+ 
+    
   </div>
+
+  </section>
+ 
 </template>
 
 <script>
+
+ 
 export default {
-  name: "CareersView ",
-  components: {},
-};
+return:{
+  name:"CareersView"
+  
+}
+}
+
 </script>
+<style>
+</style>

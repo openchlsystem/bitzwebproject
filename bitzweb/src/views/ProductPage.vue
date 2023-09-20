@@ -1,6 +1,6 @@
 <template v-show="">
     <div v-show="selectedProductID > 0">
-        <h3>Our Solutions{{ selectedProductID }}</h3>
+        <h3>Product Features</h3>
 
         <div class="benefits-section">
             <ul v-for="solution in productFeatures" :key="solution.Feature">
