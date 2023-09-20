@@ -4,7 +4,9 @@
       <div class="col">
         <h1>{{ title }}</h1>
         <p>{{ description }}</p>
-        <button>{{ buttonText }}</button>
+        <button v-if = "buttonText" @click="navigateRoute">{{ buttonText }}</button>
+     
+   
       </div>
       <div class="col" style="text-align: center;">
         <img :src="imageUrl" alt="" />
@@ -19,8 +21,10 @@
 import { useRoute } from 'vue-router';
 import { ref, onMounted, watch } from 'vue';
 
+
 export default {
   name: 'HeroPage',
+
 
   setup() {
 
@@ -158,7 +162,7 @@ export default {
         title.value = 'Join Our Dynamic Team: Your Career, Your Potential, Your Future.',
           description.value = 'Welcome to our career page, where we invite you to join our dynamic team. Here, we recognize that your career is not just a job—its an opportunity to unlock your full potential and shape your future.We are looking for talented individuals who are ready to bring their unique skills, passion, and creativity to our team. With us, you will find a supportive environment, exciting challenges, and the chance to make a real impact.Join us and be part of a team that is dedicated to your success and growth.',
           buttonText.value = 'Apply Now',
-          imageUrl.value = 'https://picsum.photos/500/500'
+          imageUrl.value = require('../assets/images/stock/developer1.svg');
       }
 
 
@@ -195,7 +199,8 @@ export default {
       }
     });
     return {
-
+    
+      
       title,
       description,
       buttonText,
@@ -203,7 +208,27 @@ export default {
       attribution,
 
     }
+  },
+  methods:{
+    navigateRoute: function() {
+
+      //const careerSection = 
+      if (this.$route.path === '/developers') {
+        this.$router.push('/careers')
+       
+      }
+      if (this.$route.path ==='/'){
+        this.$router.push('/products/1')
+      }
+      if (this.$route.path === '/careers'){
+        document.getElementById("careersview").scrollIntoView({ behavior: "smooth", block: "end" });
+
+      }
+      
+    
   }
+
+}
 }
 </script>
 

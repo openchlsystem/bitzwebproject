@@ -1,13 +1,16 @@
 <template>
-    <div>
+   <h2>Welcome to the developers page</h2>
 
-        <h2>careers</h2>
-
-    </div>
+  
 </template>
 
 <script>
+
 export default {
+    setup(){
+
+    }
+
 
 }
 </script>
