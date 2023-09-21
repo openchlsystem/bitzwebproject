@@ -23,6 +23,7 @@
     "survey-vue-ui": "^1.9.107",
     "survey-vue3-ui": "^1.9.109",
     "vue": "^3.2.13",
+    "vue-json-schema": "^1.1.1",
     "vue-router": "^4.2.4",
     "yarn": "^1.22.19"
   },

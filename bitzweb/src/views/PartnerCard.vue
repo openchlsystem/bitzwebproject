@@ -1,21 +1,22 @@
 <template>
-    <div class="partner-section">
-        <div class="partners-card" v-for="(partner, index) in PartnersData" :key="index">
-            <a class="partners_profile" :href="partner.Link" target="_blank" rel="noopener noreferrer">
-                <img class="profile" :src="partner.logo" :alt="partner.title" />
-                  
-            </a>
-
-        </div>
+  <div class="partner-section">
+    <div
+      class="partners-card"
+      v-for="(partner, index) in PartnersData"
+      :key="index"
+    >
+      <a
+        class="partners_profile"
+        :href="partner.Link"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        <img class="profile" :src="partner.logo" :alt="partner.title" />
+      </a>
     </div>
+  </div>
 
-
-
-
-
-
-
-    <!-- <div class="profile row">
+  <!-- <div class="profile row">
         <div class="col-4">
         <img :src="partner.logo" :alt="partner.title" />
         </div>
@@ -28,18 +29,17 @@
 <script>
 import { PartnersData } from "@/utils/Partners";
 export default {
-    props: {
-        partner: {
-            type: Object,
-            required: true,
-        },
+  props: {
+    partner: {
+      type: Object,
+      required: true,
     },
-    setup() {
-        return {
-            PartnersData,
-        };
-
-    }
+  },
+  setup() {
+    return {
+      PartnersData,
+    };
+  },
 };
 </script>
 
@@ -55,23 +55,22 @@ export default {
 } */
 
 @keyframes run {
-    0% {
-        left: 0;
-    }
+  0% {
+    left: 0;
+  }
 
-    50% {
-        left: 100%
-    }
+  50% {
+    left: 100%;
+  }
 
-    100% {
-        left: 0;
-    }
+  100% {
+    left: 0;
+  }
 }
 
 .profile {
-    max-width: 100px;
-    height: auto;
-    margin: 0 auto;
-
+  max-width: 100px;
+  height: auto;
+  margin: 0 auto;
 }
 </style>

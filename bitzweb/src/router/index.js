@@ -31,7 +31,6 @@ const routes = [
     path: "/solutions",
     name: "solutions",
     component: () => import("../views/SolutionsPage.vue"),
-
   },
   {
     path: "/pricing",
@@ -44,10 +43,10 @@ const routes = [
     component: () => import("../views/DevelopersPage.vue"),
   },
   {
-    path:"/careers",
-   
+    path: "/careers",
+
     component: () => import("../views/CareersView.vue"),
-  }
+  },
 ];
 
 const router = createRouter({

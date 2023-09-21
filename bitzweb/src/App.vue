@@ -3,13 +3,13 @@
 </template>
 
 <script>
-import LayoutPage from '@/components/LayoutPage.vue'
+import LayoutPage from "@/components/LayoutPage.vue";
 export default {
-  name: 'HomeView',
+  name: "HomeView",
   components: {
-    LayoutPage
-  }
-}
+    LayoutPage,
+  },
+};
 </script>
 
 <style>
