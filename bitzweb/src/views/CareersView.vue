@@ -64,6 +64,10 @@
       <p>Files Supported: PDF, TEXT, DOC , DOCX</p>
       <input type="file"  ref="file" hidden accept=".doc,.docx,.pdf" id="fileID" style="display:none;" @change="handleFileUpload">
       <button class="btn" @click="$refs.file.click()">Choose File</button>
+  
+      <div id="PatoFile">
+        <p v-if="file">{{ file.name }}</p>
+      </div>
     </div>
     </div>
       
@@ -94,6 +98,8 @@ export default{
       country:'',
       experience:'',
       language:'',
+      file:"",
+   
 
      
   
@@ -103,22 +109,51 @@ export default{
   },
   methods:{
     handleFileUpload: function () {
-                this.file = this.$refs.file.files[0];
+
+        const allowedFileTypes= ['.pdf','.doc', '.docx'];
+              const selectedFile = this.$refs.file.files[0];
+              if (selectedFile){
+                const FileExtension=selectedFile.name.toLowerCase().substr(selectedFile.name.lastIndexOf('.'));
+                if(!allowedFileTypes.includes(FileExtension)){
+                  alert('Please select a valid file format: PDF, TEXT, DOC, or DOCX.');
+                  this.file=null;
+
+                  
+                }
+                  
+                  
                 
+                else{
+                  this.file=selectedFile;
+                }
+              }
+                
+            //  //alert ("heloo"+this.file.name)  
+             
+             // el.innerHTML = this.file.name;
+             
+            
+
+
+             
             },
     handleSubmit() {
+      // alert("Your Application has been submitted successfully!");
       // Handle form submission here
   
       // You can send the form data to your server or perform other actions
-      console.log('Form submitted with data:', {
+    
+   const formData={
         fname: this.fname,
         lname: this.lname,
         coverletter: this.coverletter,
         country: this.country,
         experience: this.experience,
         language: this.language,
-        file: this.file // Include the file in your form submission
-      });
+        file:  null // Include the file name if a file is selected // Include the file in your form submission
+      };
+      const jsonData= JSON.stringify(formData);
+      console.log('Form data in JSON format:', jsonData);
     }
 
   }

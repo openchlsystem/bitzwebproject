@@ -18,6 +18,8 @@
     "bulma": "^0.9.4",
     "core-js": "^3.8.3",
     "fortawesome": "^0.0.1-security",
+    "html2pdf.js": "^0.10.1",
+    "jspdf": "^2.5.1",
     "npm": "^10.1.0",
     "pinia": "^2.1.6",
     "survey-vue-ui": "^1.9.107",

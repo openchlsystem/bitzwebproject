@@ -52,10 +52,10 @@ export default {
           (imageUrl.value = require("../assets/images/stock/Developers.jpg")),
           (attribution.value = "");
       }
-      if (route.path === "/prices") {
+      if (route.path === "/pricing") {
         (title.value = "Pricing"),
           (description.value = "Pricing"),
-          (buttonText.value = "Pricing"),
+          (buttonText.value = " Click Here for Pricing"),
           (imageUrl.value = require("../assets/images/stock/pricing.png")),
           (attribution.value = "");
       }
@@ -198,6 +198,23 @@ export default {
       if (this.$route.path === "/careers") {
         document
           .getElementById("careersview")
+          .scrollIntoView({ behavior: "smooth", block: "end" });
+      }
+      if (this.$route.path === "/products/1") {
+        this.$router.push("/prices")
+        
+      }
+      if (this.$route.path === "/products/2") {
+        this.$router.push("/prices")
+        
+      }
+      if (this.$route.path === "/products/3") {
+        this.$router.push("/prices")
+        
+      }
+      if (this.$route.path === "/pricing") {
+        document
+          .getElementById("pricing_content")
           .scrollIntoView({ behavior: "smooth", block: "end" });
       }
     },

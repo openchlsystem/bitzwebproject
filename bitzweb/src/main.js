@@ -2,6 +2,7 @@ import { createApp } from "vue";
 import App from "./App.vue";
 import router from "./router";
 import "./assets/style.css";
+import jsPDF from 'jspdf';
 
 
 /* import the fontawesome core */
@@ -31,6 +32,7 @@ library.add(
 
 createApp(App)
   .use(router)
+  .use(jsPDF)
 
 
   .component("font-awesome-icon", FontAwesomeIcon)
