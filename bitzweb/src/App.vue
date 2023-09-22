@@ -3,21 +3,17 @@
 </template>
 
 <script>
-import LayoutPage from '@/components/LayoutPage.vue'
+import LayoutPage from "@/components/LayoutPage.vue";
 export default {
-  name: 'HomeView',
+  name: "HomeView",
   components: {
-    LayoutPage
-  }
-}
+    LayoutPage,
+  },
+};
 </script>
 
 <style>
 #app {
-  font-family: open_sans, Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
+  font-family: Avenir, Helvetica, Arial, sans-serif;
 }
 </style>
