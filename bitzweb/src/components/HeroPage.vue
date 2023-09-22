@@ -201,15 +201,16 @@ export default {
           .scrollIntoView({ behavior: "smooth", block: "end" });
       }
       if (this.$route.path === "/products/1") {
-        this.$router.push("/prices")
+        this.$router.push("/pricing")
+
         
       }
       if (this.$route.path === "/products/2") {
-        this.$router.push("/prices")
+        this.$router.push("/pricing")
         
       }
       if (this.$route.path === "/products/3") {
-        this.$router.push("/prices")
+        this.$router.push("/pricing")
         
       }
       if (this.$route.path === "/pricing") {
