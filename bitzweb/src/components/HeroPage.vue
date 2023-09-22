@@ -54,7 +54,7 @@ export default {
       }
       if (route.path === "/pricing") {
         (title.value = "Pricing"),
-          (description.value = "Pricing"),
+          (description.value = "Our commitment is to ensure that our exceptional products not only meet the highest standards of quality but also remain accessible to everyone. At Bitz IT Consulting Ltd, we firmly believe in offering pocket-friendly prices without compromising on excellence. We strive to empower our customers with affordability, making the joy of owning our top-notch products a reality for all."),
           (buttonText.value = " Click Here for Pricing"),
           (imageUrl.value = require("../assets/images/stock/pricing.png")),
           (attribution.value = "");
