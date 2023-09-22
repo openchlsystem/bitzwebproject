@@ -3,7 +3,8 @@
   --primary-color: #201e5d;
   --secondary-color: #e74c3c;
   --text-color: #333;
-  --background-color: #f0f0f0;
+  --background-color: #fff;
+  --background-color-alternate: #f5f5f5;
   --white-color: #fff;
   --black-color: #000;
 
@@ -81,7 +82,7 @@ body {
 }
 
 header {
-  margin: 0 auto;
+  margin: 0;
   padding: 5px;
 }
 
@@ -251,6 +252,9 @@ sup {
 
 img {
   border-style: none;
+  width: 100%;
+  height: auto;
+  margin: 0;
 }
 
 /* Forms
@@ -260,6 +264,21 @@ img {
  * 1. Change the font styles in all browsers.
  * 2. Remove the margin in Firefox and Safari.
  */
+
+ form{
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+  padding: 10px;
+  width: 100%;
+  border: 1px solid #f1f;
+  border-radius: var(--border-radius);
+
+
+ }
+
+
+
 
 button,
 input,
@@ -281,12 +300,50 @@ button,
 input {
   /* 1 */
   overflow: visible;
+  width: 100%;
+  height: 50px;
+  margin-right: 100px;
+  margin-bottom: var(--medium-spacing);
+  /* margin: var(--medium-spacing); */
+  /* padding: var(--small-spacing); */
+
+}
+
+input[type="radio"],
+input[type="checkbox"] {
+  box-sizing: border-box; /* 1 */
+  padding: 0; /* 2 */
+}
+
+input[type="date"],
+input[type="time"],
+input[type="datetime-local"],
+input[type="month"] {
+  -webkit-appearance: listbox;
+}
+
+input[type="search"] {
+  -webkit-appearance: textfield; /* 1 */
+  outline-offset: -2px; /* 2 */
+}
+
+input[type="search"]::-webkit-search-decoration {
+  -webkit-appearance: none;
+}
+
+
+
+input[type="search"]::-webkit-search-cancel-button,
+input[type="search"]::-webkit-search-decoration {
+  -webkit-appearance: none;
 }
 
 /**
  * Remove the inheritance of text transform in Edge, Firefox, and IE.
  * 1. Remove the inheritance of text transform in Firefox.
  */
+
+
 
 button,
 select {
@@ -332,10 +389,25 @@ button:-moz-focusring,
 button {
   background-color: var(--primary-color);
   color: var(--white-color);
-  padding: 100px;
+  padding: 10px;
   border: none;
   border-radius: 5px;
   font-size: var(--paragraph-font-size);
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+  margin: 0;
+  margin-bottom: var(--medium-spacing);
+  height: auto;
+}
+
+button:hover {
+  background-color: var(--secondary-color);
+  color: var(--black-color);
+  transition: all 0.3s ease-in-out;
+  border-radius: 5px;
+  margin: 0;
+  margin-bottom: var(--medium-spacing);
+  height: auto;
 }
 
 /**
@@ -465,13 +537,37 @@ template {
   display: none;
 }
 
-.navbar {
+.menu-section {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  position: relative;
+}
+
+nav {
   display: flex;
   justify-content: center;
   align-items: center;
   gap: 10px;
-  background-color: var(--background-color);
   text-transform: uppercase;
+  font-size: 20px;
+  font-weight: bold;
+  margin: 0;
+  margin-right: var(--medium-spacing);
+}
+
+nav a {
+  color: var(--primary-color);
+  text-decoration: none;
+  transition: all 0.3s ease-in-out;
+}
+
+nav a:hover {
+  color: var(--secondary-color);
+  text-decoration: none;
+  transition: all 0.3s ease-in-out;
+  animation-delay: 1ms;
 }
 
 .dropdown {
@@ -769,6 +865,12 @@ ul {
 
 .feature-hero-section button:hover {
   background-color: var(--button-text-color);
+  color: var(--black-color);
+  transition: all 0.3s ease-in-out;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px var(--primary-color);
+  padding: 10px 20px;
+  cursor: pointer;
 }
 
 .feature-hero-section col {
@@ -786,19 +888,32 @@ ul {
 .benefits-section {
   margin-top: var(--margin-xxlarge);
   margin-bottom: var(--margin-large);
-  padding: var(--margin-xxlarge);
+  margin-right: var(--large-spacing);
+  margin-left: var(--large-spacing);
+  padding-left: var(--large-spacing);
+  padding-right: var(--large-spacing);
+  padding-top: var(--large-spacing);
+  padding-bottom: var(--large-spacing);
+  text-align: center;
+
   /* box-shadow: 0 0 20px var(--text-color-dark); */
   border-radius: var(--margin-medium);
+  box-shadow: 0 0 20px var(--text-color-dark);
+  margin: 10px;
+  border: 1px solid #f1f;
 }
 
 .benefits-section h3 {
-  padding: 10px;
+  padding: var(--large-spacing);
+  text-shadow: 0 0 10px var(--text-color-light);
 }
 
 .benefits-section p {
-  padding: 10px;
+  padding: var(--large-spacing);
   text-shadow: 0 0 10px var(--text-color-light);
 }
+
+
 
 .benefits-section li {
   padding: 10px;
@@ -808,6 +923,30 @@ ul {
   box-shadow: 0 0 20px var(--text-color-dark);
   margin: var(--margin-medium);
   background-color: var(--background-color);
+  border: 1px solid #f1f;
+  margin-bottom: var(--medium-spacing);
+  box-shadow: 0 0 10px #000;
+
+
+}
+
+.benefits-section li:hover {
+  box-shadow: 0 0 20px var(--black-color);
+  transition: all 0.3s ease-in-out;
+  
+}
+
+.benefits-section li:nth-child(even) {
+  flex-direction: row-reverse;
+  text-align: right;
+  justify-content: flex-end;
+  align-items: center;
+  background-color: var(--background-color-alternate);
+}
+
+.benefits-section li:nth-child(even) h3,
+.benefits-section li:nth-child(even) p {
+  text-align: right;
 }
 
 .benefits-section .row {
@@ -818,11 +957,20 @@ ul {
   margin-bottom: 20px;
 }
 
+.benefits-section .row:last-child {
+  margin-bottom: 0;
+  
+
+}
+
 .benefits-section .col {
   flex: 0 0 50%;
   text-align: center;
-  padding: 20px;
+  padding: var(--large-spacing);
+  margin: var(--medium-spacing);
 }
+
+
 
 .benefits-section .col img {
   width: 100%;
@@ -842,8 +990,7 @@ ul {
 
 .partner-section {
   display: flex;
-  justify-content: space-around;
-  align-items: space-around;
+  justify-content: center;
   flex-wrap: wrap;
 }
 
@@ -852,16 +999,16 @@ ul {
   justify-content: center;
   align-items: center;
   flex-basis: 20%;
-  box-shadow: 0 0 20px var(--text-color-dark);
+  box-shadow: 0 10px 20px var(--text-color-dark);
+  border-radius: 5px;
   border: 1px solid #f1f;
+  padding: 10px;
   margin: 10px;
+  width: 200px;
+  height: 200px;
 }
 
-.partners-card img {
-  width: 400px;
-  height: 400px;
-  margin: 0;
-}
+
 
 .footer {
   color: #fff;
@@ -887,7 +1034,18 @@ ul {
 }
 
 .footer-content {
+  flex: 1;
   display: flex;
+
   flex-direction: column;
+  justify-content: center;
+  align-items: center;
   border: 1px solid #f1f;
+  padding:20px;
+}
+
+.social-icons {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
 }

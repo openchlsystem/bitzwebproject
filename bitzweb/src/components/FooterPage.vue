@@ -8,29 +8,60 @@
     </div>
     <div class="footer-row">
       <div class="footer-content">
-        <h3>About US</h3>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
-        <div class="social-media">
-          <a class="footer-icon" href="#"
-            ><font-awesome-icon :icon="['fab', 'facebook']"
-          /></a>
-          <a class="footer-icon" href="#"
-            ><font-awesome-icon :icon="['fab', 'instagram']"
-          /></a>
-          <a class="footer-icon" href="#">
-            <font-awesome-icon :icon="['fab', 'twitter']"
-          /></a>
+
+        <h5>About Bitz</h5>
+        <img src="img/brand/logo-whitxe.png" class="marginbot15" alt="">
+        <p>
+          Based in Nairobi Kenya and Hargeisa Somaliland, we provide call center infrastructure services and custom
+          software development services for our clients around the world.
+        </p>
+        <div class="social-icons">
+
+          <a href="#"><i class="bi bi-facebook"></i></a>
+          <a href="#"><i class="bi bi-twitter"></i></a>
+          <a href="#"><i class="bi bi-google"></i></a>
+          <a href="#"><i class="bi bi-instagram"></i></a>
+          <a href="#"><i class="bi bi-linkedin"></i></a>
+
         </div>
+
+
+
       </div>
       <div class="footer-content">
-        <h3>Quick Links</h3>
-        <a href="a">Home</a>
-        <a href="a">About</a>
-        <a href="a">Contact</a>
+
+        <h5>Quick Links</h5>
+        <ul class="list-icons link-list">
+          <li><i class="fa fa-angle-double-right"></i> <a href="company/">Company</a></li>
+          <li><i class="fa fa-angle-double-right"></i> <a href="services/">Services</a></li>
+          <li><i class="fa fa-angle-double-right"></i> <a href="products-services">Product &amp; Solutions</a></li>
+          <li><i class="fa fa-angle-double-right"></i> <a href="#">Help center</a></li>
+          <li><i class="fa fa-angle-double-right"></i> <a href="contacts/">Contact Us</a></li>
+          <li><i class="fa fa-angle-double-right"></i> <a href="#">Privacy Policy</a></li>
+          <li><i class="fa fa-angle-double-right"></i> <a href="#">Site map</a></li>
+        </ul>
+
       </div>
       <div class="footer-content">
-        <h3>Support</h3>
+        <h5>Developer Resources</h5>
+        <ul class="list-icons link-list">
+            <li><i class="fa fa-angle-double-right"></i> <a href="company/">Documentaion</a></li>
+            <li><i class="fa fa-angle-double-right"></i> <a href="services/">Integretion</a></li>
+            <li><i class="fa fa-angle-double-right"></i> <a href="products-services">Product &amp; Solutions</a></li>
+            <li><i class="fa fa-angle-double-right"></i> <a href="#">Help center</a></li>
+            <li><i class="fa fa-angle-double-right"></i> <a href="contacts/">Contact Us</a></li>
+            <li><i class="fa fa-angle-double-right"></i> <a href="#">Privacy Policy</a></li>
+            <li><i class="fa fa-angle-double-right"></i> <a href="#">Site map</a></li>
+          </ul>
       </div>
+
+      <div class="footer-content">
+          <h3>Subscribe to our newsletter</h3>
+          <form @submit.prevent="handleSubmit">
+            <input type="email" placeholder="Enter your email">
+            <button type="submit">Subscribe</button>
+          </form>
+        </div>
     </div>
     <div class="footer-row">@copyright{{ new Date().getFullYear() }}</div>
   </div>
