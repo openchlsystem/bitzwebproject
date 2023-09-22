@@ -1,75 +1,96 @@
 <template>
-     <div class="container">
+  <div class="footer-container">
+    <div class="footer-row">
+      <div class="footer-partners">
+        <h3>Our Partners</h3>
+        <partner-card></partner-card>
+      </div>
+    </div>
+    <div class="footer-row">
       <div class="footer-content">
-        <div class="footer-section">
-          <h3>Our Partners</h3>
-          <partner-card></partner-card>
+
+        <h5>About Bitz</h5>
+        <img src="img/brand/logo-whitxe.png" class="marginbot15" alt="">
+        <p>
+          Based in Nairobi Kenya and Hargeisa Somaliland, we provide call center infrastructure services and custom
+          software development services for our clients around the world.
+        </p>
+        <div class="social-icons">
+
+          <a href="#"><i class="bi bi-facebook"></i></a>
+          <a href="#"><i class="bi bi-twitter"></i></a>
+          <a href="#"><i class="bi bi-google"></i></a>
+          <a href="#"><i class="bi bi-instagram"></i></a>
+          <a href="#"><i class="bi bi-linkedin"></i></a>
+
         </div>
-      </div>
-      <div class="container footer-bottom">
-        <div class="row">
-    <div class="col-md-6 mr-md-4"> 
-        <h3>Connect with Us</h3>
-        <font-awesome-icon class="custom-icons" :icon="['fab','facebook']"/>
-        <font-awesome-icon :icon="['fab','instagram']"/>
-        <font-awesome-icon :icon="['fab','twitter']"/> 
-        <font-awesome-icon :icon="['fab', 'whatsapp']" />
-        
-    </div>
-    
-    <div class="col-md-6"> 
-        <h3>Contact Us</h3>
-        <p> Trio Center, Near Garden city</p>
-        <p>www.bitz-itc.com </p>
 
-        <!-- Add your contact information here -->
-    </div>
-</div>
-       
-     
-                </div>
-                <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2)">
-                        © 2020 Copyright:
-                <a class="text-white" href="#">Bitzweb.</a>
-  
 
-    <!-- Add more contact details as needed -->
+
       </div>
+      <div class="footer-content">
+
+        <h5>Quick Links</h5>
+        <ul class="list-icons link-list">
+          <li><i class="fa fa-angle-double-right"></i> <a href="company/">Company</a></li>
+          <li><i class="fa fa-angle-double-right"></i> <a href="services/">Services</a></li>
+          <li><i class="fa fa-angle-double-right"></i> <a href="products-services">Product &amp; Solutions</a></li>
+          <li><i class="fa fa-angle-double-right"></i> <a href="#">Help center</a></li>
+          <li><i class="fa fa-angle-double-right"></i> <a href="contacts/">Contact Us</a></li>
+          <li><i class="fa fa-angle-double-right"></i> <a href="#">Privacy Policy</a></li>
+          <li><i class="fa fa-angle-double-right"></i> <a href="#">Site map</a></li>
+        </ul>
+
+      </div>
+      <div class="footer-content">
+        <h5>Developer Resources</h5>
+        <ul class="list-icons link-list">
+            <li><i class="fa fa-angle-double-right"></i> <a href="company/">Documentaion</a></li>
+            <li><i class="fa fa-angle-double-right"></i> <a href="services/">Integretion</a></li>
+            <li><i class="fa fa-angle-double-right"></i> <a href="products-services">Product &amp; Solutions</a></li>
+            <li><i class="fa fa-angle-double-right"></i> <a href="#">Help center</a></li>
+            <li><i class="fa fa-angle-double-right"></i> <a href="contacts/">Contact Us</a></li>
+            <li><i class="fa fa-angle-double-right"></i> <a href="#">Privacy Policy</a></li>
+            <li><i class="fa fa-angle-double-right"></i> <a href="#">Site map</a></li>
+          </ul>
+      </div>
+
+      <div class="footer-content">
+          <h3>Subscribe to our newsletter</h3>
+          <form @submit.prevent="handleSubmit">
+            <input type="email" placeholder="Enter your email">
+            <button type="submit">Subscribe</button>
+          </form>
+        </div>
     </div>
- 
-    
-    
+    <div class="footer-row">@copyright{{ new Date().getFullYear() }}</div>
+  </div>
 </template>
-   
 
-  <script>
-  import PartnerCard from '@/views/PartnerCard.vue';
-import { socialMediaLinks } from '@/utils/ContactData.js';
+<script>
+import PartnerCard from "@/views/PartnerCard.vue";
+import { socialMediaLinks } from "@/utils/ContactData.js";
 
+export default {
+  components: {
+    PartnerCard,
+  },
+  data() {
+    return {
+      socialMediaLinks,
+    };
+  },
+};
+</script>
 
-  
-  export default {
-    components: {
-      PartnerCard,
-
-  
-    },
-    data() {
-      return {
-        socialMediaLinks,
-      };
-    },
-  };
-  </script>
-  
-  <style scoped>
-  .icon {
-  font-size: 24px; /* Adjust the size as needed */
+<style scoped>
+.icon {
+  font-size: 24px;
+  /* Adjust the size as needed */
 }
 
 .icon:hover {
-  color: inherit; /** Add styles for spacing and other styling as needed */
+  color: inherit;
+  /** Add styles for spacing and other styling as needed */
 }
-
-  </style>
-  
+</style>
