@@ -1,7 +1,7 @@
 // SolutionsData.js
 
 import projectmanagement from "../assets/images/stock/projectmanagement.jpg";
-import processmapping from "../assets/images/stock/product-iteration-animate.svg";
+import processmapping from "../assets/images/stock/mapping.jpg";
 import UI from "../assets/images/stock/UI.svg";
 import softwaredevelopment from "../assets/images/stock/appdevelopment.svg";
 import QA from "../assets/images/stock/QA.jpg";
