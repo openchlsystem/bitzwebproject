@@ -41,7 +41,7 @@ export default {
           (description.value =
             "We are dedicated to safeguarding children's well-being and providing a reliable helpline system for organizations and governments worldwide. Our technology-driven solutions ensure that children's voices are heard, and assistance is readily available when they need it most."),
           (buttonText.value = "Learn About OPENCHS"),
-          (imageUrl.value = require("../assets/images/stock/Openchs.jpg")),
+          (imageUrl.value = require("../assets/images/stock/home.jpg")),
           (attribution.value = "");
       }
       if (route.path === "/developers") {
@@ -69,7 +69,9 @@ export default {
           (attribution.value = "");
       }
       if (route.path === "/contact") {
-        (title.value = "Contact Us"), (description.value = "Contact Us");
+        (title.value = "Contact Us"), (description.value = "Contact Us"),
+        (buttonText.value = "Contact Us"),
+        (imageUrl.value = require("../views/MapView.vue"));
       }
 
       if (route.path === "/products") {
@@ -183,7 +185,7 @@ export default {
       description,
       buttonText,
       imageUrl,
-      attribution,
+    
     };
   },
   methods: {

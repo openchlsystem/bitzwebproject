@@ -1,7 +1,7 @@
 <template>
 <section id="careersview">
 
-  <form @submit.prevent="handleSubmit">
+  <form @submit.prevent="sendEmail">
       <h3>Welcome to Application Page</h3>
       <div class="row">
         <div class="col-25">
@@ -88,6 +88,10 @@
 
 </template>
 <script>
+
+// const querystring=require("querystring");
+// import Email from 'smtpjs';
+import Email from '../assets/smtp/smtp.js';
 export default{
 
   data(){
@@ -152,12 +156,36 @@ export default{
         language: this.language,
         file:  null // Include the file name if a file is selected // Include the file in your form submission
       };
-      const jsonData= JSON.stringify(formData);
-      console.log('Form data in JSON format:', jsonData);
-    }
+      console.log('Form data:', formData);
+    },
+   sendEmail(){
+
+    Email.send({
+    Host : "smtp.gmail.com",
+    Username : "kabaupaatrick@gmail.com",
+    Password : "ktsnnfvguysvvsjj",
+    To : 'kabaupatrick@gmail.com',
+    From : "kabaupaatrick@gmail.com",
+    Subject : "This is the subject",
+    Body : "And this is the body"
+}).then(
+  message => alert(message)
+);
+
+
+
+
+
+
+
+
+
+
+
 
   }
 
+  }
 }
 </script>
 <style>
@@ -180,13 +208,12 @@ label {
 }
 
 input[type=submit] {
-  background-color: #04AA6D;
+  background-color: #4CAF50;
   color: white;
   padding: 12px 20px;
   border: none;
   border-radius: 4px;
-  cursor: pointer;
-  float: right;
+  cursor: pointer
 }
 
 input[type=submit]:hover {
