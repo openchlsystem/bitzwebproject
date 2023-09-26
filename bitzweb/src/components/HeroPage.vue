@@ -211,6 +211,13 @@ export default {
           .scrollIntoView({ behavior: "smooth", block: "end" });
         
       }
+
+      if (this.$route.path === "/products") {
+        this.$router.push("/pricing")
+
+        
+      }
+
       if (this.$route.path === "/products/1") {
         this.$router.push("/pricing")
 
