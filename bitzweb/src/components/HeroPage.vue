@@ -71,7 +71,7 @@ export default {
       if (route.path === "/contact") {
         (title.value = "Contact Us"), (description.value = "Contact Us"),
         (buttonText.value = "Contact Us"),
-        (imageUrl.value = require("../views/MapView.vue"));
+        (imageUrl.value = require("../assets/images/stock/Contactus-cuate.svg"));
       }
 
       if (route.path === "/products") {
@@ -194,6 +194,9 @@ export default {
       if (this.$route.path === "/developers") {
         this.$router.push("/careers");
       }
+      if (this.$route.path==='/contact'){
+        this.$router.push("/contact");
+      }
       if (this.$route.path === "/") {
         this.$router.push("/products/1");
       }
@@ -201,6 +204,12 @@ export default {
         document
           .getElementById("careersview")
           .scrollIntoView({ behavior: "smooth", block: "end" });
+      }
+      if (this.$route.path === "/developers") {
+        document
+          .getElementById("development")
+          .scrollIntoView({ behavior: "smooth", block: "end" });
+        
       }
       if (this.$route.path === "/products/1") {
         this.$router.push("/pricing")
