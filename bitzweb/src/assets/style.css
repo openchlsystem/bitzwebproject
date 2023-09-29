@@ -922,7 +922,6 @@ ul {
   align-content: space-around;
   box-shadow: 0 0 20px var(--text-color-dark);
   margin: var(--margin-medium);
-  background-color: var(--background-color);
   border: 1px solid #f1f;
   margin-bottom: var(--medium-spacing);
   box-shadow: 0 0 10px #000;
