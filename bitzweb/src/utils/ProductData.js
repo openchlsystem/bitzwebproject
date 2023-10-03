@@ -12,7 +12,7 @@ import ContactImage from "../assets/images/stock/Contact.jpg";
 import IntegrationImage from "../assets/images/stock/Integration.jpg";
 import AccessControlImage from "../assets/images/stock/SourceControl.jpg";
 import SaccoAvailabilityImage from "../assets/images/stock/SaccoAvailability.jpg";
-import MultichannelImage from "../assets/images/stock/multichannel.jpg";
+import MultichannelImage from "../assets/images/stock/multichannel.png";
 import SaccoIntegrationImage from "../assets/images/stock/SeamlessIntegration.jpg";
 import Openchs from "../assets/images/stock/Openchs.jpg";
 import LegalCaseManagement from "../assets/images/stock/LegalCaseManagement.jpg";

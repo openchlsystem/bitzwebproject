@@ -2,10 +2,10 @@ import UnicefLogoImage from "../assets/images/stock/UNICEF_logo_2016.png";
 import UNFPALogoImage from "../assets/images/stock/UNFPA_logo.png";
 import TurkanaLogoImage from "../assets/images/stock/Turkana_Basin_Institute_logo.png";
 import TowerSaccoLogo from "../assets/images/stock/Tower_Sacco_logo.png";
-import UnaitasLogo from "../assets/images/stock/Unaitas_Logo.png";
+import UnaitasLogo from "../assets/images/stock/Unaitas_Logo.webp";
 import RwandaLogo from "../assets/images/stock/Rwanda-Biomedical-Center_Logo.png";
 import SautiLogo from "../assets/images/stock/Sauti_Logo.png";
-import ChildlineLogo from "../assets/images/stock/ChildlineKenya.png";
+import ChildlineLogo from "../assets/images/stock/childline_kenya_logo.jpeg";
 import Eprocurement from "../assets/images/stock/Rwanda_Eprocurement.jpeg";
 import JabaliSchoolLogo from "../assets/images/stock/Jabali_Christian_School_logo.png";
 export const PartnersData = [
