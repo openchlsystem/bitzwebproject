@@ -34,7 +34,8 @@
     </nav>
     <nav>
       <div class="dropdown">
-        <router-link to="/contact">Contact</router-link>
+        <!-- <router-link to="/contact">Contact</router-link> -->
+        <button>Get Demo</button>
       </div>
       <div class="dropdwon">
         <router-link to="/about">company</router-link>

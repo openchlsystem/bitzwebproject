@@ -1,18 +1,11 @@
 <template>
   <div class="partner-section">
-    <div
-      class="partners-card"
-      v-for="(partner, index) in PartnersData"
-      :key="index"
-    >
-      <a
-        class="partners_profile"
-        :href="partner.Link"
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        <img class="profile" :src="partner.logo" :alt="partner.title" />
-      </a>
+    <div class="partners-card" v-for="(partner, index) in PartnersData" :key="index" :href="partner.Link" target="_blank"
+      rel="noopener noreferrer">
+
+
+      <img class="profile" :src="partner.logo" :alt="partner.title" />
+
     </div>
   </div>
 

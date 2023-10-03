@@ -1,7 +1,7 @@
 <template>
-  <h3>Our Solutions</h3>
-
+  
   <div class="benefits-section">
+  <h3>Our Solutions</h3>
     <ul>
       <li class="home" v-for="solution in SolutionsData" :key="solution.title">
         <div class="row">

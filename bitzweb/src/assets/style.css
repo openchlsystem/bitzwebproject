@@ -265,85 +265,45 @@ img {
  * 2. Remove the margin in Firefox and Safari.
  */
 
- form{
+form {
   display: flex;
   flex-direction: column;
   margin: 0;
-  padding: 10px;
+  padding: 20px;
   width: 100%;
-  border: 1px solid #f1f;
-  border-radius: var(--border-radius);
-
-
- }
-
-
-
-
-button,
-input,
-optgroup,
-select,
-textarea {
-  font-family: inherit; /* 1 */
-  font-size: 100%; /* 1 */
-  line-height: 1.15; /* 1 */
-  margin: 0; /* 2 */
+  border-radius: 5px;
 }
 
-/**
- * Show the overflow in IE.
- * 1. Show the overflow in Edge.
- */
 
-button,
-input {
-  /* 1 */
-  overflow: visible;
-  width: 100%;
-  height: 50px;
-  margin-right: 100px;
+
+
+
+
+
+
+
+input[type=email],
+input[type="number"],
+input[type="password"],
+input[type="search"],
+input[type="tel"],
+input[type="text"],
+input[type="url"],
+input[type="week"] {
+  -webkit-appearance: none;
+  appearance: none;
+  margin: 10px;
   margin-bottom: var(--medium-spacing);
-  /* margin: var(--medium-spacing); */
-  /* padding: var(--small-spacing); */
-
-}
-
-input[type="radio"],
-input[type="checkbox"] {
-  box-sizing: border-box; /* 1 */
-  padding: 0; /* 2 */
-}
-
-input[type="date"],
-input[type="time"],
-input[type="datetime-local"],
-input[type="month"] {
-  -webkit-appearance: listbox;
-}
-
-input[type="search"] {
-  -webkit-appearance: textfield; /* 1 */
-  outline-offset: -2px; /* 2 */
-}
-
-input[type="search"]::-webkit-search-decoration {
-  -webkit-appearance: none;
-}
-
-
-
-input[type="search"]::-webkit-search-cancel-button,
-input[type="search"]::-webkit-search-decoration {
-  -webkit-appearance: none;
+  padding: var(--small-spacing);
+  width: 100%;
+  border-radius: var(--border-radius);
+  height: 50px;
 }
 
 /**
  * Remove the inheritance of text transform in Edge, Firefox, and IE.
  * 1. Remove the inheritance of text transform in Firefox.
  */
-
-
 
 button,
 select {
@@ -543,24 +503,24 @@ template {
   align-items: center;
   width: 100%;
   position: relative;
+  border-bottom: 1px solid var(--text-color);
 }
 
 nav {
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 10px;
-  text-transform: uppercase;
-  font-size: 20px;
+  gap: 30px;
+  text-transform: capitalize;
   font-weight: bold;
   margin: 0;
   margin-right: var(--medium-spacing);
 }
 
 nav a {
-  color: var(--primary-color);
   text-decoration: none;
   transition: all 0.3s ease-in-out;
+  text-transform: uppercase;
 }
 
 nav a:hover {
@@ -568,6 +528,7 @@ nav a:hover {
   text-decoration: none;
   transition: all 0.3s ease-in-out;
   animation-delay: 1ms;
+  border-bottom: var(--primary-color);
 }
 
 .dropdown {
@@ -834,10 +795,16 @@ ul {
 
   background-size: cover;
   padding: var(--font-size-xxxlarge);
+  box-shadow: 0 0 20px var(--text-color-dark);
+  margin: 20px;
 }
 
 .feature-hero-section h1 {
   color: var(--text-color);
+  text-shadow: 0 0 10px var(--white-color);
+  text-transform: uppercase;
+  font-weight: 800;
+  color:var(--primary-color);
 }
 
 .feature-hero-section p {
@@ -873,9 +840,34 @@ ul {
   cursor: pointer;
 }
 
+.feature-hero-section .row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+}
+
 .feature-hero-section col {
-  height: 100vh;
+  height: 80vh;
   text-align: center;
+}
+
+.feature-hero-section .col:hover{
+  box-shadow: 0 2px 4px var(--primary-color);
+  transition: all 0.5s ease-in-out; 
+  border-radius: 5px;
+  padding: 10px 20px;
+  cursor: pointer;
+  text-shadow: #f9f9f9;
+  padding: var(--large-spacing);
+
+}
+
+.feature-hero-section .c2a {
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  gap: 10px;
 }
 
 .feature-hero-section img {
@@ -900,7 +892,6 @@ ul {
   border-radius: var(--margin-medium);
   box-shadow: 0 0 20px var(--text-color-dark);
   margin: 10px;
-  border: 1px solid #f1f;
 }
 
 .benefits-section h3 {
@@ -913,8 +904,6 @@ ul {
   text-shadow: 0 0 10px var(--text-color-light);
 }
 
-
-
 .benefits-section li {
   padding: 10px;
   height: 100vh;
@@ -922,17 +911,13 @@ ul {
   align-content: space-around;
   box-shadow: 0 0 20px var(--text-color-dark);
   margin: var(--margin-medium);
-  border: 1px solid #f1f;
   margin-bottom: var(--medium-spacing);
   box-shadow: 0 0 10px #000;
-
-
 }
 
 .benefits-section li:hover {
   box-shadow: 0 0 20px var(--black-color);
   transition: all 0.3s ease-in-out;
-  
 }
 
 .benefits-section li:nth-child(even) {
@@ -958,8 +943,6 @@ ul {
 
 .benefits-section .row:last-child {
   margin-bottom: 0;
-  
-
 }
 
 .benefits-section .col {
@@ -968,8 +951,6 @@ ul {
   padding: var(--large-spacing);
   margin: var(--medium-spacing);
 }
-
-
 
 .benefits-section .col img {
   width: 100%;
@@ -993,24 +974,24 @@ ul {
   flex-wrap: wrap;
 }
 
-.partners-card {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+.partners-card {  
   flex-basis: 20%;
-  box-shadow: 0 10px 20px var(--text-color-dark);
   border-radius: 5px;
-  border: 1px solid #f1f;
-  padding: 10px;
+  border: #000 1px solid;
   margin: 10px;
-  width: 200px;
+  width: 300px;
   height: 200px;
 }
 
-
+.partners-card img {
+  width: 100%; /* Make the image width 100% of its parent div */
+  height: auto; /* Automatically adjust the height to maintain aspect ratio */
+  display: block; /* Remove any extra spacing below the image */
+  border: #000 1px solid;
+}
 
 .footer {
-  color: #fff;
+  color: #323131;
   padding: 20px 0;
 }
 
@@ -1019,9 +1000,20 @@ ul {
   padding: 10px;
 }
 
+.footer-partners{
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+  justify-content: center;
+  align-items: center;
+}
+
 .footer-container {
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+
 }
 
 .footer-row {
@@ -1030,6 +1022,7 @@ ul {
   align-items: space-between;
   padding-bottom: 10px;
   margin-bottom: 20px;
+  
 }
 
 .footer-content {
@@ -1039,9 +1032,30 @@ ul {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  border: 1px solid #f1f;
-  padding:20px;
+  background-color: var(--primary-color);
+  color: #fff;
+  border-radius: 5px;
+  margin: 10px;
+  padding: 10px;
 }
+
+.footer-content p {
+  padding: 10px;
+}
+
+.footer-content a {
+  color: #fff;
+  text-shadow: 0 0 10px var(--black-color);
+}
+
+
+
+
+.footer-content a:hover {
+  color: var(--secondary-color);
+}
+
+
 
 .social-icons {
   display: flex;

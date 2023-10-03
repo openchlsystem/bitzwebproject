@@ -37,9 +37,9 @@ export default {
       console.log("Current Path:", route.path);
 
       if (route.path === "/") {
-        (title.value = "OPENCHS - Your Trusted Child Helpline Partner"),
+        (title.value = "Your Trusted Child Helpline Partner"),
           (description.value =
-            "We are dedicated to safeguarding children's well-being and providing a reliable helpline system for organizations and governments worldwide. Our technology-driven solutions ensure that children's voices are heard, and assistance is readily available when they need it most."),
+            "Discover Our Child Helping System: A comprehensive solution with a strong focus on Telephony Integration (including the 116 hotline), Social Media, and SMS Integration for accessible support channels. Backed by efficient Case Management and Reporting capabilities, our system offers personalized care and detailed reporting to make a positive impact on children's lives."),
           (buttonText.value = "Learn About OPENCHS"),
           (imageUrl.value = require("../assets/images/stock/home.jpg")),
           (attribution.value = "");
@@ -85,7 +85,7 @@ export default {
       if (route.path === "/products/1") {
         (title.value = "OpenCHS."),
           (description.value =
-            "At our software company, we specialize in delivering bespoke software solutions designed to perfectly align with your unique requirements. Our dedicated team of experts works closely with you to understand your needs, ensuring that every aspect of the software we create is tailored to help your business thrive. With us, your vision becomes reality.");
+            "Discover Our Child Helping System: A comprehensive solution with a strong focus on Telephony Integration (including the 116 hotline), Social Media, and SMS Integration for accessible support channels. Backed by efficient Case Management and Reporting capabilities, our system offers personalized care and detailed reporting to make a positive impact on children's lives.");
         (buttonText.value = "Get a Quote "),
           (imageUrl.value = require("../assets/images/stock/SaccoAvailability.jpg"));
       }
