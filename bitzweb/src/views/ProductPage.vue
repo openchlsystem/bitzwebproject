@@ -1,8 +1,8 @@
 <template v-show="">
   <div v-show="selectedProductID > 0">
-    <h3>Product Features</h3>
-
+    
     <div class="benefits-section">
+    <h3>Product Features</h3>
       <ul v-for="solution in productFeatures" :key="solution.Feature">
         <li v-if="solution.Product_id == selectedProductID">
           <div class="row">

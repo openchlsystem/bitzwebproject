@@ -45,25 +45,25 @@
       <div class="footer-content">
         <h5>Developer Resources</h5>
         <ul class="list-icons link-list">
-            <li><i class="fa fa-angle-double-right"></i> <a href="company/">Documentaion</a></li>
-            <li><i class="fa fa-angle-double-right"></i> <a href="services/">Integretion</a></li>
-            <li><i class="fa fa-angle-double-right"></i> <a href="products-services">Product &amp; Solutions</a></li>
-            <li><i class="fa fa-angle-double-right"></i> <a href="#">Help center</a></li>
-            <li><i class="fa fa-angle-double-right"></i> <a href="contacts/">Contact Us</a></li>
-            <li><i class="fa fa-angle-double-right"></i> <a href="#">Privacy Policy</a></li>
-            <li><i class="fa fa-angle-double-right"></i> <a href="#">Site map</a></li>
-          </ul>
+          <li><i class="fa fa-angle-double-right"></i> <a href="company/">Documentaion</a></li>
+          <li><i class="fa fa-angle-double-right"></i> <a href="services/">Integretion</a></li>
+          <li><i class="fa fa-angle-double-right"></i> <a href="products-services">Product &amp; Solutions</a></li>
+          <li><i class="fa fa-angle-double-right"></i> <a href="#">Help center</a></li>
+          <li><i class="fa fa-angle-double-right"></i> <a href="contacts/">Contact Us</a></li>
+          <li><i class="fa fa-angle-double-right"></i> <a href="#">Privacy Policy</a></li>
+          <li><i class="fa fa-angle-double-right"></i> <a href="#">Site map</a></li>
+        </ul>
       </div>
 
       <div class="footer-content">
-          <h3>Subscribe to our newsletter</h3>
-          <form @submit.prevent="handleSubmit">
-            <input type="email" placeholder="Enter your email">
-            <button type="submit">Subscribe</button>
-          </form>
-        </div>
+        <h3>Subscribe to our newsletter</h3>
+        <form @submit.prevent="handleSubmit">
+          <input type="email" placeholder="Enter your email">
+          <button type="submit">Subscribe</button>
+        </form>
+      </div>
     </div>
-    <div class="footer-row">@copyright{{ new Date().getFullYear() }}</div>
+    <div class="footer-row">{{ footerText }}</div>
   </div>
 </template>
 
@@ -80,6 +80,19 @@ export default {
       socialMediaLinks,
     };
   },
+  setup() {
+
+    const currentDate = new Date();
+    const year = currentDate.getFullYear();
+
+    const footerText = `© ${year} BITZ IT Consulting. All rights reserved.`;
+
+    return {
+      footerText,
+
+
+    }
+  }
 };
 </script>
 
