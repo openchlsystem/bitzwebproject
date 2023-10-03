@@ -73,6 +73,9 @@ export default {
         (buttonText.value = "Contact Us"),
         (imageUrl.value = require("../assets/images/stock/Contactus-cuate.svg"));
       }
+      if (route.path === "/demo") {
+        (title.value = "Request for A Demo"), (description.value = "Welcome to our demo page! Request for a demo to witness our company's innovation and excellence. Immerse yourself in cutting-edge solutions that revolutionize industries, offering intuitive user interfaces, seamless integrations, and unparalleled functionalities. Experience the potential of our solutions and envision how they can transform your Organization landscape."), (buttonText.value = "Click Here to Request for Demo"), (imageUrl.value = require("../assets/images/stock/DemoImage1.jpg"));
+      }
 
       if (route.path === "/products") {
         (title.value =
@@ -208,6 +211,12 @@ export default {
       if (this.$route.path === "/developers") {
         document
           .getElementById("development")
+          .scrollIntoView({ behavior: "smooth", block: "end" });
+        
+      }
+      if (this.$route.path === "/demo") {
+        document
+          .getElementById("demo")
           .scrollIntoView({ behavior: "smooth", block: "end" });
         
       }

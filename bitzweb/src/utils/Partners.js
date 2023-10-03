@@ -1,4 +1,4 @@
-import UnicefLogoImage from "../assets/images/stock/UNICEF_logo_2016.png";
+import UnicefLogoImage from "../assets/images/stock/Analytics.jpg";
 import UNFPALogoImage from "../assets/images/stock/UNFPA_logo.png";
 import TurkanaLogoImage from "../assets/images/stock/Turkana_Basin_Institute_logo.png";
 import TowerSaccoLogo from "../assets/images/stock/Tower_Sacco_logo.png";

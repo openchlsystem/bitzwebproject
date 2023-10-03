@@ -35,7 +35,7 @@
     <nav>
       <div class="dropdown">
         <!-- <router-link to="/contact">Contact</router-link> -->
-        <button>Get Demo</button>
+        <button @click="navigateDemo">Get Demo</button>
       </div>
       <div class="dropdwon">
         <router-link to="/about">company</router-link>
@@ -56,6 +56,11 @@ export default {
   setup() {
     return { SolutionsData, productsData };
   },
+  methods: {
+    navigateDemo() {
+      this.$router.push("/demo");
+    }
+  }
 };
 </script>
 
