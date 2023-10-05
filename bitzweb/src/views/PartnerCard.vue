@@ -4,7 +4,7 @@
       rel="noopener noreferrer">
 
 
-      <img class="profile" :src="partner.logo" :alt="partner.title" />
+      <img :src="partner.logo" :alt="partner.title" />
 
     </div>
   </div>

@@ -37,18 +37,18 @@ export default {
       console.log("Current Path:", route.path);
 
       if (route.path === "/") {
-        (title.value = "Your Trusted Child Helpline Partner"),
+        (title.value = "116 Child Helpline Partner"),
           (description.value =
-            "Discover Our Child Helping System: A comprehensive solution with a strong focus on Telephony Integration (including the 116 hotline), Social Media, and SMS Integration for accessible support channels. Backed by efficient Case Management and Reporting capabilities, our system offers personalized care and detailed reporting to make a positive impact on children's lives."),
+            "Our Child Helping System: A comprehensive solution with a strong focus on Telephony Integration (including the 116 hotline), Social Media, and SMS Integration for accessible support channels. Backed by efficient Case Management and Reporting capabilities, our system offers personalized care and detailed reporting to make a positive impact on children's lives."),
           (buttonText.value = "Learn About OPENCHS"),
           (imageUrl.value = require("../assets/images/stock/home.jpg")),
           (attribution.value = "");
       }
       if (route.path === "/developers") {
-        (title.value = "Developers"),
+        (title.value = "Developer Rsources"),
           (description.value =
-            "Developers in our  organization are professionals who play a critical role in designing, creating, and maintaining software applications and systems that drive the organization's digital presence and operations."),
-          (buttonText.value = "Join Our Team"),
+            "Join the community of developers and get access to our developer resources."),
+          (buttonText.value = "Open Source Community"),
           (imageUrl.value = require("../assets/images/stock/Developers.jpg")),
           (attribution.value = "");
       }
@@ -69,7 +69,7 @@ export default {
           (attribution.value = "");
       }
       if (route.path === "/contact") {
-        (title.value = "Contact Us"), (description.value = "Contact Us"),
+        (title.value = "Contact Us"), (description.value = "info@bitz-itc.com"),
         (buttonText.value = "Contact Us"),
         (imageUrl.value = require("../assets/images/stock/Contactus-cuate.svg"));
       }
@@ -79,30 +79,30 @@ export default {
 
       if (route.path === "/products") {
         (title.value =
-          "Empower Your Customer Engagement with Our Custom Web Product: ."),
+          "Custom Web Products for Your Business"),
           (description.value =
-            "Manage your website content easily, Seamlessly Integrated with Core Banking and CRM.");
-        (buttonText.value = "Request for Demo "),
+            "We offer a wide range of web products that are designed to meet the specific needs of businesses of all sizes.");
+        (buttonText.value = "Learn More "),
           (imageUrl.value = require("../assets/images/stock/8354902_3847762.jpeg"));
       }
       if (route.path === "/products/1") {
-        (title.value = "OpenCHS."),
+        (title.value = "OpenCHS THE CHILD HELPLINE SYSTEM."),
           (description.value =
-            "Discover Our Child Helping System: A comprehensive solution with a strong focus on Telephony Integration (including the 116 hotline), Social Media, and SMS Integration for accessible support channels. Backed by efficient Case Management and Reporting capabilities, our system offers personalized care and detailed reporting to make a positive impact on children's lives.");
-        (buttonText.value = "Get a Quote "),
+            "Safe, Reliable, and Affordable Child Helpline System. We power East Africa's 116");
+        (buttonText.value = "Join Our Open Source Comunity"),
           (imageUrl.value = require("../assets/images/stock/SaccoAvailability.jpg"));
       }
       if (route.path === "/products/2") {
-        (title.value = " Legal Case Management"),
+        (title.value = " Case Management for Law Firms"),
           (description.value =
             "Our Legal Case Management Solution is a comprehensive and intuitive platform designed to revolutionize the way law firms and legal departments handle cases. From case inception to resolution, our solution streamlines every aspect of the legal process, enhancing efficiency, collaboration, and success.");
         (buttonText.value = "Get a Quote "),
           (imageUrl.value = require("../assets/images/stock/LegalCaseManagement.jpg"));
       }
       if (route.path === "/products/3") {
-        (title.value = " Sacco  Management"),
+        (title.value = "Case Management for Saccos"),
           (description.value =
-            "Our Sacco Management Solution is a comprehensive and modernized platform designed to revolutionize how Savings and Credit Cooperative Organizations (SACCOs) operate and serve their members. With a focus on empowering communities and enhancing financial prosperity, our solution provides SACCOs with the tools they need to efficiently manage operations, support member growth, and secure a brighter financial future for all.");
+            "Manage cases efficiently and effectively with our Sacco Case Management Solution.");
 
         (buttonText.value = "Get a Quote "),
           (imageUrl.value = require("../assets/images/stock/SaccoCaseManagement.jpg"));
@@ -115,48 +115,13 @@ export default {
         (buttonText.value = "Request for Demo "),
           (imageUrl.value = require("../assets/images/stock/7140739_3515462.jpeg"));
       }
-      if (route.path === "/softwareportfolio") {
-        (title.value = "Core Banking System for SACCOS and Microfinance."),
-          (description.value =
-            "Efficiently Manage Operations, Elevate Member Services, and Drive Growth with Ease.");
-        (buttonText.value = "Request for Demo "),
-          (imageUrl.value = require("../assets/images/stock/35262247_8292064.jpeg"));
-      }
+  
 
-      if (route.path === "/uiservices") {
-        (title.value =
-          "Crafting Seamless Customer Journeys: Elevating User Experiences through Tailored UI/UX Services."),
-          (description.value =
-            "At our UI/UX design studio, we are passionate about shaping exceptional user experiences that enhance the entire customer journey.Our tailored UI / UX services ensure your digital interfaces not only look stunning but also function intuitively, resulting in a seamless and delightful user journey from start to finish.Let us transform your design vision into a user - centric reality.");
-        (buttonText.value = "Free Consultation "),
-          (imageUrl.value = "https://picsum.photos/500/500");
-      }
+  
 
-      if (route.path === "/niche") {
-        (title.value =
-          "Modern-Day Agile Project Management: Ideation to Execution with Our Expert Scrum Team."),
-          (description.value =
-            " With our expert Scrum team by your side, we will transform your ideas into reality, from ideation to execution.We specialize in dynamic and efficient project management, ensuring your software projects not only keep pace with todays demands but also thrive in a rapidly evolving landscape.");
-        (buttonText.value = "Request for Demo "),
-          (imageUrl.value = "https://picsum.photos/500/500");
-      }
 
-      if (route.path === "/digital") {
-        (title.value =
-          "Professional Digital Strategy: Automate, Raise Awareness, Engage, and Convert for Ultimate Success!"),
-          (description.value =
-            "At our professional digital marketing service, we specialize in crafting and executing digital strategies that drive results. Our expert team leverages automation to maximize efficiency and streamline your marketing efforts. We focus on raising brand awareness, engaging your target audience, and ultimately converting leads into loyal customers. Join us on a journey that redefines digital marketing and elevates your online presence to new heights.");
-        (buttonText.value = "Free Consultation"),
-          (imageUrl.value = require("../assets/images/stock/digital marketing.jpeg"));
-      }
-      if (route.path === "/webportfolio") {
-        (title.value =
-          "Elevate Your Online Presence: Craft, Engage, Convert, and Thrive with Our Web Design Mastery!"),
-          (description.value =
-            "Our expertise lies in crafting visually stunning and user-friendly websites that not only capture attention but also engage and convert visitors effectively. With a professional approach and a focus on digital strategy, we are here to help you automate your online success, raise awareness, and achieve your business goals."),
-          (buttonText.value = "Get your Website today"),
-          (imageUrl.value = "https://picsum.photos/500/500");
-      }
+
+   
       if (route.path === "/careers") {
         (title.value =
           "Join Our Dynamic Team: Your Career, Your Potential, Your Future."),
