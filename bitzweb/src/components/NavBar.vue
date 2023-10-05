@@ -1,51 +1,59 @@
+
 <template>
-  <div class="menu-section">
-    <div class="logo">
-      <a href="/"><img src="@/assets/logo.png" alt="Logo" /></a>
+    <div class="menu-section">
+        <div class="logo">
+            <a href="/"><img src="@/assets/logo.png" alt="Logo" /></a>
+        </div>
+
+        <nav class="navbar">
+
+            <div class="dropdown">
+                <router-link to="/">Home</router-link>
+            </div>
+
+            <div class="dropdown">
+                <router-link to="/products">Products</router-link>
+                <div class="dropdown-content">
+                    <ul>
+                        <li v-for="product in productsData" :key="product.id"
+                            @click="this.$router.push(`/products/${product.id}`)">
+                            <p>{{ product.menu_name }}</p>
+                            <span>{{ product.menu_description }}</span>
+                        </li>
+                    </ul>
+                </div>
+
+
+            </div>
+            <div class="dropdown">
+                <router-link to="/developers">Developers</router-link>
+            </div>
+            <div class="dropdown">
+                <router-link to="/">Partners</router-link>
+            </div>
+            <div class="dropdown">
+                <router-link to="/contact">Support</router-link>
+            </div>
+
+
+
+        </nav>
+        <nav>
+
+            <div class="dropdwon">
+                <router-link to="/about">company</router-link>
+            </div>
+            <!-- <div class="dropdown">
+        <router-link to="/blog">Blog</router-link>
+      </div> -->
+            <div class="dropdown">
+                <!-- <router-link to="/contact">Contact</router-link> -->
+                <router-link to="/contact">Get in Touch</router-link>
+
+            </div>
+        </nav>
+
     </div>
-
-    <nav class="navbar">
-
-      <div class="dropdown">
-        <router-link to="/">Home</router-link>
-      </div>
-
-      <div class="dropdown">
-        <router-link to="/products">Product</router-link>
-        <div class="dropdown-content">
-          <ul>
-            <li v-for="product in productsData" :key="product.id" @click="this.$router.push(`/products/${product.id}`)">
-              <p>{{ product.menu_name }}</p>
-              <span>{{ product.menu_description }}</span>
-            </li>
-          </ul>
-        </div>
-
-
-      </div>
-      <div class="dropdown">
-        <router-link to="/developers">Developers</router-link>
-      </div>
-      <div class="dropdown">
-        <router-link to="/pricing">Get Quote</router-link>
-      </div>
-      
-      
-    </nav>
-    <nav>
-      <div class="dropdown">
-        <!-- <router-link to="/contact">Contact</router-link> -->
-        <button @click="navigateDemo">Get Demo</button>
-      </div>
-      <div class="dropdwon">
-        <router-link to="/about">company</router-link>
-      </div>
-      <div class="dropdown">
-          <router-link to="/blog">Blog</router-link>
-        </div>
-    </nav>
-
-  </div>
 </template>
 
 <script>
@@ -53,14 +61,14 @@ import { SolutionsData } from "@/utils/SolutionsData";
 import { productsData } from "@/utils/ProductData";
 
 export default {
-  setup() {
-    return { SolutionsData, productsData };
-  },
-  methods: {
-    navigateDemo() {
-      this.$router.push("/demo");
+    setup() {
+        return { SolutionsData, productsData };
+    },
+    methods: {
+        navigateDemo() {
+            this.$router.push("/demo");
+        }
     }
-  }
 };
 </script>
 

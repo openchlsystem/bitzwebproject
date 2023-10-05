@@ -1,12 +1,7 @@
 <template>
   <div class="container">
-    <header class="header">
-      <!-- First header content goes here -->
-      <div v-if="showChatWidget">
-        <div ref="chatWidget"></div>
-      </div>
-    </header>
-    <header class="header">
+  
+    <header class="header top-header">
       <!-- Second header content goes here -->
 
       <NavBar />
