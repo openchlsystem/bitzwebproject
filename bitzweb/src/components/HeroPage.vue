@@ -2,6 +2,7 @@
   <div class="feature-hero-section">
     <div class="row">
       <div class="col">
+        
         <h1>{{ title }}</h1>
         <p>{{ description }}</p>
         <button v-if="buttonText" @click="navigateRoute">
@@ -37,6 +38,14 @@ export default {
       console.log("Current Path:", route.path);
 
       if (route.path === "/") {
+        (title.value = "CUSTOM SOFTWARE TO REACH YOUR VISION"),
+          (description.value =
+            "Build custom software solutions for your business. We offer a variety of custom software solutions for businesses of all sizes."),
+          (buttonText.value = "Free Consultation"),
+          (imageUrl.value = require("../assets/images/stock/home.jpg")),
+          (attribution.value = "");
+      }
+      if (route.path === "/openchs") {
         (title.value = "116 Child Helpline Partner"),
           (description.value =
             "Our Child Helping System: A comprehensive solution with a strong focus on Telephony Integration (including the 116 hotline), Social Media, and SMS Integration for accessible support channels. Backed by efficient Case Management and Reporting capabilities, our system offers personalized care and detailed reporting to make a positive impact on children's lives."),

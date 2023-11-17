@@ -1,15 +1,14 @@
 <template v-show="">
   <div v-show="selectedProductID > 0">
-    
-    <div class="benefits-section">
-    <h3>Product Features</h3>
-      <ul v-for="solution in productFeatures" :key="solution.Feature">
+    <div class="product-features">
+      <h3>Product Features</h3>
+      <ul v-for="solution in productFeatures" :key="solution.Feature" >
         <li v-if="solution.Product_id == selectedProductID">
           <div class="row">
             <div class="col">
               <img :src="solution.imageUrl" alt="" />
             </div>
-            <div>
+            <div class="caption">
               <h3>{{ solution.Feature }}</h3>
               <p>{{ solution.Description }}</p>
             </div>
