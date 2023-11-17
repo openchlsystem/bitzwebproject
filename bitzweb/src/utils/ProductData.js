@@ -1,4 +1,3 @@
-
 import AvailabilityImage from "../assets/images/stock/Contact us-pana.svg";
 import Dashboard from "../assets/images/stock/Social Dashboard-pana.svg";
 import QA from "../assets/images/stock/QA.svg";
@@ -6,38 +5,40 @@ import QA from "../assets/images/stock/QA.svg";
 import DocumentationImage from "../assets/images/stock/Documentation.jpg";
 
 import AnalyticsImage from "../assets/images/stock/Investor presentation-cuate.svg";
-import ClientManagementImage from "../assets/images/stock/Client.jpg";
-import CalendarImage from "../assets/images/stock/Calendar.jpg";
-import ReportingImage from "../assets/images/stock/Reportsanalysis.jpg";
-import ContactImage from "../assets/images/stock/Contact.jpg";
-import IntegrationImage from "../assets/images/stock/Integration.jpg";
-import AccessControlImage from "../assets/images/stock/SourceControl.jpg";
+// import ClientManagementImage from "../assets/images/stock/Client.jpg";
+// import CalendarImage from "../assets/images/stock/Calendar.jpg";
+// import ReportingImage from "../assets/images/stock/Reportsanalysis.jpg";
+// import ContactImage from "../assets/images/stock/Contact.jpg";
+// import IntegrationImage from "../assets/images/stock/Integration.jpg";
+// import AccessControlImage from "../assets/images/stock/SourceControl.jpg";
 import SaccoAvailabilityImage from "../assets/images/stock/SaccoAvailability.jpg";
 import MultichannelImage from "../assets/images/stock/multichannel.png";
 import SaccoIntegrationImage from "../assets/images/stock/SeamlessIntegration.jpg";
-import Openchs from "../assets/images/stock/Openchs.jpg";
+import Openchs from "../assets/images/Giphy/helplineGiphy.gif";
 import LegalCaseManagement from "../assets/images/stock/LegalCaseManagement.jpg";
 import SaccoCaseManagement from "../assets/images/stock/SaccoCaseManagement.jpg";
-import Integration from "../assets/images/stock/SeamlessIntegration.jpg"
+import Integration from "../assets/images/stock/SeamlessIntegration.jpg";
+
+
 export const productsData = [
   {
     id: 1,
     menu_name: "OPENCHS",
     menu_description: "Comprehensive Child Helpline System",
-    title: "OPENCHS - Empowering Children's Safety",
+    title: "OPENCHS - A Child Helpline System",
     description:
-      "Our Child Helpline System (OPENCHS) is a comprehensive and cutting-edge solution dedicated to safeguarding children's well-being. It provides a lifeline for children in need, connecting them with immediate support, guidance, and protection. With OPENCHS, we aim to create a world where every child's voice is heard and their safety is paramount.",
+      "OPENCHS is a comprehensive child helpline system that provides a safe and confidential environment for children. It offers a range of services:",
     Modules:
       "24/7 Availability,Toll-Free Hotline,Multilingual SUpport, Anonymity and COnfidentiality, Immediate Response, Analytics and Reporting , Crisis Intervention,Counselling and Emotional Support, Legal Guidance",
     imageUrl: Openchs,
   },
   {
     id: 2,
-    menu_name: "Legal Case Management",
+    menu_name: "Case Management - Legal",
     menu_description: "Efficient Legal Case Workflow Management",
-    title: "Legal Case Management - Streamline Your Legal Workflow",
+    title: "Case Management - Legal",
     description:
-      "Our Legal Case Management solution is designed to simplify and streamline your legal processes. It empowers legal professionals to efficiently manage cases, documents, and clients, ensuring a well-organized and productive legal practice. With our comprehensive legal case management system, you can focus on achieving favorable outcomes for your clients while optimizing your legal operations.",
+      "Case Management - Legal is a comprehensive legal case management solution that simplifies and automates the entire lifecycle of legal cases",
     Modules:
       "Client and Case Information Management,Document Management,Calendar and Deadline Tracking, Workflow Automation,Time and Expense Tracking, Legal Research and Knowledge Management,Analytics and Reporting",
     imageUrl: LegalCaseManagement,
@@ -46,9 +47,9 @@ export const productsData = [
     id: 3,
     menu_name: "Sacco Case Management",
     menu_description: "Optimized Sacco Operations Management",
-    title: "Sacco Case Management - Elevate Your Sacco Efficiency",
+    title: "CRM for SACCOS",
     description:
-      "Experience a new level of efficiency in managing your Sacco operations with our Sacco Case Management solution. It simplifies member management, loans, and savings, making Sacco operations accessible and profitable. Our aim is to empower Sacco organizations to serve their members effectively and enhance financial inclusion for all.",
+      "CRM for SACCOS is a comprehensive software platform that simplifies and automates the entire lifecycle of Sacco operations.",
     Modules:
       "Exceptional Membership Management, Multi-Channel Communication,Seamless Integration,Exceptional Member Engagement,24/7 Accessibility, Training and Support ",
     imageUrl: SaccoCaseManagement,
@@ -56,11 +57,13 @@ export const productsData = [
 ];
 
 export const productFeatures = [
-  { id: 1,
-  Product_id: 1,
-  Module: "Call Management",
-  Feature: "Inbound and Outbound Call Handling",
-  Description: "Ability to manage both incoming and outgoing calls efficiently.",
+  {
+    id: 1,
+    Product_id: 1,
+    Module: "Call Management",
+    Feature: "Inbound and Outbound Call Handling",
+    Description:
+      "Ability to manage both incoming and outgoing calls efficiently.",
     imageUrl: AvailabilityImage,
   },
   {
@@ -68,22 +71,23 @@ export const productFeatures = [
     Product_id: 1, // This corresponds to OPENCHS
     Module: "Case Management",
     Feature: "Case Creation and Tracking ",
-    Description: "User-friendly interface for creating and managing cases, including detailed case information.",
-    imageUrl:  DocumentationImage,
+    Description:
+      "User-friendly interface for creating and managing cases, including detailed case information.",
+    imageUrl: DocumentationImage,
   },
   {
     id: 3,
     Product_id: 1, // This corresponds to OPENCHS
     Module: "Quality Assurance",
     Feature: "Call and Case Evaluation",
-    Description: "Tools for supervisors to evaluate the quality of calls and cases handled by agents.",
-    imageUrl: QA
-    
+    Description:
+      "Tools for supervisors to evaluate the quality of calls and cases handled by agents.",
+    imageUrl: QA,
   },
   {
     id: 4, // This corresponds to OPENCHS
     Product_id: 1,
-    
+
     Module: "Reporting and Analytics",
     Feature: "Customizable Reports",
     Description: "Create custom reports tailored to specific metrics and KPIs.",
@@ -94,7 +98,8 @@ export const productFeatures = [
     Product_id: 1, // This corresponds to OPENCHS
     Module: "Dashboards",
     Feature: "Real-Time Dashboards",
-    Description: "Real-time visual dashboards that provide a snapshot of call and case metrics.",
+    Description:
+      "Real-time visual dashboards that provide a snapshot of call and case metrics.",
     imageUrl: Dashboard,
   },
   {
@@ -102,64 +107,75 @@ export const productFeatures = [
     Product_id: 1,
     Module: "3rd Party Integrations",
     Feature: "CRM Integration",
-    Description: "Integration with Customer Relationship Management (CRM) software to access customer data and history.",
+    Description:
+      "Integration with Customer Relationship Management (CRM) software to access customer data and history.",
     imageUrl: Integration,
   },
- 
+
   {
     id: 1,
-    Product_id: 2, // This corresponds to Legal Case Management
+    Product_id: 2,
     Module: "Legal Case Management",
-    Feature: "Client and Case Information Management",
+    Feature: "Authentication & Authorization",
     Description:
-      "Easily create, organize, and manage case files, including client information, documents, correspondence, and key dates.",
-    imageUrl: ClientManagementImage,
+      "Users are required to log in to the system using their unique credentials. The system has robust authentication and authorization features to ensure that only authorized users have access to the system and that they can only perform actions that they are authorized to perform.",
+    imageUrl: "AuthenticationImage",
   },
   {
     id: 2,
     Product_id: 2,
     Module: "Legal Case Management",
-    Feature: "Calendar and Docketing",
+    Feature: "Case Management & Profiling",
     Description:
-      "Manage critical dates, deadlines, court appearances, and appointments with automated calendar and docketing Feature. Reminders and notifications are often included.",
-    imageUrl: CalendarImage, // This corresponds to Legal Case Management
+      "The system allows users to create, manage, and view cases. Each case has a unique case number and is associated with a set of case-related data, such as the parties involved, the case status, and the court in which the case is being heard. The system also allows for the creation of case profiles that contain detailed information about the case and its history.",
+    imageUrl: "CaseManagementImage",
   },
   {
     id: 3,
     Product_id: 2,
     Module: "Legal Case Management",
-    Feature: "Reporting and Analytics",
+    Feature: "Case Parties Profiling",
     Description:
-      "Generate customized reports and analytics on case progress, billable hours, client activity, and other key performance indicators",
-    imageUrl: ReportingImage, // This corresponds to Legal Case Management}
+      "The system allows for the creation of profiles for advocates and magistrates involved in the cases. These profiles contain information such as their contact details, qualifications, and case history.",
+    imageUrl: "PartiesProfileImage",
   },
   {
     id: 4,
     Product_id: 2,
-    MOdule: "Legal Case Management",
-    Feature: "Client and Contact Management",
+    Module: "Legal Case Management",
+    Feature: "Court Profile",
     Description:
-      "Maintain a centralized database of client and contact information, including contact details, communication history, and billing records.",
-    imageUrl: ContactImage,
+      "The system allows for the creation of profiles for courts involved in the cases. These profiles contain information such as the court's location, jurisdiction, and case history.",
+    imageUrl: "CourtProfileImage",
   },
   {
     id: 5,
     Product_id: 2,
     Module: "Legal Case Management",
-    Feature: "Integration with Email and Communication Tools,",
+    Feature: "Management Tracking of Files Movement",
     Description:
-      "Integrate with existing email and communication tools to streamline case management workflows.",
-    imageUrl: IntegrationImage,
+      "The system allows users to track the movement of case files within the court system. This feature provides real-time updates on the location of the case files and the status of the case.",
+    imageUrl: "FilesMovementImage",
   },
   {
     id: 6,
     Product_id: 2,
     Module: "Legal Case Management",
-    Feature: "Secure Access Control",
+    Feature: "Administration of Legal Fees",
     Description:
-      "Protect sensitive data and ensure only authorized users have access to case information.Implement role-based access controls to restrict access to sensitive client data and documents.",
-    imageUrl: AccessControlImage,
+      "The system allows for the administration of legal fees for cases. This feature facilitates the calculation of legal fees for each case and provides the ability to generate invoices for the fees.",
+    imageUrl: "LegalFeesImage",
   },
+  {
+    id: 7,
+    Product_id: 2,
+    Module: "Legal Case Management",
+    Feature: "Reports",
+    Description:
+      "The system provides a set of predefined reports that can be generated based on user-specified criteria. The reports provide detailed information about cases, such as the status of cases, the number of cases pending, and the number of cases that have been closed. Additionally, the system allows users to create custom reports as well.",
+    imageUrl: "ReportsImage",
+  },
+
   {
     id: 1,
     Product_id: 3, // This corresponds to Sacco Case Management

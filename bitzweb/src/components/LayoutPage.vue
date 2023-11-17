@@ -1,9 +1,7 @@
 <template>
   <div class="container">
-  
     <header class="header top-header">
       <!-- Second header content goes here -->
-
       <NavBar />
     </header>
     <header class="header">
@@ -14,9 +12,10 @@
       <!-- Body content goes here -->
       <router-view />
     </div>
+    <div class="footer">
+      <Footer />
+    </div>
   </div>
-
-  <Footer />
 </template>
 
 <script>
