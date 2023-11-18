@@ -18,6 +18,13 @@ import Openchs from "../assets/images/Giphy/helplineGiphy.gif";
 import LegalCaseManagement from "../assets/images/stock/LegalCaseManagement.jpg";
 import SaccoCaseManagement from "../assets/images/stock/SaccoCaseManagement.jpg";
 import Integration from "../assets/images/stock/SeamlessIntegration.jpg";
+import AuthenticationImage from "../assets/images/stock/Authentification_Image.svg";
+import CaseManagementImage from "../assets/images/stock/CaseManagement.svg";
+import PartiesProfileImage from "../assets/images/stock/Case_Parties_Profiling.svg";
+import CourtProfileImage from "../assets/images/stock/CourtProfileImage.svg";
+import FilesMovementImage from "../assets/images/stock/FileMovement.jpg";
+import LegalFeesImage from "../assets/images/stock/LegalFeeImage.jpg";
+import ReportsImage from "../assets/images/stock/Report-amico.svg";
 
 
 export const productsData = [
@@ -119,7 +126,7 @@ export const productFeatures = [
     Feature: "Authentication & Authorization",
     Description:
       "Users are required to log in to the system using their unique credentials. The system has robust authentication and authorization features to ensure that only authorized users have access to the system and that they can only perform actions that they are authorized to perform.",
-    imageUrl: "AuthenticationImage",
+    imageUrl: AuthenticationImage,
   },
   {
     id: 2,
@@ -128,7 +135,7 @@ export const productFeatures = [
     Feature: "Case Management & Profiling",
     Description:
       "The system allows users to create, manage, and view cases. Each case has a unique case number and is associated with a set of case-related data, such as the parties involved, the case status, and the court in which the case is being heard. The system also allows for the creation of case profiles that contain detailed information about the case and its history.",
-    imageUrl: "CaseManagementImage",
+    imageUrl: CaseManagementImage,
   },
   {
     id: 3,
@@ -137,7 +144,7 @@ export const productFeatures = [
     Feature: "Case Parties Profiling",
     Description:
       "The system allows for the creation of profiles for advocates and magistrates involved in the cases. These profiles contain information such as their contact details, qualifications, and case history.",
-    imageUrl: "PartiesProfileImage",
+    imageUrl: PartiesProfileImage,
   },
   {
     id: 4,
@@ -146,7 +153,7 @@ export const productFeatures = [
     Feature: "Court Profile",
     Description:
       "The system allows for the creation of profiles for courts involved in the cases. These profiles contain information such as the court's location, jurisdiction, and case history.",
-    imageUrl: "CourtProfileImage",
+    imageUrl: CourtProfileImage,
   },
   {
     id: 5,
@@ -155,7 +162,7 @@ export const productFeatures = [
     Feature: "Management Tracking of Files Movement",
     Description:
       "The system allows users to track the movement of case files within the court system. This feature provides real-time updates on the location of the case files and the status of the case.",
-    imageUrl: "FilesMovementImage",
+    imageUrl: FilesMovementImage,
   },
   {
     id: 6,
@@ -164,7 +171,7 @@ export const productFeatures = [
     Feature: "Administration of Legal Fees",
     Description:
       "The system allows for the administration of legal fees for cases. This feature facilitates the calculation of legal fees for each case and provides the ability to generate invoices for the fees.",
-    imageUrl: "LegalFeesImage",
+    imageUrl: LegalFeesImage,
   },
   {
     id: 7,
@@ -173,7 +180,7 @@ export const productFeatures = [
     Feature: "Reports",
     Description:
       "The system provides a set of predefined reports that can be generated based on user-specified criteria. The reports provide detailed information about cases, such as the status of cases, the number of cases pending, and the number of cases that have been closed. Additionally, the system allows users to create custom reports as well.",
-    imageUrl: "ReportsImage",
+    imageUrl: ReportsImage,
   },
 
   {
