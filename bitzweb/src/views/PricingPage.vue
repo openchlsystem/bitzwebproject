@@ -1,7 +1,7 @@
 <template>
   <section id="pricing_content">
 
-<form @submit.prevent="sendEmail">
+<form @submit.prevent="saveQuote">
     <h3>Request For  a Quotation</h3>
     <div class="row">
       <div class="col-25">
@@ -57,24 +57,56 @@
 
 </template>
 <script>
+import axios from 'axios';
 export default{
-  handleSubmit() {
-      // alert("Your Application has been submitted successfully!");
-      // Handle form submission here
+  data() {
+    return {
+      api: 'http://127.0.0.1:8000/api/',
+      fname: "",
+      lname: "",
+      phone: "",
+      email: "",
+      country: "",
+      subject: "",
+      quote: ""
+    }
+  },
+  methods:{
+    async saveQuote() {
+
+const formData ={
+  fname: this.fname,
+  lname: this.lname,
+  phone: this.phone,
+  email: this.email,
+  country: this.country,
+  subject: this.subject,
+  quote: this.quote
+};
+try {
+  const response = await axios.post('http://127.0.0.1:8000/api/Clients/', formData);
+console.log(response.data);
+   // Clear the form data after successful submission
+
+
+
+} catch (error) {
+  console.error(error);             
   
-      // You can send the form data to your server or perform other actions
-    
-   const formData={
-        fname: this.fname,
-        lname: this.lname,
-        coverletter: this.coverletter,
-        country: this.country,
-        experience: this.experience,
-        language: this.language,
-        file:  null // Include the file name if a file is selected // Include the file in your form submission
-      };
-      console.log('Form data:', formData);
-    },
+}
+          this.fname = "";
+          this.lname = "";
+          this.phone = "";
+          this.email = "";
+          this.country = "";
+          this.subject = "";
+          this.quote = "";
+// const response = await axios.post('http://127.0.0.1:8000/api/Clients/', formData);
+// console.log(response.data);
+alert('Your submission has been submitted successfully!');
+}
+  }
+  
 
 
 
