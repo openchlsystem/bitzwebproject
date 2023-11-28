@@ -54,11 +54,11 @@ export default {
           (attribution.value = "");
       }
       if (route.path === "/developers") {
-        (title.value = "Developer Rsources"),
+        (title.value = "Developer Resources"),
           (description.value =
             "Join the community of developers and get access to our developer resources."),
           (buttonText.value = "Open Source Community"),
-          (imageUrl.value = require("../assets/images/stock/Developers.jpg")),
+          (imageUrl.value = require("../assets/images/svg/developers.png")),
           (attribution.value = "");
       }
       if (route.path === "/pricing") {
@@ -80,7 +80,7 @@ export default {
       if (route.path === "/contact") {
         (title.value = "Contact Us"), (description.value = "info@bitz-itc.com"),
         (buttonText.value = "Contact Us"),
-        (imageUrl.value = require("../assets/images/stock/Contactus-cuate.svg"));
+        (imageUrl.value = require("../assets/images/svg/support.png"));
       }
       if (route.path === "/demo") {
         (title.value = "Request for A Demo"), (description.value = "Welcome to our demo page! Request for a demo to witness our company's innovation and excellence. Immerse yourself in cutting-edge solutions that revolutionize industries, offering intuitive user interfaces, seamless integrations, and unparalleled functionalities. Experience the potential of our solutions and envision how they can transform your Organization landscape."), (buttonText.value = "Click Here to Request for Demo"), (imageUrl.value = require("../assets/images/stock/DemoImage1.jpg"));

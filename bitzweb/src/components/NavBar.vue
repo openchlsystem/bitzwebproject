@@ -116,7 +116,7 @@
               v-for="product in productsData"
               :key="product.id"
               @click="navigateToProduct(product.id)"
-            >
+            >npm
               <h4>{{ product.menu_name }}</h4>
               <span>{{ product.menu_description }}</span>
               <p>{{ product.title }}</p>

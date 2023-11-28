@@ -1,9 +1,9 @@
 // SolutionsData.js
 
-import projectmanagement from "../assets/images/stock/projectmanagement.jpg";
-import processmapping from "../assets/images/stock/mapping.jpg";
-import softwaredevelopment from "../assets/images/stock/appdevelopment.svg";
-import QA from "../assets/images/stock/QA.jpg";
+import projectmanagement from "../assets/images/svg/bitz-itc_project Management.png";
+import processmapping from "../assets/images/svg/processflow.png";
+import softwaredevelopment from "../assets/images/svg/software.png";
+import QA from "../assets/images/svg/quality.png";
 
 export const SolutionsData = [
   {
