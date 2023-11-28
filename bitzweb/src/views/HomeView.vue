@@ -15,15 +15,20 @@
   </div>
 
   <div class="solutions-section">
-    <h3>Our Solutions</h3>
+    <h3>Solutions</h3>
+
+    <div class="excerpt">
+      
+      <h3> Our custom solutions ensure that you get the best experience</h3>
+    </div>
     <ul>
       <li class="home" v-for="solution in SolutionsData" :key="solution.title">
-        
-          <img :src="solution.imageUrl" alt="" />
-        
 
-          <h3>{{ solution.title }}</h3>
-          <p>{{ solution.description }}</p>
+        <img :src="solution.imageUrl" alt="" />
+
+
+        <h3>{{ solution.title }}</h3>
+        <p>{{ solution.description }}</p>
 
       </li>
     </ul>
