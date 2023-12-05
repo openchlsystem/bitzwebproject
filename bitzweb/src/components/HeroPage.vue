@@ -42,7 +42,7 @@ export default {
           (description.value =
             "Build custom software solutions for your business. We offer a variety of custom software solutions for businesses of all sizes."),
           (buttonText.value = "Free Consultation"),
-          (imageUrl.value = require("../assets/images/stock/home.jpg")),
+          (imageUrl.value = require("../assets/images/svg/programming.png")),
           (attribution.value = "");
       }
       if (route.path === "/openchs") {
@@ -106,7 +106,7 @@ export default {
           (description.value =
             "Our Legal Case Management Solution is a comprehensive and intuitive platform designed to revolutionize the way law firms and legal departments handle cases. From case inception to resolution, our solution streamlines every aspect of the legal process, enhancing efficiency, collaboration, and success.");
         (buttonText.value = "Get a Quote "),
-          (imageUrl.value = require("../assets/images/stock/LegalCaseManagement.jpg"));
+          (imageUrl.value = require("../assets/images/svg/Legal.png"));
       }
       if (route.path === "/products/3") {
         (title.value = "Case Management for Saccos"),
