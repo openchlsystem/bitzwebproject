@@ -15,17 +15,17 @@ export const SolutionsData = [
   },
   {
     id: 2,
-    title: "Business Process Mapping",
+    title: "IT support",
     description:
-      "Uncover efficiency. Our process mapping reveals hidden opportunities, boosts productivity, and guides your path to streamlined success.",
+      "Improve efficiency. Our IT support services ensure smooth operations, ensuring your projects are delivered on time and on budget.",
     imageUrl: processmapping,
   },
  
   {
     id: 3,
-    title: "Custom Software Development",
+    title: "Training & Support",
     description:
-      "Empower innovation. Our software development solutions unlock new possibilities, enabling your business to thrive and lead with cutting-edge technology.",
+      "Our training and support services ensure seamless operations, ensuring your projects are delivered on time and on budget.",
     imageUrl: softwaredevelopment,
   },
   {

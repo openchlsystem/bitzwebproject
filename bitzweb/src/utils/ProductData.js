@@ -15,8 +15,8 @@ import SaccoAvailabilityImage from "../assets/images/stock/SaccoAvailability.jpg
 import MultichannelImage from "../assets/images/stock/multichannel.png";
 import SaccoIntegrationImage from "../assets/images/stock/SeamlessIntegration.jpg";
 import Openchs from "../assets/images/Giphy/helplineGiphy.gif";
-import LegalCaseManagement from "../assets/images/stock/LegalCaseManagement.jpg";
-import SaccoCaseManagement from "../assets/images/stock/SaccoCaseManagement.jpg";
+import LegalCaseManagement from "../assets/images/svg/Legal.png";
+import SaccoCaseManagement from "../assets/images/svg/loans2.png";
 import Integration from "../assets/images/stock/SeamlessIntegration.jpg";
 import AuthenticationImage from "../assets/images/stock/Authentification_Image.svg";
 import CaseManagementImage from "../assets/images/stock/CaseManagement.svg";
