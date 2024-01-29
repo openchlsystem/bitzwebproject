@@ -42,7 +42,7 @@ export default {
           (description.value =
             "Build custom software solutions for your business. We offer a variety of custom software solutions for businesses of all sizes."),
           (buttonText.value = "Free Consultation"),
-          (imageUrl.value = require("../assets/images/svg/programming.png")),
+          (imageUrl.value = require("../assets/images/Giphy/BITZ_IT-Header.gif")),
           (attribution.value = "");
       }
       if (route.path === "/openchs") {

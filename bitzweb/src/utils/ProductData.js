@@ -15,8 +15,8 @@ import SaccoAvailabilityImage from "../assets/images/stock/SaccoAvailability.jpg
 import MultichannelImage from "../assets/images/stock/multichannel.png";
 import SaccoIntegrationImage from "../assets/images/stock/SeamlessIntegration.jpg";
 import Openchs from "../assets/images/Giphy/helplineGiphy.gif";
-import LegalCaseManagement from "../assets/images/svg/Legal.png";
-import SaccoCaseManagement from "../assets/images/svg/loans2.png";
+import LegalCaseManagement from "../assets/images/Giphy/LegalCMS.gif";
+import SaccoCaseManagement from "../assets/images/Giphy/SaccoCMS.gif";
 import Integration from "../assets/images/stock/SeamlessIntegration.jpg";
 import AuthenticationImage from "../assets/images/stock/Authentification_Image.svg";
 import CaseManagementImage from "../assets/images/stock/CaseManagement.svg";
@@ -25,7 +25,6 @@ import CourtProfileImage from "../assets/images/stock/CourtProfileImage.svg";
 import FilesMovementImage from "../assets/images/stock/FileMovement.jpg";
 import LegalFeesImage from "../assets/images/stock/LegalFeeImage.jpg";
 import ReportsImage from "../assets/images/stock/Report-amico.svg";
-
 
 export const productsData = [
   {

@@ -56,7 +56,7 @@
   <!--  Old Menu -->
   <div class="menu-section">
     <div class="logo">
-      <a href="/"><img src="@/assets/logo.png" alt="Logo" /></a>
+      <a href="/"><img src="@/assets/logo1.png" alt="Logo" /></a>
     </div>
 
     <nav class="navbar">
@@ -64,7 +64,7 @@
         <router-link to="/">Home</router-link>
       </div>
 
-      <div class="dropdown">
+      <!-- <div class="dropdown">
         <router-link to="/products">Products</router-link>
         <div class="dropdown-content">
           <ul class="product-menu">
@@ -81,7 +81,7 @@
             </li>
           </ul>
         </div>
-      </div>
+      </div> -->
       <div class="dropdown">
         <router-link to="/developers">Developers</router-link>
       </div>
@@ -98,7 +98,7 @@
   <div class="mobile-menu-section">
     <div class="menu-top">
       <div >
-        <a href="/"><img src="@/assets/logo.png" alt="Logo" /></a>
+        <a href="/"><img src="@/assets/logo1.png" alt="Logo" /></a>
       </div>
       <button class="mobile-menu-toggle" @click="toggleMobileMenu">☰</button>
     </div>
