@@ -1,6 +1,6 @@
 <template>
   <div class="container">
-    <header class="header top-header">
+    <header class="header">
       <!-- Second header content goes here -->
       <NavBar />
     </header>
