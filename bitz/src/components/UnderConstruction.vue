@@ -1,91 +1,109 @@
 <template>
-    <div class="construction-container">
-        <img src="https://picsum.photos/seed/picsum/300/200" alt="Construction Image" />
-        <h1>Page Under Maintenance</h1>
-        <p>We're working hard to grow our community! Please check back later.</p>
-        <a href="/" class="home-button">Return to Homepage</a>
-        <div class="contact-info">
-            <p>If you have any questions, contact us at <a href="mailto:info@example.com">support@bitz-itc.com</a></p>
+    <div class="coming-soon-container">
+        <!-- Left Section -->
+        <div class="left-section">
+            <h1>UNDER CONSTRUCTION</h1>
+            <h2>This Page will be available soon</h2>
+            <p>
+                Sign up for our latest blog posts and be the first to know when we go live!
+            </p>
+            <button class="signup-button">Sign Up!</button>
+
+            <!-- Social Media Icons -->
+            <div class="social-icons">
+                <a href="#"><i class="fab fa-pinterest"></i></a>
+                <a href="#"><i class="fab fa-facebook"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+            </div>
+        </div>
+
+        <!-- Right Section -->
+        <div class="right-section">
+            <!-- Background image -->
         </div>
     </div>
 </template>
 
 <script setup>
-    // No additional setup needed
+    // Vue 3 Composition API script (if needed for logic)
 </script>
 
 <style scoped>
-    body {
-        margin: 0;
-        padding: 0;
+
+    /* Container */
+    .coming-soon-container {
+        display: flex;
+        height: 100vh;
         font-family: 'Arial', sans-serif;
-        background-color: #f0f0f0;
-        color: #333;
+        color: #fff;
     }
 
-    .construction-container {
+    /* Left Section */
+    .left-section {
+        background-color: #0b022a;
+        flex: 1;
         display: flex;
         flex-direction: column;
-        align-items: center;
         justify-content: center;
-        height: 100vh;
+        padding: 3rem;
         text-align: center;
-        padding: 20px;
-        background-color: #ffffff;
-        box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1);
-        border-radius: 10px;
-        max-width: 500px;
-        margin: 0 auto;
     }
 
-    .construction-container img {
-        width: 100%;
-        max-width: 300px;
-        height: auto;
-        border-radius: 8px;
-        margin-bottom: 20px;
-        object-fit: cover;
+    .left-section h1 {
+        font-size: 1.8rem;
+        letter-spacing: 2px;
+        margin-bottom: 1rem;
     }
 
-    .construction-container h1 {
-        font-size: 32px;
-        margin-bottom: 15px;
-        color: #FF6347;
+    .left-section h2 {
+        font-size: 2.2rem;
+        margin: 0.5rem 0;
     }
 
-    .construction-container p {
-        font-size: 16px;
-        margin-bottom: 20px;
-        color: #666;
+    .left-section p {
+        font-size: 1rem;
+        margin: 1rem 0 2rem;
     }
 
-    .home-button {
-        display: inline-block;
-        padding: 10px 20px;
-        font-size: 16px;
-        color: #fff;
-        background-color: #FF6347;
-        text-decoration: none;
+    .signup-button {
+        background-color: #fff;
+        color: #000;
+        border: none;
+        padding: 0.8rem 2rem;
+        cursor: pointer;
+        font-weight: bold;
         border-radius: 5px;
-        transition: background-color 0.3s ease;
+        transition: 0.3s;
     }
 
-    .home-button:hover {
-        background-color: #e5533d;
+    .signup-button:hover {
+        background-color: #f4f4f4;
     }
 
-    .contact-info {
-        margin-top: 20px;
-        font-size: 14px;
-        color: #999;
+    /* Social Icons */
+    .social-icons {
+        display: flex;
+        justify-content: center;
+        margin-top: 1rem;
+        gap: 1.5rem;
     }
 
-    .contact-info a {
-        color: #007bff;
-        text-decoration: none;
+    .social-icons a {
+        color: #fff;
+        font-size: 1.5rem;
+        transition: 0.3s;
     }
 
-    .contact-info a:hover {
-        text-decoration: underline;
+    .social-icons a:hover {
+        color: #aaa;
+    }
+
+    /* Right Section */
+    .right-section {
+        flex: 1;
+        /* background: url('/path-to-your-background-image/undercontruction.jpg') no-repeat center center/cover; */
+        transform: skewX(-10deg);
+        margin-left: -5rem;
     }
 </style>

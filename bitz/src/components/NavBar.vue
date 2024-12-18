@@ -8,6 +8,7 @@
             <li><a href="/about">About us</a></li>
             <li><a href="/products">Products</a></li>
             <li><a href="/resources">Resources</a></li>
+            <li><a href="/impact">Impact</a></li>
             <li class="dropdown">
                 <a href="#" @click.stop="toggleDropdown"> <i class="bi bi-globe"></i> </a>
                 <ul v-if="dropdownActive" class="dropdown-content">
