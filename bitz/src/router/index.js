@@ -1,4 +1,4 @@
-import {createRouter, createWebHistory} from 'vue-router';
+import { createRouter, createWebHistory } from 'vue-router';
 import HomeView from '../views/HomeView.vue';
 
 const routes = [
@@ -14,7 +14,7 @@ const routes = [
     // this generates a separate chunk (about.[hash].js) for this route
     // which is lazy-loaded when the route is visited.
     component: () =>
-      import (/* webpackChunkName: "about" */ '../views/AboutView.vue'),
+      import(/* webpackChunkName: "about" */ '../views/AboutView.vue'),
   },
   {
     path: '/contactus',
@@ -23,19 +23,25 @@ const routes = [
     // this generates a separate chunk (about.[hash].js) for this route
     // which is lazy-loaded when the route is visited.
     component: () =>
-      import (/* webpackChunkName: "about" */ '../views/ContactUs.vue'),
+      import(/* webpackChunkName: "about" */ '../views/ContactUs.vue'),
   },
   {
-  path: '/resources',
+    path: '/resources',
     name: 'resources',
-      component: () =>
-        import (/* webpackChunkName: "about" */ '../views/ResourcesPage.vue'),
-}
+    component: () =>
+      import(/* webpackChunkName: "about" */ '../views/ResourcesPage.vue'),
+  },
+  {
+    path: '/impact',
+    name: 'impact',
+    component: () =>
+      import(/* webpackChunkName: "about" */ '../views/ImpactPage.vue'),
+  }
 ];
 
 
-const router = createRouter ({
-  history: createWebHistory (process.env.BASE_URL),
+const router = createRouter({
+  history: createWebHistory(process.env.BASE_URL),
   routes,
 });
 
