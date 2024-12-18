@@ -1,6 +1,10 @@
 <template>
   <div class="benefits-section">
     <h2>Our Projects</h2>
+    <input type="text" placeholder="Enter your email address" v-model="data" v-if="productsData">
+    <!-- for loop to render an array of strings  -->
+    
+
     <ul>
       <li class="home" v-for="product in productsData" :key="product.title">
         <div class="col">
@@ -39,6 +43,7 @@
 </template>
 
 <script>
+  import { ref } from "vue";
   import { SolutionsData } from "@/utils/SolutionsData";
   import { productsData } from "@/utils/ProductData";
   import { useRouter } from "vue-router";
@@ -50,6 +55,7 @@
     setup() {
 
       const router = useRouter();
+      const data = ref("")
 
 
       const gotoProduct = (product) => {
@@ -65,6 +71,7 @@
         SolutionsData,
         productsData,
         gotoProduct,
+        data,
 
       };
     },
