@@ -89,9 +89,10 @@
       <div class="dropdown">
         <router-link to="/contact">Support</router-link>
       </div>
+
     </nav>
     <nav>
-      <button class="contact-button">Get in Touch</button>
+      <button class="contact-button" @click="$router.push('/contact')">Get in Touch</button>
     </nav>
   </div>
 

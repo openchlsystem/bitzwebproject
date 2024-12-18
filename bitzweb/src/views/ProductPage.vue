@@ -17,12 +17,14 @@
       </ul>
     </div>
   </div>
+  <ContactViewVue />
 </template>
 
 <script>
 import { productFeatures } from "@/utils/ProductData";
 import { productsData } from "@/utils/ProductData";
 import { ref, computed } from "vue";
+import ContactViewVue from "./ContactView.vue";
 
 export default {
   props: {
@@ -30,6 +32,10 @@ export default {
       type: Number,
       required: true,
     },
+  },
+
+  components: {
+    ContactViewVue,
   },
   setup(props) {
     const selectedProductID = ref("");

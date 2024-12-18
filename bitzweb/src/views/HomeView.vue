@@ -19,8 +19,9 @@
     <h2>Services</h2>
 
     <div class="excerpt">
-      
-      <p>Our services include Project Management, IT Support, Training, and Quality Assurance to ensure the best experience for you.</p>
+
+      <p>Our services include Project Management, IT Support, Training, and Quality Assurance to ensure the best
+        experience for you.</p>
     </div>
     <ul>
       <li class="home" v-for="solution in SolutionsData" :key="solution.title">
@@ -31,31 +32,43 @@
         <h3>{{ solution.title }}</h3>
         <p>{{ solution.description }}</p>
 
+
       </li>
     </ul>
   </div>
 </template>
 
 <script>
-import { SolutionsData } from "@/utils/SolutionsData";
-import { productsData } from "@/utils/ProductData";
-import { useRouter } from "vue-router";
+  import { SolutionsData } from "@/utils/SolutionsData";
+  import { productsData } from "@/utils/ProductData";
+  import { useRouter } from "vue-router";
+  import { onMounted } from "vue";
 
-export default {
-  setup() {
 
-    const router = useRouter();
+  export default {
 
-    const gotoProduct = (product) => {
-      router.push(`/products/${product.id}`);
-    }
-    return {
-      SolutionsData,
-      productsData,
-      gotoProduct,
-    };
-  },
-};
+    setup() {
+
+      const router = useRouter();
+
+
+      const gotoProduct = (product) => {
+        router.push(`/products/${product.id}`);
+      }
+
+
+
+      onMounted(() => {
+        console.log("mounted");
+      });
+      return {
+        SolutionsData,
+        productsData,
+        gotoProduct,
+
+      };
+    },
+  };
 </script>
 
 <style lang="scss" scoped></style>
