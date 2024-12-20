@@ -1,73 +1,81 @@
-<template v-show="">
-  <div v-show="selectedProductID > 0">
-    <div class="product-features">
-      <h3>Product Features</h3>
-      <ul v-for="solution in productFeatures" :key="solution.Feature" >
-        <li v-if="solution.Product_id == selectedProductID">
-          <div class="row">
-            <div class="col">
-              <img :src="solution.imageUrl" alt="" />
-            </div>
-            <div class="caption">
-              <h3>{{ solution.Feature }}</h3>
-              <p>{{ solution.Description }}</p>
-            </div>
-          </div>
-        </li>
-      </ul>
+<template>
+  <div class="product-list">
+    <h1>Product List</h1>
+    <div v-for="product in products" :key="product.id" class="product">
+      <div class="product-header">
+        <h2>{{ product.menu_name }}</h2>
+        <p>{{ product.menu_description }}</p>
+        <img :src="product.imageUrl" :alt="product.menu_name" class="product-image" />
+      </div>
+      <div class="product-body">
+        <h3>{{ product.title }}</h3>
+        <p>{{ product.description }}</p>
+        <h4>Features:</h4>
+        <div v-for="feature in product.features" :key="feature.Feature" class="feature">
+          <h5>{{ feature.Module }}</h5>
+          <p><strong>{{ feature.Feature }}:</strong> {{ feature.Description }}</p>
+          <img :src="feature.imageUrl" :alt="feature.Feature" class="feature-image" />
+        </div>
+      </div>
     </div>
   </div>
-  <ContactViewVue />
 </template>
 
 <script>
-import { productFeatures } from "@/utils/ProductData";
-import { productsData } from "@/utils/ProductData";
-import { ref, computed } from "vue";
-import ContactViewVue from "./ContactView.vue";
+  // Import your products data here
+  import { productsData } from "@/utils/ProductData";
 
-export default {
-  props: {
-    id: {
-      type: Number,
-      required: true,
+  export default {
+    name: "ProductList",
+    data() {
+      return {
+        products: productsData,
+      };
     },
-  },
-
-  components: {
-    ContactViewVue,
-  },
-  setup(props) {
-    const selectedProductID = ref("");
-
-    return {
-      productsData,
-      productFeatures,
-      // selectedProductFeatures,
-      selectedProductID: computed(() => {
-        return props.id;
-      }),
-      selectedProductFeatures: computed(() => {
-        let selectProduct = [];
-        for (let i = 0; i < productFeatures.length - 1; i++) {
-          let productfeature = productFeatures[i];
-
-          console.log(Number(productfeature.Product_id));
-        }
-
-        selectProduct.push(
-          productFeatures.find(
-            (productfeatures) =>
-              productfeatures.Product_id === selectedProductID.value
-          )
-        );
-
-        console.log(selectProduct);
-        return selectProduct.value;
-      }),
-    };
-  },
-};
+  };
 </script>
 
-<style lang="scss" scoped></style>
+<style scoped>
+  .product-list {
+    font-family: Arial, sans-serif;
+    padding: 20px;
+  }
+
+  .product {
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    padding: 20px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  }
+
+  .product-header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+  }
+
+  .product-image {
+    width: 100px;
+    height: auto;
+    margin-left: 20px;
+    border-radius: 5px;
+  }
+
+  .product-body h4 {
+    margin-top: 15px;
+    font-size: 18px;
+  }
+
+  .feature {
+    border-top: 1px solid #eee;
+    padding: 10px 0;
+  }
+
+  .feature-image {
+    width: 80px;
+    height: auto;
+    margin-top: 10px;
+    border-radius: 5px;
+  }
+</style>
