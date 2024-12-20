@@ -36,7 +36,15 @@ const routes = [
     name: 'impact',
     component: () =>
       import(/* webpackChunkName: "about" */ '../views/ImpactPage.vue'),
-  }
+  },
+  {
+    path: '/products',
+    name: 'products',
+    component: () =>
+      import(/* webpackChunkName: "about" */ '../views/ProductsPage2.vue'),
+  },
+
+
 ];
 
 
