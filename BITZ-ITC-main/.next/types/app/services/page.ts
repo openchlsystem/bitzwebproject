@@ -1,4 +1,4 @@
-// File: /Users/mac/BITZ-ITC-main/app/services/page.tsx
+// File: C:\Users\newto\Documents\bitz work\bitzwebproject\bitzwebproject\BITZ-ITC-main\app\services\page.tsx
 import * as entry from '../../../../app/services/page.js'
 import type { ResolvingMetadata, ResolvingViewport } from 'next/dist/lib/metadata/types/metadata-interface.js'
 
