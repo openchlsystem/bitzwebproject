@@ -1,105 +1,136 @@
 <template>
   <div class="min-h-screen">
     <!-- Hero Section -->
-    <Hero
-      title="Explore Our Projects"
-      subtitle="Discover the impact of our work through our featured projects"
-      badge="Our Projects"
-      hero-icon="FolderOpen"
-      :show-actions="false"
-    />
-
-    <!-- Projects Grid -->
-    <section class="section-padding bg-white">
-      <div class="container-custom">
-        <!-- Filter Tabs -->
-        <div class="flex flex-wrap justify-center gap-4 mb-12">
-          <button
-            v-for="category in categories"
-            :key="category"
-            @click="handleCategoryChange(category)"
-            :class="[
-              'px-6 py-3 rounded-full font-medium transition-all duration-300',
-              selectedCategory === category
-                ? 'bg-primary-600 text-white shadow-lg'
-                : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
-            ]"
-          >
-            {{ category }}
+    <section class="bg-slate-900 text-white py-20">
+      <div class="max-w-7xl mx-auto px-4 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+        <div>
+          <div class="inline-flex items-center px-3 py-1 rounded-full bg-blue-600 text-white text-sm font-medium mb-4">
+            Our Projects
+          </div>
+          <h1 class="text-4xl lg:text-5xl font-bold mb-6">Explore Our Projects</h1>
+          <p class="text-lg text-gray-300 leading-relaxed">
+            Discover the impact of our work through our featured projects.
+          </p>
+        </div>
+        <div class="relative">
+          <div class="bg-blue-600 rounded-lg p-8 h-64 flex items-center justify-center">
+            <div class="text-6xl">📊</div>
+          </div>
+          <button class="absolute left-4 top-1/2 transform -translate-y-1/2 text-white hover:text-gray-300">
+            <ChevronLeft :size="24" />
+          </button>
+          <button class="absolute right-4 top-1/2 transform -translate-y-1/2 text-white hover:text-gray-300">
+            <ChevronRight :size="24" />
           </button>
         </div>
+      </div>
+    </section>
 
-        <!-- Projects Grid -->
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-          <div
-            v-for="project in filteredProjects"
-            :key="project.id"
-            class="bg-white rounded-xl shadow-lg overflow-hidden card-hover group"
-          >
-            <!-- Project Image -->
-            <div class="aspect-w-16 aspect-h-9 bg-gray-200">
-              <img
-                :src="project.image"
-                :alt="project.title"
-                class="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300"
-              />
+    <!-- Projects Grid -->
+    <section class="py-16">
+      <div class="max-w-7xl mx-auto px-4">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <!-- OPENCHIS Project -->
+          <div class="bg-white rounded-xl shadow-sm overflow-hidden hover:shadow-lg transition-shadow">
+            <div class="h-48 bg-gray-900 p-4">
+              <div class="w-full h-full bg-gray-800 rounded flex items-center justify-center">
+                <span class="text-gray-400">OPENCHIS Dashboard</span>
+              </div>
             </div>
-
-            <!-- Project Content -->
             <div class="p-6">
-              <!-- Category Badge -->
-              <div class="inline-flex items-center px-2 py-1 rounded-full bg-primary-100 text-primary-700 text-xs font-medium mb-3">
-                {{ project.category }}
+              <div class="inline-flex items-center px-2 py-1 rounded-full bg-blue-100 text-blue-700 text-xs font-medium mb-2">
+                Child Protection
               </div>
-
-              <h3 class="text-xl font-semibold text-gray-900 mb-3 group-hover:text-primary-600 transition-colors duration-300">
-                {{ project.title }}
-              </h3>
-
-              <p class="text-gray-600 text-sm leading-relaxed mb-4">
-                {{ project.description }}
+              <h3 class="text-xl font-semibold mb-2">OPENCHIS - A Child Helpline System</h3>
+              <p class="text-gray-600 mb-4">
+                OPENCHIS is a comprehensive child helpline system that provides a safe and confidential environment
+                for children.
               </p>
-
-              <!-- Technologies -->
-              <div v-if="project.technologies" class="flex flex-wrap gap-2 mb-4">
-                <span
-                  v-for="tech in project.technologies"
-                  :key="tech"
-                  class="px-2 py-1 bg-gray-100 text-gray-700 text-xs rounded-md"
-                >
-                  {{ tech }}
-                </span>
-              </div>
-
-              <!-- Read More Link -->
-              <a
-                :href="project.link"
-                class="inline-flex items-center text-primary-600 hover:text-primary-700 font-medium text-sm transition-colors duration-300"
-              >
-                Read more
-                <ArrowRight :size="16" class="ml-1" />
-              </a>
+              <button class="text-blue-600 font-medium hover:text-blue-700">
+                Read more →
+              </button>
             </div>
           </div>
-        </div>
 
-        <!-- Load More Button -->
-        <div v-if="hasMoreProjects" class="text-center mt-12">
-          <Button
-            variant="outline"
-            size="lg"
-            @click="loadMoreProjects"
-            :loading="loadingMore"
-          >
-            Load More Projects
-          </Button>
-        </div>
+          <!-- Legal Case Management -->
+          <div class="bg-white rounded-xl shadow-sm overflow-hidden hover:shadow-lg transition-shadow">
+            <div class="h-48 bg-gray-200 flex items-center justify-center">
+              <span class="text-gray-500">Case Study Image</span>
+            </div>
+            <div class="p-6">
+              <div class="inline-flex items-center px-2 py-1 rounded-full bg-green-100 text-green-700 text-xs font-medium mb-2">
+                Legal
+              </div>
+              <h3 class="text-xl font-semibold mb-2">Case Management - Legal</h3>
+              <p class="text-gray-600 mb-4">
+                The Case Management System is designed to streamline the process of managing legal cases by providing
+                a centralized platform for case management and case-related data.
+              </p>
+              <button class="text-blue-600 font-medium hover:text-blue-700">
+                Read more →
+              </button>
+            </div>
+          </div>
 
-        <!-- Empty State -->
-        <div v-if="filteredProjects.length === 0" class="text-center py-16">
-          <FolderOpen :size="64" class="text-gray-400 mx-auto mb-4" />
-          <h3 class="text-xl font-semibold text-gray-900 mb-2">No projects found</h3>
-          <p class="text-gray-600">Try selecting a different category or check back later.</p>
+          <!-- CRM for SACCOS -->
+          <div class="bg-white rounded-xl shadow-sm overflow-hidden hover:shadow-lg transition-shadow">
+            <div class="h-48 bg-gray-200 flex items-center justify-center">
+              <span class="text-gray-500">Case Study Image</span>
+            </div>
+            <div class="p-6">
+              <div class="inline-flex items-center px-2 py-1 rounded-full bg-purple-100 text-purple-700 text-xs font-medium mb-2">
+                CRM, Finance
+              </div>
+              <h3 class="text-xl font-semibold mb-2">CRM for SACCOS</h3>
+              <p class="text-gray-600 mb-4">
+                CRM for SACCOS is a comprehensive software platform that simplifies and automates the entire lifecycle
+                of Sacco operations.
+              </p>
+              <button class="text-blue-600 font-medium hover:text-blue-700">
+                Read more →
+              </button>
+            </div>
+          </div>
+
+          <!-- Document Management -->
+          <div class="bg-white rounded-xl shadow-sm overflow-hidden hover:shadow-lg transition-shadow">
+            <div class="h-48 bg-gray-200 flex items-center justify-center">
+              <span class="text-gray-500">Case Study Image</span>
+            </div>
+            <div class="p-6">
+              <div class="inline-flex items-center px-2 py-1 rounded-full bg-orange-100 text-orange-700 text-xs font-medium mb-2">
+                Document Management
+              </div>
+              <h3 class="text-xl font-semibold mb-2">Electronic Document Management System (EDMS)</h3>
+              <p class="text-gray-600 mb-4">
+                The EDMS is designed to enhance document storage, retrieval, and security by providing an efficient
+                platform for managing digital documents.
+              </p>
+              <button class="text-blue-600 font-medium hover:text-blue-700">
+                Read more →
+              </button>
+            </div>
+          </div>
+
+          <!-- Contract Management -->
+          <div class="bg-white rounded-xl shadow-sm overflow-hidden hover:shadow-lg transition-shadow">
+            <div class="h-48 bg-gray-200 flex items-center justify-center">
+              <span class="text-gray-500">Case Study Image</span>
+            </div>
+            <div class="p-6">
+              <div class="inline-flex items-center px-2 py-1 rounded-full bg-red-100 text-red-700 text-xs font-medium mb-2">
+                Contract Management
+              </div>
+              <h3 class="text-xl font-semibold mb-2">Contract Management System</h3>
+              <p class="text-gray-600 mb-4">
+                A comprehensive platform for managing contracts from creation through execution, compliance, renewal,
+                and closeout, ensuring compliance and optimizing performance.
+              </p>
+              <button class="text-blue-600 font-medium hover:text-blue-700">
+                Read more →
+              </button>
+            </div>
+          </div>
         </div>
       </div>
     </section>
@@ -107,74 +138,5 @@
 </template>
 
 <script setup>
-import { ref, computed } from 'vue'
-import { ArrowRight, FolderOpen } from 'lucide-vue-next'
-import Hero from '@/components/sections/Hero.vue'
-import Button from '@/components/common/Button.vue'
-import { useSiteStore } from '@/stores/siteStore'
-
-const siteStore = useSiteStore()
-const { projects } = siteStore
-
-const selectedCategory = ref('All')
-const displayCount = ref(6)
-const loadingMore = ref(false)
-
-// Get unique categories from projects
-const categories = computed(() => {
-  const cats = ['All']
-  projects.forEach(project => {
-    const projectCategories = project.category.split(', ')
-    projectCategories.forEach(cat => {
-      if (!cats.includes(cat.trim())) {
-        cats.push(cat.trim())
-      }
-    })
-  })
-  return cats
-})
-
-// Filter projects based on selected category
-const filteredProjects = computed(() => {
-  let filtered = projects
-  
-  if (selectedCategory.value !== 'All') {
-    filtered = projects.filter(project => 
-      project.category.toLowerCase().includes(selectedCategory.value.toLowerCase())
-    )
-  }
-  
-  return filtered.slice(0, displayCount.value)
-})
-
-const hasMoreProjects = computed(() => {
-  const totalFiltered = selectedCategory.value === 'All' 
-    ? projects.length 
-    : projects.filter(project => 
-        project.category.toLowerCase().includes(selectedCategory.value.toLowerCase())
-      ).length
-  
-  return displayCount.value < totalFiltered
-})
-
-const loadMoreProjects = async () => {
-  loadingMore.value = true
-  
-  // Simulate loading delay
-  await new Promise(resolve => setTimeout(resolve, 500))
-  
-  displayCount.value += 4
-  loadingMore.value = false
-}
-
-// Reset display count when category changes
-const resetDisplayCount = () => {
-  displayCount.value = 6
-}
-
-// Watch for category changes
-const handleCategoryChange = (category) => {
-  selectedCategory.value = category
-  resetDisplayCount()
-}
+import { ChevronLeft, ChevronRight } from 'lucide-vue-next'
 </script>
