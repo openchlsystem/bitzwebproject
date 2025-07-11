@@ -13,7 +13,7 @@
                     
           <div class="hero-visual">
             <div class="countries-showcase">
-              <h3 class="showcase-title">Our Regional Presence</h3>
+              <h3 class="showcase-title">Our Presence Across East Africa</h3>
               <div class="countries-carousel">
                 <button class="nav-arrow left" @click="previousCountry" aria-label="Previous country">
                   <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -24,14 +24,22 @@
                 <div class="carousel-content">
                   <transition name="slide" mode="out-in">
                     <div :key="currentCountry" class="country-slide">
-                      <div class="flag-container">
-                        <div class="flag">
-                          {{ countries[currentCountry].flag }}
-                        </div>
+                      <div class="country-flag">
+                        {{ countries[currentCountry].flag }}
                       </div>
                       <div class="country-info">
                         <h4 class="country-name">{{ countries[currentCountry].name }}</h4>
                         <p class="country-description">{{ countries[currentCountry].description }}</p>
+                        <div class="country-stats">
+                          <div class="stat">
+                            <span class="stat-number">{{ countries[currentCountry].projects }}</span>
+                            <span class="stat-label">Projects</span>
+                          </div>
+                          <div class="stat">
+                            <span class="stat-number">{{ countries[currentCountry].years }}</span>
+                            <span class="stat-label">Years</span>
+                          </div>
+                        </div>
                       </div>
                     </div>
                   </transition>
@@ -53,7 +61,6 @@
                   @click="currentCountry = index"
                   :aria-label="`Go to ${country.name}`"
                 >
-                  <span class="indicator-flag">{{ country.flag }}</span>
                 </button>
               </div>
             </div>
@@ -141,27 +148,68 @@
           <p class="section-description">Innovative software solutions designed to meet your business needs</p>
         </div>
         <div class="grid grid-cols-3 products-grid">
-          <div v-for="product in products" :key="product.id" class="product-card card">
-            <div class="product-icon">
-              <div class="icon-container" :style="{ backgroundColor: product.iconBg, color: product.iconColor }">
-                {{ product.icon }}
+          <div v-for="product in products" :key="product.id" class="product-card card" @click="showProductModal(product)">
+            <div class="product-header">
+              <div class="product-icon">
+                <div class="icon-container" :style="{ backgroundColor: product.iconBg, color: product.iconColor }">
+                  {{ product.icon }}
+                </div>
+              </div>
+              <div class="product-status">
+                <span class="status-badge" :class="product.status.toLowerCase()">{{ product.status }}</span>
               </div>
             </div>
-            <h3 class="product-title">{{ product.name }}</h3>
-            <p class="product-description">{{ product.description }}</p>
-            <div class="product-features">
-              <span v-for="feature in product.features" :key="feature" class="feature-tag">
-                {{ feature }}
-              </span>
+            <div class="product-content">
+              <h3 class="product-title">{{ product.name }}</h3>
+              <p class="product-category">{{ product.category }}</p>
+              <p class="product-description">{{ product.description }}</p>
+              <div class="product-features">
+                <span v-for="feature in product.features.slice(0, 3)" :key="feature" class="feature-tag">
+                  {{ feature }}
+                </span>
+                <span v-if="product.features.length > 3" class="feature-more">+{{ product.features.length - 3 }} more</span>
+              </div>
             </div>
-            <button class="read-more-btn" @click="showProductDetails(product)">Learn more →</button>
+            <div class="product-footer">
+              <button class="product-btn">
+                <span>Learn More</span>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="m9 18 6-6-6-6"/>
+                </svg>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Partners Section -->
+    <section class="section">
+      <div class="container">
+        <div class="text-center">
+          <div class="badge badge-primary">Our Partners</div>
+          <h2 class="section-title">Trusted by Leading Organizations</h2>
+          <p class="section-description">We work with renowned organizations to deliver impactful solutions</p>
+        </div>
+        <div class="grid grid-cols-4 partners-grid">
+          <div v-for="partner in partners" :key="partner.id" class="partner-card card">
+            <div class="partner-logo">
+              <img :src="partner.logo || '/placeholder.svg'" :alt="partner.title" />
+            </div>
+            <div class="partner-content">
+              <h3 class="partner-title">{{ partner.title }}</h3>
+              <p v-if="partner.description" class="partner-description">{{ partner.description }}</p>
+              <a v-if="partner.Link" :href="partner.Link" target="_blank" rel="noopener noreferrer" class="partner-link">
+                Visit Website →
+              </a>
+            </div>
           </div>
         </div>
       </div>
     </section>
 
     <!-- Projects Section -->
-    <section class="section">
+    <section class="section bg-gray-50">
       <div class="container">
         <div class="text-center">
           <div class="badge badge-primary">Our Work</div>
@@ -291,11 +339,46 @@
         </div>
       </div>
     </section>
+
+    <!-- Product Modal -->
+    <div v-if="selectedProduct" class="modal-overlay" @click="closeProductModal">
+      <div class="product-modal" @click.stop>
+        <button class="modal-close" @click="closeProductModal">×</button>
+        <div class="modal-content">
+          <div class="modal-header">
+            <div class="modal-icon" :style="{ backgroundColor: selectedProduct.iconBg, color: selectedProduct.iconColor }">
+              {{ selectedProduct.icon }}
+            </div>
+            <div class="modal-product-info">
+              <h3>{{ selectedProduct.name }}</h3>
+              <p>{{ selectedProduct.category }}</p>
+              <span class="status-badge" :class="selectedProduct.status.toLowerCase()">{{ selectedProduct.status }}</span>
+            </div>
+          </div>
+          <div class="modal-body">
+            <p>{{ selectedProduct.description }}</p>
+            <div class="modal-features">
+              <h4>Key Features</h4>
+              <div class="features-grid">
+                <span v-for="feature in selectedProduct.features" :key="feature" class="feature-badge">
+                  {{ feature }}
+                </span>
+              </div>
+            </div>
+            <div class="modal-actions">
+              <button class="btn btn-primary" @click="$emit('navigate', 'Products')">View Details</button>
+              <button class="btn btn-outline" @click="closeProductModal">Close</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 </template>
 
 <script>
 import { useDarkMode } from '@/composables/useDarkMode'
+import { PartnersData } from '@/utils/Partners'
 
 export default {
   name: 'Home',
@@ -307,33 +390,8 @@ export default {
   data() {
     return {
       currentCountry: 0,
-      countries: [
-        {
-          name: 'Kenya',
-          flag: '🇰🇪',
-          flagClass: 'flag-kenya',
-          description: 'Our headquarters and primary operations center since 2007'
-        },
-        {
-          name: 'Uganda',
-          flag: '🇺🇬',
-          flagClass: 'flag-uganda', 
-          description: 'Expanding digital transformation across Uganda\'s growing tech sector'
-        },
-        {
-          name: 'Tanzania',
-          flag: '🇹🇿',
-          flagClass: 'flag-tanzania',
-          description: 'Supporting Tanzania\'s digital infrastructure development'
-        },
-        {
-          name: 'Lesotho',
-          flag: '🇱🇸',
-          flagClass: 'flag-lesotho',
-          description: 'Bringing innovative technology solutions to Lesotho\'s emerging market'
-        }
-      ],
-      autoCountryInterval: null,
+      selectedProduct: null,
+      partners: PartnersData,
       activeApproach: 'Cloud Solutions',
       isSubmitting: false,
       form: {
@@ -344,6 +402,36 @@ export default {
         reasons: [],
         message: ''
       },
+      countries: [
+        {
+          name: 'Kenya',
+          flag: '🇰🇪',
+          description: 'Our headquarters and primary operations center, serving as the hub for East African initiatives.',
+          projects: '50+',
+          years: '15+'
+        },
+        {
+          name: 'Uganda',
+          flag: '🇺🇬',
+          description: 'Strong partnerships with government agencies and NGOs for child protection and healthcare systems.',
+          projects: '25+',
+          years: '8+'
+        },
+        {
+          name: 'Tanzania',
+          flag: '🇹🇿',
+          description: 'Collaborative projects with ministries and international organizations for digital transformation.',
+          projects: '20+',
+          years: '6+'
+        },
+        {
+          name: 'Lesotho',
+          flag: '🇱🇸',
+          description: 'Emerging market presence with focus on government digitization and capacity building.',
+          projects: '10+',
+          years: '3+'
+        }
+      ],
       approaches: ['Cloud Solutions', 'Data Analytics', 'AI & Automation'],
       cloudFeatures: [
         'Scalable cloud architecture design',
@@ -378,7 +466,7 @@ export default {
           icon: '🛡️',
           iconBg: '#dbeafe',
           iconColor: '#1d4ed8',
-          features: ['Child Protection', 'Case Management', 'Reporting System', '24/7 Support'],
+          features: ['Child Protection', 'Case Management', 'Reporting System', '24/7 Support', 'Multi-language', 'Analytics Dashboard'],
           category: 'Child Protection',
           status: 'Active'
         },
@@ -389,7 +477,7 @@ export default {
           icon: '🏦',
           iconBg: '#dcfce7',
           iconColor: '#15803d',
-          features: ['Member Management', 'Loan Processing', 'Financial Reports', 'Mobile Banking'],
+          features: ['Member Management', 'Loan Processing', 'Financial Reports', 'Mobile Banking', 'SMS Integration', 'Audit Trail'],
           category: 'Financial Services',
           status: 'Active'
         },
@@ -400,7 +488,7 @@ export default {
           icon: '📄',
           iconBg: '#fef3c7',
           iconColor: '#d97706',
-          features: ['Document Storage', 'Version Control', 'Access Control', 'Search & Retrieval'],
+          features: ['Document Storage', 'Version Control', 'Access Control', 'Search & Retrieval', 'Workflow Management', 'Digital Signatures'],
           category: 'Document Management',
           status: 'Active'
         }
@@ -431,16 +519,11 @@ export default {
     previousCountry() {
       this.currentCountry = this.currentCountry === 0 ? this.countries.length - 1 : this.currentCountry - 1
     },
-    startAutoCountry() {
-      this.autoCountryInterval = setInterval(() => {
-        this.nextCountry()
-      }, 4000)
+    showProductModal(product) {
+      this.selectedProduct = product
     },
-    stopAutoCountry() {
-      if (this.autoCountryInterval) {
-        clearInterval(this.autoCountryInterval)
-        this.autoCountryInterval = null
-      }
+    closeProductModal() {
+      this.selectedProduct = null
     },
     getCategoryClass(category) {
       const categoryClasses = {
@@ -472,18 +555,15 @@ export default {
     showServiceDetails(service) {
       alert(`Learn more about: ${service.title}\n\n${service.description}`)
     },
-    showProductDetails(product) {
-      alert(`${product.name}\n\n${product.description}\n\nFeatures:\n${product.features.join('\n• ')}`)
-    },
     handleProjectReadMore(project) {
       console.log('Read more about project:', project)
     }
   },
   mounted() {
-    this.startAutoCountry()
-  },
-  beforeUnmount() {
-    this.stopAutoCountry()
+    // Auto-rotate countries every 5 seconds
+    setInterval(() => {
+      this.nextCountry()
+    }, 5000)
   }
 }
 </script>
@@ -568,17 +648,28 @@ export default {
   gap: 1rem;
 }
 
-.visual-card {
+.countries-showcase {
+  width: 100%;
+  max-width: 500px;
+}
+
+.showcase-title {
+  text-align: center;
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #cbd5e1;
+  margin-bottom: 2rem;
+}
+
+.countries-carousel {
   position: relative;
   background: #3b82f6;
   border-radius: 30px;
   padding: 2rem;
-  height: 16rem;
-  width: 100%;
+  margin-bottom: 1.5rem;
+  min-height: 280px;
   display: flex;
   align-items: center;
-  justify-content: center;
-  overflow: hidden;
 }
 
 .nav-arrow {
@@ -588,14 +679,15 @@ export default {
   background: rgba(255, 255, 255, 0.2);
   border: none;
   color: white;
-  width: 2.5rem;
-  height: 2.5rem;
-  border-radius: 30px;
+  width: 2rem;
+  height: 2rem;
+  border-radius: 20px;
   cursor: pointer;
   transition: all 0.3s ease;
   display: flex;
   align-items: center;
   justify-content: center;
+  z-index: 2;
 }
 
 .nav-arrow:hover {
@@ -611,29 +703,63 @@ export default {
   right: 1rem;
 }
 
-.visual-content {
+.carousel-content {
   flex: 1;
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 100%;
+  padding: 0 3rem;
 }
 
-.slide {
-  display: flex;
-  align-items: center;
-  justify-content: center;
+.country-slide {
+  text-align: center;
   width: 100%;
-  height: 100%;
+  color: white;
 }
 
-.icon {
+.country-flag {
   font-size: 4rem;
-  animation: float 3s ease-in-out infinite;
+  margin-bottom: 1rem;
 }
 
-.slide-indicators {
+.country-name {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+}
+
+.country-description {
+  font-size: 0.95rem;
+  line-height: 1.6;
+  margin-bottom: 1.5rem;
+  opacity: 0.9;
+}
+
+.country-stats {
   display: flex;
+  justify-content: center;
+  gap: 2rem;
+}
+
+.stat {
+  text-align: center;
+}
+
+.stat-number {
+  display: block;
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #fbbf24;
+}
+
+.stat-label {
+  font-size: 0.8rem;
+  opacity: 0.8;
+}
+
+.country-indicators {
+  display: flex;
+  justify-content: center;
   gap: 0.5rem;
 }
 
@@ -667,13 +793,302 @@ export default {
   transform: translateX(-30px);
 }
 
-@keyframes float {
-  0%, 100% {
-    transform: translateY(0);
-  }
-  50% {
-    transform: translateY(-10px);
-  }
+/* Enhanced Product Cards */
+.products-grid {
+  margin-top: 3rem;
+}
+
+.product-card {
+  cursor: pointer;
+  transition: all 0.3s ease;
+  overflow: hidden;
+  position: relative;
+}
+
+.product-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+}
+
+.product-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 1.5rem;
+}
+
+.product-icon .icon-container {
+  width: 3.5rem;
+  height: 3.5rem;
+  border-radius: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  transition: all 0.3s ease;
+}
+
+.product-card:hover .icon-container {
+  transform: scale(1.1);
+}
+
+.status-badge {
+  padding: 0.25rem 0.75rem;
+  border-radius: 20px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.status-badge.active {
+  background: #dcfce7;
+  color: #15803d;
+}
+
+.product-content {
+  margin-bottom: 1.5rem;
+}
+
+.product-title {
+  font-size: 1.25rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+  color: var(--text-primary);
+}
+
+.product-category {
+  color: #3b82f6;
+  font-size: 0.875rem;
+  font-weight: 600;
+  margin-bottom: 0.75rem;
+}
+
+.product-description {
+  color: var(--text-muted);
+  font-size: 0.875rem;
+  line-height: 1.6;
+  margin-bottom: 1rem;
+}
+
+.product-features {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.feature-tag {
+  background: var(--bg-tertiary);
+  color: var(--text-secondary);
+  padding: 0.25rem 0.75rem;
+  border-radius: 20px;
+  font-size: 0.75rem;
+  font-weight: 500;
+  border: 1px solid var(--border-color);
+}
+
+.feature-more {
+  background: #3b82f6;
+  color: white;
+  padding: 0.25rem 0.75rem;
+  border-radius: 20px;
+  font-size: 0.75rem;
+  font-weight: 500;
+}
+
+.product-footer {
+  border-top: 1px solid var(--border-color);
+  padding-top: 1rem;
+}
+
+.product-btn {
+  width: 100%;
+  background: none;
+  border: 2px solid var(--border-color);
+  padding: 0.75rem 1rem;
+  border-radius: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  color: var(--text-secondary);
+  font-weight: 500;
+}
+
+.product-btn:hover {
+  border-color: #3b82f6;
+  color: #3b82f6;
+  background: rgba(59, 130, 246, 0.05);
+}
+
+/* Product Modal */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.8);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  padding: 1rem;
+}
+
+.product-modal {
+  background: white;
+  border-radius: 30px;
+  max-width: 600px;
+  width: 100%;
+  max-height: 80vh;
+  overflow-y: auto;
+  position: relative;
+}
+
+.modal-close {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  width: 2.5rem;
+  height: 2.5rem;
+  border: none;
+  background: #f1f5f9;
+  border-radius: 50%;
+  font-size: 1.5rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1;
+  transition: all 0.3s ease;
+}
+
+.modal-close:hover {
+  background: #e2e8f0;
+  transform: scale(1.1);
+}
+
+.modal-content {
+  padding: 2.5rem;
+}
+
+.modal-header {
+  display: flex;
+  gap: 1.5rem;
+  align-items: center;
+  margin-bottom: 2rem;
+  padding-bottom: 1.5rem;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+.modal-icon {
+  width: 4rem;
+  height: 4rem;
+  border-radius: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2rem;
+}
+
+.modal-product-info h3 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+}
+
+.modal-product-info p {
+  color: #3b82f6;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+
+.modal-body p {
+  line-height: 1.7;
+  margin-bottom: 2rem;
+  color: #64748b;
+}
+
+.modal-features h4 {
+  font-size: 1.125rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+}
+
+.features-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-bottom: 2rem;
+}
+
+.feature-badge {
+  background: #dbeafe;
+  color: #1d4ed8;
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  font-size: 0.875rem;
+  font-weight: 500;
+}
+
+.modal-actions {
+  display: flex;
+  gap: 1rem;
+  justify-content: flex-end;
+}
+
+/* Rest of existing styles remain the same */
+.partners-grid {
+  margin-top: 3rem;
+}
+
+.partner-card {
+  text-align: center;
+  padding: 1.5rem;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.partner-logo {
+  margin-bottom: 1rem;
+  flex-shrink: 0;
+}
+
+.partner-logo img {
+  max-width: 120px;
+  max-height: 60px;
+  object-fit: contain;
+  margin: 0 auto;
+}
+
+.partner-title {
+  font-size: 0.9rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  flex-grow: 1;
+}
+
+.partner-description {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  margin-bottom: 1rem;
+  line-height: 1.4;
+}
+
+.partner-link {
+  color: #3b82f6;
+  font-size: 0.8rem;
+  font-weight: 500;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.partner-link:hover {
+  color: #2563eb;
 }
 
 .project-card {
@@ -867,12 +1282,17 @@ export default {
   grid-template-columns: repeat(3, 1fr);
 }
 
+.grid-cols-4 {
+  grid-template-columns: repeat(4, 1fr);
+}
+
 .card {
   background: var(--card-bg);
   border-radius: 30px;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
   transition: all 0.3s ease;
   border: 1px solid var(--border-color);
+  padding: 2rem;
 }
 
 .dark-mode .card {
@@ -1054,63 +1474,6 @@ export default {
   color: white;
 }
 
-.products-grid {
-  margin-top: 3rem;
-}
-
-.product-card {
-  text-align: center;
-  padding: 2rem;
-}
-
-.product-icon {
-  margin-bottom: 1.5rem;
-}
-
-.icon-container {
-  width: 4rem;
-  height: 4rem;
-  border-radius: 30px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin: 0 auto;
-  font-size: 2rem;
-  transition: all 0.3s ease;
-}
-
-.product-title {
-  font-size: 1.25rem;
-  font-weight: 600;
-  margin-bottom: 0.75rem;
-  color: var(--text-primary);
-}
-
-.product-description {
-  color: var(--text-muted);
-  margin-bottom: 1rem;
-  font-size: 0.875rem;
-  line-height: 1.5;
-}
-
-.product-features {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.5rem;
-  justify-content: center;
-  margin-bottom: 1.5rem;
-}
-
-.feature-tag {
-  background: var(--bg-tertiary);
-  color: var(--text-secondary);
-  padding: 0.25rem 0.75rem;
-  border-radius: 30px;
-  font-size: 0.75rem;
-  font-weight: 500;
-  border: 1px solid var(--border-color);
-}
-
 .projects-grid {
   margin-top: 3rem;
 }
@@ -1282,7 +1645,8 @@ export default {
 
 @media (max-width: 768px) {
   .grid-cols-2,
-  .grid-cols-3 {
+  .grid-cols-3,
+  .grid-cols-4 {
     grid-template-columns: 1fr;
   }
   
@@ -1306,193 +1670,17 @@ export default {
     font-size: 2.5rem;
   }
   
-  .visual-card {
-    height: 12rem;
-  }
-}
-
-.countries-showcase {
-  width: 100%;
-  max-width: 500px;
-}
-
-.showcase-title {
-  text-align: center;
-  font-size: 1.25rem;
-  font-weight: 600;
-  color: #cbd5e1;
-  margin-bottom: 2rem;
-}
-
-.countries-carousel {
-  position: relative;
-  background: #3b82f6;
-  border-radius: 30px;
-  padding: 2rem;
-  margin-bottom: 1.5rem;
-  min-height: 200px;
-  display: flex;
-  align-items: center;
-}
-
-.nav-arrow {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  background: rgba(255, 255, 255, 0.2);
-  border: none;
-  color: white;
-  width: 2rem;
-  height: 2rem;
-  border-radius: 20px;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  z-index: 2;
-}
-
-.nav-arrow:hover {
-  background: rgba(255, 255, 255, 0.3);
-  transform: translateY(-50%) scale(1.1);
-}
-
-.nav-arrow.left {
-  left: 1rem;
-}
-
-.nav-arrow.right {
-  right: 1rem;
-}
-
-.carousel-content {
-  flex: 1;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 0 3rem;
-}
-
-.country-slide {
-  text-align: center;
-  width: 100%;
-}
-
-.flag-container {
-  margin-bottom: 1.5rem;
-}
-
-.flag {
-  font-size: 5rem;
-  display: inline-block;
-  transition: all 0.3s ease;
-  animation: flagFloat 3s ease-in-out infinite;
-  filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.2));
-}
-
-.flag:hover {
-  transform: scale(1.1);
-}
-
-.country-info {
-  color: white;
-}
-
-.country-name {
-  font-size: 1.5rem;
-  font-weight: 700;
-  margin-bottom: 0.75rem;
-  color: white;
-}
-
-.country-description {
-  font-size: 0.95rem;
-  color: rgba(255, 255, 255, 0.9);
-  line-height: 1.5;
-  max-width: 300px;
-  margin: 0 auto;
-}
-
-.country-indicators {
-  display: flex;
-  justify-content: center;
-  gap: 0.75rem;
-}
-
-.country-indicators .indicator {
-  width: auto;
-  height: auto;
-  padding: 0.5rem;
-  border-radius: 15px;
-  border: none;
-  background: rgba(255, 255, 255, 0.2);
-  cursor: pointer;
-  transition: all 0.3s ease;
-}
-
-.country-indicators .indicator:hover {
-  background: rgba(255, 255, 255, 0.3);
-  transform: scale(1.1);
-}
-
-.country-indicators .indicator.active {
-  background: rgba(255, 255, 255, 0.4);
-  transform: scale(1.2);
-}
-
-.indicator-flag {
-  font-size: 1.5rem;
-  display: block;
-}
-
-@keyframes flagFloat {
-  0%, 100% {
-    transform: translateY(0);
-  }
-  50% {
-    transform: translateY(-8px);
-  }
-}
-
-/* Responsive adjustments */
-@media (max-width: 768px) {
   .countries-carousel {
+    min-height: 250px;
     padding: 1.5rem;
-    min-height: 180px;
   }
   
   .carousel-content {
     padding: 0 2rem;
   }
   
-  .flag {
-    font-size: 4rem;
-  }
-  
-  .country-name {
-    font-size: 1.25rem;
-  }
-  
-  .country-description {
-    font-size: 0.875rem;
-  }
-  
-  .indicator-flag {
-    font-size: 1.25rem;
-  }
-  
-  .nav-arrow {
-    width: 1.8rem;
-    height: 1.8rem;
-  }
-  
-  .nav-arrow.left {
-    left: 0.5rem;
-  }
-  
-  .nav-arrow.right {
-    right: 0.5rem;
+  .country-stats {
+    gap: 1rem;
   }
 }
 </style>

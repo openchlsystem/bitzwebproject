@@ -10,23 +10,57 @@
             </div>
             <h1 class="hero-title">Explore Our Projects</h1>
             <p class="hero-description">
-              Discover the impact of our work through our featured projects.
+              Discover the impact of our work through our featured projects and client testimonials.
             </p>
           </div>
           <div class="hero-visual">
-            <div class="visual-card">
-              <div class="visual-icon">📊</div>
+            <div class="testimonials-showcase">
+              <h3 class="showcase-title">What Our Clients Say</h3>
+              <div class="testimonials-carousel">
+                <button class="nav-arrow left" @click="previousTestimonial" aria-label="Previous testimonial">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <polyline points="15,18 9,12 15,6"></polyline>
+                  </svg>
+                </button>
+                
+                <div class="carousel-content">
+                  <transition name="slide" mode="out-in">
+                    <div :key="currentTestimonial" class="testimonial-slide">
+                      <div class="testimonial-icon">
+                        💬
+                      </div>
+                      <div class="testimonial-info">
+                        <blockquote class="testimonial-content">
+                          "{{ testimonials[currentTestimonial].content }}"
+                        </blockquote>
+                        <div class="testimonial-author">
+                          <h4 class="author-name">{{ testimonials[currentTestimonial].author }}</h4>
+                          <p class="author-position">{{ testimonials[currentTestimonial].position }}</p>
+                        </div>
+                      </div>
+                    </div>
+                  </transition>
+                </div>
+                
+                <button class="nav-arrow right" @click="nextTestimonial" aria-label="Next testimonial">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <polyline points="9,18 15,12 9,6"></polyline>
+                  </svg>
+                </button>
+              </div>
+              
+              <div class="testimonial-indicators">
+                <button 
+                  v-for="(testimonial, index) in testimonials"
+                  :key="index"
+                  class="indicator"
+                  :class="{ active: currentTestimonial === index }"
+                  @click="currentTestimonial = index"
+                  :aria-label="`Go to testimonial ${index + 1}`"
+                >
+                </button>
+              </div>
             </div>
-            <button class="nav-button left" aria-label="Previous project">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <polyline points="15,18 9,12 15,6"></polyline>
-              </svg>
-            </button>
-            <button class="nav-button right" aria-label="Next project">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <polyline points="9,18 15,12 9,6"></polyline>
-              </svg>
-            </button>
           </div>
         </div>
       </div>
@@ -143,8 +177,44 @@
   </div>
 </template>
 
-<script setup>
-// No additional logic needed for this component
+<script>
+import { testimonialsData } from '@/utils/Testimonials'
+
+export default {
+  name: 'Projects',
+  data() {
+    return {
+      currentTestimonial: 0,
+      testimonials: testimonialsData,
+      autoTestimonialInterval: null
+    }
+  },
+  methods: {
+    nextTestimonial() {
+      this.currentTestimonial = (this.currentTestimonial + 1) % this.testimonials.length
+    },
+    previousTestimonial() {
+      this.currentTestimonial = this.currentTestimonial === 0 ? this.testimonials.length - 1 : this.currentTestimonial - 1
+    },
+    startAutoTestimonial() {
+      this.autoTestimonialInterval = setInterval(() => {
+        this.nextTestimonial()
+      }, 4000)
+    },
+    stopAutoTestimonial() {
+      if (this.autoTestimonialInterval) {
+        clearInterval(this.autoTestimonialInterval)
+        this.autoTestimonialInterval = null
+      }
+    }
+  },
+  mounted() {
+    this.startAutoTestimonial()
+  },
+  beforeUnmount() {
+    this.stopAutoTestimonial()
+  }
+}
 </script>
 
 <style scoped>
@@ -152,6 +222,7 @@
   background-color: #0f172a;
   color: white;
   padding: 5rem 0;
+  margin-top: 4rem;
 }
 
 .hero-container {
@@ -193,54 +264,138 @@
 }
 
 .hero-visual {
-  position: relative;
   display: flex;
-  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
 }
 
-.visual-card {
-  background-color: #2563eb;
+.testimonials-showcase {
+  width: 100%;
+  max-width: 500px;
+}
+
+.showcase-title {
+  text-align: center;
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #cbd5e1;
+  margin-bottom: 2rem;
+}
+
+.testimonials-carousel {
+  position: relative;
+  background: #3b82f6;
   border-radius: 30px;
   padding: 2rem;
-  height: 16rem;
-  width: 100%;
+  margin-bottom: 1.5rem;
+  min-height: 250px;
   display: flex;
   align-items: center;
-  justify-content: center;
 }
 
-.visual-icon {
-  font-size: 6rem;
-}
-
-.nav-button {
+.nav-arrow {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
   background: rgba(255, 255, 255, 0.2);
   border: none;
   color: white;
+  width: 2rem;
+  height: 2rem;
+  border-radius: 20px;
   cursor: pointer;
   transition: all 0.3s ease;
-  width: 2.5rem;
-  height: 2.5rem;
-  border-radius: 30px;
   display: flex;
   align-items: center;
   justify-content: center;
+  z-index: 2;
 }
 
-.nav-button:hover {
+.nav-arrow:hover {
   background: rgba(255, 255, 255, 0.3);
   transform: translateY(-50%) scale(1.1);
 }
 
-.nav-button.left {
+.nav-arrow.left {
   left: 1rem;
 }
 
-.nav-button.right {
+.nav-arrow.right {
   right: 1rem;
+}
+
+.carousel-content {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 3rem;
+}
+
+.testimonial-slide {
+  text-align: center;
+  width: 100%;
+  color: white;
+}
+
+.testimonial-icon {
+  font-size: 3rem;
+  margin-bottom: 1.5rem;
+}
+
+.testimonial-content {
+  font-size: 1rem;
+  font-style: italic;
+  margin-bottom: 1.5rem;
+  line-height: 1.6;
+}
+
+.author-name {
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin-bottom: 0.25rem;
+}
+
+.author-position {
+  font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.testimonial-indicators {
+  display: flex;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+.indicator {
+  width: 0.75rem;
+  height: 0.75rem;
+  border-radius: 30px;
+  border: none;
+  background: rgba(255, 255, 255, 0.3);
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.indicator.active {
+  background: white;
+  transform: scale(1.2);
+}
+
+.slide-enter-active,
+.slide-leave-active {
+  transition: all 0.3s ease;
+}
+
+.slide-enter-from {
+  opacity: 0;
+  transform: translateX(30px);
+}
+
+.slide-leave-to {
+  opacity: 0;
+  transform: translateX(-30px);
 }
 
 .projects-section {

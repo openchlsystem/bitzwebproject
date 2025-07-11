@@ -15,7 +15,8 @@
           <h1 class="hero-title">The Minds Behind Innovation</h1>
           <p class="hero-description">
             Our diverse team of experts combines technical excellence with creative vision to deliver 
-            transformative technology solutions that drive your business forward.
+            transformative technology solutions that drive your business forward. We are passionate about 
+            solving complex challenges and committed to continuous learning and growth.
           </p>
           <div class="hero-stats">
             <div class="stat">
@@ -53,7 +54,8 @@
           <div class="badge badge-primary">Leadership</div>
           <h2 class="section-title">Executive Leadership</h2>
           <p class="section-description">
-            Visionary leaders steering our company towards technological excellence and sustainable growth
+            Visionary leaders steering our company towards technological excellence and sustainable growth. 
+            They bring a wealth of experience and a forward-thinking approach to every challenge.
           </p>
         </div>
         <div class="leadership-grid">
@@ -109,7 +111,8 @@
           <div class="badge badge-primary">Our Teams</div>
           <h2 class="section-title">Specialized Excellence</h2>
           <p class="section-description">
-            Explore our specialized teams driving innovation across different domains
+            Explore our specialized teams driving innovation across different domains. Each team is dedicated to 
+            delivering high-quality solutions and fostering a collaborative environment.
           </p>
         </div>
         <div class="category-tabs">
@@ -825,13 +828,13 @@ export default {
   color: #64748b;
   font-size: 0.875rem;
   line-height: 1.5;
-  margin-bottom: 0.75rem;
+  margin-bottom: 1rem;
 }
 
 .member-skills {
   display: flex;
-  gap: 0.25rem;
   flex-wrap: wrap;
+  gap: 0.25rem;
 }
 
 .skill-tag {
@@ -853,14 +856,14 @@ export default {
   width: 2rem;
   height: 2rem;
   border: none;
-  background: #f8fafc;
-  border-radius: 30px;
+  background: #f1f5f9;
   color: #64748b;
+  border-radius: 30px;
   cursor: pointer;
-  transition: all 0.3s ease;
   display: flex;
   align-items: center;
   justify-content: center;
+  transition: all 0.3s ease;
 }
 
 .action-btn:hover {
@@ -890,6 +893,7 @@ export default {
 }
 
 .culture-description {
+  font-size: 1.125rem;
   color: #cbd5e1;
   line-height: 1.7;
   margin-bottom: 2rem;
@@ -913,13 +917,14 @@ export default {
 }
 
 .value-content h4 {
+  font-size: 1.125rem;
   font-weight: 600;
   margin-bottom: 0.5rem;
 }
 
 .value-content p {
   color: #cbd5e1;
-  line-height: 1.5;
+  line-height: 1.6;
 }
 
 .culture-visual {
@@ -938,8 +943,7 @@ export default {
 }
 
 .image-placeholder {
-  color: #3b82f6;
-  opacity: 0.7;
+  color: rgba(255, 255, 255, 0.3);
 }
 
 .modal-overlay {
@@ -948,7 +952,7 @@ export default {
   left: 0;
   right: 0;
   bottom: 0;
-  background: rgba(0, 0, 0, 0.7);
+  background: rgba(0, 0, 0, 0.8);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -974,23 +978,24 @@ export default {
   height: 2rem;
   border: none;
   background: #f1f5f9;
-  border-radius: 30px;
+  border-radius: 50%;
   font-size: 1.25rem;
   cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   z-index: 1;
-  transition: all 0.3s ease;
 }
 
-.modal-close:hover {
-  background: #e2e8f0;
-  transform: scale(1.1);
+.modal-content {
+  padding: 2rem;
 }
 
 .modal-header {
   display: flex;
   gap: 1rem;
-  padding: 2rem;
-  border-bottom: 1px solid #e2e8f0;
+  align-items: center;
+  margin-bottom: 1.5rem;
 }
 
 .modal-header img {
@@ -1011,15 +1016,14 @@ export default {
   font-weight: 500;
 }
 
-.modal-body {
-  padding: 2rem;
-}
-
-.modal-skills {
-  margin-top: 1.5rem;
+.modal-body p {
+  line-height: 1.6;
+  margin-bottom: 1.5rem;
+  color: #64748b;
 }
 
 .modal-skills h4 {
+  font-size: 1rem;
   font-weight: 600;
   margin-bottom: 0.75rem;
 }
@@ -1049,7 +1053,7 @@ export default {
   opacity: 0;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 1024px) {
   .hero-content,
   .culture-content {
     grid-template-columns: 1fr;
@@ -1060,16 +1064,32 @@ export default {
     font-size: 2.5rem;
   }
   
-  .hero-stats {
-    justify-content: center;
+  .culture-title {
+    font-size: 2rem;
   }
   
   .leadership-grid {
-    grid-template-columns: 1fr;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  }
+}
+
+@media (max-width: 768px) {
+  .hero-stats {
+    flex-direction: column;
+    gap: 1rem;
+  }
+  
+  .showcase-grid {
+    grid-template-columns: repeat(2, 1fr);
   }
   
   .team-grid {
     grid-template-columns: 1fr;
+  }
+  
+  .category-tabs {
+    flex-direction: column;
+    align-items: center;
   }
   
   .team-card-content {

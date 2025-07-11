@@ -1,0 +1,56 @@
+export const PartnersData = [
+  {
+    id: 0,
+    title: "Unicef For Every Child",
+    description:
+      "Built the child helpline Case Management and Call Center for Childline Kenya. The work done was, Requirement,Gathering, wireframing, SoftwareDevelopment, Deployment, user testing, Training, and User Support.Project Timelines was 8 Months",
+    logo: "/placeholder.svg?height=100&width=200",
+    Link: "https://www.unicef.org/child-alert/severe-wasting",
+    contactEmail: "info@example.com",
+    contactPhone: "+254 700 000 000",
+  },
+  {
+    id: 1,
+    title: "UNFPA",
+    description:
+      "Built the child helpline Case Management and Call Center for Childline Kenya. The work done was, Requirement,Gathering, wireframing, SoftwareDevelopment, Deployment, user testing, Training, and User Support.Project Timelines was 8 Months",
+    logo: "/placeholder.svg?height=100&width=200",
+    Link: "https://www.unfpa.org/",
+    contactEmail: "unfpa@unfpa.org",
+    contactPhone: "+254 713860954",
+  },
+  {
+    id: 2,
+    title: "Ministry of Community Development, Gender, Elderly and Children (MCDGEC-Tanzania)",
+    description: "Partnership in developing comprehensive child protection systems across Tanzania.",
+    logo: "/placeholder.svg?height=100&width=200",
+    Link: "https://www.turkanabasin.org/",
+    contactEmail: "turkanabasin@turkanabasin.org",
+    contactPhone: "+254 713860954",
+  },
+  {
+    id: 3,
+    title: "Sauti 116 Helpline",
+    description: "Collaborative efforts in establishing and maintaining child helpline services in Uganda.",
+    logo: "/placeholder.svg?height=100&width=200",
+    Link: "https://sauti.mglsd.go.ug/sauti/",
+    contactEmail: "sauti@sauti.mglsd.go.ug",
+    contactPhone: "+256 700 000 000",
+  },
+  {
+    id: 4,
+    title: "Ministry of Gender and Social Development",
+    description: "Strategic partnership in implementing gender-focused technology solutions.",
+    logo: "/placeholder.svg?height=100&width=200",
+    Link: "https://towersacco.co.ke/",
+    contactEmail: "towersacco@towersacco.co.ke",
+    contactPhone: "+256 700 000 000",
+  },
+  {
+    id: 7,
+    title: "Childline Kenya",
+    description: "Direct partnership in providing comprehensive child protection services and technology solutions.",
+    logo: "/placeholder.svg?height=100&width=200",
+    Link: "https://childlinekenya.co.ke/",
+  },
+]
