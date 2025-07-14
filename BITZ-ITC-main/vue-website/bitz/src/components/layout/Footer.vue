@@ -123,7 +123,7 @@
       <div class="border-t border-gray-800 mt-12 pt-8">
         <div class="flex flex-col md:flex-row justify-between items-center">
           <p class="text-gray-400 text-sm">
-            © {{ currentYear }} BITZ-ic. All rights reserved.
+            © {{ currentYear }} BITZ-itc. All rights reserved.
           </p>
           <div class="flex items-center space-x-2 mt-4 md:mt-0">
             <MessageSquare :size="16" class="text-gray-400" />

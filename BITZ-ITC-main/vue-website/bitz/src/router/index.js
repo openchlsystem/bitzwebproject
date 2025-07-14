@@ -63,8 +63,8 @@ const routes = [
   },
   // Services redirect to home for now
   {
-    path: '/services',
-    redirect: '/#services'
+    path: '/products',
+    redirect: '/#products'
   },
   // 404 page
   {

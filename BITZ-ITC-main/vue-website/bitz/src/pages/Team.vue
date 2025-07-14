@@ -38,7 +38,9 @@
               <div v-for="(member, index) in featuredMembers" :key="member.id"
                    class="showcase-item"
                    :style="{ animationDelay: `${index * 0.2}s` }">
-                <img :src="member.image" :alt="member.name" />
+                <div class="member-initials" :style="{ background: member.color }">
+                  {{ getInitials(member.name) }}
+                </div>
               </div>
             </div>
           </div>
@@ -62,15 +64,21 @@
             </div>
           </div>
           <div class="category-filters">
-            <button 
-              v-for="category in teamCategories"
-              :key="category"
-              class="filter-btn"
-              :class="{ active: activeCategory === category }"
-              @click="setActiveCategory(category)"
-            >
+            <button v-for="category in teamCategories"
+                    :key="category"
+                    class="filter-btn"
+                    :class="{ active: activeCategory === category }"
+                    @click="setActiveCategory(category)">
               {{ category }}
             </button>
+          </div>
+          <div class="qualification-filters">
+            <select v-model="selectedQualification" class="qualification-select">
+              <option value="">All Qualifications</option>
+              <option v-for="qual in allQualifications" :key="qual" :value="qual">
+                {{ qual }}
+              </option>
+            </select>
           </div>
         </div>
       </div>
@@ -88,41 +96,48 @@
         </div>
         <div class="leadership-grid">
           <div v-for="member in filteredLeadership" :key="member.id" class="leadership-card">
-            <div class="card-inner">
-              <div class="card-front">
-                <div class="member-image">
-                  <img :src="member.image" :alt="member.name" />
-                  <div class="image-overlay">
-                    <div class="social-links">
-                      <button class="social-link" @click="openMemberModal(member)">
-                        <Eye :size="20" />
-                      </button>
-                      <button class="social-link">
-                        <Mail :size="20" />
-                      </button>
-                      <button class="social-link">
-                        <Linkedin :size="20" />
-                      </button>
-                    </div>
-                  </div>
+            <div class="card-content">
+              <div class="member-avatar-section">
+                <div class="member-initials-large" :style="{ background: member.color }">
+                  {{ getInitials(member.name) }}
                 </div>
-                <div class="member-info">
-                  <h3 class="member-name">{{ member.name }}</h3>
-                  <p class="member-position">{{ member.position }}</p>
+                <div class="member-status">
+                  <div class="status-dot"></div>
+                  <span>Available</span>
                 </div>
               </div>
-              <div class="card-back">
-                <div class="member-details">
-                  <h3 class="member-name">{{ member.name }}</h3>
-                  <p class="member-bio">{{ member.description }}</p>
-                  <div class="member-expertise">
-                    <h4>Expertise</h4>
-                    <div class="expertise-tags">
-                      <span v-for="skill in member.skills" :key="skill" class="expertise-tag">
-                        {{ skill }}
-                      </span>
-                    </div>
+              <div class="member-info">
+                <h3 class="member-name">{{ member.name }}</h3>
+                <p class="member-position">{{ member.position }}</p>
+                <p class="member-description">{{ member.description }}</p>
+                
+                <div class="qualifications-section">
+                  <h4>Qualifications</h4>
+                  <div class="qualification-tags">
+                    <span v-for="qual in member.qualifications" :key="qual" class="qualification-tag">
+                      {{ qual }}
+                    </span>
                   </div>
+                </div>
+
+                <div class="skills-section">
+                  <h4>Core Skills</h4>
+                  <div class="skill-tags">
+                    <span v-for="skill in member.skills.slice(0, 4)" :key="skill" class="skill-tag">
+                      {{ skill }}
+                    </span>
+                  </div>
+                </div>
+
+                <div class="member-actions">
+                  <button class="action-btn primary" @click="openMemberModal(member)">
+                    <Eye :size="16" />
+                    View Profile
+                  </button>
+                  <button class="action-btn secondary">
+                    <Mail :size="16" />
+                    Contact
+                  </button>
                 </div>
               </div>
             </div>
@@ -141,32 +156,49 @@
             Meet our specialized teams driving innovation across different domains.
           </p>
         </div>
-        
         <transition name="fade" mode="out-in">
           <div :key="activeCategory" class="team-grid">
             <div v-for="member in filteredTeamMembers" :key="member.id" class="team-card">
-              <div class="team-card-content">
-                <div class="member-avatar">
-                  <img :src="member.image" :alt="member.name" />
-                  <div class="status-indicator"></div>
+              <div class="team-card-header">
+                <div class="member-initials-medium" :style="{ background: member.color }">
+                  {{ getInitials(member.name) }}
                 </div>
-                <div class="member-content">
+                <div class="member-basic-info">
                   <h3 class="member-name">{{ member.name }}</h3>
                   <p class="member-role">{{ member.position }}</p>
-                  <p class="member-description">{{ member.description }}</p>
-                  <div class="member-skills">
-                    <span v-for="skill in member.skills?.slice(0, 3)" :key="skill" class="skill-tag">
-                      {{ skill }}
+                </div>
+                <div class="card-actions">
+                  <button class="action-icon" @click="openMemberModal(member)">
+                    <Eye :size="16" />
+                  </button>
+                  <button class="action-icon">
+                    <Mail :size="16" />
+                  </button>
+                </div>
+              </div>
+              
+              <div class="team-card-body">
+                <p class="member-description">{{ member.description }}</p>
+                
+                <div class="qualifications-compact">
+                  <div class="section-label">Qualifications</div>
+                  <div class="qualification-tags-compact">
+                    <span v-for="qual in member.qualifications.slice(0, 2)" :key="qual" class="qualification-tag-compact">
+                      {{ qual }}
+                    </span>
+                    <span v-if="member.qualifications.length > 2" class="more-tag">
+                      +{{ member.qualifications.length - 2 }} more
                     </span>
                   </div>
                 </div>
-                <div class="member-actions">
-                  <button class="action-btn" @click="openMemberModal(member)">
-                    <Eye :size="16" />
-                  </button>
-                  <button class="action-btn">
-                    <Mail :size="16" />
-                  </button>
+
+                <div class="skills-compact">
+                  <div class="section-label">Skills</div>
+                  <div class="skill-tags-compact">
+                    <span v-for="skill in member.skills?.slice(0, 3)" :key="skill" class="skill-tag-compact">
+                      {{ skill }}
+                    </span>
+                  </div>
                 </div>
               </div>
             </div>
@@ -183,7 +215,9 @@
         </button>
         <div class="modal-content">
           <div class="modal-header">
-            <img :src="selectedMember.image" :alt="selectedMember.name" />
+            <div class="member-initials-large" :style="{ background: selectedMember.color }">
+              {{ getInitials(selectedMember.name) }}
+            </div>
             <div class="modal-member-info">
               <h3>{{ selectedMember.name }}</h3>
               <p>{{ selectedMember.position }}</p>
@@ -201,6 +235,16 @@
           </div>
           <div class="modal-body">
             <p>{{ selectedMember.description }}</p>
+            
+            <div class="modal-qualifications">
+              <h4>Qualifications & Certifications</h4>
+              <div class="qualifications-grid">
+                <span v-for="qual in selectedMember.qualifications" :key="qual" class="qualification-badge">
+                  {{ qual }}
+                </span>
+              </div>
+            </div>
+
             <div v-if="selectedMember.skills" class="modal-skills">
               <h4>Skills & Expertise</h4>
               <div class="skills-grid">
@@ -209,6 +253,7 @@
                 </span>
               </div>
             </div>
+
             <div v-if="selectedMember.achievements" class="modal-achievements">
               <h4>Key Achievements</h4>
               <ul class="achievements-list">
@@ -232,19 +277,36 @@ import { Search, Eye, Mail, Linkedin, X } from 'lucide-vue-next'
 const activeCategory = ref('All Teams')
 const selectedMember = ref(null)
 const searchQuery = ref('')
+const selectedQualification = ref('')
 
 const teamCategories = ['All Teams', 'Leadership', 'Development', 'AI & Data', 'Finance', 'Management', 'Partners']
 
-// Team data
+// Helper function to get initials
+const getInitials = (name) => {
+  return name.split(' ').map(word => word[0]).join('').toUpperCase()
+}
+
+// Helper function to generate colors
+const generateColor = (name) => {
+  const colors = [
+    '#3b82f6', '#8b5cf6', '#10b981', '#f59e0b', 
+    '#ef4444', '#06b6d4', '#84cc16', '#f97316'
+  ]
+  const index = name.length % colors.length
+  return colors[index]
+}
+
+// Team data with qualifications
 const leadership = [
   {
     id: 1,
     name: 'James Kaminju',
     position: 'Chief Executive Officer',
     description: 'Leading BITZ Inc with vision and expertise, driving our company\'s growth and innovation in technology solutions. James brings over 15 years of experience in technology leadership and business development.',
-    image: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&h=150&fit=crop&crop=face',
+    qualifications: ['MBA Business Administration', 'BSc Computer Science', 'PMP Certification', 'Executive Leadership Program'],
     skills: ['Strategic Leadership', 'Business Development', 'Technology Vision', 'Team Building'],
     category: 'Leadership',
+    color: generateColor('James Kaminju'),
     achievements: [
       'Led company growth from startup to regional leader',
       'Established partnerships with UNICEF and World Bank',
@@ -256,9 +318,10 @@ const leadership = [
     name: 'Mercy Kamau',
     position: 'Director of Finance',
     description: 'Developing and implementing strategic financial initiatives to drive business growth and market leadership. Mercy ensures financial stability and sustainable growth.',
-    image: 'https://images.unsplash.com/photo-1494790108755-2616b612b786?w=150&h=150&fit=crop&crop=face',
+    qualifications: ['CPA Certification', 'MBA Finance', 'BSc Accounting', 'Risk Management Certification'],
     skills: ['Financial Strategy', 'Risk Management', 'Investment Planning', 'Business Analysis'],
     category: 'Leadership',
+    color: generateColor('Mercy Kamau'),
     achievements: [
       'Implemented robust financial controls',
       'Secured funding for major expansion projects',
@@ -270,9 +333,10 @@ const leadership = [
     name: 'Nelson Adagi',
     position: 'Systems Manager',
     description: 'Ensuring successful delivery of projects through effective planning, execution, and team leadership. Nelson oversees all technical operations and system architecture.',
-    image: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=150&h=150&fit=crop&crop=face',
+    qualifications: ['MSc Information Systems', 'BSc Computer Engineering', 'ITIL Certification', 'Agile/Scrum Master'],
     skills: ['Project Management', 'System Architecture', 'Team Leadership', 'Process Optimization'],
     category: 'Management',
+    color: generateColor('Nelson Adagi'),
     achievements: [
       'Successfully delivered 100+ projects',
       'Established quality assurance processes',
@@ -284,9 +348,10 @@ const leadership = [
     name: 'Joseph Kimani',
     position: 'Technical Lead',
     description: 'Leading technical innovation and ensuring the highest standards in our technology solutions. Joseph drives our technical strategy and mentors development teams.',
-    image: 'https://images.unsplash.com/photo-1519244703995-f4e0f30006d5?w=150&h=150&fit=crop&crop=face',
+    qualifications: ['MSc Software Engineering', 'BSc Computer Science', 'AWS Solutions Architect', 'Google Cloud Professional'],
     skills: ['Technical Architecture', 'Code Review', 'Mentoring', 'Innovation Strategy'],
     category: 'Leadership',
+    color: generateColor('Joseph Kimani'),
     achievements: [
       'Architected scalable solutions for major clients',
       'Mentored 50+ developers',
@@ -301,8 +366,9 @@ const specializedTeam = [
     name: 'Joan Njoki',
     position: 'Head of Finance',
     description: 'Managing financial operations and strategic financial planning for sustainable growth.',
-    image: 'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=150&h=150&fit=crop&crop=face',
+    qualifications: ['CPA Certification', 'BSc Finance', 'Financial Risk Management'],
     category: 'Finance',
+    color: generateColor('Joan Njoki'),
     skills: ['Financial Planning', 'Budget Management', 'Financial Analysis', 'Compliance']
   },
   {
@@ -310,8 +376,9 @@ const specializedTeam = [
     name: 'Franklin Karanja',
     position: 'Lead AI Developer',
     description: 'Spearheading AI initiatives and machine learning solutions for innovative applications.',
-    image: 'https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=150&h=150&fit=crop&crop=face',
+    qualifications: ['MSc Artificial Intelligence', 'BSc Computer Science', 'TensorFlow Developer Certification', 'AWS ML Specialty'],
     category: 'AI & Data',
+    color: generateColor('Franklin Karanja'),
     skills: ['Machine Learning', 'Deep Learning', 'Python', 'TensorFlow', 'Data Science']
   },
   {
@@ -319,8 +386,9 @@ const specializedTeam = [
     name: 'Miriam Shem',
     position: 'Head of Social Media and AI Developer',
     description: 'Combining social media expertise with AI development for enhanced digital experiences.',
-    image: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=150&h=150&fit=crop&crop=face',
+    qualifications: ['BSc Digital Marketing', 'AI/ML Certification', 'Google Analytics Certified', 'Social Media Marketing'],
     category: 'AI & Data',
+    color: generateColor('Miriam Shem'),
     skills: ['Social Media Strategy', 'AI Development', 'Content Strategy', 'Digital Marketing']
   },
   {
@@ -328,8 +396,9 @@ const specializedTeam = [
     name: 'Phyllis Kamau',
     position: 'CI/CD and Deployment',
     description: 'Ensuring smooth and efficient deployment processes through robust CI/CD pipelines.',
-    image: 'https://images.unsplash.com/photo-1487412720507-e7ab37603c6f?w=150&h=150&fit=crop&crop=face',
+    qualifications: ['BSc Computer Science', 'Docker Certified Associate', 'Kubernetes Administrator', 'AWS DevOps'],
     category: 'Development',
+    color: generateColor('Phyllis Kamau'),
     skills: ['DevOps', 'CI/CD', 'Docker', 'Kubernetes', 'Cloud Deployment']
   },
   {
@@ -337,8 +406,9 @@ const specializedTeam = [
     name: 'Jude Angedu',
     position: 'Backend Development',
     description: 'Building robust and scalable backend systems for our applications.',
-    image: 'https://images.unsplash.com/photo-1507591064344-4c6ce005b128?w=150&h=150&fit=crop&crop=face',
+    qualifications: ['BSc Software Engineering', 'Node.js Certification', 'MongoDB Developer', 'API Design Specialist'],
     category: 'Development',
+    color: generateColor('Jude Angedu'),
     skills: ['Node.js', 'Python', 'Database Design', 'API Development', 'System Architecture']
   },
   {
@@ -346,8 +416,9 @@ const specializedTeam = [
     name: 'Peter Rogendo',
     position: 'Backend Development',
     description: 'Contributing to the development of efficient and reliable backend services.',
-    image: 'https://images.unsplash.com/photo-1492562080023-ab3db95bfbce?w=150&h=150&fit=crop&crop=face',
+    qualifications: ['BSc Computer Science', 'Java Spring Certification', 'Microservices Architecture', 'Security Specialist'],
     category: 'Development',
+    color: generateColor('Peter Rogendo'),
     skills: ['Java', 'Spring Boot', 'Microservices', 'Database Optimization', 'Security']
   },
   {
@@ -355,8 +426,9 @@ const specializedTeam = [
     name: 'Newton Brian',
     position: 'UI/UX and Frontend Development',
     description: 'Designing and implementing user-friendly interfaces and engaging frontend experiences.',
-    image: 'https://images.unsplash.com/photo-1463453091185-61582044d556?w=150&h=150&fit=crop&crop=face',
+    qualifications: ['BSc Design', 'UX Design Certification', 'React Developer', 'Adobe Certified Expert'],
     category: 'Development',
+    color: generateColor('Newton Brian'),
     skills: ['React', 'Vue.js', 'UI/UX Design', 'Responsive Design', 'User Experience']
   },
   {
@@ -364,8 +436,9 @@ const specializedTeam = [
     name: 'Marion',
     position: 'Software Intern',
     description: 'Backend and mobile CRMs, contributing to the development of our applications.',
-    image: 'https://images.unsplash.com/photo-1489424731084-a5d8b219a5bb?w=150&h=150&fit=crop&crop=face',
+    qualifications: ['BSc Computer Science (In Progress)', 'Mobile Development Bootcamp', 'Agile Fundamentals'],
     category: 'Development',
+    color: generateColor('Marion'),
     skills: ['Mobile Development', 'CRM Systems', 'Backend Development', 'Learning & Growth']
   }
 ]
@@ -377,8 +450,9 @@ const partners = [
     name: 'UNICEF Kenya',
     position: 'Strategic Partner',
     description: 'Long-term partnership in child protection and welfare systems development.',
-    image: 'https://via.placeholder.com/150x150/1976d2/ffffff?text=UNICEF',
+    qualifications: ['UN Partnership Certification', 'Child Protection Standards', 'International Development'],
     category: 'Partners',
+    color: '#1976d2',
     skills: ['Child Protection', 'System Integration', 'Training', 'Support']
   },
   {
@@ -386,8 +460,9 @@ const partners = [
     name: 'World Bank',
     position: 'Development Partner',
     description: 'Collaboration on digital transformation and governance projects.',
-    image: 'https://via.placeholder.com/150x150/388e3c/ffffff?text=WB',
+    qualifications: ['World Bank Certification', 'Digital Governance', 'Project Management Professional'],
     category: 'Partners',
+    color: '#388e3c',
     skills: ['Digital Governance', 'Capacity Building', 'Project Management', 'Consulting']
   },
   {
@@ -395,8 +470,9 @@ const partners = [
     name: 'Kenya Government',
     position: 'Government Partner',
     description: 'Supporting government digitization and e-governance initiatives.',
-    image: 'https://via.placeholder.com/150x150/f57c00/ffffff?text=GOK',
+    qualifications: ['Government Partnership', 'E-Governance Certification', 'Public Sector Experience'],
     category: 'Partners',
+    color: '#f57c00',
     skills: ['E-Governance', 'Digital Services', 'Policy Implementation', 'Training']
   }
 ]
@@ -414,19 +490,43 @@ const allMembers = computed(() => {
   return [...leadership, ...specializedTeam, ...partners]
 })
 
+const allQualifications = computed(() => {
+  const qualifications = new Set()
+  allMembers.value.forEach(member => {
+    member.qualifications?.forEach(qual => qualifications.add(qual))
+  })
+  return Array.from(qualifications).sort()
+})
+
 const filteredLeadership = computed(() => {
-  if (activeCategory.value === 'All Teams') {
-    return leadership
+  let members = []
+  if (activeCategory.value === 'All Teams' || activeCategory.value === 'Leadership') {
+    members = leadership
   }
-  if (activeCategory.value === 'Leadership') {
-    return leadership
+  
+  // Apply qualification filter
+  if (selectedQualification.value) {
+    members = members.filter(member => 
+      member.qualifications?.includes(selectedQualification.value)
+    )
   }
-  return []
+  
+  // Apply search filter
+  if (searchQuery.value) {
+    const query = searchQuery.value.toLowerCase()
+    members = members.filter(member => 
+      member.name.toLowerCase().includes(query) ||
+      member.position.toLowerCase().includes(query) ||
+      member.description.toLowerCase().includes(query) ||
+      member.qualifications?.some(qual => qual.toLowerCase().includes(query))
+    )
+  }
+  
+  return members
 })
 
 const filteredTeamMembers = computed(() => {
   let members = []
-  
   if (activeCategory.value === 'All Teams') {
     members = [...specializedTeam, ...partners]
   } else if (activeCategory.value === 'Leadership') {
@@ -436,17 +536,25 @@ const filteredTeamMembers = computed(() => {
   } else {
     members = specializedTeam.filter(member => member.category === activeCategory.value)
   }
-  
+
+  // Apply qualification filter
+  if (selectedQualification.value) {
+    members = members.filter(member => 
+      member.qualifications?.includes(selectedQualification.value)
+    )
+  }
+
   // Apply search filter
   if (searchQuery.value) {
     const query = searchQuery.value.toLowerCase()
     members = members.filter(member => 
       member.name.toLowerCase().includes(query) ||
       member.position.toLowerCase().includes(query) ||
-      member.description.toLowerCase().includes(query)
+      member.description.toLowerCase().includes(query) ||
+      member.qualifications?.some(qual => qual.toLowerCase().includes(query))
     )
   }
-  
+
   return members
 })
 
@@ -618,10 +726,15 @@ const closeMemberModal = () => {
   transform: translateY(30px);
 }
 
-.showcase-item img {
+.member-initials {
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-weight: 700;
+  font-size: 1.5rem;
 }
 
 @keyframes slideInUp {
@@ -704,6 +817,27 @@ const closeMemberModal = () => {
   transform: translateY(-2px);
 }
 
+.qualification-filters {
+  min-width: 200px;
+}
+
+.qualification-select {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  border: 2px solid #e5e7eb;
+  border-radius: 30px;
+  background: white;
+  font-size: 0.875rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.qualification-select:focus {
+  outline: none;
+  border-color: #3b82f6;
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+}
+
 /* Leadership Section */
 .leadership-section {
   padding: 5rem 0;
@@ -729,148 +863,164 @@ const closeMemberModal = () => {
 
 .leadership-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
   gap: 2rem;
 }
 
 .leadership-card {
-  perspective: 1000px;
-  height: 400px;
-}
-
-.card-inner {
-  position: relative;
-  width: 100%;
-  height: 100%;
-  text-align: center;
-  transition: transform 0.6s;
-  transform-style: preserve-3d;
-  cursor: pointer;
-}
-
-.leadership-card:hover .card-inner {
-  transform: rotateY(180deg);
-}
-
-.card-front,
-.card-back {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  backface-visibility: hidden;
-  border-radius: 30px;
-  padding: 2rem;
   background: white;
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+  border-radius: 24px;
+  padding: 2rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+  transition: all 0.3s ease;
+  border: 1px solid #f1f5f9;
 }
 
-.card-back {
-  transform: rotateY(180deg);
-  background: #1e293b;
-  color: white;
+.leadership-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 25px rgba(0, 0, 0, 0.1);
+}
+
+.card-content {
+  display: flex;
+  gap: 1.5rem;
+}
+
+.member-avatar-section {
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  align-items: center;
+  gap: 0.75rem;
 }
 
-.member-image {
-  position: relative;
-  width: 120px;
-  height: 120px;
-  margin: 0 auto 1.5rem;
-  border-radius: 30px;
-  overflow: hidden;
-}
-
-.member-image img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-.image-overlay {
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: rgba(0, 0, 0, 0.7);
+.member-initials-large {
+  width: 80px;
+  height: 80px;
+  border-radius: 20px;
   display: flex;
   align-items: center;
   justify-content: center;
-  opacity: 0;
-  transition: opacity 0.3s ease;
-}
-
-.member-image:hover .image-overlay {
-  opacity: 1;
-}
-
-.social-links {
-  display: flex;
-  gap: 0.5rem;
-}
-
-.social-link {
-  width: 2rem;
-  height: 2rem;
-  border-radius: 50%;
-  background: rgba(255, 255, 255, 0.2);
-  border: none;
   color: white;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
-  transition: all 0.3s ease;
+  font-weight: 700;
+  font-size: 1.75rem;
 }
 
-.social-link:hover {
-  background: #3b82f6;
-  transform: scale(1.1);
+.member-status {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.75rem;
+  color: #10b981;
+}
+
+.status-dot {
+  width: 8px;
+  height: 8px;
+  background: #10b981;
+  border-radius: 50%;
+}
+
+.member-info {
+  flex: 1;
 }
 
 .member-name {
   font-size: 1.25rem;
-  font-weight: 600;
-  margin-bottom: 0.5rem;
+  font-weight: 700;
+  margin-bottom: 0.25rem;
   color: #1e293b;
-}
-
-.card-back .member-name {
-  color: white;
 }
 
 .member-position {
   color: #3b82f6;
-  font-weight: 500;
-  margin-bottom: 1rem;
+  font-weight: 600;
+  margin-bottom: 0.75rem;
+  font-size: 0.875rem;
 }
 
-.member-bio {
+.member-description {
+  color: #64748b;
   line-height: 1.6;
+  margin-bottom: 1.5rem;
+  font-size: 0.875rem;
+}
+
+.qualifications-section,
+.skills-section {
   margin-bottom: 1.5rem;
 }
 
-.member-expertise h4 {
-  font-size: 1rem;
+.qualifications-section h4,
+.skills-section h4 {
+  font-size: 0.875rem;
   font-weight: 600;
-  margin-bottom: 0.75rem;
+  margin-bottom: 0.5rem;
+  color: #374151;
 }
 
-.expertise-tags {
+.qualification-tags,
+.skill-tags {
   display: flex;
   flex-wrap: wrap;
   gap: 0.5rem;
 }
 
-.expertise-tag {
-  background: rgba(59, 130, 246, 0.2);
-  color: #3b82f6;
+.qualification-tag {
+  background: #fef3c7;
+  color: #92400e;
   padding: 0.25rem 0.75rem;
-  border-radius: 30px;
+  border-radius: 20px;
   font-size: 0.75rem;
   font-weight: 500;
+}
+
+.skill-tag {
+  background: #dbeafe;
+  color: #1d4ed8;
+  padding: 0.25rem 0.75rem;
+  border-radius: 20px;
+  font-size: 0.75rem;
+  font-weight: 500;
+}
+
+.member-actions {
+  display: flex;
+  gap: 0.75rem;
+  margin-top: 1rem;
+}
+
+.action-btn {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  font-size: 0.75rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border: none;
+}
+
+.action-btn.primary {
+  background: #3b82f6;
+  color: white;
+}
+
+.action-btn.primary:hover {
+  background: #2563eb;
+  transform: translateY(-2px);
+}
+
+.action-btn.secondary {
+  background: #f1f5f9;
+  color: #64748b;
+  border: 1px solid #e2e8f0;
+}
+
+.action-btn.secondary:hover {
+  background: #e2e8f0;
+  color: #374151;
 }
 
 /* Team Section */
@@ -881,101 +1031,73 @@ const closeMemberModal = () => {
 
 .team-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
   gap: 1.5rem;
 }
 
 .team-card {
   background: white;
-  border-radius: 30px;
+  border-radius: 20px;
   overflow: hidden;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
   transition: all 0.3s ease;
+  border: 1px solid #f1f5f9;
 }
 
 .team-card:hover {
   transform: translateY(-4px);
-  box-shadow: 0 20px 25px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 12px 20px rgba(0, 0, 0, 0.1);
 }
 
-.team-card-content {
-  padding: 1.5rem;
+.team-card-header {
   display: flex;
+  align-items: center;
   gap: 1rem;
+  padding: 1.5rem 1.5rem 1rem;
 }
 
-.member-avatar {
-  position: relative;
-  width: 60px;
-  height: 60px;
-  border-radius: 30px;
-  overflow: hidden;
+.member-initials-medium {
+  width: 50px;
+  height: 50px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-weight: 700;
+  font-size: 1.125rem;
   flex-shrink: 0;
 }
 
-.member-avatar img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-.status-indicator {
-  position: absolute;
-  bottom: 2px;
-  right: 2px;
-  width: 12px;
-  height: 12px;
-  background: #10b981;
-  border: 2px solid white;
-  border-radius: 50%;
-}
-
-.member-content {
+.member-basic-info {
   flex: 1;
+}
+
+.member-basic-info .member-name {
+  font-size: 1.125rem;
+  font-weight: 600;
+  margin-bottom: 0.25rem;
+  color: #1e293b;
 }
 
 .member-role {
   color: #3b82f6;
   font-size: 0.875rem;
   font-weight: 500;
-  margin-bottom: 0.5rem;
 }
 
-.member-description {
-  color: #64748b;
-  font-size: 0.875rem;
-  line-height: 1.5;
-  margin-bottom: 1rem;
-}
-
-.member-skills {
+.card-actions {
   display: flex;
-  flex-wrap: wrap;
-  gap: 0.25rem;
-}
-
-.skill-tag {
-  background: #f1f5f9;
-  color: #475569;
-  padding: 0.125rem 0.5rem;
-  border-radius: 30px;
-  font-size: 0.75rem;
-  font-weight: 500;
-}
-
-.member-actions {
-  display: flex;
-  flex-direction: column;
   gap: 0.5rem;
 }
 
-.action-btn {
+.action-icon {
   width: 2rem;
   height: 2rem;
   border: none;
   background: #f1f5f9;
   color: #64748b;
-  border-radius: 50%;
+  border-radius: 8px;
   cursor: pointer;
   display: flex;
   align-items: center;
@@ -983,10 +1105,69 @@ const closeMemberModal = () => {
   transition: all 0.3s ease;
 }
 
-.action-btn:hover {
+.action-icon:hover {
   background: #3b82f6;
   color: white;
   transform: scale(1.1);
+}
+
+.team-card-body {
+  padding: 0 1.5rem 1.5rem;
+}
+
+.team-card-body .member-description {
+  color: #64748b;
+  font-size: 0.875rem;
+  line-height: 1.5;
+  margin-bottom: 1rem;
+}
+
+.qualifications-compact,
+.skills-compact {
+  margin-bottom: 1rem;
+}
+
+.section-label {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: #374151;
+  margin-bottom: 0.5rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.qualification-tags-compact,
+.skill-tags-compact {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.25rem;
+}
+
+.qualification-tag-compact {
+  background: #fef3c7;
+  color: #92400e;
+  padding: 0.125rem 0.5rem;
+  border-radius: 12px;
+  font-size: 0.6875rem;
+  font-weight: 500;
+}
+
+.skill-tag-compact {
+  background: #dbeafe;
+  color: #1d4ed8;
+  padding: 0.125rem 0.5rem;
+  border-radius: 12px;
+  font-size: 0.6875rem;
+  font-weight: 500;
+}
+
+.more-tag {
+  background: #f3f4f6;
+  color: #6b7280;
+  padding: 0.125rem 0.5rem;
+  border-radius: 12px;
+  font-size: 0.6875rem;
+  font-weight: 500;
 }
 
 /* Modal Styles */
@@ -1006,7 +1187,7 @@ const closeMemberModal = () => {
 
 .member-modal {
   background: white;
-  border-radius: 30px;
+  border-radius: 24px;
   max-width: 600px;
   width: 100%;
   max-height: 80vh;
@@ -1049,13 +1230,6 @@ const closeMemberModal = () => {
   border-bottom: 1px solid #e5e7eb;
 }
 
-.modal-header img {
-  width: 80px;
-  height: 80px;
-  border-radius: 30px;
-  object-fit: cover;
-}
-
 .modal-member-info h3 {
   font-size: 1.5rem;
   font-weight: 700;
@@ -1080,7 +1254,7 @@ const closeMemberModal = () => {
   padding: 0.5rem 1rem;
   border: 1px solid #e5e7eb;
   background: white;
-  border-radius: 30px;
+  border-radius: 20px;
   cursor: pointer;
   transition: all 0.3s ease;
   font-size: 0.875rem;
@@ -1098,11 +1272,13 @@ const closeMemberModal = () => {
   color: #64748b;
 }
 
+.modal-qualifications,
 .modal-skills,
 .modal-achievements {
   margin-bottom: 2rem;
 }
 
+.modal-qualifications h4,
 .modal-skills h4,
 .modal-achievements h4 {
   font-size: 1.125rem;
@@ -1110,17 +1286,27 @@ const closeMemberModal = () => {
   margin-bottom: 1rem;
 }
 
+.qualifications-grid,
 .skills-grid {
   display: flex;
   flex-wrap: wrap;
   gap: 0.5rem;
 }
 
+.qualification-badge {
+  background: #fef3c7;
+  color: #92400e;
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  font-size: 0.875rem;
+  font-weight: 500;
+}
+
 .skill-badge {
   background: #dbeafe;
   color: #1d4ed8;
   padding: 0.5rem 1rem;
-  border-radius: 30px;
+  border-radius: 20px;
   font-size: 0.875rem;
   font-weight: 500;
 }
@@ -1179,6 +1365,15 @@ const closeMemberModal = () => {
   .category-filters {
     justify-content: center;
   }
+  
+  .leadership-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .card-content {
+    flex-direction: column;
+    text-align: center;
+  }
 }
 
 @media (max-width: 768px) {
@@ -1191,24 +1386,27 @@ const closeMemberModal = () => {
     grid-template-columns: repeat(2, 1fr);
   }
   
-  .leadership-grid,
   .team-grid {
     grid-template-columns: 1fr;
   }
   
-  .team-card-content {
+  .team-card-header {
     flex-direction: column;
     text-align: center;
+    gap: 1rem;
   }
   
-  .member-actions {
-    flex-direction: row;
+  .card-actions {
     justify-content: center;
   }
   
   .modal-header {
     flex-direction: column;
     text-align: center;
+  }
+  
+  .member-actions {
+    justify-content: center;
   }
 }
 </style>

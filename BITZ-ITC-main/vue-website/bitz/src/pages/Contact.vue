@@ -130,7 +130,7 @@
               <div>
                 <h4 class="font-semibold mb-1">Address</h4>
                 <p class="text-gray-600 mb-3">
-                  Prime Cantors, Mombasa Road, Kenya, next to Nice and Lovely (Dongokundu Building)
+                  Prime Cartons, Mombasa Road, Kenya, next to Nice and Lovely (Dongokung Building)
                 </p>
                 <div class="flex items-center space-x-4">
                   <button class="px-4 py-2 border-2 border-gray-200 rounded-[30px] text-sm hover:bg-gray-50 flex items-center space-x-2 transition-all hover:-translate-y-1">
@@ -150,7 +150,7 @@
               </div>
               <div>
                 <h4 class="font-semibold mb-1">Phone</h4>
-                <p class="text-gray-600 mb-3">0700552788</p>
+                <p class="text-gray-600 mb-3">0722116116</p>
                 <div class="flex items-center space-x-4">
                   <button class="px-4 py-2 border-2 border-gray-200 rounded-[30px] text-sm hover:bg-gray-50 flex items-center space-x-2 transition-all hover:-translate-y-1">
                     <span>📧</span>
@@ -169,7 +169,7 @@
               </div>
               <div>
                 <h4 class="font-semibold mb-1">Email</h4>
-                <p class="text-gray-600">newtonkyan2428@gmail.com</p>
+                <p class="text-gray-600">info@bitz-itc.com</p>
               </div>
             </div>
           </div>
