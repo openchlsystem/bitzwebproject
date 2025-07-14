@@ -29,6 +29,44 @@
           </div>
         </router-link>
 
+        <!-- Search Bar -->
+        <div class="hidden md:flex flex-1 max-w-md mx-8">
+          <div class="relative w-full">
+            <input
+              v-model="searchQuery"
+              @input="handleSearch"
+              @focus="showSearchResults = true"
+              type="text"
+              placeholder="Search products, projects, team..."
+              class="w-full px-4 py-2 pl-10 pr-4 rounded-[20px] border-2 border-gray-200 focus:border-blue-500 focus:outline-none transition-all duration-300"
+            />
+            <Search class="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400" :size="18" />
+            
+            <!-- Search Results Dropdown -->
+            <div 
+              v-if="showSearchResults && searchQuery && searchResults.length > 0"
+              class="absolute top-full left-0 right-0 mt-2 bg-white rounded-[20px] shadow-xl border border-gray-200 max-h-96 overflow-y-auto z-50"
+            >
+              <div class="p-2">
+                <div 
+                  v-for="result in searchResults" 
+                  :key="result.id"
+                  @click="navigateToResult(result)"
+                  class="flex items-center p-3 hover:bg-gray-50 rounded-[15px] cursor-pointer transition-colors"
+                >
+                  <div class="w-8 h-8 bg-blue-100 rounded-full flex items-center justify-center mr-3">
+                    <component :is="getResultIcon(result.type)" :size="16" class="text-blue-600" />
+                  </div>
+                  <div class="flex-1">
+                    <div class="font-medium text-gray-900">{{ result.title }}</div>
+                    <div class="text-sm text-gray-500">{{ result.type }}</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
         <!-- Desktop Navigation -->
         <div class="hidden lg:flex items-center space-x-1">
           <router-link
@@ -68,10 +106,8 @@
             to="/contact"
             class="hidden md:flex items-center px-6 py-3 rounded-[20px] font-bold text-sm transition-all duration-300 shadow-lg hover:shadow-xl hover:-translate-y-1 bg-blue-600 hover:bg-blue-700 text-white transform hover:scale-105"
           >
-            Get Started
-            <svg class="ml-2 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
-            </svg>
+            Let's Connect
+            <ArrowRight class="ml-2" :size="16" />
           </router-link>
 
           <!-- Mobile Menu Button -->
@@ -99,6 +135,20 @@
           v-if="isMobileMenuOpen" 
           class="lg:hidden py-6 border-t border-gray-200 bg-white"
         >
+          <!-- Mobile Search -->
+          <div class="px-4 mb-4">
+            <div class="relative">
+              <input
+                v-model="searchQuery"
+                @input="handleSearch"
+                type="text"
+                placeholder="Search..."
+                class="w-full px-4 py-2 pl-10 rounded-[20px] border-2 border-gray-200 focus:border-blue-500 focus:outline-none"
+              />
+              <Search class="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400" :size="18" />
+            </div>
+          </div>
+
           <div class="flex flex-col space-y-2">
             <router-link
               v-for="item in navigationItems"
@@ -122,40 +172,96 @@
                 class="flex items-center justify-center px-6 py-4 rounded-[20px] font-bold transition-all duration-300 shadow-lg bg-blue-600 hover:bg-blue-700 text-white"
                 @click="closeMobileMenu"
               >
-                Get Started
-                <svg class="ml-2 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
-                </svg>
+                Let's Connect
+                <ArrowRight class="ml-2" :size="16" />
               </router-link>
             </div>
           </div>
         </div>
       </Transition>
     </nav>
+
+    <!-- Search Overlay for Mobile -->
+    <div 
+      v-if="showSearchResults && searchQuery && isMobileMenuOpen"
+      class="lg:hidden bg-white border-t border-gray-200 max-h-64 overflow-y-auto"
+    >
+      <div class="p-4">
+        <div 
+          v-for="result in searchResults" 
+          :key="result.id"
+          @click="navigateToResult(result)"
+          class="flex items-center p-3 hover:bg-gray-50 rounded-[15px] cursor-pointer transition-colors"
+        >
+          <div class="w-8 h-8 bg-blue-100 rounded-full flex items-center justify-center mr-3">
+            <component :is="getResultIcon(result.type)" :size="16" class="text-blue-600" />
+          </div>
+          <div class="flex-1">
+            <div class="font-medium text-gray-900">{{ result.title }}</div>
+            <div class="text-sm text-gray-500">{{ result.type }}</div>
+          </div>
+        </div>
+      </div>
+    </div>
   </header>
 </template>
 
 <script setup>
-import { ref, onMounted, onUnmounted, watch } from 'vue'
-import { useRoute } from 'vue-router'
-import { Menu, X, Sun, Moon } from 'lucide-vue-next'
+import { ref, onMounted, onUnmounted, watch, computed } from 'vue'
+import { useRoute, useRouter } from 'vue-router'
+import { Menu, X, Sun, Moon, Search, ArrowRight, Package, Users, Briefcase, FileText } from 'lucide-vue-next'
 
 const route = useRoute()
+const router = useRouter()
 
 // Reactive state
 const isMobileMenuOpen = ref(false)
 const isScrolled = ref(false)
 const isDark = ref(false)
+const searchQuery = ref('')
+const showSearchResults = ref(false)
 
 // Navigation items
 const navigationItems = [
   { name: 'Home', path: '/' },
   { name: 'Our Vision', path: '/our-vision' },
-  { name: 'Services', path: '/services' },
+  { name: 'Products', path: '/products' },
   { name: 'Projects', path: '/projects' },
   { name: 'Our Team', path: '/our-team' },
   { name: 'Contact', path: '/contact' }
 ]
+
+// Search data - in a real app, this would come from an API
+const searchData = ref([
+  // Products
+  { id: 'p1', title: 'OPENCHS - Child Helpline System', type: 'Product', path: '/products', category: 'product' },
+  { id: 'p2', title: 'Case Management - Legal', type: 'Product', path: '/products', category: 'product' },
+  { id: 'p3', title: 'Sacco Case Management', type: 'Product', path: '/products', category: 'product' },
+  
+  // Projects
+  { id: 'pr1', title: 'Digital Transformation Initiative', type: 'Project', path: '/projects', category: 'project' },
+  { id: 'pr2', title: 'Manufacturing Excellence Project', type: 'Project', path: '/projects', category: 'project' },
+  
+  // Team
+  { id: 't1', title: 'James Kaminju - CEO', type: 'Team Member', path: '/our-team', category: 'team' },
+  { id: 't2', title: 'Mercy Kamau - Director of Finance', type: 'Team Member', path: '/our-team', category: 'team' },
+  { id: 't3', title: 'Nelson Adagi - Systems Manager', type: 'Team Member', path: '/our-team', category: 'team' },
+  
+  // Pages
+  { id: 'pg1', title: 'Our Vision & Mission', type: 'Page', path: '/our-vision', category: 'page' },
+  { id: 'pg2', title: 'Contact Information', type: 'Page', path: '/contact', category: 'page' }
+])
+
+// Computed search results
+const searchResults = computed(() => {
+  if (!searchQuery.value || searchQuery.value.length < 2) return []
+  
+  const query = searchQuery.value.toLowerCase()
+  return searchData.value.filter(item => 
+    item.title.toLowerCase().includes(query) ||
+    item.type.toLowerCase().includes(query)
+  ).slice(0, 8) // Limit to 8 results
+})
 
 // Methods
 const toggleMobileMenu = () => {
@@ -164,12 +270,12 @@ const toggleMobileMenu = () => {
 
 const closeMobileMenu = () => {
   isMobileMenuOpen.value = false
+  showSearchResults.value = false
 }
 
 const toggleDarkMode = () => {
   isDark.value = !isDark.value
   
-  // Apply dark mode to document
   if (isDark.value) {
     document.documentElement.classList.add('dark')
     localStorage.setItem('theme', 'dark')
@@ -183,21 +289,38 @@ const handleScroll = () => {
   isScrolled.value = window.scrollY > 20
 }
 
-// Lifecycle hooks
+const handleSearch = () => {
+  showSearchResults.value = searchQuery.value.length >= 2
+}
+
+const navigateToResult = (result) => {
+  router.push(result.path)
+  searchQuery.value = ''
+  showSearchResults.value = false
+  closeMobileMenu()
+}
+
+const getResultIcon = (type) => {
+  switch (type) {
+    case 'Product': return Package
+    case 'Project': return Briefcase
+    case 'Team Member': return Users
+    case 'Page': return FileText
+    default: return FileText
+  }
+}
+
+// Click outside handler
 const handleClickOutside = (event) => {
   if (isMobileMenuOpen.value && !event.target.closest('header')) {
     closeMobileMenu()
   }
+  if (showSearchResults.value && !event.target.closest('.relative')) {
+    showSearchResults.value = false
+  }
 }
 
-onMounted(() => {
-  // Add scroll listener
-  window.addEventListener('scroll', handleScroll)
-  
-  // Check initial scroll position
-  handleScroll()
-  
-  // Check for saved theme preference
+const initializeTheme = () => {
   const savedTheme = localStorage.getItem('theme')
   const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches
   
@@ -205,8 +328,13 @@ onMounted(() => {
     isDark.value = true
     document.documentElement.classList.add('dark')
   }
+}
+
+onMounted(() => {
+  window.addEventListener('scroll', handleScroll)
+  handleScroll()
+  initializeTheme()
   
-  // Add click outside listener
   document.addEventListener('click', handleClickOutside)
 })
 
@@ -215,58 +343,18 @@ onUnmounted(() => {
   document.removeEventListener('click', handleClickOutside)
 })
 
-// Watch for route changes to close mobile menu
 watch(() => route.path, () => {
   closeMobileMenu()
 })
 </script>
 
 <style scoped>
-/* Ensure header is always visible */
 header {
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
 }
 
-/* Enhanced shadow for better visibility */
 .shadow-xl {
   box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
-}
-
-/* Ensure proper spacing for fixed header */
-body {
-  padding-top: 80px;
-}
-
-/* Force high contrast for navigation links */
-.nav-link {
-  color: #374151 !important;
-  font-weight: 600;
-}
-
-.nav-link:hover {
-  color: #2563eb !important;
-  background-color: #eff6ff !important;
-}
-
-.nav-link.active {
-  color: #ffffff !important;
-  background-color: #2563eb !important;
-}
-
-/* Smooth transitions for all elements */
-* {
-  transition-property: all;
-  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-  transition-duration: 300ms;
-}
-
-/* Enhanced mobile menu styling */
-@media (max-width: 1024px) {
-  .mobile-menu {
-    background: rgba(255, 255, 255, 0.98);
-    backdrop-filter: blur(20px);
-    -webkit-backdrop-filter: blur(20px);
-  }
 }
 </style>
