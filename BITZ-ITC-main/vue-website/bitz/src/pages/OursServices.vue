@@ -35,7 +35,7 @@
             What We Offer
           </div>
           <h2 class="text-3xl font-bold mb-4">Our Service Portfolio</h2>
-          <p class="text-gray-600">End-to-end technology solutions for your business needs</p>
+          <p class="text-gray-600">End-to-end technology and solutions for your business needs</p>
         </div>
         <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
           <div class="bg-white rounded-[30px] shadow-lg p-8 hover:shadow-xl transition-all hover:-translate-y-2">
