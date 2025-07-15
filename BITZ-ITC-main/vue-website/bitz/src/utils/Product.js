@@ -32,20 +32,20 @@ export const productsData = [
         Module: "Reporting and Analytics",
         Feature: "Customizable Reports",
         Description: "Generate custom reports tailored to specific metrics and KPIs, enabling data-driven decision-making. This feature helps organizations monitor performance, identify trends, and demonstrate impact to stakeholders and funders.",
-        imageUrl: './assets/placeholders/feature.jpg',
+        imageUrl: '/src/assets/placeholders/feature1.jpg',
       },
       {
         Module: "Dashboards",
         Feature: "Real-Time Dashboards",
         Description: "Visualize key metrics and case statuses in real time, empowering managers to make informed decisions quickly. Dashboards provide a snapshot of operations, highlight urgent issues, and support proactive management.",
-        imageUrl: './assets/placeholders/feature.jpg',
+        imageUrl: '/src/assets/placeholders/feature2.jpg',
       },
       {
         Module: "3rd Party Integrations",
         Feature: "CRM Integration",
         Description:
           "Seamlessly integrate with Customer Relationship Management (CRM) software to access comprehensive customer data and history. This enables personalized service, better follow-up, and a holistic view of each case or client.",
-        imageUrl: './assets/placeholders/feature.jpg',
+        imageUrl: '/src/assets/placeholders/feature3.jpg',
       },
     ],
   },
@@ -86,28 +86,28 @@ export const productsData = [
         Feature: "Court Profile",
         Description:
           "Store and manage detailed information about courts, including location, jurisdiction, and case history. This supports efficient case assignment, jurisdiction checks, and historical analysis for legal teams.",
-        imageUrl: './assets/placeholders/feature.jpg',
+        imageUrl: '/src/assets/placeholders/feature1.jpg',
       },
       {
         Module: "Legal Case Management",
         Feature: "Management Tracking of Files Movement",
         Description:
           "Track the movement of case files within the court system in real time. This reduces lost files, improves transparency, and ensures that all stakeholders are informed about the status and location of important documents.",
-        imageUrl: './assets/placeholders/feature.jpg',
+        imageUrl: '/src/assets/placeholders/feature2.jpg',
       },
       {
         Module: "Legal Case Management",
         Feature: "Administration of Legal Fees",
         Description:
           "Automate the calculation and invoicing of legal fees for each case. This feature streamlines billing, reduces errors, and ensures timely payments, supporting the financial health of legal practices.",
-        imageUrl: './assets/placeholders/feature.jpg',
+        imageUrl: '/src/assets/placeholders/feature3.jpg',
       },
       {
         Module: "Legal Case Management",
         Feature: "Reports",
         Description:
           "Generate predefined and custom reports to monitor case status, workload, and outcomes. This supports strategic planning, resource allocation, and performance evaluation for legal teams and management.",
-        imageUrl: './assets/placeholders/feature.jpg',
+        imageUrl: '/src/assets/placeholders/feature1.jpg',
       },
     ],
   },
