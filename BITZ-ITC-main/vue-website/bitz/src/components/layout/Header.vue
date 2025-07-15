@@ -27,7 +27,7 @@
               @input="handleSearch"
               @focus="showSearchResults = true"
               type="text"
-              placeholder="Search products, projects, team..."
+              placeholder="Search products, projects, team members, services..."
               class="w-full px-4 py-2 pl-10 pr-4 rounded-[20px] border-2 border-gray-200 focus:border-blue-500 focus:outline-none transition-all duration-300"
             />
             <Search class="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400" :size="18" />
@@ -36,16 +36,25 @@
             <div v-if="showSearchResults && searchQuery && searchResults.length > 0"
                  class="absolute top-full left-0 right-0 mt-2 bg-white rounded-[20px] shadow-xl border border-gray-200 max-h-96 overflow-y-auto z-50">
               <div class="p-2">
+                <div class="text-xs text-gray-500 px-3 py-2 border-b border-gray-100">
+                  {{ searchResults.length }} result{{ searchResults.length !== 1 ? 's' : '' }} found
+                </div>
                 <div v-for="result in searchResults"
                      :key="result.id"
                      @click="navigateToResult(result)"
-                     class="flex items-center p-3 hover:bg-gray-50 rounded-[15px] cursor-pointer transition-colors">
-                  <div class="w-8 h-8 bg-blue-100 rounded-full flex items-center justify-center mr-3">
-                    <component :is="getResultIcon(result.type)" :size="16" class="text-blue-600" />
+                     class="flex items-start p-3 hover:bg-gray-50 rounded-[15px] cursor-pointer transition-colors">
+                  <div class="w-10 h-10 rounded-full flex items-center justify-center mr-3 flex-shrink-0"
+                       :class="getResultBadgeClass(result.category)">
+                    <component :is="getResultIcon(result.type)" :size="18" class="text-white" />
                   </div>
-                  <div class="flex-1">
-                    <div class="font-medium text-gray-900">{{ result.title }}</div>
-                    <div class="text-sm text-gray-500">{{ result.type }}</div>
+                  <div class="flex-1 min-w-0">
+                    <div class="font-medium text-gray-900 truncate">{{ result.title }}</div>
+                    <div class="text-sm text-gray-500 mb-1">{{ result.type }}</div>
+                    <div class="text-xs text-gray-400 line-clamp-2">{{ result.description }}</div>
+                  </div>
+                  <div class="ml-2 flex-shrink-0">
+                    <div class="w-2 h-2 rounded-full"
+                         :class="getCategoryColor(result.category)"></div>
                   </div>
                 </div>
               </div>
@@ -172,33 +181,225 @@ const navigationItems = [
   { name: 'Reach Out', path: '/contact' }
 ]
 
-// Search data - in a real app, this would come from an API
+// Enhanced search data with comprehensive information
 const searchData = ref([
-  // Products
-  { id: 'p1', title: 'OPENCHS - Child Helpline System', type: 'Product', path: '/products', category: 'product' },
-  { id: 'p2', title: 'Case Management - Legal', type: 'Product', path: '/products', category: 'product' },
-  { id: 'p3', title: 'Sacco Case Management', type: 'Product', path: '/products', category: 'product' },
+  // Products from ProductData
+  { 
+    id: 'p1', 
+    title: 'OPENCHS - Child Helpline System', 
+    type: 'Product', 
+    path: '/products', 
+    category: 'product',
+    description: 'Comprehensive child protection platform providing safe environment for children to report issues',
+    keywords: ['child protection', 'helpline', 'case management', 'reporting', 'counseling', 'multilingual']
+  },
+  { 
+    id: 'p2', 
+    title: 'Case Management - Legal', 
+    type: 'Product', 
+    path: '/products', 
+    category: 'product',
+    description: 'Advanced legal case management system for law firms and legal departments',
+    keywords: ['legal', 'case management', 'court', 'litigation', 'document management', 'scheduling']
+  },
+  { 
+    id: 'p3', 
+    title: 'Sacco Case Management', 
+    type: 'Product', 
+    path: '/products', 
+    category: 'product',
+    description: 'Comprehensive financial case management system for Sacco institutions',
+    keywords: ['sacco', 'financial', 'loans', 'members', 'savings', 'credit', 'microfinance']
+  },
+  
+  // Team Members
+  { 
+    id: 't1', 
+    title: 'James Kaminju - Chief Executive Officer', 
+    type: 'Team Member', 
+    path: '/our-team', 
+    category: 'team',
+    description: 'Visionary leader with 15+ years in technology and business development',
+    keywords: ['ceo', 'leadership', 'strategy', 'business development', 'technology', 'vision']
+  },
+  { 
+    id: 't2', 
+    title: 'Mercy Kamau - Director of Finance', 
+    type: 'Team Member', 
+    path: '/our-team', 
+    category: 'team',
+    description: 'Financial expert ensuring sustainable growth and fiscal responsibility',
+    keywords: ['finance', 'accounting', 'budgeting', 'financial planning', 'cfo', 'economics']
+  },
+  { 
+    id: 't3', 
+    title: 'Nelson Adagi - Systems Manager', 
+    type: 'Team Member', 
+    path: '/our-team', 
+    category: 'team',
+    description: 'Technical lead overseeing system architecture and infrastructure',
+    keywords: ['systems', 'infrastructure', 'architecture', 'technical', 'management', 'operations']
+  },
+  { 
+    id: 't4', 
+    title: 'Sarah Wanjiku - Lead Developer', 
+    type: 'Team Member', 
+    path: '/our-team', 
+    category: 'team',
+    description: 'Full-stack developer specializing in modern web technologies',
+    keywords: ['developer', 'programming', 'web development', 'full-stack', 'javascript', 'react', 'vue']
+  },
+  { 
+    id: 't5', 
+    title: 'Michael Ochieng - UI/UX Designer', 
+    type: 'Team Member', 
+    path: '/our-team', 
+    category: 'team',
+    description: 'Creative designer focused on user experience and interface design',
+    keywords: ['design', 'ui', 'ux', 'user experience', 'interface', 'creative', 'figma']
+  },
+  
   // Projects
-  { id: 'pr1', title: 'Digital Transformation Initiative', type: 'Project', path: '/projects', category: 'project' },
-  { id: 'pr2', title: 'Manufacturing Excellence Project', type: 'Project', path: '/projects', category: 'project' },
-  // Team
-  { id: 't1', title: 'James Kaminju - CEO', type: 'Team Member', path: '/our-team', category: 'team' },
-  { id: 't2', title: 'Mercy Kamau - Director of Finance', type: 'Team Member', path: '/our-team', category: 'team' },
-  { id: 't3', title: 'Nelson Adagi - Systems Manager', type: 'Team Member', path: '/our-team', category: 'team' },
-  // Pages
-  { id: 'pg1', title: 'Our Vision & Mission', type: 'Page', path: '/our-vision', category: 'page' },
-  { id: 'pg2', title: 'Contact Information', type: 'Page', path: '/contact', category: 'page' }
+  { 
+    id: 'pr1', 
+    title: 'Digital Transformation Initiative - Manufacturing', 
+    type: 'Project', 
+    path: '/projects', 
+    category: 'project',
+    description: '40% efficiency improvement through complete digital transformation',
+    keywords: ['manufacturing', 'digital transformation', 'automation', 'efficiency', 'iot', 'analytics']
+  },
+  { 
+    id: 'pr2', 
+    title: 'Government Digitization - Ministry of Health', 
+    type: 'Project', 
+    path: '/projects', 
+    category: 'project',
+    description: 'Comprehensive health management system for government healthcare',
+    keywords: ['government', 'health', 'digitization', 'healthcare', 'management', 'public sector']
+  },
+  { 
+    id: 'pr3', 
+    title: 'UNICEF Child Protection Platform', 
+    type: 'Project', 
+    path: '/projects', 
+    category: 'project',
+    description: 'Multi-country child protection system deployment across East Africa',
+    keywords: ['unicef', 'child protection', 'east africa', 'ngo', 'international', 'humanitarian']
+  },
+  { 
+    id: 'pr4', 
+    title: 'Banking Core System Modernization', 
+    type: 'Project', 
+    path: '/projects', 
+    category: 'project',
+    description: 'Complete overhaul of legacy banking systems with modern architecture',
+    keywords: ['banking', 'financial', 'core system', 'modernization', 'fintech', 'security']
+  },
+  { 
+    id: 'pr5', 
+    title: 'Educational Management System - Universities', 
+    type: 'Project', 
+    path: '/projects', 
+    category: 'project',
+    description: 'Comprehensive student and academic management platform',
+    keywords: ['education', 'university', 'student management', 'academic', 'learning', 'administration']
+  },
+  
+  // Services & Solutions
+  { 
+    id: 's1', 
+    title: 'AI & Machine Learning Solutions', 
+    type: 'Service', 
+    path: '/contact', 
+    category: 'service',
+    description: 'Custom AI models and machine learning implementations',
+    keywords: ['ai', 'machine learning', 'artificial intelligence', 'automation', 'predictive analytics']
+  },
+  { 
+    id: 's2', 
+    title: 'Full-Stack Development Services', 
+    type: 'Service', 
+    path: '/contact', 
+    category: 'service',
+    description: 'End-to-end web and mobile application development',
+    keywords: ['development', 'web development', 'mobile apps', 'full-stack', 'programming']
+  },
+  { 
+    id: 's3', 
+    title: 'Digital Transformation Consulting', 
+    type: 'Service', 
+    path: '/contact', 
+    category: 'service',
+    description: 'Strategic guidance for digital transformation initiatives',
+    keywords: ['consulting', 'digital transformation', 'strategy', 'modernization', 'technology']
+  },
+  
+  // Company Pages
+  { 
+    id: 'pg1', 
+    title: 'Our Vision & Mission', 
+    type: 'Page', 
+    path: '/our-vision', 
+    category: 'page',
+    description: 'Learn about our vision for transforming businesses through technology',
+    keywords: ['vision', 'mission', 'values', 'company', 'purpose', 'goals']
+  },
+  { 
+    id: 'pg2', 
+    title: 'Contact & Get Quote', 
+    type: 'Page', 
+    path: '/contact', 
+    category: 'page',
+    description: 'Get in touch for consultations and project quotes',
+    keywords: ['contact', 'quote', 'consultation', 'reach out', 'get in touch']
+  }
 ])
 
-// Computed search results
+// Enhanced search results with better matching
 const searchResults = computed(() => {
   if (!searchQuery.value || searchQuery.value.length < 2) return []
   
-  const query = searchQuery.value.toLowerCase()
-  return searchData.value.filter(item => 
-    item.title.toLowerCase().includes(query) ||
-    item.type.toLowerCase().includes(query)
-  ).slice(0, 8) // Limit to 8 results
+  const query = searchQuery.value.toLowerCase().trim()
+  const results = []
+  
+  searchData.value.forEach(item => {
+    let score = 0
+    
+    // Title match (highest priority)
+    if (item.title.toLowerCase().includes(query)) {
+      score += 10
+    }
+    
+    // Type match
+    if (item.type.toLowerCase().includes(query)) {
+      score += 8
+    }
+    
+    // Description match
+    if (item.description.toLowerCase().includes(query)) {
+      score += 6
+    }
+    
+    // Keywords match
+    if (item.keywords.some(keyword => keyword.toLowerCase().includes(query))) {
+      score += 5
+    }
+    
+    // Category match
+    if (item.category.toLowerCase().includes(query)) {
+      score += 4
+    }
+    
+    if (score > 0) {
+      results.push({ ...item, score })
+    }
+  })
+  
+  // Sort by score (highest first) and limit to 10 results
+  return results
+    .sort((a, b) => b.score - a.score)
+    .slice(0, 10)
 })
 
 // Methods
@@ -236,6 +437,28 @@ const getResultIcon = (type) => {
   }
 }
 
+const getResultBadgeClass = (category) => {
+  switch (category) {
+    case 'product': return 'bg-blue-500'
+    case 'team': return 'bg-green-500'
+    case 'project': return 'bg-purple-500'
+    case 'service': return 'bg-orange-500'
+    case 'page': return 'bg-gray-500'
+    default: return 'bg-gray-400'
+  }
+}
+
+const getCategoryColor = (category) => {
+  switch (category) {
+    case 'product': return 'bg-blue-400'
+    case 'team': return 'bg-green-400'
+    case 'project': return 'bg-purple-400'
+    case 'service': return 'bg-orange-400'
+    case 'page': return 'bg-gray-400'
+    default: return 'bg-gray-300'
+  }
+}
+
 // Click outside handler
 const handleClickOutside = (event) => {
   if (isMobileMenuOpen.value && !event.target.closest('header')) {
@@ -246,23 +469,38 @@ const handleClickOutside = (event) => {
   }
 }
 
+const handleRouteChange = () => {
+  closeMobileMenu()
+}
+
 onMounted(() => {
   window.addEventListener('scroll', handleScroll)
-  handleScroll()
   document.addEventListener('click', handleClickOutside)
+  watch(() => route.path, handleRouteChange)
 })
 
 onUnmounted(() => {
   window.removeEventListener('scroll', handleScroll)
   document.removeEventListener('click', handleClickOutside)
 })
-
-watch(() => route.path, () => {
-  closeMobileMenu()
-})
 </script>
 
 <style scoped>
+/* Ensure header is properly positioned */
+header {
+  margin: 0;
+  padding: 0;
+  top: 0;
+  left: 0;
+  right: 0;
+}
+
+/* Remove any potential spacing */
+nav {
+  margin: 0;
+  padding: 0;
+}
+
 header {
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);

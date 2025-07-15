@@ -49,8 +49,8 @@
                   class="indicator"
                   :class="{ active: currentCountry === index }"
                   @click="currentCountry = index"
-                  :aria-label="`Go to ${country.name}`"
-                ></button>
+                  :aria-label="`Go to ${country.name}`">
+                </button>
               </div>
             </div>
           </div>
@@ -74,8 +74,7 @@
             <h3 class="service-title">{{ service.title }}</h3>
             <p class="service-description">{{ service.description }}</p>
             <button class="read-more-btn">
-              Learn more 
-              <ArrowRight :size="16" class="ml-1" />
+              Learn more <ArrowRight :size="16" class="ml-1" />
             </button>
           </div>
         </div>
@@ -90,7 +89,6 @@
           <h2 class="section-title">Spotlight: OPENCHS Child Helpline System</h2>
           <p class="section-description">Our flagship child protection solution making a difference across East Africa</p>
         </div>
-        
         <div class="featured-product">
           <div class="featured-product-image">
             <img 
@@ -115,19 +113,15 @@
               </div>
             </div>
           </div>
-          
           <div class="featured-product-content">
             <div class="product-badge">
               <Shield :size="20" class="text-blue-600" />
               <span class="badge-text">Child Protection</span>
             </div>
-            
             <h3 class="featured-title">OPENCHS - Comprehensive Child Helpline System</h3>
-            
             <p class="featured-description">
               OPENCHS is our flagship child protection platform that provides a safe, confidential environment for children to report issues and seek help. The system has been successfully deployed across multiple countries in East Africa, serving thousands of children and families.
             </p>
-            
             <div class="key-features">
               <h4 class="features-title">Key Capabilities</h4>
               <div class="features-list">
@@ -160,7 +154,6 @@
                 </div>
               </div>
             </div>
-            
             <div class="featured-actions">
               <router-link to="/products" class="btn btn-primary">
                 View All Products
@@ -183,20 +176,16 @@
           <h2 class="section-title">Project Spotlight: Digital Transformation Initiative</h2>
           <p class="section-description">How we helped transform operations for a leading manufacturing company</p>
         </div>
-        
         <div class="featured-project">
           <div class="featured-project-content">
             <div class="project-badge">
               <Factory :size="20" class="text-orange-600" />
               <span class="badge-text">Manufacturing</span>
             </div>
-            
             <h3 class="featured-title">Complete Digital Transformation for Manufacturing Excellence</h3>
-            
             <p class="featured-description">
               We partnered with a leading East African manufacturing company to completely digitize their operations, resulting in a 40% improvement in operational efficiency and significant cost reductions. This comprehensive project involved system integration, process automation, and staff training.
             </p>
-            
             <div class="project-highlights">
               <h4 class="highlights-title">Project Impact</h4>
               <div class="highlights-grid">
@@ -218,7 +207,6 @@
                 </div>
               </div>
             </div>
-            
             <div class="project-technologies">
               <h4 class="tech-title">Technologies Used</h4>
               <div class="tech-tags">
@@ -229,7 +217,6 @@
                 <span class="tech-tag">API Development</span>
               </div>
             </div>
-            
             <div class="featured-actions">
               <router-link to="/projects" class="btn btn-primary">
                 View All Projects
@@ -240,7 +227,6 @@
               </button>
             </div>
           </div>
-          
           <div class="featured-project-image">
             <img 
               src="https://via.placeholder.com/600x400/1e293b/ffffff?text=Manufacturing+Dashboard"
@@ -580,7 +566,7 @@ onMounted(() => {
   background: linear-gradient(135deg, #1e293b 0%, #334155 100%);
   color: white;
   padding: 8rem 0 4rem;
-  margin-top: 4rem;
+  margin-top: 5rem;
 }
 
 .hero-content {
@@ -618,21 +604,23 @@ onMounted(() => {
 
 .countries-carousel {
   position: relative;
-  background: linear-gradient(135deg, #3b82f6, #6366f1);
+  background: linear-gradient(135deg, #374151 0%, #4b5563 100%);
+  border: 1px solid #6b7280;
   border-radius: 30px;
   padding: 2rem;
   margin-bottom: 1.5rem;
   min-height: 280px;
   display: flex;
   align-items: center;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
 }
 
 .nav-arrow {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-  background: rgba(255, 255, 255, 0.2);
-  border: none;
+  background: rgba(255, 255, 255, 0.15);
+  border: 1px solid rgba(255, 255, 255, 0.2);
   color: white;
   width: 2.5rem;
   height: 2.5rem;
@@ -643,11 +631,13 @@ onMounted(() => {
   align-items: center;
   justify-content: center;
   z-index: 2;
+  backdrop-filter: blur(10px);
 }
 
 .nav-arrow:hover {
-  background: rgba(255, 255, 255, 0.3);
+  background: rgba(255, 255, 255, 0.25);
   transform: translateY(-50%) scale(1.1);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
 }
 
 .nav-arrow.left {
@@ -675,12 +665,14 @@ onMounted(() => {
 .country-flag {
   font-size: 4rem;
   margin-bottom: 1rem;
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.3));
 }
 
 .country-name {
   font-size: 1.5rem;
   font-weight: 700;
   margin-bottom: 1rem;
+  color: #f8fafc;
 }
 
 .country-description {
@@ -688,6 +680,7 @@ onMounted(() => {
   line-height: 1.6;
   margin-bottom: 1.5rem;
   opacity: 0.9;
+  color: #e2e8f0;
 }
 
 .country-stats {
@@ -704,12 +697,13 @@ onMounted(() => {
   display: block;
   font-size: 1.5rem;
   font-weight: 700;
-  color: #fbbf24;
+  color: #60a5fa;
 }
 
 .stat-label {
   font-size: 0.8rem;
   opacity: 0.8;
+  color: #cbd5e1;
 }
 
 .country-indicators {
@@ -729,8 +723,9 @@ onMounted(() => {
 }
 
 .indicator.active {
-  background: white;
+  background: #60a5fa;
   transform: scale(1.2);
+  box-shadow: 0 0 10px rgba(96, 165, 250, 0.5);
 }
 
 /* Transitions */
@@ -1342,44 +1337,44 @@ onMounted(() => {
     grid-template-columns: 1fr;
     gap: 2rem;
   }
-  
+
   .featured-project .featured-project-content {
     order: 1;
   }
-  
+
   .featured-project .featured-project-image {
     order: 2;
   }
-  
+
   .highlights-grid {
     grid-template-columns: 1fr;
   }
-  
+
   .featured-actions {
     flex-direction: column;
   }
-  
+
   .hero-title {
     font-size: 2.5rem;
   }
-  
+
   .featured-title {
     font-size: 1.5rem;
   }
-  
+
   .services-grid {
     grid-template-columns: 1fr;
   }
-  
+
   .countries-carousel {
     min-height: 250px;
     padding: 1.5rem;
   }
-  
+
   .carousel-content {
     padding: 0 2rem;
   }
-  
+
   .country-stats {
     gap: 1rem;
   }
