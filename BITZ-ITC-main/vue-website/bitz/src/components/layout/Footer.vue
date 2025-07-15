@@ -72,6 +72,14 @@
             </li>
             <li>
               <router-link 
+                to="/products" 
+                class="text-gray-300 hover:text-white transition-colors duration-300"
+              >
+                Products
+              </router-link>
+            </li>
+            <li>
+              <router-link 
                 to="/projects" 
                 class="text-gray-300 hover:text-white transition-colors duration-300"
               >

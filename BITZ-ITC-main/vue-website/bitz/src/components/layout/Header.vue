@@ -9,11 +9,6 @@
       <div class="flex items-center justify-between h-20">
         <!-- Logo -->
         <router-link to="/" class="flex items-center space-x-3 group transition-all duration-300">
-          <!-- <div 
-            class="w-12 h-12 bg-gradient-to-br from-blue-600 to-blue-700 rounded-[20px] flex items-center justify-center shadow-lg group-hover:shadow-xl transition-all duration-300 group-hover:scale-105"
-          >
-            <span class="text-white font-bold text-xl">BITZ</span>
-          </div> -->
           <div class="hidden sm:block">
             <span class="text-xl font-bold text-gray-900">
               BITZ IT
@@ -167,7 +162,7 @@ const isScrolled = ref(false)
 const searchQuery = ref('')
 const showSearchResults = ref(false)
 
-// Navigation items
+// Navigation items - Updated to match your router paths
 const navigationItems = [
   { name: 'Home', path: '/' },
   { name: 'Our Vision', path: '/our-vision' },
