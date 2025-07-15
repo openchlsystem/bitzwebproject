@@ -72,93 +72,23 @@
               {{ category }}
             </button>
           </div>
-          <div class="qualification-filters">
-            <select v-model="selectedQualification" class="qualification-select">
-              <option value="">All Qualifications</option>
-              <option v-for="qual in allQualifications" :key="qual" :value="qual">
-                {{ qual }}
-              </option>
-            </select>
-          </div>
         </div>
       </div>
     </section>
 
-    <!-- Leadership Team -->
-    <section class="section leadership-section">
-      <div class="container">
-        <div class="section-header">
-          <div class="badge badge-primary">Leadership</div>
-          <h2 class="section-title">Executive Leadership</h2>
-          <p class="section-description">
-            Visionary leaders steering our company towards technological excellence and sustainable growth.
-          </p>
-        </div>
-        <div class="leadership-grid">
-          <div v-for="member in filteredLeadership" :key="member.id" class="leadership-card">
-            <div class="card-content">
-              <div class="member-avatar-section">
-                <div class="member-initials-large" :style="{ background: member.color }">
-                  {{ getInitials(member.name) }}
-                </div>
-                <div class="member-status">
-                  <div class="status-dot"></div>
-                  <span>Available</span>
-                </div>
-              </div>
-              <div class="member-info">
-                <h3 class="member-name">{{ member.name }}</h3>
-                <p class="member-position">{{ member.position }}</p>
-                <p class="member-description">{{ member.description }}</p>
-                
-                <div class="qualifications-section">
-                  <h4>Qualifications</h4>
-                  <div class="qualification-tags">
-                    <span v-for="qual in member.qualifications" :key="qual" class="qualification-tag">
-                      {{ qual }}
-                    </span>
-                  </div>
-                </div>
-
-                <div class="skills-section">
-                  <h4>Core Skills</h4>
-                  <div class="skill-tags">
-                    <span v-for="skill in member.skills.slice(0, 4)" :key="skill" class="skill-tag">
-                      {{ skill }}
-                    </span>
-                  </div>
-                </div>
-
-                <div class="member-actions">
-                  <button class="action-btn primary" @click="openMemberModal(member)">
-                    <Eye :size="16" />
-                    View Profile
-                  </button>
-                  <button class="action-btn secondary">
-                    <Mail :size="16" />
-                    Contact
-                  </button>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Team Members -->
+    <!-- Unified Team Section -->
     <section class="section team-section">
       <div class="container">
         <div class="section-header">
-          <div class="badge badge-primary">Our Teams</div>
-          <h2 class="section-title">Specialized Excellence</h2>
+          <div class="badge badge-primary">Our Team</div>
+          <h2 class="section-title">Meet Our Amazing Team</h2>
           <p class="section-description">
-            Meet our specialized teams driving innovation across different domains.
+            From visionary leaders to skilled developers, our diverse team drives innovation across all domains.
           </p>
         </div>
         <transition name="fade" mode="out-in">
-          <div :key="activeCategory" class="team-grid">
-            <div v-for="member in filteredTeamMembers" :key="member.id" class="team-card">
+          <div :key="activeCategory" class="unified-team-grid">
+            <div v-for="member in filteredAllMembers" :key="member.id" class="team-card">
               <div class="team-card-header">
                 <div class="member-initials-medium" :style="{ background: member.color }">
                   {{ getInitials(member.name) }}
@@ -166,6 +96,9 @@
                 <div class="member-basic-info">
                   <h3 class="member-name">{{ member.name }}</h3>
                   <p class="member-role">{{ member.position }}</p>
+                  <div class="member-category-badge" :class="getCategoryClass(member.category)">
+                    {{ member.category }}
+                  </div>
                 </div>
                 <div class="card-actions">
                   <button class="action-icon" @click="openMemberModal(member)">
@@ -192,7 +125,7 @@
                   </div>
                 </div>
 
-                <div class="skills-compact">
+                <div class="skills-compact" v-if="member.skills">
                   <div class="section-label">Skills</div>
                   <div class="skill-tags-compact">
                     <span v-for="skill in member.skills?.slice(0, 3)" :key="skill" class="skill-tag-compact">
@@ -277,7 +210,6 @@ import { Search, Eye, Mail, Linkedin, X } from 'lucide-vue-next'
 const activeCategory = ref('All Teams')
 const selectedMember = ref(null)
 const searchQuery = ref('')
-const selectedQualification = ref('')
 
 const teamCategories = ['All Teams', 'Leadership', 'Development', 'AI & Data', 'Finance', 'Management', 'Partners']
 
@@ -296,7 +228,20 @@ const generateColor = (name) => {
   return colors[index]
 }
 
-// Team data with qualifications
+// Helper function to get category CSS class
+const getCategoryClass = (category) => {
+  const categoryClasses = {
+    'Leadership': 'category-leadership',
+    'Development': 'category-development',
+    'AI & Data': 'category-ai-data',
+    'Finance': 'category-finance',
+    'Management': 'category-management',
+    'Partners': 'category-partners'
+  }
+  return categoryClasses[category] || 'category-default'
+}
+
+// Team data with qualifications (keeping existing data structure)
 const leadership = [
   {
     id: 1,
@@ -316,31 +261,31 @@ const leadership = [
   {
     id: 2,
     name: 'Mercy Kamau',
-    position: 'Director of Finance',
-    description: 'Developing and implementing strategic financial initiatives to drive business growth and market leadership. Mercy ensures financial stability and sustainable growth.',
-    qualifications: ['CPA Certification', 'MBA Finance', 'BSc Accounting', 'Risk Management Certification'],
-    skills: ['Financial Strategy', 'Risk Management', 'Investment Planning', 'Business Analysis'],
+    position: 'Head of Strategy and Innovation',
+    description: 'Driving strategic initiatives and fostering innovation across the organization. Mercy leads our strategic planning and innovation programs to ensure competitive advantage.',
+    qualifications: ['MBA Strategic Management', 'BSc Business Administration', 'Innovation Leadership Certification', 'Strategic Planning Professional'],
+    skills: ['Strategic Planning', 'Innovation Management', 'Business Development', 'Market Analysis'],
     category: 'Leadership',
     color: generateColor('Mercy Kamau'),
     achievements: [
-      'Implemented robust financial controls',
-      'Secured funding for major expansion projects',
-      'Optimized operational costs by 30%'
+      'Developed comprehensive innovation framework',
+      'Led strategic partnerships with major organizations',
+      'Implemented data-driven strategic planning processes'
     ]
   },
   {
     id: 3,
     name: 'Nelson Adagi',
-    position: 'Systems Manager',
-    description: 'Ensuring successful delivery of projects through effective planning, execution, and team leadership. Nelson oversees all technical operations and system architecture.',
-    qualifications: ['MSc Information Systems', 'BSc Computer Engineering', 'ITIL Certification', 'Agile/Scrum Master'],
-    skills: ['Project Management', 'System Architecture', 'Team Leadership', 'Process Optimization'],
+    position: 'Project Manager',
+    description: 'Leading project delivery through effective planning, execution, and team coordination. Nelson ensures successful project outcomes and client satisfaction.',
+    qualifications: ['MSc Information Systems', 'BSc Computer Engineering', 'PMP Certification', 'Agile/Scrum Master'],
+    skills: ['Project Management', 'Team Leadership', 'Agile Methodologies', 'Risk Management'],
     category: 'Management',
     color: generateColor('Nelson Adagi'),
     achievements: [
       'Successfully delivered 100+ projects',
-      'Established quality assurance processes',
-      'Built high-performing technical teams'
+      'Established agile project management processes',
+      'Built high-performing cross-functional teams'
     ]
   },
   {
@@ -434,12 +379,22 @@ const specializedTeam = [
   {
     id: 12,
     name: 'Marion',
-    position: 'Software Intern',
-    description: 'Backend and mobile CRMs, contributing to the development of our applications.',
-    qualifications: ['BSc Computer Science (In Progress)', 'Mobile Development Bootcamp', 'Agile Fundamentals'],
-    category: 'Development',
+    position: 'AI Developer Intern',
+    description: 'AI and machine learning development, contributing to innovative AI solutions and data analysis projects.',
+    qualifications: ['BSc Computer Science (In Progress)', 'AI/ML Bootcamp', 'Python Certification'],
+    category: 'AI & Data',
     color: generateColor('Marion'),
-    skills: ['Mobile Development', 'CRM Systems', 'Backend Development', 'Learning & Growth']
+    skills: ['Python', 'Machine Learning', 'Data Analysis', 'AI Development', 'Learning & Growth']
+  },
+  {
+    id: 16,
+    name: 'Brenda Ogutu',
+    position: 'AI Research Intern',
+    description: 'Researching cutting-edge AI technologies and contributing to machine learning model development and optimization.',
+    qualifications: ['BSc Data Science (In Progress)', 'Machine Learning Certification', 'Research Methods'],
+    category: 'AI & Data',
+    color: generateColor('Brenda Ogutu'),
+    skills: ['Research', 'Machine Learning', 'Data Visualization', 'Statistical Analysis', 'AI Ethics']
   }
 ]
 
@@ -490,58 +445,13 @@ const allMembers = computed(() => {
   return [...leadership, ...specializedTeam, ...partners]
 })
 
-const allQualifications = computed(() => {
-  const qualifications = new Set()
-  allMembers.value.forEach(member => {
-    member.qualifications?.forEach(qual => qualifications.add(qual))
-  })
-  return Array.from(qualifications).sort()
-})
+// New unified filtering computed property
+const filteredAllMembers = computed(() => {
+  let members = allMembers.value
 
-const filteredLeadership = computed(() => {
-  let members = []
-  if (activeCategory.value === 'All Teams' || activeCategory.value === 'Leadership') {
-    members = leadership
-  }
-  
-  // Apply qualification filter
-  if (selectedQualification.value) {
-    members = members.filter(member => 
-      member.qualifications?.includes(selectedQualification.value)
-    )
-  }
-  
-  // Apply search filter
-  if (searchQuery.value) {
-    const query = searchQuery.value.toLowerCase()
-    members = members.filter(member => 
-      member.name.toLowerCase().includes(query) ||
-      member.position.toLowerCase().includes(query) ||
-      member.description.toLowerCase().includes(query) ||
-      member.qualifications?.some(qual => qual.toLowerCase().includes(query))
-    )
-  }
-  
-  return members
-})
-
-const filteredTeamMembers = computed(() => {
-  let members = []
-  if (activeCategory.value === 'All Teams') {
-    members = [...specializedTeam, ...partners]
-  } else if (activeCategory.value === 'Leadership') {
-    members = []
-  } else if (activeCategory.value === 'Partners') {
-    members = partners
-  } else {
-    members = specializedTeam.filter(member => member.category === activeCategory.value)
-  }
-
-  // Apply qualification filter
-  if (selectedQualification.value) {
-    members = members.filter(member => 
-      member.qualifications?.includes(selectedQualification.value)
-    )
+  // Filter by category
+  if (activeCategory.value !== 'All Teams') {
+    members = members.filter(member => member.category === activeCategory.value)
   }
 
   // Apply search filter
@@ -817,25 +727,63 @@ const closeMemberModal = () => {
   transform: translateY(-2px);
 }
 
+/* Unified Team Grid */
+.unified-team-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
+  gap: 2rem;
+}
+
+/* Category Badge Styles */
+.member-category-badge {
+  display: inline-block;
+  padding: 0.25rem 0.75rem;
+  border-radius: 12px;
+  font-size: 0.6875rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-top: 0.25rem;
+}
+
+.category-leadership {
+  background: #fef3c7;
+  color: #92400e;
+}
+
+.category-development {
+  background: #dbeafe;
+  color: #1d4ed8;
+}
+
+.category-ai-data {
+  background: #f0fdf4;
+  color: #16a34a;
+}
+
+.category-finance {
+  background: #fdf2f8;
+  color: #be185d;
+}
+
+.category-management {
+  background: #f3e8ff;
+  color: #7c3aed;
+}
+
+.category-partners {
+  background: #fef2f2;
+  color: #dc2626;
+}
+
+.category-default {
+  background: #f3f4f6;
+  color: #6b7280;
+}
+
+/* Remove qualification filter styles */
 .qualification-filters {
-  min-width: 200px;
-}
-
-.qualification-select {
-  width: 100%;
-  padding: 0.75rem 1rem;
-  border: 2px solid #e5e7eb;
-  border-radius: 30px;
-  background: white;
-  font-size: 0.875rem;
-  cursor: pointer;
-  transition: all 0.3s ease;
-}
-
-.qualification-select:focus {
-  outline: none;
-  border-color: #3b82f6;
-  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+  display: none;
 }
 
 /* Leadership Section */
@@ -1407,6 +1355,18 @@ const closeMemberModal = () => {
   
   .member-actions {
     justify-content: center;
+  }
+}
+
+@media (max-width: 1024px) {
+  .unified-team-grid {
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  }
+}
+
+@media (max-width: 768px) {
+  .unified-team-grid {
+    grid-template-columns: 1fr;
   }
 }
 </style>

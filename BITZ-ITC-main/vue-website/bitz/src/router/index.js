@@ -4,6 +4,7 @@ import About from '@/pages/About.vue'
 import OurVision from '@/pages/OurVision.vue'
 import Team from '@/pages/Team.vue'
 import Projects from '@/pages/Projects.vue'
+import Products from '@/pages/Products.vue'
 import Contact from '@/pages/Contact.vue'
 
 const routes = [
@@ -61,7 +62,6 @@ const routes = [
       description: 'Get in touch with BITZ IT Consulting. Let\'s discuss how we can help transform your business.'
     }
   },
-  // Services redirect to home for now
   {
     path: '/products',
     redirect: '/#products'
