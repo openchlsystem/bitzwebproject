@@ -79,7 +79,7 @@
             >
               <div class="project-image">
                 <img 
-                  :src="project.imageUrl" 
+                  :src="project.imageUrl || '/src/assets/placeholders/dashboard.jpg'" 
                   :alt="project.title"
                   class="project-img"
                 />
@@ -163,7 +163,7 @@
           <!-- Project Image -->
           <div class="modal-image">
             <img 
-              :src="selectedProject.imageUrl" 
+              :src="selectedProject.imageUrl || '/src/assets/placeholders/dashboard.jpg'" 
               :alt="selectedProject.title"
               class="modal-img"
             />
@@ -965,26 +965,27 @@ const getCategoryIcon = (category) => {
 }
 
 .btn-primary {
-  background: #3b82f6;
+  background: #1F1E5C;
   color: white;
-  border-color: #3b82f6;
+  border-color: #1F1E5C;
 }
 
 .btn-primary:hover {
-  background: #2563eb;
-  border-color: #2563eb;
+  background: #1F1E5C;
+  border-color: #1F1E5C;
   transform: translateY(-2px);
 }
 
 .btn-outline {
   background: transparent;
   border: 2px solid #e5e7eb;
-  color: #374151;
+  color: #1F1E5C;
 }
 
 .btn-outline:hover {
   background: #f9fafb;
   border-color: #d1d5db;
+  color: #1F1E5C;
 }
 
 .ml-2 {

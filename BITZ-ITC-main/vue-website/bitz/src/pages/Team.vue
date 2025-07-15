@@ -727,9 +727,9 @@ const closeMemberModal = () => {
 
 .filter-btn:hover,
 .filter-btn.active {
-  background: #3b82f6;
+  background: #1F1E5C;
   color: white;
-  border-color: #3b82f6;
+  border-color: #1F1E5C;
   transform: translateY(-2px);
 }
 
@@ -758,8 +758,8 @@ const closeMemberModal = () => {
 }
 
 .category-development {
-  background: #dbeafe;
-  color: #1d4ed8;
+  background: #e0e7ff;
+  color: #1F1E5C;
 }
 
 .category-ai-data {
@@ -929,8 +929,8 @@ const closeMemberModal = () => {
 }
 
 .skill-tag {
-  background: #dbeafe;
-  color: #1d4ed8;
+  background: #e0e7ff;
+  color: #1F1E5C;
   padding: 0.25rem 0.75rem;
   border-radius: 20px;
   font-size: 0.75rem;
@@ -957,12 +957,12 @@ const closeMemberModal = () => {
 }
 
 .action-btn.primary {
-  background: #3b82f6;
+  background: #1F1E5C;
   color: white;
 }
 
 .action-btn.primary:hover {
-  background: #2563eb;
+  background: #1F1E5C;
   transform: translateY(-2px);
 }
 
@@ -1216,8 +1216,8 @@ const closeMemberModal = () => {
 
 .contact-btn:hover {
   background: #f8fafc;
-  border-color: #3b82f6;
-  color: #3b82f6;
+  border-color: #1F1E5C;
+  color: #1F1E5C;
 }
 
 .modal-body p {
@@ -1257,8 +1257,8 @@ const closeMemberModal = () => {
 }
 
 .skill-badge {
-  background: #dbeafe;
-  color: #1d4ed8;
+  background: #e0e7ff;
+  color: #1F1E5C;
   padding: 0.5rem 1rem;
   border-radius: 20px;
   font-size: 0.875rem;

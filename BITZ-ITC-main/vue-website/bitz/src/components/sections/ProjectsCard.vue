@@ -1,10 +1,11 @@
 <template>
   <div class="project-card">
     <div class="project-image" :class="project.imageClass || 'bg-gray-200'">
-      <div v-if="project.imageClass === 'bg-gray-900'" class="project-image-inner">
-        <span class="project-image-text">{{ project.imageText || 'Project Image' }}</span>
-      </div>
-      <span v-else class="project-image-text">{{ project.imageText || 'Project Image' }}</span>
+      <img
+        :src="project.imageUrl || require('@/assets/placeholders/dashboard.jpg')"
+        :alt="project.title"
+        class="project-img"
+      />
     </div>
     <div class="project-content">
       <div class="project-category" :class="getCategoryClass(project.category)">

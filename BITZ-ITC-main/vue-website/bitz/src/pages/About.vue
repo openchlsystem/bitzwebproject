@@ -170,7 +170,7 @@ export default {
   align-items: center;
   padding: 0.5rem 1rem;
   border-radius: 30px;
-  background-color: #2563eb;
+  background-color: #1F1E5C;
   color: white;
   font-size: 0.875rem;
   font-weight: 500;
@@ -364,7 +364,7 @@ export default {
 .achievement-value {
   font-size: 2.5rem;
   font-weight: 700;
-  color: #2563eb;
+  color: #1F1E5C;
   margin-bottom: 0.5rem;
 }
 
@@ -408,7 +408,7 @@ export default {
 }
 
 .bg-primary-600 {
-  background-color: #2563eb;
+  background-color: #1F1E5C;
 }
 
 .text-white {
@@ -429,12 +429,12 @@ export default {
 }
 
 .from-primary-500 {
-  --tw-gradient-from: #3b82f6;
-  --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to, rgba(59, 130, 246, 0));
+  --tw-gradient-from: #1F1E5C;
+  --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to, rgba(31, 30, 92, 0));
 }
 
 .to-primary-700 {
-  --tw-gradient-to: #1d4ed8;
+  --tw-gradient-to: #1F1E5C;
 }
 
 .rounded-2xl {
@@ -468,12 +468,13 @@ export default {
 
 .btn-secondary {
   background: white;
-  color: #2563eb;
+  color: #1F1E5C;
   border-color: white;
 }
 
 .btn-secondary:hover {
   background: #f8fafc;
+  color: #1F1E5C;
   transform: translateY(-2px);
 }
 

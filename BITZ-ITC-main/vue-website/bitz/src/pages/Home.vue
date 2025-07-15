@@ -137,7 +137,7 @@
         <div class="featured-product">
           <div class="featured-product-image">
             <img 
-              src="https://via.placeholder.com/600x400/3b82f6/ffffff?text=OPENCHS+Dashboard"
+              src="@/assets/placeholders/dashboard.jpg"
               alt="OPENCHS Dashboard Interface"
               class="product-screenshot"
             />
@@ -274,7 +274,7 @@
           </div>
           <div class="featured-project-image">
             <img 
-              src="https://via.placeholder.com/600x400/1e293b/ffffff?text=Manufacturing+Dashboard"
+              src="@/assets/placeholders/team.jpg"
               alt="Manufacturing Dashboard"
               class="project-screenshot"
             />
@@ -805,8 +805,8 @@ onMounted(() => {
 }
 
 .badge-primary {
-  background: #dbeafe;
-  color: #1d4ed8;
+  background: #e0e7ff;
+  color: #1F1E5C;
 }
 
 .section-title {
@@ -854,26 +854,27 @@ onMounted(() => {
 }
 
 .btn-primary {
-  background: #3b82f6;
+  background: #1F1E5C;
   color: white;
-  border-color: #3b82f6;
+  border-color: #1F1E5C;
 }
 
 .btn-primary:hover {
-  background: #2563eb;
-  border-color: #2563eb;
+  background: #1F1E5C;
+  border-color: #1F1E5C;
   transform: translateY(-2px);
 }
 
 .btn-outline {
   background: transparent;
   border: 2px solid #e5e7eb;
-  color: #374151;
+  color: #1F1E5C;
 }
 
 .btn-outline:hover {
   background: #f9fafb;
   border-color: #d1d5db;
+  color: #1F1E5C;
 }
 
 .btn-white {
@@ -933,7 +934,7 @@ onMounted(() => {
 .read-more-btn {
   background: none;
   border: none;
-  color: #3b82f6;
+  color: #1F1E5C;
   font-weight: 600;
   cursor: pointer;
   transition: all 0.3s ease;
@@ -945,8 +946,9 @@ onMounted(() => {
 }
 
 .read-more-btn:hover {
-  color: #2563eb;
+  color: #1F1E5C;
   background: #f0f9ff;
+  opacity: 0.8;
 }
 
 /* Featured Product Section */
@@ -1007,8 +1009,8 @@ onMounted(() => {
   display: inline-flex;
   align-items: center;
   gap: 0.5rem;
-  background: #dbeafe;
-  color: #1d4ed8;
+  background: #e0e7ff;
+  color: #1F1E5C;
   padding: 0.5rem 1rem;
   border-radius: 30px;
   font-size: 0.875rem;
@@ -1300,7 +1302,7 @@ onMounted(() => {
 .modal-product-info p,
 .modal-project-info p,
 .modal-service-info p {
-  color: #3b82f6;
+  color: #1F1E5C;
   font-weight: 600;
   margin-bottom: 0.5rem;
 }
@@ -1341,8 +1343,8 @@ onMounted(() => {
 }
 
 .feature-badge {
-  background: #dbeafe;
-  color: #1d4ed8;
+  background: #e0e7ff;
+  color: #1F1E5C;
   padding: 0.5rem 1rem;
   border-radius: 20px;
   font-size: 0.875rem;
@@ -1408,7 +1410,7 @@ onMounted(() => {
 }
 .flip-card-back {
   transform: rotateY(180deg);
-  background: #2563eb;
+  background: #1F1E5C;
   color: white;
   z-index: 3;
 }
