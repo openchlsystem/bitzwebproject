@@ -3,7 +3,7 @@
     class="fixed top-0 left-0 right-0 z-50 transition-all duration-300"
     :class="[
       isScrolled 
-        ? 'bg-white/95 backdrop-blur-md shadow-lg border-b border-gray-200/20' 
+        ? 'bg-[#1F1E5C]/95 backdrop-blur-md shadow-lg border-b border-gray-200/20' 
         : 'bg-transparent'
     ]"
   >
@@ -12,7 +12,7 @@
         <!-- Logo -->
         <NuxtLink to="/" class="flex items-center space-x-3 group">
           <div 
-            class="w-12 h-12 bg-gradient-to-br from-blue-600 to-blue-700 rounded-[20px] flex items-center justify-center shadow-lg group-hover:shadow-xl transition-all duration-300 group-hover:scale-105"
+            class="w-12 h-12 bg-gradient-to-br from-[#1F1E5C] to-[#1F1E5C] rounded-[20px] flex items-center justify-center shadow-lg group-hover:shadow-xl transition-all duration-300 group-hover:scale-105"
           >
             <span class="text-white font-bold text-xl">B</span>
           </div>
@@ -42,7 +42,7 @@
             :class="[
               route.path === item.href
                 ? isScrolled 
-                  ? 'bg-blue-600 text-white shadow-lg' 
+                  ? 'bg-[#1F1E5C] text-white shadow-lg' 
                   : 'bg-white/20 text-white backdrop-blur-sm'
                 : isScrolled
                   ? 'text-gray-700 hover:bg-gray-100 hover:text-gray-900'
@@ -52,7 +52,7 @@
             {{ item.name }}
             <div 
               v-if="route.path === item.href"
-              class="absolute inset-0 rounded-[20px] bg-gradient-to-r from-blue-600/20 to-purple-600/20 -z-10"
+              class="absolute inset-0 rounded-[20px] bg-gradient-to-r from-[#1F1E5C]/20 to-purple-600/20 -z-10"
             ></div>
           </NuxtLink>
         </div>
@@ -79,7 +79,7 @@
             class="hidden md:flex items-center px-6 py-3 rounded-[20px] font-semibold transition-all duration-300 shadow-lg hover:shadow-xl hover:-translate-y-0.5"
             :class="[
               isScrolled 
-                ? 'bg-blue-600 hover:bg-blue-700 text-white' 
+                ? 'bg-[#1F1E5C] hover:bg-[#1F1E5C] text-white' 
                 : 'bg-white hover:bg-gray-50 text-gray-900'
             ]"
           >
@@ -129,7 +129,7 @@
               :class="[
                 route.path === item.href
                   ? isScrolled 
-                    ? 'bg-blue-600 text-white shadow-lg' 
+                    ? 'bg-[#1F1E5C] text-white shadow-lg' 
                     : 'bg-white/20 text-white'
                   : isScrolled
                     ? 'text-gray-700 hover:bg-gray-100'
@@ -147,7 +147,7 @@
                 class="flex items-center justify-center px-6 py-3 rounded-[20px] font-semibold transition-all duration-300 shadow-lg"
                 :class="[
                   isScrolled 
-                    ? 'bg-blue-600 hover:bg-blue-700 text-white' 
+                    ? 'bg-[#1F1E5C] hover:bg-[#1F1E5C] text-white' 
                     : 'bg-white hover:bg-gray-50 text-gray-900'
                 ]"
                 @click="closeMobileMenu"

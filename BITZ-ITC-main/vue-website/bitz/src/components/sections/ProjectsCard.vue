@@ -111,11 +111,11 @@ export default {
 }
 
 .bg-blue-100 {
-  background-color: #dbeafe;
+  background-color: #1F1E5C;
 }
 
 .text-blue-700 {
-  color: #1d4ed8;
+  color: #1F1E5C;
 }
 
 .bg-green-100 {
@@ -182,7 +182,7 @@ export default {
 .read-more-btn {
   background: none;
   border: none;
-  color: #2563eb;
+  color: #1F1E5C;
   font-weight: 500;
   cursor: pointer;
   transition: color 0.3s ease;
@@ -190,6 +190,7 @@ export default {
 }
 
 .read-more-btn:hover {
-  color: #1d4ed8;
+  color: #1F1E5C;
+  opacity: 0.8;
 }
 </style>

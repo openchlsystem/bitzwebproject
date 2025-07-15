@@ -65,13 +65,13 @@
             class="px-3 py-1.5 rounded-[18px] font-bold text-[14px] transition-all duration-300 relative group tracking-tight"
             :class="[
               $route.path === item.path
-                ? 'bg-blue-600 text-white shadow-lg transform scale-105' 
-                : 'text-gray-700 hover:bg-blue-50 hover:text-blue-600 hover:scale-105'
+                ? 'bg-[#1F1E5C] text-white shadow-lg transform scale-105' 
+                : 'text-gray-700 hover:bg-[#1F1E5C]/10 hover:text-[#1F1E5C] hover:scale-105'
             ]">
             {{ item.name }}
             <!-- Active indicator -->
             <div v-if="$route.path === item.path"
-                 class="absolute -bottom-1 left-1/2 transform -translate-x-1/2 w-2 h-2 bg-blue-600 rounded-full"></div>
+                 class="absolute -bottom-1 left-1/2 transform -translate-x-1/2 w-2 h-2 bg-[#1F1E5C] rounded-full"></div>
           </router-link>
         </div>
 
@@ -138,8 +138,8 @@
              :key="result.id"
              @click="navigateToResult(result)"
              class="flex items-center p-3 hover:bg-gray-50 rounded-[15px] cursor-pointer transition-colors">
-          <div class="w-8 h-8 bg-blue-100 rounded-full flex items-center justify-center mr-3">
-            <component :is="getResultIcon(result.type)" :size="16" class="text-blue-600" />
+          <div class="w-8 h-8 bg-[#1F1E5C]/10 rounded-full flex items-center justify-center mr-3">
+            <component :is="getResultIcon(result.type)" :size="16" class="text-[#1F1E5C]" />
           </div>
           <div class="flex-1">
             <div class="font-medium text-gray-900">{{ result.title }}</div>
