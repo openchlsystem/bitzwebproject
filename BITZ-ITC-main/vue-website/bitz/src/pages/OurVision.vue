@@ -1,7 +1,7 @@
 <template>
   <div class="min-h-screen">
     <!-- Hero Section -->
-    <section class="bg-slate-900 text-white py-20">
+    <section class="bg-black text-white py-20">
       <div class="max-w-7xl mx-auto px-4 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
         <div>
           <h1 class="text-4xl lg:text-5xl font-bold mb-6">Our Vision</h1>
@@ -10,7 +10,7 @@
           </p>
         </div>
         <div class="relative">
-          <div class="bg-blue-600 rounded-[30px] p-8 h-64 flex items-center justify-center">
+          <div class="rounded-[30px] p-8 h-64 flex items-center justify-center" style="background:rgba(255,255,255,0.10);border:1.5px solid rgba(255,255,255,0.25);backdrop-filter:blur(16px) saturate(180%);-webkit-backdrop-filter:blur(16px) saturate(180%);">
             <div class="text-6xl">💡</div>
           </div>
           <button class="absolute left-4 top-1/2 transform -translate-y-1/2 text-white hover:text-gray-300 w-10 h-10 rounded-[30px] bg-white/20 flex items-center justify-center transition-all hover:bg-white/30">
@@ -117,7 +117,7 @@
             </div>
           </div>
         </div>
-        <div class="bg-blue-600 rounded-[30px] p-8 h-96 flex items-center justify-center">
+        <div class="bg-black rounded-[30px] p-8 h-96 flex items-center justify-center">
           <div class="text-center text-white">
             <h3 class="text-2xl font-bold mb-4">Ready to Transform Your Business?</h3>
             <p class="mb-6">Let's discuss how we can help you achieve your goals</p>

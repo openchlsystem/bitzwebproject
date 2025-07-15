@@ -197,8 +197,8 @@
                 <Mail :size="20" class="text-primary-500 flex-shrink-0" />
                 <div>
                   <p class="font-medium text-gray-900">Email</p>
-                  <a :href="`mailto:${contactInfo.email}`" class="text-primary-600 hover:text-primary-700 text-sm">
-                    {{ contactInfo.email }}
+                  <a :href="'mailto:info@bitz-itc.com'" class="text-primary-600 hover:text-primary-700 text-sm">
+                    info@bitz-itc.com
                   </a>
                 </div>
               </div>

@@ -8,8 +8,8 @@ export const useSiteStore = defineStore('site', () => {
     description: 'Founded in 2007 in Nairobi, BITZ IT Consulting has grown into a leading technology partner across East Africa.',
     contact: {
       phone: '0110552788',
-      email: 'newtoniyan2428@gmail.com',
-      address: 'Prime Cantors, Mombasa Road, Kenya, next to Nice and Lovely (Dongorose Building)',
+      email: 'info@bitz-itc.com',
+      address: 'Prime Cartons, Dongkung building next to Nice&Lovely along Mombasa Road',
       businessHours: {
         weekdays: '9:00 AM - 6:00 PM',
         saturday: '10:00 AM - 4:00 PM',

@@ -5,8 +5,7 @@
         <!-- Company Info -->
         <div class="lg:col-span-1">
           <div class="flex items-center space-x-2 mb-4">
-            <img src="/logo.svg" alt="BITZ" class="h-8 w-auto" />
-            <span class="text-2xl font-bold">B</span>
+            <img src="/src/assets/Bitz.png" alt="BITZ Logo" class="h-32 w-auto" />
           </div>
           <p class="text-gray-300 mb-4 leading-relaxed">
             {{ siteConfig.tagline }}
@@ -103,15 +102,15 @@
           <div class="space-y-3">
             <div class="flex items-center space-x-3">
               <Globe :size="16" class="text-gray-400" />
-              <span class="text-gray-300 text-sm">{{ siteConfig.contact.address }}</span>
+              <span class="text-gray-300 text-sm">Prime Cartons, Dongkung building next to Nice&Lovely along Mombasa Road</span>
             </div>
             <div class="flex items-center space-x-3">
               <Mail :size="16" class="text-gray-400" />
               <a 
-                :href="`mailto:${siteConfig.contact.email}`"
+                :href="'mailto:info@bitz-itc.com'"
                 class="text-gray-300 hover:text-white transition-colors duration-300 text-sm"
               >
-                {{ siteConfig.contact.email }}
+                info@bitz-itc.com
               </a>
             </div>
             <div class="flex items-center space-x-3">

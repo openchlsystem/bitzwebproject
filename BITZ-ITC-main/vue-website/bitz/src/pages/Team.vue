@@ -1,7 +1,7 @@
 <template>
   <div class="our-team">
     <!-- Hero Section -->
-    <section class="hero-section">
+    <section class="hero-section bg-blue-600 text-white">
       <div class="hero-background">
         <div class="floating-shapes">
           <div class="shape shape-1"></div>
@@ -9,7 +9,7 @@
           <div class="shape shape-3"></div>
         </div>
       </div>
-      <div class="container hero-content">
+      <div class="container-custom hero-content">
         <div class="hero-text">
           <div class="badge badge-primary">Meet Our Team</div>
           <h1 class="hero-title">The Minds Behind Innovation</h1>
@@ -33,7 +33,7 @@
           </div>
         </div>
         <div class="hero-visual">
-          <div class="team-showcase">
+          <div class="team-showcase liquid-glass">
             <div class="showcase-grid">
               <div v-for="(member, index) in featuredMembers" :key="member.id"
                    class="showcase-item"
@@ -378,12 +378,12 @@ const specializedTeam = [
   },
   {
     id: 12,
-    name: 'Marion',
+    name: 'Marlon',
     position: 'AI Developer Intern',
     description: 'AI and machine learning development, contributing to innovative AI solutions and data analysis projects.',
     qualifications: ['BSc Computer Science (In Progress)', 'AI/ML Bootcamp', 'Python Certification'],
     category: 'AI & Data',
-    color: generateColor('Marion'),
+    color: generateColor('Marlon'),
     skills: ['Python', 'Machine Learning', 'Data Analysis', 'AI Development', 'Learning & Growth']
   },
   {
@@ -488,10 +488,10 @@ const closeMemberModal = () => {
 /* Hero Section */
 .hero-section {
   position: relative;
-  background: linear-gradient(135deg, #1e293b 0%, #334155 100%);
+  background: #000;
   color: white;
-  padding: 8rem 0 4rem;
-  margin-top: 4rem;
+  padding: 6rem 0 3rem;
+  margin-top: 0;
   overflow: hidden;
 }
 
@@ -617,6 +617,12 @@ const closeMemberModal = () => {
 .team-showcase {
   display: flex;
   justify-content: center;
+  background: rgba(255,255,255,0.15);
+  border-radius: 30px;
+  padding: 2rem;
+  backdrop-filter: blur(16px) saturate(180%);
+  -webkit-backdrop-filter: blur(16px) saturate(180%);
+  border: 1.5px solid rgba(255,255,255,0.25);
 }
 
 .showcase-grid {

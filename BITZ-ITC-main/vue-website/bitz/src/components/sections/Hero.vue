@@ -141,7 +141,7 @@ export default {
 
 .visual-card {
   position: relative;
-  background: #3b82f6;
+  background: rgba(255,255,255,0.15);
   border-radius: 1rem;
   padding: 2rem;
   height: 16rem;
@@ -150,6 +150,9 @@ export default {
   align-items: center;
   justify-content: center;
   overflow: hidden;
+  backdrop-filter: blur(16px) saturate(180%);
+  -webkit-backdrop-filter: blur(16px) saturate(180%);
+  border: 1.5px solid rgba(255,255,255,0.25);
 }
 
 .nav-arrow {

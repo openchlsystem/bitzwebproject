@@ -1,8 +1,8 @@
 <template>
   <div class="min-h-screen">
     <!-- Hero Section -->
-    <section class="hero-section">
-      <div class="hero-container">
+    <section class="hero-section bg-blue-600 text-white">
+      <div class="container-custom">
         <div class="hero-content">
           <div class="hero-text">
             <div class="hero-badge">
@@ -28,7 +28,7 @@
             </div>
           </div>
           <div class="hero-visual">
-            <div class="visual-card">
+            <div class="visual-card liquid-glass">
               <div class="visual-icon">💻</div>
             </div>
           </div>
@@ -86,11 +86,8 @@
                 </div>
 
                 <div class="product-actions">
-                  <button class="btn btn-primary" @click="showProductDemo">
-                    Request Demo
-                  </button>
-                  <router-link to="/contact" class="btn btn-outline">
-                    Get Quote
+                  <router-link to="/contact" class="btn btn-primary">
+                    Reach Out
                   </router-link>
                 </div>
               </div>
@@ -179,7 +176,7 @@
             <router-link to="/contact" class="btn btn-primary">
               Get Started Today
             </router-link>
-            <router-link to="/team" class="btn btn-secondary">
+            <router-link to="/our-team" class="btn btn-secondary">
               Meet Our Team
             </router-link>
           </div>
@@ -206,7 +203,7 @@
             <p class="modal-description">{{ selectedFeature.Description }}</p>
             <div class="modal-actions">
               <router-link to="/contact" class="btn btn-primary" @click="closeFeatureModal">
-                Request Demo
+                Reach Out
               </router-link>
               <button class="btn btn-outline" @click="closeFeatureModal">
                 Close
@@ -251,7 +248,7 @@
             </div>
             <div class="modal-actions">
               <router-link to="/contact" class="btn btn-primary" @click="closeDemoModal">
-                Schedule Demo
+                Reach Out
               </router-link>
               <button class="btn btn-outline" @click="closeDemoModal">
                 Maybe Later
@@ -265,7 +262,7 @@
 </template>
 
 <script>
-import { productsData } from '@/utils/ProductData'
+import { productsData } from '@/utils/ProductData.js'
 
 export default {
   name: 'Products',
@@ -318,10 +315,10 @@ export default {
 <style scoped>
 /* Hero Section */
 .hero-section {
-  background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+  background: #000;
   color: white;
-  padding: 8rem 0 4rem;
-  margin-top: 4rem;
+  padding: 6rem 0 3rem;
+  margin-top: 0;
 }
 
 .hero-container {
@@ -390,7 +387,7 @@ export default {
 }
 
 .visual-card {
-  background: linear-gradient(135deg, #3b82f6, #6366f1);
+  background: rgba(255,255,255,0.15);
   border-radius: 30px;
   padding: 3rem;
   height: 16rem;
@@ -398,6 +395,9 @@ export default {
   display: flex;
   align-items: center;
   justify-content: center;
+  backdrop-filter: blur(16px) saturate(180%);
+  -webkit-backdrop-filter: blur(16px) saturate(180%);
+  border: 1.5px solid rgba(255,255,255,0.25);
 }
 
 .visual-icon {

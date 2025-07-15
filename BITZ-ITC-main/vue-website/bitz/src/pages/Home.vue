@@ -1,19 +1,19 @@
 <template>
   <div class="home">
     <!-- Hero Section -->
-    <section class="hero">
-      <div class="container">
+    <section class="hero bg-blue-600 text-white">
+      <div class="container-custom">
         <div class="hero-content">
           <div class="hero-text">
-            <h1 class="hero-title">BITZ-ITC</h1>
+            <h1 class="hero-title">Your Partner in Digital Solutions</h1>
             <p class="hero-description">
-              Founded in 2007 in Nairobi, BITZ IT Consulting has grown into a leading technology partner across East Africa, with a strong presence in Kenya, Uganda, Tanzania, and Lesotho. We specialize in comprehensive technology solutions, software development, IT infrastructure, and digital transformation solutions, delivering impactful results for government agencies and international organizations, including UNICEF and the World Bank.
+              We deliver AI-powered, future-ready software and digital transformation for startups, enterprises, and innovators across Africa.
             </p>
           </div>
           <div class="hero-visual">
             <div class="countries-showcase">
               <h3 class="showcase-title">Our Presence Across East Africa</h3>
-              <div class="countries-carousel">
+              <div class="countries-carousel liquid-glass">
                 <button class="nav-arrow left" @click="previousCountry" aria-label="Previous country">
                   <ChevronLeft :size="20" />
                 </button>
@@ -58,32 +58,77 @@
       </div>
     </section>
 
-    <!-- Services Section -->
-    <section class="section">
-      <div class="container">
-        <div class="text-center">
-          <div class="badge badge-primary">Our Services</div>
-          <h2 class="section-title">Comprehensive Technology Solutions</h2>
-          <p class="section-description">Delivering innovative solutions that drive growth and efficiency</p>
+    <!-- About Us Section (new, below hero) -->
+    <section class="section bg-white text-gray-800">
+      <div class="container-custom flex flex-col md:flex-row items-center justify-center gap-10">
+        <div class="about-card bg-gradient-to-br from-blue-50 to-blue-100 rounded-3xl shadow-xl p-10 max-w-2xl w-full flex-1">
+          <h2 class="text-3xl font-bold mb-4 text-blue-700">About Us</h2>
+          <p class="text-lg leading-relaxed text-gray-700">
+            <span class="font-semibold text-blue-600">Founded in 2007 in Nairobi</span>, BITZ IT Consulting has grown into a leading technology partner across East Africa, with a strong presence in Kenya, Uganda, Tanzania, and Lesotho. We specialize in comprehensive technology solutions, software development, IT infrastructure, and digital transformation solutions, delivering impactful results for government agencies and international organizations, including UNICEF and the World Bank.
+          </p>
         </div>
-        <div class="services-grid">
-          <div v-for="service in services" :key="service.id" class="service-card card" @click="showServiceDetails(service)">
-            <div class="service-icon">
-              <component :is="service.iconComponent" :size="48" class="text-blue-600" />
+        <div class="hidden md:block flex-1">
+          <img src="/src/assets/Bitz.png" alt="BITZ Logo" class="w-64 mx-auto drop-shadow-2xl rounded-2xl" />
+        </div>
+      </div>
+    </section>
+
+    <!-- Our Services Section (updated) -->
+    <section class="section bg-gray-50">
+      <div class="container-custom">
+        <div class="text-center mb-12">
+          <div class="badge badge-primary">Our Services</div>
+          <h2 class="section-title">What We Offer</h2>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div v-for="(service, idx) in services" :key="service.id" class="flip-card">
+            <div :class="['flip-card-inner', { 'flipped': flippedCard === idx }]">
+              <!-- Front Side -->
+              <div class="flip-card-front card p-8 text-left flex flex-col justify-between h-full">
+                <div>
+                  <component :is="service.iconComponent" :size="36" class="mb-4 text-blue-600" />
+                  <h3 class="text-xl font-bold mb-2">{{ service.title }}</h3>
+                  <p class="mb-2">{{ service.description }}</p>
+                </div>
+                <button class="read-more-btn mt-4" @click="flipCard(idx)">Read More</button>
+              </div>
+              <!-- Back Side -->
+              <div class="flip-card-back card p-8 text-left flex flex-col justify-between h-full bg-blue-600 text-white">
+                <div>
+                  <h3 class="text-xl font-bold mb-2">{{ service.title }}</h3>
+                  <ul class="list-disc ml-5 mb-4">
+                    <li v-for="offering in service.offerings" :key="offering">{{ offering }}</li>
+                  </ul>
+                </div>
+                <button class="read-more-btn mt-4 text-white" @click="flipCard(null)">Back</button>
+              </div>
             </div>
-            <h3 class="service-title">{{ service.title }}</h3>
-            <p class="service-description">{{ service.description }}</p>
-            <button class="read-more-btn">
-              Learn more <ArrowRight :size="16" class="ml-1" />
-            </button>
           </div>
         </div>
+        <!-- Why Choose Us -->
+        <div class="mt-16 text-center">
+          <h3 class="text-2xl font-bold mb-4">Why Choose Us?</h3>
+          <ul class="list-none flex flex-col md:flex-row justify-center gap-8 text-lg">
+            <li>✅ End-to-end expertise – From concept to deployment, we handle it all.</li>
+            <li>✅ AI that works for you – No hype, just practical, business-driven intelligence.</li>
+            <li>✅ Scalable & secure – Future-ready solutions that grow with your needs.</li>
+          </ul>
+          <div class="mt-8">
+            <a href="/contact" class="btn btn-primary">Ready to build smarter? Get in touch today.</a>
+          </div>
+        </div>
+        <!--
+        Design & Layout Tips:
+        - Add AI/tech-related icons (e.g., brain chip, rocket, gears) for visual appeal.
+        - Include a "Success Stories" section with brief client examples.
+        - Use action-oriented CTA buttons like "Transform Your Product" or "Ask About AI Integration".
+        -->
       </div>
     </section>
 
     <!-- Featured Product Section -->
     <section class="section bg-gray-50">
-      <div class="container">
+      <div class="container-custom">
         <div class="text-center">
           <div class="badge badge-primary">Featured Product</div>
           <h2 class="section-title">Spotlight: OPENCHS Child Helpline System</h2>
@@ -170,7 +215,7 @@
 
     <!-- Featured Project Section -->
     <section class="section">
-      <div class="container">
+      <div class="container-custom">
         <div class="text-center">
           <div class="badge badge-primary">Featured Project</div>
           <h2 class="section-title">Project Spotlight: Digital Transformation Initiative</h2>
@@ -245,19 +290,19 @@
     </section>
 
     <!-- Contact Section -->
-    <section class="section bg-blue-600 text-white">
-      <div class="container">
+    <section class="section bg-white text-black">
+      <div class="container-custom">
         <div class="text-center">
-          <h2 class="section-title text-white mb-4">Ready to Transform Your Business?</h2>
-          <p class="section-description text-blue-100 mb-8">
+          <h2 class="section-title text-black mb-4">Ready to Transform Your Business?</h2>
+          <p class="section-description text-gray-600 mb-8">
             Let's discuss how we can help you achieve your technology goals
           </p>
           <div class="flex justify-center space-x-4">
-            <router-link to="/contact" class="btn btn-white">
+            <router-link to="/contact" class="btn btn-primary">
               Get Started Today
               <ArrowRight :size="16" class="ml-2" />
             </router-link>
-            <button class="btn btn-outline-white" @click="scrollToServices">
+            <button class="btn btn-outline" @click="scrollToServices">
               Learn More
             </button>
           </div>
@@ -368,7 +413,7 @@
             </div>
             <div class="modal-actions">
               <router-link to="/contact" class="btn btn-primary" @click="closeServiceModal">
-                Get Quote
+                Reach Out
               </router-link>
               <button class="btn btn-outline" @click="closeServiceModal">Close</button>
             </div>
@@ -401,6 +446,7 @@ const currentCountry = ref(0)
 const selectedProduct = ref(null)
 const selectedProject = ref(null)
 const selectedService = ref(null)
+const flippedCard = ref(null) // New state for flip card
 
 const countries = [
   {
@@ -437,40 +483,34 @@ const services = [
   {
     id: 1,
     iconComponent: Brain,
-    title: 'AI & Machine Learning',
-    description: 'Advanced AI solutions and machine learning models for intelligent automation and insights.',
+    title: 'AI-Driven Product Strategy & MVP Development',
+    description: 'Turn your vision into a smart, market-ready product.',
     offerings: [
-      'Custom AI model development',
-      'Machine learning algorithms',
-      'Natural language processing',
-      'Computer vision solutions',
-      'Predictive analytics'
+      'AI-powered market research and user-centric roadmaps.',
+      'Fast, scalable MVP development.',
+      'Built-in intelligence: analytics, NLP, recommendations.'
     ]
   },
   {
     id: 2,
     iconComponent: Database,
-    title: 'Full-Stack Development',
-    description: 'Expert frontend and backend development services for scalable web applications.',
+    title: 'Custom AI Software Development',
+    description: 'Tailor-made applications that think for themselves.',
     offerings: [
-      'Web application development',
-      'Mobile app development',
-      'API development and integration',
-      'Database design and optimization',
-      'Cloud deployment and scaling'
+      'Define AI use cases for your business goals.',
+      'Full-cycle web, mobile, and cloud development.',
+      'AI features: chatbots, automation, computer vision.'
     ]
   },
   {
     id: 3,
     iconComponent: Globe,
-    title: 'Digital Solutions',
-    description: 'Comprehensive digital services including cloud, mobile and web development solutions.',
+    title: 'Legacy System Modernization with AI',
+    description: 'Breathe new life into outdated systems with AI.',
     offerings: [
-      'Digital transformation consulting',
-      'Cloud migration services',
-      'System integration',
-      'Process automation',
-      'Digital strategy planning'
+      'Audit and redesign legacy tech for AI adoption.',
+      'Modernize with APIs, microservices, cloud.',
+      'Add automation, analytics, and AI support.'
     ]
   }
 ]
@@ -530,6 +570,14 @@ const closeServiceModal = () => {
   document.body.style.overflow = 'auto'
 }
 
+const flipCard = (index) => {
+  if (flippedCard.value === index) {
+    flippedCard.value = null
+  } else {
+    flippedCard.value = index
+  }
+}
+
 const scrollToServices = () => {
   const servicesSection = document.querySelector('.services-grid')
   if (servicesSection) {
@@ -563,10 +611,10 @@ onMounted(() => {
 
 /* Hero Section */
 .hero {
-  background: linear-gradient(135deg, #1e293b 0%, #334155 100%);
+  background: #000;
   color: white;
-  padding: 8rem 0 4rem;
-  margin-top: 5rem;
+  padding: 6rem 0 3rem;
+  margin-top: 0;
 }
 
 .hero-content {
@@ -604,8 +652,8 @@ onMounted(() => {
 
 .countries-carousel {
   position: relative;
-  background: linear-gradient(135deg, #374151 0%, #4b5563 100%);
-  border: 1px solid #6b7280;
+  background: rgba(1, 7, 60, 0.15);
+  border: 1.5px solid rgba(255,255,255,0.25);
   border-radius: 30px;
   padding: 2rem;
   margin-bottom: 1.5rem;
@@ -613,6 +661,8 @@ onMounted(() => {
   display: flex;
   align-items: center;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+  backdrop-filter: blur(16px) saturate(180%);
+  -webkit-backdrop-filter: blur(16px) saturate(180%);
 }
 
 .nav-arrow {
@@ -763,7 +813,7 @@ onMounted(() => {
   font-size: 2.5rem;
   font-weight: 700;
   margin: 1rem 0;
-  color: #1e293b;
+  color: #010813;
 }
 
 .section-description {
@@ -1327,6 +1377,46 @@ onMounted(() => {
   display: flex;
   gap: 1rem;
   justify-content: flex-end;
+}
+
+/* Flip Card Styles for What We Offer */
+.flip-card {
+  perspective: 1200px;
+  min-height: 340px;
+}
+.flip-card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.6s cubic-bezier(0.4,0.2,0.2,1);
+  transform-style: preserve-3d;
+}
+.flip-card-inner.flipped {
+  transform: rotateY(180deg);
+}
+.flip-card-front, .flip-card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  border-radius: 30px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+}
+.flip-card-front {
+  z-index: 2;
+  background: white;
+}
+.flip-card-back {
+  transform: rotateY(180deg);
+  background: #2563eb;
+  color: white;
+  z-index: 3;
+}
+
+/* About Us Card Enhancements */
+.about-card {
+  box-shadow: 0 8px 32px rgba(59,130,246,0.10), 0 1.5px 8px rgba(59,130,246,0.08);
+  border: 1.5px solid #dbeafe;
 }
 
 /* Responsive Design */

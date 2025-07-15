@@ -6,7 +6,7 @@ export const PartnersData = [
       "Built the child helpline Case Management and Call Center for Childline Kenya. The work done was, Requirement,Gathering, wireframing, SoftwareDevelopment, Deployment, user testing, Training, and User Support.Project Timelines was 8 Months",
     logo: "/placeholder.svg?height=100&width=200",
     Link: "https://www.unicef.org/child-alert/severe-wasting",
-    contactEmail: "info@example.com",
+    contactEmail: "info@bitz-itc.com",
     contactPhone: "+254 700 000 000",
   },
   {
@@ -16,7 +16,7 @@ export const PartnersData = [
       "Built the child helpline Case Management and Call Center for Childline Kenya. The work done was, Requirement,Gathering, wireframing, SoftwareDevelopment, Deployment, user testing, Training, and User Support.Project Timelines was 8 Months",
     logo: "/placeholder.svg?height=100&width=200",
     Link: "https://www.unfpa.org/",
-    contactEmail: "unfpa@unfpa.org",
+    contactEmail: "info@bitz-itc.com",
     contactPhone: "+254 713860954",
   },
   {
@@ -25,7 +25,7 @@ export const PartnersData = [
     description: "Partnership in developing comprehensive child protection systems across Tanzania.",
     logo: "/placeholder.svg?height=100&width=200",
     Link: "https://www.turkanabasin.org/",
-    contactEmail: "turkanabasin@turkanabasin.org",
+    contactEmail: "info@bitz-itc.com",
     contactPhone: "+254 713860954",
   },
   {
@@ -34,7 +34,7 @@ export const PartnersData = [
     description: "Collaborative efforts in establishing and maintaining child helpline services in Uganda.",
     logo: "/placeholder.svg?height=100&width=200",
     Link: "https://sauti.mglsd.go.ug/sauti/",
-    contactEmail: "sauti@sauti.mglsd.go.ug",
+    contactEmail: "info@bitz-itc.com",
     contactPhone: "+256 700 000 000",
   },
   {
@@ -43,7 +43,7 @@ export const PartnersData = [
     description: "Strategic partnership in implementing gender-focused technology solutions.",
     logo: "/placeholder.svg?height=100&width=200",
     Link: "https://towersacco.co.ke/",
-    contactEmail: "towersacco@towersacco.co.ke",
+    contactEmail: "info@bitz-itc.com",
     contactPhone: "+256 700 000 000",
   },
   {

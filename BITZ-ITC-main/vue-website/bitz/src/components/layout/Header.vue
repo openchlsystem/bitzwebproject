@@ -5,33 +5,27 @@
         ? 'bg-white shadow-xl border-b border-gray-100' 
         : 'bg-white/98 backdrop-blur-lg shadow-lg'
     ]">
-    <nav class="max-w-7xl mx-auto px-4">
-      <div class="flex items-center justify-between h-20">
+    <nav class="max-w-7xl mx-auto px-8 lg:px-20">
+
+      <div class="flex items-center h-20 w-full">
         <!-- Logo -->
-        <router-link to="/" class="flex items-center space-x-3 group transition-all duration-300">
-          <div class="hidden sm:block">
-            <span class="text-xl font-bold text-gray-900">
-              BITZ IT
-            </span>
-            <div class="text-sm text-gray-600">
-              Consulting
-            </div>
-          </div>
+        <router-link to="/" class="flex items-center group transition-all duration-300 mr-8 h-full">
+          <img src="/src/assets/Bitz.png" alt="BITZ Logo" class="h-20 w-44 object-contain my-auto" />
         </router-link>
 
         <!-- Search Bar -->
-        <div class="hidden md:flex flex-1 max-w-md mx-8">
+        <div class="hidden md:flex flex-1 max-w-lg">
           <div class="relative w-full">
             <input
               v-model="searchQuery"
               @input="handleSearch"
               @focus="showSearchResults = true"
               type="text"
-              placeholder="Search products, projects, team members, services..."
+              placeholder="Search projects/products"
               class="w-full px-4 py-2 pl-10 pr-4 rounded-[20px] border-2 border-gray-200 focus:border-blue-500 focus:outline-none transition-all duration-300"
             />
             <Search class="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400" :size="18" />
-            
+
             <!-- Search Results Dropdown -->
             <div v-if="showSearchResults && searchQuery && searchResults.length > 0"
                  class="absolute top-full left-0 right-0 mt-2 bg-white rounded-[20px] shadow-xl border border-gray-200 max-h-96 overflow-y-auto z-50">
@@ -63,12 +57,12 @@
         </div>
 
         <!-- Desktop Navigation -->
-        <div class="hidden lg:flex items-center space-x-1">
+        <div class="hidden lg:flex flex-1 justify-end items-center gap-4">
           <router-link
             v-for="item in navigationItems"
             :key="item.name"
             :to="item.path"
-            class="px-5 py-3 rounded-[20px] font-semibold text-sm transition-all duration-300 relative group"
+            class="px-3 py-1.5 rounded-[18px] font-bold text-[14px] transition-all duration-300 relative group tracking-tight"
             :class="[
               $route.path === item.path
                 ? 'bg-blue-600 text-white shadow-lg transform scale-105' 
@@ -233,12 +227,12 @@ const searchData = ref([
   },
   { 
     id: 't3', 
-    title: 'Nelson Adagi - Systems Manager', 
+    title: 'Nelson Adagi - Project Manager', 
     type: 'Team Member', 
     path: '/our-team', 
     category: 'team',
-    description: 'Technical lead overseeing system architecture and infrastructure',
-    keywords: ['systems', 'infrastructure', 'architecture', 'technical', 'management', 'operations']
+    description: 'Leading project delivery through effective planning, execution, and team coordination. Nelson ensures successful project outcomes and client satisfaction.',
+    keywords: ['project management', 'team leadership', 'agile', 'risk management', 'planning', 'execution']
   },
   { 
     id: 't4', 
@@ -251,12 +245,12 @@ const searchData = ref([
   },
   { 
     id: 't5', 
-    title: 'Michael Ochieng - UI/UX Designer', 
+    title: 'Newton Brian - UI/UX and Frontend Developer', 
     type: 'Team Member', 
     path: '/our-team', 
     category: 'team',
-    description: 'Creative designer focused on user experience and interface design',
-    keywords: ['design', 'ui', 'ux', 'user experience', 'interface', 'creative', 'figma']
+    description: 'Designing and implementing user-friendly interfaces and engaging frontend experiences.',
+    keywords: ['ui', 'ux', 'frontend', 'react', 'vue', 'design', 'user experience', 'responsive']
   },
   
   // Projects

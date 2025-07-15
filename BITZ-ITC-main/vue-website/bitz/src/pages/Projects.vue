@@ -1,8 +1,8 @@
 <template>
   <div class="projects-page">
     <!-- Hero Section -->
-    <section class="hero-section">
-      <div class="hero-container">
+    <section class="hero-section bg-blue-600 text-white">
+      <div class="container-custom">
         <div class="hero-content">
           <div class="hero-text">
             <div class="hero-badge">
@@ -28,7 +28,7 @@
             </div>
           </div>
           <div class="hero-visual">
-            <div class="visual-card">
+            <div class="visual-card liquid-glass">
               <Briefcase :size="80" class="text-white" />
             </div>
           </div>
@@ -129,10 +129,6 @@
                       <span>{{ project.teamSize }}</span>
                     </div>
                   </div>
-                  <button class="learn-more-btn">
-                    Learn More
-                    <ArrowRight :size="16" class="ml-1" />
-                  </button>
                 </div>
               </div>
             </div>
@@ -264,6 +260,7 @@
 
 <script setup>
 import { ref, computed } from 'vue'
+import { projectsData } from '@/utils/ProductData.js'
 import { 
   Briefcase, 
   Search, 
@@ -297,170 +294,6 @@ const projectCategories = [
 ]
 
 // Projects data
-const projectsData = [
-  {
-    id: 1,
-    title: 'OPENCHS Child Helpline System',
-    category: 'Child Protection',
-    client: 'UNICEF Kenya',
-    description: 'Comprehensive child protection platform serving thousands of children across East Africa.',
-    fullDescription: 'OPENCHS is a comprehensive child helpline system that provides a safe and confidential environment for children to report issues and seek help. The system has been successfully deployed across multiple countries in East Africa, serving thousands of children and families with 24/7 support, multilingual capabilities, and advanced case management features.',
-    imageUrl: 'https://via.placeholder.com/600x400/3b82f6/ffffff?text=OPENCHS+Dashboard',
-    status: 'Completed',
-    duration: '18 months',
-    teamSize: '12 members',
-    technologies: ['React', 'Node.js', 'PostgreSQL', 'AWS', 'Docker', 'Redis'],
-    metrics: {
-      efficiency: '85%',
-      cost: '40%'
-    },
-    features: [
-      '24/7 helpline availability',
-      'Multi-language support',
-      'Secure case management',
-      'Real-time analytics dashboard',
-      'Mobile app integration',
-      'Crisis intervention protocols'
-    ],
-    challenge: 'Creating a secure, scalable system that could handle sensitive child protection data while ensuring 24/7 availability across multiple countries with different languages and regulations.',
-    solution: 'Implemented a microservices architecture with robust security protocols, multi-tenant design for different countries, and comprehensive training programs for local staff.'
-  },
-  {
-    id: 2,
-    title: 'Manufacturing Digital Transformation',
-    category: 'Manufacturing',
-    client: 'East African Manufacturing Co.',
-    description: 'Complete digital overhaul resulting in 40% efficiency improvement and significant cost reductions.',
-    fullDescription: 'A comprehensive digital transformation project for a leading East African manufacturing company. The project involved complete system integration, process automation, IoT implementation, and staff training across multiple departments and facilities.',
-    imageUrl: 'https://via.placeholder.com/600x400/1e293b/ffffff?text=Manufacturing+Dashboard',
-    status: 'Completed',
-    duration: '12 months',
-    teamSize: '15 members',
-    technologies: ['IoT Sensors', 'Python', 'Machine Learning', 'Power BI', 'Azure', 'MongoDB'],
-    metrics: {
-      efficiency: '40%',
-      cost: '60%'
-    },
-    features: [
-      'Real-time production monitoring',
-      'Predictive maintenance system',
-      'Quality control automation',
-      'Supply chain optimization',
-      'Energy consumption tracking',
-      'Mobile workforce management'
-    ],
-    challenge: 'Modernizing legacy manufacturing processes without disrupting ongoing operations while training a workforce of 500+ employees on new digital systems.',
-    solution: 'Implemented a phased rollout approach with comprehensive training programs, parallel system operation during transition, and 24/7 support during the migration period.'
-  },
-  {
-    id: 3,
-    title: 'Legal Case Management System',
-    category: 'Government',
-    client: 'Ministry of Justice',
-    description: 'Streamlined legal case workflows and improved court efficiency by 50%.',
-    fullDescription: 'A comprehensive legal case management solution that simplifies and automates the entire lifecycle of legal cases. The system provides robust tools for managing client information, documents, deadlines, and workflows while ensuring compliance with legal standards.',
-    imageUrl: 'https://via.placeholder.com/600x400/059669/ffffff?text=Legal+Case+System',
-    status: 'Completed',
-    duration: '15 months',
-    teamSize: '10 members',
-    technologies: ['Angular', 'Java Spring', 'Oracle DB', 'Docker', 'Kubernetes', 'Elasticsearch'],
-    metrics: {
-      efficiency: '50%',
-      cost: '35%'
-    },
-    features: [
-      'Case tracking and management',
-      'Document management system',
-      'Court scheduling automation',
-      'Legal fee calculation',
-      'Reporting and analytics',
-      'Mobile access for lawyers'
-    ],
-    challenge: 'Digitizing complex legal processes while ensuring data security, compliance with legal standards, and seamless integration with existing court systems.',
-    solution: 'Developed a secure, compliant system with role-based access controls, comprehensive audit trails, and extensive integration capabilities with existing legal infrastructure.'
-  },
-  {
-    id: 4,
-    title: 'SACCO Management Platform',
-    category: 'Finance',
-    client: 'Kenya SACCO Federation',
-    description: 'Modern CRM platform enhancing member engagement and operational efficiency.',
-    fullDescription: 'CRM for SACCOS is a comprehensive software platform that simplifies and automates the entire lifecycle of Sacco operations. The system provides exceptional membership management, multi-channel communication, seamless integration capabilities, and 24/7 accessibility for enhanced member engagement.',
-    imageUrl: 'https://via.placeholder.com/600x400/8b5cf6/ffffff?text=SACCO+CRM',
-    status: 'In Progress',
-    duration: '10 months',
-    teamSize: '8 members',
-    technologies: ['Vue.js', 'Laravel', 'MySQL', 'Redis', 'WebSockets', 'PWA'],
-    metrics: {
-      efficiency: '65%',
-      cost: '45%'
-    },
-    features: [
-      'Member management system',
-      'Loan processing automation',
-      'Mobile banking integration',
-      'Financial reporting tools',
-      'Multi-channel communication',
-      'Real-time notifications'
-    ],
-    challenge: 'Creating a unified platform that could serve multiple SACCOs with different operational models while ensuring regulatory compliance and data security.',
-    solution: 'Built a flexible, multi-tenant architecture with configurable business rules, comprehensive compliance features, and robust security measures.'
-  },
-  {
-    id: 5,
-    title: 'Healthcare Management System',
-    category: 'Healthcare',
-    client: 'Regional Health Authority',
-    description: 'Integrated healthcare platform improving patient care and operational efficiency.',
-    fullDescription: 'A comprehensive healthcare management system designed to streamline patient care, improve operational efficiency, and enhance data management across multiple healthcare facilities in the region.',
-    imageUrl: 'https://via.placeholder.com/600x400/ef4444/ffffff?text=Healthcare+System',
-    status: 'Completed',
-    duration: '14 months',
-    teamSize: '12 members',
-    technologies: ['React Native', 'Node.js', 'PostgreSQL', 'HL7 FHIR', 'AWS', 'Microservices'],
-    metrics: {
-      efficiency: '55%',
-      cost: '30%'
-    },
-    features: [
-      'Electronic health records',
-      'Appointment scheduling',
-      'Inventory management',
-      'Billing and insurance',
-      'Telemedicine integration',
-      'Mobile patient app'
-    ],
-    challenge: 'Integrating disparate healthcare systems while ensuring HIPAA compliance and maintaining high availability for critical patient care operations.',
-    solution: 'Implemented a standards-based integration approach using HL7 FHIR, with robust security measures and redundant systems for high availability.'
-  },
-  {
-    id: 6,
-    title: 'E-Government Portal',
-    category: 'Government',
-    client: 'County Government',
-    description: 'Digital citizen services platform improving government service delivery.',
-    fullDescription: 'A comprehensive e-government portal that digitizes citizen services, improves transparency, and enhances the efficiency of government service delivery across multiple departments.',
-    imageUrl: 'https://via.placeholder.com/600x400/f59e0b/ffffff?text=E-Government+Portal',
-    status: 'In Progress',
-    duration: '16 months',
-    teamSize: '14 members',
-    technologies: ['Next.js', 'Python Django', 'PostgreSQL', 'Blockchain', 'AI/ML', 'Cloud'],
-    metrics: {
-      efficiency: '70%',
-      cost: '50%'
-    },
-    features: [
-      'Online service applications',
-      'Digital document verification',
-      'Payment gateway integration',
-      'Citizen feedback system',
-      'Multi-language support',
-      'Mobile-first design'
-    ],
-    challenge: 'Creating a unified digital platform for multiple government departments with varying processes while ensuring security and accessibility for all citizens.',
-    solution: 'Developed a modular, scalable platform with standardized APIs, comprehensive security measures, and extensive accessibility features.'
-  }
-]
 
 // Computed properties
 const filteredProjects = computed(() => {
@@ -492,7 +325,6 @@ const setActiveCategory = (category) => {
 
 const openProjectModal = (project) => {
   selectedProject.value = project
-  document.body.style.overflow = 'hidden'
 }
 
 const closeProjectModal = () => {
@@ -515,10 +347,10 @@ const getCategoryIcon = (category) => {
 <style scoped>
 /* Hero Section */
 .hero-section {
-  background: linear-gradient(135deg, #1e293b 0%, #334155 100%);
+  background: #000;
   color: white;
-  padding: 8rem 0 4rem;
-  margin-top: 4rem;
+  padding: 6rem 0 3rem;
+  margin-top: 0;
 }
 
 .hero-container {
@@ -587,7 +419,7 @@ const getCategoryIcon = (category) => {
 }
 
 .visual-card {
-  background: linear-gradient(135deg, #3b82f6, #6366f1);
+  background: rgba(255,255,255,0.15);
   border-radius: 30px;
   padding: 3rem;
   height: 16rem;
@@ -595,6 +427,9 @@ const getCategoryIcon = (category) => {
   display: flex;
   align-items: center;
   justify-content: center;
+  backdrop-filter: blur(16px) saturate(180%);
+  -webkit-backdrop-filter: blur(16px) saturate(180%);
+  border: 1.5px solid rgba(255,255,255,0.25);
 }
 
 /* Filter Section */
