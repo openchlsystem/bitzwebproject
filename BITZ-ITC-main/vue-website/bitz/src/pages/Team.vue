@@ -204,7 +204,7 @@
 
 <script setup>
 import { ref, computed } from 'vue'
-import { Search, Eye, Mail, Linkedin, X } from 'lucide-vue-next'
+import { Search, Eye, Mail, Linkedin, Twitter, X } from 'lucide-vue-next'
 
 // Reactive data
 const activeCategory = ref('All Teams')
