@@ -122,4 +122,23 @@ const showScrollTop = computed(() => scrollY.value > 400)
     left: 0.5rem;
   }
 }
+@media (max-width: 600px) {
+  .floating-socials {
+    left: 0.25rem;
+    gap: 0.75rem;
+  }
+  .social-icon-glass {
+    padding: 0.5rem;
+    border-radius: 12px;
+  }
+  .social-icon-glass :deep(svg) {
+    width: 20px !important;
+    height: 20px !important;
+  }
+}
+@media (max-width: 500px) {
+  .floating-socials {
+    display: none;
+  }
+}
 </style>

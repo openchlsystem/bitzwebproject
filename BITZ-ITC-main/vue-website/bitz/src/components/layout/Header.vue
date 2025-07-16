@@ -96,35 +96,39 @@
         leave-active-class="transition-all duration-200 ease-in"
         leave-from-class="opacity-100 translate-y-0"
         leave-to-class="opacity-0 -translate-y-4">
-        <div v-if="isMobileMenuOpen" class="lg:hidden py-6 border-t border-gray-200 bg-white">
-          <!-- Mobile Search -->
-          <div class="px-4 mb-4">
-            <div class="relative">
-              <input
-                v-model="searchQuery"
-                @input="handleSearch"
-                type="text"
-                placeholder="Search..."
-                class="w-full px-4 py-2 pl-10 rounded-[20px] border-2 border-gray-200 focus:border-blue-500 focus:outline-none"
-              />
-              <Search class="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400" :size="18" />
+        <div v-if="isMobileMenuOpen">
+          <!-- Backdrop overlay -->
+          <div class="mobile-menu-backdrop" @click="closeMobileMenu"></div>
+          <div class="lg:hidden py-6 border-t border-gray-200 bg-white relative z-10">
+            <!-- Mobile Search -->
+            <div class="px-4 mb-4">
+              <div class="relative">
+                <input
+                  v-model="searchQuery"
+                  @input="handleSearch"
+                  type="text"
+                  placeholder="Search..."
+                  class="w-full px-4 py-2 pl-10 rounded-[20px] border-2 border-gray-200 focus:border-blue-500 focus:outline-none"
+                />
+                <Search class="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400" :size="18" />
+              </div>
             </div>
-          </div>
-          
-          <div class="flex flex-col space-y-2">
-            <router-link
-              v-for="item in navigationItems"
-              :key="item.name"
-              :to="item.path"
-              class="px-4 py-4 mx-2 rounded-[20px] font-semibold transition-all duration-300"
-              :class="[
-                $route.path === item.path
-                  ? 'bg-blue-600 text-white shadow-lg' 
-                  : 'text-gray-700 hover:bg-blue-50 hover:text-blue-600'
-              ]"
-              @click="closeMobileMenu">
-              {{ item.name }}
-            </router-link>
+            
+            <div class="flex flex-col space-y-2">
+              <router-link
+                v-for="item in navigationItems"
+                :key="item.name"
+                :to="item.path"
+                class="px-4 py-4 mx-2 rounded-[20px] font-semibold transition-all duration-300"
+                :class="[
+                  $route.path === item.path
+                    ? 'bg-blue-600 text-white shadow-lg' 
+                    : 'text-gray-700 hover:bg-blue-50 hover:text-blue-600'
+                ]"
+                @click="closeMobileMenu">
+                {{ item.name }}
+              </router-link>
+            </div>
           </div>
         </div>
       </Transition>
@@ -467,6 +471,14 @@ const handleRouteChange = () => {
   closeMobileMenu()
 }
 
+watch(isMobileMenuOpen, (open) => {
+  if (open) {
+    document.body.style.overflow = 'hidden';
+  } else {
+    document.body.style.overflow = '';
+  }
+});
+
 onMounted(() => {
   window.addEventListener('scroll', handleScroll)
   document.addEventListener('click', handleClickOutside)
@@ -502,5 +514,15 @@ header {
 
 .shadow-xl {
   box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+}
+
+.mobile-menu-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.35);
+  z-index: 40;
+}
+.lg\:hidden + .mobile-menu-backdrop {
+  z-index: 39;
 }
 </style>
