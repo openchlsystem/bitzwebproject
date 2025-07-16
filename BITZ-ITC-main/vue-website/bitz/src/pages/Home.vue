@@ -302,9 +302,9 @@
               Get Started Today
               <ArrowRight :size="16" class="ml-2" />
             </router-link>
-            <button class="btn btn-outline" @click="scrollToServices">
+            <router-link to="/projects" class="btn btn-outline">
               Learn More
-            </button>
+            </router-link>
           </div>
         </div>
       </div>

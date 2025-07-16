@@ -7,7 +7,6 @@ export const useSiteStore = defineStore('site', () => {
     tagline: 'Transforming businesses through innovative technology solutions',
     description: 'Founded in 2007 in Nairobi, BITZ IT Consulting has grown into a leading technology partner across East Africa.',
     contact: {
-      phone: '0110552788',
       email: 'info@bitz-itc.com',
       address: 'Prime Cartons, Dongkung building next to Nice&Lovely along Mombasa Road',
       businessHours: {

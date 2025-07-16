@@ -133,36 +133,18 @@
                   Prime Cartons, Dongkung building next to Nice&Lovely along Mombasa Road
                 </p>
                 <div class="flex items-center space-x-4">
-                  <button class="px-4 py-2 border-2 border-gray-200 rounded-[30px] text-sm hover:bg-gray-50 flex items-center space-x-2 transition-all hover:-translate-y-1">
+                  <a href="https://www.google.com/maps/place/Prime+Cartons,+Dongkung+building+next+to+Nice+%26+Lovely+along+Mombasa+Road" target="_blank" rel="noopener" class="px-4 py-2 border-2 border-gray-200 rounded-[30px] text-sm hover:bg-gray-50 flex items-center space-x-2 transition-all hover:-translate-y-1">
                     <span>📍</span>
                     <span>Google Maps</span>
-                  </button>
-                  <button class="px-4 py-2 border-2 border-gray-200 rounded-[30px] text-sm hover:bg-gray-50 flex items-center space-x-2 transition-all hover:-translate-y-1">
+                  </a>
+                  <a href="https://waze.com/ul?ll=-1.334937,36.894684&navigate=yes" target="_blank" rel="noopener" class="px-4 py-2 border-2 border-gray-200 rounded-[30px] text-sm hover:bg-gray-50 flex items-center space-x-2 transition-all hover:-translate-y-1">
                     <span>🗺️</span>
                     <span>Waze</span>
-                  </button>
+                  </a>
                 </div>
               </div>
             </div>
-            <div class="flex items-start space-x-4">
-              <div class="w-10 h-10 bg-blue-100 rounded-[30px] flex items-center justify-center flex-shrink-0">
-                <div class="text-blue-600">📞</div>
-              </div>
-              <div>
-                <h4 class="font-semibold mb-1">Phone</h4>
-                <p class="text-gray-600 mb-3">0722116116</p>
-                <div class="flex items-center space-x-4">
-                  <button class="px-4 py-2 border-2 border-gray-200 rounded-[30px] text-sm hover:bg-gray-50 flex items-center space-x-2 transition-all hover:-translate-y-1">
-                    <span>📧</span>
-                    <span>Email Us</span>
-                  </button>
-                  <button class="px-4 py-2 border-2 border-gray-200 rounded-[30px] text-sm hover:bg-gray-50 flex items-center space-x-2 transition-all hover:-translate-y-1">
-                    <span>📞</span>
-                    <span>Call Us</span>
-                  </button>
-                </div>
-              </div>
-            </div>
+            <!-- Remove phone number section -->
             <div class="flex items-start space-x-4">
               <div class="w-10 h-10 bg-blue-100 rounded-[30px] flex items-center justify-center flex-shrink-0">
                 <div class="text-blue-600">📧</div>
@@ -201,16 +183,10 @@
           Support
         </div>
         <h2 class="text-3xl font-bold mb-4">Need Immediate Assistance?</h2>
-        <p class="text-gray-600 mb-8">Our support team is available to help you with any questions or concerns</p>
-        <div class="flex justify-center space-x-4">
-          <button class="bg-slate-900 text-white px-8 py-4 rounded-[30px] font-semibold hover:bg-slate-800 flex items-center space-x-2 transition-all hover:-translate-y-1 shadow-lg">
-            <span>📞</span>
-            <span>Call Support</span>
-          </button>
-          <button class="border-2 border-gray-200 px-8 py-4 rounded-[30px] font-semibold hover:bg-gray-50 flex items-center space-x-2 transition-all hover:-translate-y-1">
-            <span>💬</span>
-            <span>Live Chat</span>
-          </button>
+        <div class="mb-8">
+          <div class="bg-blue-100 text-blue-900 rounded-[30px] px-6 py-4 font-semibold text-lg inline-block">
+            Email us at <a href="mailto:info@bitz-itc.com" class="underline hover:text-blue-700">info@bitz-itc.com</a>
+          </div>
         </div>
       </div>
     </section>

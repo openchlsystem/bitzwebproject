@@ -113,15 +113,6 @@
                 info@bitz-itc.com
               </a>
             </div>
-            <div class="flex items-center space-x-3">
-              <Phone :size="16" class="text-gray-400" />
-              <a 
-                :href="`tel:${siteConfig.contact.phone}`"
-                class="text-gray-300 hover:text-white transition-colors duration-300 text-sm"
-              >
-                {{ siteConfig.contact.phone }}
-              </a>
-            </div>
           </div>
         </div>
       </div>

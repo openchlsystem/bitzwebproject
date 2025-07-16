@@ -204,16 +204,10 @@
               </div>
             </div>
 
-            <div class="mt-6 pt-6 border-t border-gray-200">
-              <div class="flex items-center justify-between mb-2">
-                <button class="flex items-center space-x-2 text-primary-600 hover:text-primary-700 transition-colors">
-                  <Mail :size="16" />
-                  <span class="text-sm font-medium">Email Us</span>
-                </button>
-                <button class="flex items-center space-x-2 text-primary-600 hover:text-primary-700 transition-colors">
-                  <Phone :size="16" />
-                  <span class="text-sm font-medium">Call Us</span>
-                </button>
+            <!-- Email Banner -->
+            <div class="mt-8 text-center">
+              <div class="bg-blue-100 text-blue-900 rounded-[30px] px-6 py-4 font-semibold text-lg inline-block">
+                Email us at <a href="mailto:info@bitz-itc.com" class="underline hover:text-blue-700">info@bitz-itc.com</a>
               </div>
             </div>
           </div>
