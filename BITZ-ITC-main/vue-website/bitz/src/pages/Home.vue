@@ -454,7 +454,7 @@ const countries = [
     flag: '🇰🇪',
     description: 'Our headquarters and primary operations center, serving as the hub for East African initiatives.',
     projects: '50+',
-    years: '15+'
+    years: '19+'
   },
   {
     name: 'Uganda',
