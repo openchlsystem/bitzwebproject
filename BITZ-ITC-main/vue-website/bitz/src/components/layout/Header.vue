@@ -25,7 +25,7 @@
               class="w-full px-4 py-2 pl-10 pr-4 rounded-[20px] border-2 border-gray-200 focus:border-blue-500 focus:outline-none transition-all duration-300"
             />
             <Search class="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400" :size="18" />
-
+            
             <!-- Search Results Dropdown -->
             <div v-if="showSearchResults && searchQuery && searchResults.length > 0"
                  class="absolute top-full left-0 right-0 mt-2 bg-white rounded-[20px] shadow-xl border border-gray-200 max-h-96 overflow-y-auto z-50">

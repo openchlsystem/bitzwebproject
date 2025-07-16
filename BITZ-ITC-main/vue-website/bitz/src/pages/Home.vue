@@ -137,7 +137,7 @@
         <div class="featured-product">
           <div class="featured-product-image">
             <img 
-              src="@/assets/placeholders/dashboard.jpg"
+              src="@/assets/display_photos/dashboard.jpg"
               alt="OPENCHS Dashboard Interface"
               class="product-screenshot"
             />
@@ -274,7 +274,7 @@
           </div>
           <div class="featured-project-image">
             <img 
-              src="@/assets/placeholders/team.jpg"
+              src="@/assets/display_photos/team.jpg"
               alt="Manufacturing Dashboard"
               class="project-screenshot"
             />

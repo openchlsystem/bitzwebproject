@@ -79,7 +79,7 @@
             >
               <div class="project-image">
                 <img 
-                  :src="project.imageUrl || '/src/assets/placeholders/dashboard.jpg'" 
+                  :src="project.imageUrl || '/src/assets/display_photos/dashboard.jpg'" 
                   :alt="project.title"
                   class="project-img"
                 />
@@ -163,7 +163,7 @@
           <!-- Project Image -->
           <div class="modal-image">
             <img 
-              :src="selectedProject.imageUrl || '/src/assets/placeholders/dashboard.jpg'" 
+              :src="selectedProject.imageUrl || '/src/assets/display_photos/dashboard.jpg'" 
               :alt="selectedProject.title"
               class="modal-img"
             />

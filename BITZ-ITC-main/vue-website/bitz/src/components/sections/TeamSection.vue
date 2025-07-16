@@ -24,7 +24,7 @@
           <!-- Member Image -->
           <div class="aspect-w-4 aspect-h-3 bg-gray-200">
             <img
-              :src="member.image || require('@/assets/placeholders/avatar.jpg')"
+              :src="member.image || require('@/assets/display_photos/avatar.jpg')"
               :alt="member.name"
               class="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-300"
             />

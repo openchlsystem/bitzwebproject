@@ -2,7 +2,7 @@
   <div class="project-card">
     <div class="project-image" :class="project.imageClass || 'bg-gray-200'">
       <img
-        :src="project.imageUrl || require('@/assets/placeholders/dashboard.jpg')"
+        :src="project.imageUrl || require('@/assets/display_photos/dashboard.jpg')"
         :alt="project.title"
         class="project-img"
       />

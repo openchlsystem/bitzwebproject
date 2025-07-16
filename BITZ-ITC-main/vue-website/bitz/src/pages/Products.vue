@@ -93,7 +93,7 @@
               </div>
 
               <div class="product-image">
-                <img :src="selectedProduct.imageUrl || '/src/assets/placeholders/dashboard.jpg'" :alt="selectedProduct.title" />
+                <img :src="selectedProduct.imageUrl || '/src/assets/display_photos/dashboard.jpg'" :alt="selectedProduct.title" />
                 <div class="image-overlay">
                   <button class="overlay-btn" @click="openImageModal">
                     <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -114,7 +114,7 @@
           <div class="features-grid">
             <div v-for="(feature, index) in selectedProduct.features" :key="index" class="feature-card">
               <div class="feature-image">
-                <img :src="feature.imageUrl || '/src/assets/placeholders/feature.jpg'" :alt="feature.Feature" />
+                <img :src="feature.imageUrl || '/src/assets/display_photos/feature.jpg'" :alt="feature.Feature" />
                 <div class="feature-overlay">
                   <div class="feature-module-badge">{{ feature.Module }}</div>
                 </div>
@@ -199,7 +199,7 @@
             <h3 class="modal-title">{{ selectedFeature.Feature }}</h3>
           </div>
           <div class="modal-body">
-            <img :src="selectedFeature.imageUrl || '/src/assets/placeholders/feature.jpg'" :alt="selectedFeature.Feature" class="modal-image" />
+            <img :src="selectedFeature.imageUrl || '/src/assets/display_photos/feature.jpg'" :alt="selectedFeature.Feature" class="modal-image" />
             <p class="modal-description">{{ selectedFeature.Description }}</p>
             <div class="modal-actions">
               <router-link to="/contact" class="btn btn-primary" @click="closeFeatureModal">
