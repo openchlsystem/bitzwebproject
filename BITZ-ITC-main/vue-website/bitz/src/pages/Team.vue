@@ -220,12 +220,7 @@ const getInitials = (name) => {
 
 // Helper function to generate colors
 const generateColor = (name) => {
-  const colors = [
-    '#3b82f6', '#8b5cf6', '#10b981', '#f59e0b', 
-    '#ef4444', '#06b6d4', '#84cc16', '#f97316'
-  ]
-  const index = name.length % colors.length
-  return colors[index]
+  return '#1F1E5C';
 }
 
 // Helper function to get category CSS class
@@ -261,17 +256,18 @@ const leadership = [
   {
     id: 2,
     name: 'Mercy Kamau',
-    position: 'Head of Strategy and Innovation',
-    description: 'Driving strategic initiatives and fostering innovation across the organization. Mercy leads our strategic planning and innovation programs to ensure competitive advantage.',
-    qualifications: ['MBA Strategic Management', 'BSc Business Administration', 'Innovation Leadership Certification', 'Strategic Planning Professional'],
-    skills: ['Strategic Planning', 'Innovation Management', 'Business Development', 'Market Analysis'],
+    position: 'Chief Strategy & Innovation Officer',
+    description: `Ms. Mercy Kamau is a clinician and currently serves as the Chief Strategy & Innovation Officer at Bitz IT Consulting. She is deeply committed to transforming healthcare delivery through the strategic application of technology, particularly in low- and middle-income settings. With a background in clinical medicine and a strong interest in health system management, precision medicine, and data analytics, Mercy brings a unique perspective to digital health innovation. Her work focuses on developing scalable and sustainable solutions that enhance health system efficiency and promote patient-centered care. Mercy has been recognized as a top performer in the 2024 Africa Health Innovation Fellowship, reflecting her commitment to driving meaningful change in the sector.`,
+    qualifications: ['Clinical Medicine', 'Health System Management', 'Precision Medicine', 'Data Analytics', 'Africa Health Innovation Fellowship 2024'],
+    skills: ['Digital Health', 'Healthcare Innovation', 'Strategy', 'Health System Efficiency', 'Patient-Centered Care'],
     category: 'Leadership',
     color: generateColor('Mercy Kamau'),
     achievements: [
-      'Developed comprehensive innovation framework',
-      'Led strategic partnerships with major organizations',
-      'Implemented data-driven strategic planning processes'
-    ]
+      'Recognized as a top performer in the 2024 Africa Health Innovation Fellowship',
+      'Developed scalable digital health solutions for low- and middle-income settings',
+      'Promoted patient-centered care through technology-driven strategies'
+    ],
+    linkedin: 'https://www.linkedin.com/in/mercy-kamau-aaa275223/'
   },
   {
     id: 3,
@@ -318,20 +314,20 @@ const specializedTeam = [
   },
   {
     id: 6,
-    name: 'Franklin Karanja',
-    position: 'Lead AI Developer',
-    description: 'Spearheading AI initiatives and machine learning solutions for innovative applications.',
-    qualifications: ['MSc Artificial Intelligence', 'BSc Computer Science', 'TensorFlow Developer Certification', 'AWS ML Specialty'],
+    name: 'Franklin Karanja Mutua',
+    position: 'Machine Learning Engineer',
+    description: `Computer science graduate from Strathmore University with a strong focus on Artificial Intelligence and Machine Learning. Currently working as a Machine Learning Engineer at BITZ IT Consulting, Franklin has built impactful applications such as BlueCheck (Bluetooth-based attendance tracker) and StoryCraft (Generative AI storytelling app for children, finalist in the 2023 A2SV AI Hackathon). He previously worked as an Android Developer at Digital Vision EA and brings hands-on experience with technologies like Kotlin, Flutter, Dart, and Python. He has completed his studies and is set to officially graduate in June 2025.`,
+    qualifications: ['BSc Computer Science'],
     category: 'AI & Data',
     color: generateColor('Franklin Karanja'),
-    skills: ['Machine Learning', 'Deep Learning', 'Python', 'TensorFlow', 'Data Science']
+    skills: ['Machine Learning', 'Artificial Intelligence', 'Python', 'Kotlin', 'Flutter', 'Dart', 'Android Development', 'Generative AI', 'Mobile Apps']
   },
   {
     id: 7,
     name: 'Miriam Shem',
     position: 'Head of Social Media and AI Developer',
     description: 'Combining social media expertise with AI development for enhanced digital experiences.',
-    qualifications: ['BSc Digital Marketing', 'AI/ML Certification', 'Google Analytics Certified', 'Social Media Marketing'],
+    qualifications: ['BSc Computer Science'],
     category: 'AI & Data',
     color: generateColor('Miriam Shem'),
     skills: ['Social Media Strategy', 'AI Development', 'Content Strategy', 'Digital Marketing']
@@ -351,7 +347,7 @@ const specializedTeam = [
     name: 'Jude Angedu',
     position: 'Backend Development',
     description: 'Building robust and scalable backend systems for our applications.',
-    qualifications: ['BSc Software Engineering', 'Node.js Certification', 'MongoDB Developer', 'API Design Specialist'],
+    qualifications: ['BSc Computer Science'],
     category: 'Development',
     color: generateColor('Jude Angedu'),
     skills: ['Node.js', 'Python', 'Database Design', 'API Development', 'System Architecture']
@@ -359,42 +355,52 @@ const specializedTeam = [
   {
     id: 10,
     name: 'Peter Rogendo',
-    position: 'Backend Development',
-    description: 'Contributing to the development of efficient and reliable backend services.',
-    qualifications: ['BSc Computer Science', 'Java Spring Certification', 'Microservices Architecture', 'Security Specialist'],
+    position: 'Machine Learning Engineer',
+    description: `Machine learning engineer with hands-on experience in building data-driven solutions. Specializes in Python, Django, JavaScript, and data analysis, with a focus on developing robust web applications, backend systems, and intelligent tools. Passionate about using technology to solve real-world problems, with a strong interest in generative AI, natural language processing (NLP), and automation.`,
+    qualifications: ['BSc Computer Science'],
     category: 'Development',
     color: generateColor('Peter Rogendo'),
-    skills: ['Java', 'Spring Boot', 'Microservices', 'Database Optimization', 'Security']
+    skills: ['Python', 'Django', 'JavaScript', 'Data Analysis', 'Machine Learning', 'NLP', 'Automation', 'Backend Development', 'Web Applications']
   },
   {
     id: 11,
     name: 'Newton Brian',
-    position: 'UI/UX and Frontend Development',
-    description: 'Designing and implementing user-friendly interfaces and engaging frontend experiences.',
-    qualifications: ['BSc Design', 'UX Design Certification', 'React Developer', 'Adobe Certified Expert'],
+    position: 'UI/UX and Frontend Designer',
+    description: `UI/UX and graphic designer with a key intent on crafting intuitive digital experiences that seamlessly blend aesthetics with functionality. Newton's design approach is informed by a strong technical foundation in Computer Science, enabling the creation of solutions that are both visually compelling and technically sound. He has designed user interfaces and experiences for diverse clients including UK-based Prodg, WordandLearn, and the Zuri Hackathon, using Figma, Adobe XD, and Sketch to transform concepts into engaging prototypes. His portfolio includes HeartCall's emergency response interface and LittleVisions' storytelling platform, each demonstrating a commitment to clean visual hierarchies, intuitive navigation, and thoughtful user journeys. Newton is also proficient in frontend and full stack development, bridging the gap between design vision and technical implementation to ensure beautiful interfaces are functionally robust.`,
+    qualifications: ['BSc Computer Science'],
     category: 'Development',
     color: generateColor('Newton Brian'),
-    skills: ['React', 'Vue.js', 'UI/UX Design', 'Responsive Design', 'User Experience']
+    skills: ['UI/UX Design', 'Graphic Design', 'Figma', 'Adobe XD', 'Sketch', 'React', 'Vue.js', 'Node.js', 'Python', 'Frontend Development', 'Prototyping', 'Visual Hierarchy', 'User Journeys', 'Database Management', 'WordPress']
   },
   {
     id: 12,
     name: 'Marlon',
-    position: 'AI Developer Intern',
-    description: 'AI and machine learning development, contributing to innovative AI solutions and data analysis projects.',
-    qualifications: ['BSc Computer Science (In Progress)', 'AI/ML Bootcamp', 'Python Certification'],
-    category: 'AI & Data',
+    position: 'Full Stack Developer',
+    description: `Full Stack Developer with 500+ hours of hands-on experience in React Native, Django, and Firebase. Marlon is passionate about building scalable applications and is still yet to graduate, actively expanding his expertise in modern web and mobile technologies.`,
+    qualifications: ['BSc Computer Science (In Progress)'],
+    category: 'Development',
     color: generateColor('Marlon'),
-    skills: ['Python', 'Machine Learning', 'Data Analysis', 'AI Development', 'Learning & Growth']
+    skills: ['React Native', 'Django', 'Firebase', 'Full Stack Development', 'Mobile Apps', 'Web Applications']
   },
   {
     id: 16,
     name: 'Brenda Ogutu',
     position: 'AI Research Intern',
     description: 'Researching cutting-edge AI technologies and contributing to machine learning model development and optimization.',
-    qualifications: ['BSc Data Science (In Progress)', 'Machine Learning Certification', 'Research Methods'],
+    qualifications: ['BSc Computer Science'],
     category: 'AI & Data',
     color: generateColor('Brenda Ogutu'),
     skills: ['Research', 'Machine Learning', 'Data Visualization', 'Statistical Analysis', 'AI Ethics']
+  },
+  {
+    id: 17,
+    name: 'Mark Kungu',
+    position: 'Frontend Developer Intern',
+    description: `Frontend Developer Intern with a strong passion for building engaging and responsive user interfaces. Currently pursuing a degree in Computer Science and actively expanding skills in modern frontend frameworks and web technologies. Eager to learn, contribute, and grow as part of the BITZ team.`,
+    qualifications: ['BSc Computer Science (In Progress)'],
+    category: 'Development',
+    color: generateColor('Mark Kungu'),
+    skills: ['HTML', 'CSS', 'JavaScript', 'Vue.js', 'React', 'Responsive Design', 'UI Implementation', 'Team Collaboration', 'Continuous Learning']
   }
 ]
 
