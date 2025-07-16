@@ -79,9 +79,14 @@
         <div class="flex items-center space-x-3">
           <!-- Mobile Menu Button -->
           <button 
-            @click="toggleMobileMenu"
-            class="lg:hidden flex items-center justify-center w-11 h-11 rounded-[20px] transition-all duration-300 bg-gray-100 hover:bg-gray-200 text-gray-700 hover:scale-105"
-            :aria-label="isMobileMenuOpen ? 'Close menu' : 'Open menu'">
+            @pointerdown="toggleMobileMenu"
+            class="hamburger-btn lg:hidden flex items-center justify-center w-11 h-11 rounded-[20px] transition-all duration-300 bg-gray-100 hover:bg-gray-200 text-gray-700 hover:scale-105"
+            :aria-label="isMobileMenuOpen ? 'Close menu' : 'Open menu'"
+            aria-haspopup="true"
+            :aria-expanded="isMobileMenuOpen.toString()"
+            aria-controls="mobile-menu-panel"
+            style="touch-action: manipulation;"
+          >
             <Menu v-if="!isMobileMenuOpen" :size="22" />
             <X v-else :size="22" />
           </button>
@@ -125,7 +130,11 @@
                     ? 'bg-blue-600 text-white shadow-lg' 
                     : 'text-gray-700 hover:bg-blue-50 hover:text-blue-600'
                 ]"
-                @click="closeMobileMenu">
+                @click="closeMobileMenu"
+                style="touch-action: manipulation;"
+                tabindex="0"
+                role="menuitem"
+              >
                 {{ item.name }}
               </router-link>
             </div>
@@ -524,5 +533,18 @@ header {
 }
 .lg\:hidden + .mobile-menu-backdrop {
   z-index: 39;
+}
+
+@media (max-width: 1024px) {
+  .hamburger-btn {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    z-index: 50;
+  }
+}
+
+.hamburger-btn, .flex.flex-col > .router-link {
+  touch-action: manipulation;
 }
 </style>

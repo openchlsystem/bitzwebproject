@@ -9,7 +9,7 @@
             Empowering businesses through innovative technology solutions and digital transformation.
           </p>
         </div>
-        <div class="relative">
+        <div class="relative vision-hero-graphic">
           <div class="rounded-[30px] p-8 h-64 flex items-center justify-center" style="background:rgba(255,255,255,0.10);border:1.5px solid rgba(255,255,255,0.25);backdrop-filter:blur(16px) saturate(180%);-webkit-backdrop-filter:blur(16px) saturate(180%);">
             <div class="text-6xl">💡</div>
           </div>
@@ -134,3 +134,11 @@
 <script setup>
 // No additional logic needed for this component
 </script>
+
+<style scoped>
+@media (max-width: 768px) {
+  .vision-hero-graphic {
+    display: none !important;
+  }
+}
+</style>

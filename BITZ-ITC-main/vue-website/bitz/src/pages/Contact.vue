@@ -8,8 +8,16 @@
           <p class="text-lg text-gray-300 leading-relaxed">
             Let's discuss how we can help transform your business
           </p>
+          <button
+            class="mt-6 px-6 py-3 rounded-[30px] bg-[#1F1E5C] text-white font-semibold shadow-lg hover:bg-[#18174a] transition-all focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#1F1E5C]"
+            @click="scrollToFormField"
+            type="button"
+            aria-label="Jump to contact form"
+          >
+            Click here to start
+          </button>
         </div>
-        <div class="relative">
+        <div class="relative contact-hero-graphic">
           <div class="rounded-[30px] p-8 h-64 flex items-center justify-center" style="background:rgba(255,255,255,0.10);border:1.5px solid rgba(255,255,255,0.25);backdrop-filter:blur(16px) saturate(180%);-webkit-backdrop-filter:blur(16px) saturate(180%);">
             <MessageSquare :size="80" class="text-white" />
           </div>
@@ -47,6 +55,7 @@
                     placeholder="John"
                     class="w-full px-4 py-3 border-2 border-gray-200 rounded-[30px] focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all"
                     required
+                    ref="firstNameInput"
                   />
                 </div>
                 <div>
@@ -208,6 +217,15 @@ const form = ref({
 
 const isSubmitting = ref(false)
 
+const firstNameInput = ref(null)
+
+const scrollToFormField = () => {
+  if (firstNameInput.value) {
+    firstNameInput.value.scrollIntoView({ behavior: 'smooth', block: 'center' })
+    firstNameInput.value.focus({ preventScroll: true })
+  }
+}
+
 const submitForm = async () => {
   isSubmitting.value = true
   
@@ -228,3 +246,11 @@ const submitForm = async () => {
   alert('Message sent successfully!')
 }
 </script>
+
+<style scoped>
+@media (max-width: 768px) {
+  .contact-hero-graphic {
+    display: none !important;
+  }
+}
+</style>
