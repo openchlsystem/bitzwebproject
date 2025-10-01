@@ -86,6 +86,7 @@
             :aria-expanded="isMobileMenuOpen.toString()"
             aria-controls="mobile-menu-panel"
             style="touch-action: manipulation;"
+            ref="menuButton"
           >
             <Menu v-if="!isMobileMenuOpen" :size="22" />
             <X v-else :size="22" />
@@ -101,10 +102,10 @@
         leave-active-class="transition-all duration-200 ease-in"
         leave-from-class="opacity-100 translate-y-0"
         leave-to-class="opacity-0 -translate-y-4">
-        <div v-if="isMobileMenuOpen">
+        <div v-if="isMobileMenuOpen" id="mobile-menu-panel" role="dialog" aria-modal="true" tabindex="-1" ref="mobilePanel">
           <!-- Backdrop overlay -->
           <div class="mobile-menu-backdrop" @click="closeMobileMenu"></div>
-          <div class="lg:hidden py-6 border-t border-gray-200 bg-white relative z-10">
+          <div class="lg:hidden py-6 border-t border-gray-200 bg-white relative z-50">
             <!-- Mobile Search -->
             <div class="px-4 mb-4">
               <div class="relative">
@@ -177,6 +178,9 @@ const isMobileMenuOpen = ref(false)
 const isScrolled = ref(false)
 const searchQuery = ref('')
 const showSearchResults = ref(false)
+const menuButton = ref(null)
+const mobilePanel = ref(null)
+let _onKeydownRef = null
 
 // Navigation items - Updated to match your router paths
 const navigationItems = [
@@ -412,11 +416,21 @@ const searchResults = computed(() => {
 // Methods
 const toggleMobileMenu = () => {
   isMobileMenuOpen.value = !isMobileMenuOpen.value
+  if (isMobileMenuOpen.value) {
+    // focus the panel for better mobile/keyboard accessibility
+    requestAnimationFrame(() => {
+      mobilePanel.value && mobilePanel.value.focus && mobilePanel.value.focus()
+    })
+  }
 }
 
 const closeMobileMenu = () => {
   isMobileMenuOpen.value = false
   showSearchResults.value = false
+  // restore focus to hamburger button
+  requestAnimationFrame(() => {
+    menuButton.value && menuButton.value.focus && menuButton.value.focus()
+  })
 }
 
 const handleScroll = () => {
@@ -468,7 +482,7 @@ const getCategoryColor = (category) => {
 
 // Click outside handler
 const handleClickOutside = (event) => {
-  if (isMobileMenuOpen.value && !event.target.closest('header')) {
+  if (isMobileMenuOpen.value && !event.target.closest('header') && !event.target.closest('.mobile-menu-backdrop')) {
     closeMobileMenu()
   }
   if (showSearchResults.value && !event.target.closest('.relative')) {
@@ -492,11 +506,22 @@ onMounted(() => {
   window.addEventListener('scroll', handleScroll)
   document.addEventListener('click', handleClickOutside)
   watch(() => route.path, handleRouteChange)
+  // ESC key to close menus/overlays
+  const onKeydown = (e) => {
+    if (e.key === 'Escape') {
+      closeMobileMenu()
+      showSearchResults.value = false
+    }
+  }
+  document.addEventListener('keydown', onKeydown)
+  // store to remove on unmount
+  _onKeydownRef = onKeydown
 })
 
 onUnmounted(() => {
   window.removeEventListener('scroll', handleScroll)
   document.removeEventListener('click', handleClickOutside)
+  if (_onKeydownRef) document.removeEventListener('keydown', _onKeydownRef)
 })
 </script>
 
