@@ -5,14 +5,14 @@
       <div class="container-custom">
         <div class="hero-content">
           <div class="hero-text">
-            <h1 class="hero-title">Your Partner in Digital Solutions</h1>
+            <h1 class="hero-title">{{ content.hero.title }}</h1>
             <p class="hero-description">
-              We deliver AI-powered, future-ready software and digital transformation for startups, enterprises, and innovators across Africa.
+              {{ content.hero.description }}
             </p>
           </div>
           <div class="hero-visual">
             <div class="countries-showcase">
-              <h3 class="showcase-title">Our Presence Across East Africa</h3>
+              <h3 class="showcase-title">{{ content.hero.countriesShowcase.title }}</h3>
               <div class="countries-carousel liquid-glass">
                 <button class="nav-arrow left" @click="previousCountry" aria-label="Previous country">
                   <ChevronLeft :size="20" />
@@ -62,9 +62,9 @@
     <section class="section bg-white text-gray-800">
       <div class="container-custom flex flex-col md:flex-row items-center justify-center gap-10">
         <div class="about-card bg-gradient-to-br from-blue-50 to-blue-100 rounded-3xl shadow-xl p-10 max-w-2xl w-full flex-1">
-          <h2 class="text-3xl font-bold mb-4 text-blue-700">About Us</h2>
+          <h2 class="text-3xl font-bold mb-4 text-blue-700">{{ content.about.title }}</h2>
           <p class="text-lg leading-relaxed text-gray-700">
-            <span class="font-semibold text-blue-600">Founded in 2007 in Nairobi</span>, BITZ IT Consulting has grown into a leading technology partner across East Africa, with a strong presence in Kenya, Uganda, Tanzania, and Lesotho. We specialize in comprehensive technology solutions, software development, IT infrastructure, and digital transformation solutions, delivering impactful results for government agencies and international organizations, including UNICEF and the World Bank.
+            {{ content.about.description }}
           </p>
         </div>
         <div class="hidden md:block flex-1">
@@ -77,8 +77,8 @@
     <section class="section bg-gray-50">
       <div class="container-custom">
         <div class="text-center mb-12">
-          <div class="badge badge-primary">Our Services</div>
-          <h2 class="section-title">What We Offer</h2>
+          <div class="badge badge-primary">{{ content.services.sectionDescription }}</div>
+          <h2 class="section-title">{{ content.services.sectionTitle }}</h2>
         </div>
         <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
           <div v-for="(service, idx) in services" :key="service.id" class="flip-card">
@@ -107,14 +107,12 @@
         </div>
         <!-- Why Choose Us -->
         <div class="mt-16 text-center">
-          <h3 class="text-2xl font-bold mb-4">Why Choose Us?</h3>
+          <h3 class="text-2xl font-bold mb-4">{{ content.services.whyChooseUs.title }}</h3>
           <ul class="list-none flex flex-col md:flex-row justify-center gap-8 text-lg">
-            <li>✅ End-to-end expertise – From concept to deployment, we handle it all.</li>
-            <li>✅ AI that works for you – No hype, just practical, business-driven intelligence.</li>
-            <li>✅ Scalable & secure – Future-ready solutions that grow with your needs.</li>
+            <li v-for="point in content.services.whyChooseUs.points" :key="point">✅ {{ point }}</li>
           </ul>
           <div class="mt-8">
-            <a href="/contact" class="btn btn-primary">Ready to build smarter? Get in touch today.</a>
+            <a :href="content.services.whyChooseUs.ctaLink" class="btn btn-primary">{{ content.services.whyChooseUs.ctaText }}</a>
           </div>
         </div>
         <!--
@@ -130,9 +128,9 @@
     <section class="section bg-gray-50">
       <div class="container-custom">
         <div class="text-center">
-          <div class="badge badge-primary">Featured Product</div>
-          <h2 class="section-title">Spotlight: OPENCHS Child Helpline System</h2>
-          <p class="section-description">Our flagship child protection solution making a difference across East Africa</p>
+          <div class="badge badge-primary">{{ content.featuredProduct.sectionTitle }}</div>
+          <h2 class="section-title">{{ content.featuredProduct.heading }}</h2>
+          <p class="section-description">{{ content.featuredProduct.description }}</p>
         </div>
         <div class="featured-product">
           <div class="featured-product-image">
@@ -143,17 +141,9 @@
             />
             <div class="product-overlay">
               <div class="product-stats">
-                <div class="stat-item">
-                  <span class="stat-value">10,000+</span>
-                  <span class="stat-label">Children Helped</span>
-                </div>
-                <div class="stat-item">
-                  <span class="stat-value">24/7</span>
-                  <span class="stat-label">Availability</span>
-                </div>
-                <div class="stat-item">
-                  <span class="stat-value">4</span>
-                  <span class="stat-label">Countries</span>
+                <div v-for="stat in content.featuredProduct.product.stats" :key="stat.label" class="stat-item">
+                  <span class="stat-value">{{ stat.value }}</span>
+                  <span class="stat-label">{{ stat.label }}</span>
                 </div>
               </div>
             </div>
@@ -161,51 +151,33 @@
           <div class="featured-product-content">
             <div class="product-badge">
               <Shield :size="20" class="text-blue-600" />
-              <span class="badge-text">Child Protection</span>
+              <span class="badge-text">{{ content.featuredProduct.product.badge.text }}</span>
             </div>
-            <h3 class="featured-title">OPENCHS - Comprehensive Child Helpline System</h3>
+            <h3 class="featured-title">{{ content.featuredProduct.product.title }}</h3>
             <p class="featured-description">
-              OPENCHS is our flagship child protection platform that provides a safe, confidential environment for children to report issues and seek help. The system has been successfully deployed across multiple countries in East Africa, serving thousands of children and families.
+              {{ content.featuredProduct.product.description }}
             </p>
             <div class="key-features">
-              <h4 class="features-title">Key Capabilities</h4>
+              <h4 class="features-title">{{ content.featuredProduct.product.keyFeatures.title }}</h4>
               <div class="features-list">
-                <div class="feature-highlight">
+                <div v-for="feature in content.featuredProduct.product.keyFeatures.features" :key="feature.title" class="feature-highlight">
                   <div class="feature-icon">
-                    <Phone :size="24" class="text-blue-600" />
+                    <component :is="feature.icon === 'Phone' ? Phone : feature.icon === 'Lock' ? Lock : BarChart3" :size="24" class="text-blue-600" />
                   </div>
                   <div class="feature-content">
-                    <h5>24/7 Helpline Support</h5>
-                    <p>Round-the-clock availability with multilingual support and trained counselors</p>
-                  </div>
-                </div>
-                <div class="feature-highlight">
-                  <div class="feature-icon">
-                    <Lock :size="24" class="text-blue-600" />
-                  </div>
-                  <div class="feature-content">
-                    <h5>Secure Case Management</h5>
-                    <p>Confidential case tracking with advanced security protocols and data protection</p>
-                  </div>
-                </div>
-                <div class="feature-highlight">
-                  <div class="feature-icon">
-                    <BarChart3 :size="24" class="text-blue-600" />
-                  </div>
-                  <div class="feature-content">
-                    <h5>Analytics & Reporting</h5>
-                    <p>Comprehensive reporting tools for monitoring and improving child protection services</p>
+                    <h5>{{ feature.title }}</h5>
+                    <p>{{ feature.description }}</p>
                   </div>
                 </div>
               </div>
             </div>
             <div class="featured-actions">
-              <router-link to="/products" class="btn btn-primary">
-                View All Products
+              <router-link :to="content.featuredProduct.product.actions.primary.link" class="btn btn-primary">
+                {{ content.featuredProduct.product.actions.primary.text }}
                 <ArrowRight :size="16" class="ml-2" />
               </router-link>
               <button class="btn btn-outline" @click="showProductModal(featuredProduct)">
-                Learn More About OPENCHS
+                {{ content.featuredProduct.product.actions.secondary.text }}
               </button>
             </div>
           </div>
@@ -217,58 +189,42 @@
     <section class="section">
       <div class="container-custom">
         <div class="text-center">
-          <div class="badge badge-primary">Featured Project</div>
-          <h2 class="section-title">Project Spotlight: Digital Transformation Initiative</h2>
-          <p class="section-description">How we helped transform operations for a leading manufacturing company</p>
+          <div class="badge badge-primary">{{ content.featuredProject.sectionTitle }}</div>
+          <h2 class="section-title">{{ content.featuredProject.heading }}</h2>
+          <p class="section-description">{{ content.featuredProject.description }}</p>
         </div>
         <div class="featured-project">
           <div class="featured-project-content">
             <div class="project-badge">
               <Factory :size="20" class="text-orange-600" />
-              <span class="badge-text">Manufacturing</span>
+              <span class="badge-text">{{ content.featuredProject.project.badge.text }}</span>
             </div>
-            <h3 class="featured-title">Complete Digital Transformation for Manufacturing Excellence</h3>
+            <h3 class="featured-title">{{ content.featuredProject.project.title }}</h3>
             <p class="featured-description">
-              We partnered with a leading East African manufacturing company to completely digitize their operations, resulting in a 40% improvement in operational efficiency and significant cost reductions. This comprehensive project involved system integration, process automation, and staff training.
+              {{ content.featuredProject.project.description }}
             </p>
             <div class="project-highlights">
-              <h4 class="highlights-title">Project Impact</h4>
+              <h4 class="highlights-title">{{ content.featuredProject.project.highlights.title }}</h4>
               <div class="highlights-grid">
-                <div class="highlight-item">
-                  <div class="highlight-number">40%</div>
-                  <div class="highlight-label">Efficiency Improvement</div>
-                </div>
-                <div class="highlight-item">
-                  <div class="highlight-number">60%</div>
-                  <div class="highlight-label">Cost Reduction</div>
-                </div>
-                <div class="highlight-item">
-                  <div class="highlight-number">12</div>
-                  <div class="highlight-label">Months Timeline</div>
-                </div>
-                <div class="highlight-item">
-                  <div class="highlight-number">500+</div>
-                  <div class="highlight-label">Staff Trained</div>
+                <div v-for="metric in content.featuredProject.project.highlights.metrics" :key="metric.label" class="highlight-item">
+                  <div class="highlight-number">{{ metric.value }}</div>
+                  <div class="highlight-label">{{ metric.label}}</div>
                 </div>
               </div>
             </div>
             <div class="project-technologies">
-              <h4 class="tech-title">Technologies Used</h4>
+              <h4 class="tech-title">{{ content.featuredProject.project.technologies.title }}</h4>
               <div class="tech-tags">
-                <span class="tech-tag">Cloud Infrastructure</span>
-                <span class="tech-tag">IoT Integration</span>
-                <span class="tech-tag">Data Analytics</span>
-                <span class="tech-tag">Mobile Applications</span>
-                <span class="tech-tag">API Development</span>
+                <span v-for="tag in content.featuredProject.project.technologies.tags" :key="tag" class="tech-tag">{{ tag }}</span>
               </div>
             </div>
             <div class="featured-actions">
-              <router-link to="/projects" class="btn btn-primary">
-                View All Projects
+              <router-link :to="content.featuredProject.project.actions.primary.link" class="btn btn-primary">
+                {{ content.featuredProject.project.actions.primary.text }}
                 <ArrowRight :size="16" class="ml-2" />
               </router-link>
               <button class="btn btn-outline" @click="showProjectModal(featuredProjectData)">
-                Read Full Case Study
+                {{ content.featuredProject.project.actions.secondary.text }}
               </button>
             </div>
           </div>
@@ -280,8 +236,8 @@
             />
             <div class="project-overlay">
               <div class="overlay-content">
-                <h5>Real-time Manufacturing Dashboard</h5>
-                <p>Live monitoring and analytics for production optimization</p>
+                <h5>{{ content.featuredProject.project.overlay.title }}</h5>
+                <p>{{ content.featuredProject.project.overlay.description }}</p>
               </div>
             </div>
           </div>
@@ -293,18 +249,20 @@
     <section class="section bg-white text-black">
       <div class="container-custom">
         <div class="text-center">
-          <h2 class="section-title text-black mb-4">Ready to Transform Your Business?</h2>
+          <h2 class="section-title text-black mb-4">{{ content.contact.title }}</h2>
           <p class="section-description text-gray-600 mb-8">
-            Let's discuss how we can help you achieve your technology goals
+            {{ content.contact.description }}
           </p>
           <div class="flex justify-center space-x-4">
-            <router-link to="/contact" class="btn btn-primary">
-              Get Started Today
-              <ArrowRight :size="16" class="ml-2" />
-            </router-link>
-            <router-link to="/projects" class="btn btn-outline">
-              Learn More
-            </router-link>
+            <template v-for="action in content.contact.actions" :key="action.text">
+              <router-link v-if="action.type === 'primary'" :to="action.link" class="btn btn-primary">
+                {{ action.text }}
+                <ArrowRight :size="16" class="ml-2" />
+              </router-link>
+              <router-link v-else :to="action.link" class="btn btn-outline">
+                {{ action.text }}
+              </router-link>
+            </template>
           </div>
         </div>
       </div>
@@ -339,9 +297,9 @@
             </div>
             <div class="modal-actions">
               <router-link to="/products" class="btn btn-primary" @click="closeProductModal">
-                View Details
+                {{ content.featuredProduct.product.actions.primary.text }}
               </router-link>
-              <button class="btn btn-outline" @click="closeProductModal">Close</button>
+              <button class="btn btn-outline" @click="closeProductModal">{{ content.modalContents.genericActions.primary.text }}</button>
             </div>
           </div>
         </div>
@@ -369,18 +327,14 @@
             <div class="project-details">
               <h4>Project Highlights</h4>
               <ul class="project-list">
-                <li>40% improvement in operational efficiency</li>
-                <li>60% reduction in operational costs</li>
-                <li>Complete system integration and automation</li>
-                <li>Comprehensive staff training program</li>
-                <li>12-month implementation timeline</li>
+                <li v-for="highlight in content.featuredProject.modalData.highlights" :key="highlight">{{ highlight }}</li>
               </ul>
             </div>
             <div class="modal-actions">
-              <router-link to="/projects" class="btn btn-primary" @click="closeProjectModal">
-                View All Projects
+              <router-link :to="content.featuredProject.project.actions.primary.link" class="btn btn-primary" @click="closeProjectModal">
+                {{ content.featuredProject.project.actions.primary.text }}
               </router-link>
-              <button class="btn btn-outline" @click="closeProjectModal">Close</button>
+              <button class="btn btn-outline" @click="closeProjectModal">{{ content.modalContents.genericActions.primary.text }}</button>
             </div>
           </div>
         </div>
@@ -400,7 +354,7 @@
             </div>
             <div class="modal-service-info">
               <h3>{{ selectedService.title }}</h3>
-              <p>Technology Service</p>
+              <p>{{ content.modalContents.serviceModal.defaultCategory }}</p>
             </div>
           </div>
           <div class="modal-body">
@@ -412,10 +366,10 @@
               </ul>
             </div>
             <div class="modal-actions">
-              <router-link to="/contact" class="btn btn-primary" @click="closeServiceModal">
-                Reach Out
+              <router-link :to="content.modalContents.serviceModal.actions.primary.link" class="btn btn-primary" @click="closeServiceModal">
+                {{ content.modalContents.serviceModal.actions.primary.text }}
               </router-link>
-              <button class="btn btn-outline" @click="closeServiceModal">Close</button>
+              <button class="btn btn-outline" @click="closeServiceModal">{{ content.modalContents.serviceModal.actions.secondary.text }}</button>
             </div>
           </div>
         </div>
@@ -440,6 +394,7 @@ import {
   Factory,
   X
 } from 'lucide-vue-next'
+import { homeContent } from '@/data/HomeContent.js'
 
 // Reactive data
 const currentCountry = ref(0)
@@ -448,88 +403,16 @@ const selectedProject = ref(null)
 const selectedService = ref(null)
 const flippedCard = ref(null) // New state for flip card
 
-const countries = [
-  {
-    name: 'Kenya',
-    flag: '🇰🇪',
-    description: 'Our headquarters and primary operations center, serving as the hub for East African initiatives.',
-    projects: '50+',
-    years: '19+'
-  },
-  {
-    name: 'Uganda',
-    flag: '🇺🇬',
-    description: 'Strong partnerships with government agencies and NGOs for child protection and healthcare systems.',
-    projects: '25+',
-    years: '8+'
-  },
-  {
-    name: 'Tanzania',
-    flag: '🇹🇿',
-    description: 'Collaborative projects with ministries and international organizations for digital transformation.',
-    projects: '20+',
-    years: '6+'
-  },
-  {
-    name: 'Lesotho',
-    flag: '🇱🇸',
-    description: 'Emerging market presence with focus on government digitization and capacity building.',
-    projects: '10+',
-    years: '3+'
-  }
-]
-
-const services = [
-  {
-    id: 1,
-    iconComponent: Brain,
-    title: 'AI-Driven Product Strategy & MVP Development',
-    description: 'Turn your vision into a smart, market-ready product.',
-    offerings: [
-      'AI-powered market research and user-centric roadmaps.',
-      'Fast, scalable MVP development.',
-      'Built-in intelligence: analytics, NLP, recommendations.'
-    ]
-  },
-  {
-    id: 2,
-    iconComponent: Database,
-    title: 'Custom AI Software Development',
-    description: 'Tailor-made applications that think for themselves.',
-    offerings: [
-      'Define AI use cases for your business goals.',
-      'Full-cycle web, mobile, and cloud development.',
-      'AI features: chatbots, automation, computer vision.'
-    ]
-  },
-  {
-    id: 3,
-    iconComponent: Globe,
-    title: 'Legacy System Modernization with AI',
-    description: 'Breathe new life into outdated systems with AI.',
-    offerings: [
-      'Audit and redesign legacy tech for AI adoption.',
-      'Modernize with APIs, microservices, cloud.',
-      'Add automation, analytics, and AI support.'
-    ]
-  }
-]
-
-const featuredProduct = {
-  id: 1,
-  name: 'OPENCHS',
-  description: 'A comprehensive child helpline system providing safe and confidential environment for children to report issues and seek help.',
-  features: ['Child Protection', 'Case Management', 'Reporting System', '24/7 Support', 'Multi-language', 'Analytics Dashboard'],
-  category: 'Child Protection',
-  status: 'Active'
-}
-
-const featuredProjectData = {
-  id: 1,
-  title: 'Complete Digital Transformation for Manufacturing Excellence',
-  category: 'Manufacturing',
-  description: 'Comprehensive digital transformation project that improved operational efficiency by 40% and reduced operational costs by 60%. This project involved complete system overhaul, process automation, and extensive staff training across multiple departments.'
-}
+// Content from JSON
+const content = homeContent
+const countries = content.hero.countriesShowcase.countries
+const services = content.services.services.map(service => ({
+  ...service,
+  iconComponent: service.iconComponent === 'Brain' ? Brain : 
+                 service.iconComponent === 'Database' ? Database : Globe
+}))
+const featuredProduct = content.featuredProduct.modalData
+const featuredProjectData = content.featuredProject.modalData
 
 // Methods
 const nextCountry = () => {
