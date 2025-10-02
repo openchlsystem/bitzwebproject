@@ -1,2 +1,0 @@
-"use strict";(self["webpackChunkbitzweb"]=self["webpackChunkbitzweb"]||[]).push([[594],{2992:function(e,n,r){r.r(n),r.d(n,{default:function(){return f}});var t=r(641);function u(e,n){return(0,t.uX)(),(0,t.CE)("h3")}var c=r(6262);const a={},b=(0,c.A)(a,[["render",u]]);var f=b}}]);
-//# sourceMappingURL=about.519b48a0.js.map

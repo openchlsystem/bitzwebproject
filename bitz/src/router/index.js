@@ -1,56 +1,122 @@
-import { createRouter, createWebHistory } from 'vue-router';
-import HomeView from '../views/HomeView.vue';
+import { createRouter, createWebHistory } from "vue-router"
+import Home from "@/pages/Home.vue"
+import About from "@/pages/About.vue"
+import OurVision from "@/pages/OurVision.vue"
+import Team from "@/pages/Team.vue"
+import Projects from "@/pages/Projects.vue"
+import Products from "@/pages/Products.vue"
+import Contact from "@/pages/Contact.vue"
 
 const routes = [
   {
-    path: '/',
-    name: 'home',
-    component: HomeView,
+    path: "/",
+    name: "Home",
+    component: Home,
+    meta: {
+      title: "BITZ - Transforming Businesses Through Technology",
+      description:
+        "Leading technology partner providing innovative solutions for digital transformation across East Africa.",
+    },
   },
   {
-    path: '/about',
-    name: 'about',
-    // route level code-splitting
-    // this generates a separate chunk (about.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
-    component: () =>
-      import(/* webpackChunkName: "about" */ '../views/AboutView.vue'),
+    path: "/about",
+    name: "About",
+    component: About,
+    meta: {
+      title: "About Us - BITZ",
+      description:
+        "Learn about BITZ IT Consulting, our mission, values, and commitment to delivering innovative technology solutions.",
+    },
   },
   {
-    path: '/contactus',
-    name: 'contactus;',
-    // route level code-splitting
-    // this generates a separate chunk (about.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
-    component: () =>
-      import(/* webpackChunkName: "about" */ '../views/ContactUs.vue'),
+    path: "/our-vision",
+    name: "OurVision",
+    component: OurVision,
+    meta: {
+      title: "Our Vision - BITZ",
+      description:
+        "Discover our vision for empowering businesses through innovative technology solutions and digital transformation.",
+    },
   },
   {
-    path: '/resources',
-    name: 'resources',
-    component: () =>
-      import(/* webpackChunkName: "about" */ '../views/ResourcesPage.vue'),
+    path: "/our-team",
+    name: "Team",
+    component: Team,
+    meta: {
+      title: "Our Team - BITZ",
+      description: "Meet the experts behind our innovative technology solutions and learn about our leadership team.",
+    },
   },
   {
-    path: '/impact',
-    name: 'impact',
-    component: () =>
-      import(/* webpackChunkName: "about" */ '../views/ImpactPage.vue'),
+    path: "/projects",
+    name: "Projects",
+    component: Projects,
+    meta: {
+      title: "Projects - BITZ",
+      description:
+        "Explore our portfolio of successful projects and discover the impact of our work across various industries.",
+    },
   },
   {
-    path: '/products',
-    name: 'products',
-    component: () =>
-      import(/* webpackChunkName: "about" */ '../views/ProductsPage.vue'),
+    path: "/products",
+    name: "Products",
+    component: Products,
+    meta: {
+      title: "Our Products - BITZ",
+      description:
+        "Discover our comprehensive suite of software products designed to transform businesses across East Africa.",
+    },
   },
-
-
-];
-
+  {
+    path: "/contact",
+    name: "Contact",
+    component: Contact,
+    meta: {
+      title: "Contact Us - BITZ",
+      description: "Get in touch with BITZ IT Consulting. Let's discuss how we can help transform your business.",
+    },
+  },
+  // 404 page
+  {
+    path: "/:pathMatch(.*)*",
+    name: "NotFound",
+    component: () => import("@/pages/NotFound.vue"),
+    meta: {
+      title: "Page Not Found - BITZ",
+      description: "The page you are looking for could not be found.",
+    },
+  },
+]
 
 const router = createRouter({
-  history: createWebHistory(process.env.BASE_URL),
+  history: createWebHistory(),
   routes,
-});
+  scrollBehavior(to, from, savedPosition) {
+    // Always scroll to top when navigating to a new route
+    if (savedPosition) {
+      return savedPosition
+    } else {
+      return { top: 0, behavior: "smooth" }
+    }
+  },
+})
 
-export default router;
+// Global navigation guards
+router.beforeEach((to, from, next) => {
+  // Update document title
+  if (to.meta.title) {
+    document.title = to.meta.title
+  }
+
+  // Update meta description
+  if (to.meta.description) {
+    const metaDescription = document.querySelector('meta[name="description"]')
+    if (metaDescription) {
+      metaDescription.setAttribute("content", to.meta.description)
+    }
+  }
+
+  next()
+})
+
+export default router
